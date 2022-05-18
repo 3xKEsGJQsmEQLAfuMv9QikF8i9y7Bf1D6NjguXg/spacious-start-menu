@@ -1,0 +1,55 @@
+﻿<Window
+    x:Class="SpaciousStartMenu.Views.SettingsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SpaciousStartMenu.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="{StaticResource SettingsTitle}"
+    Width="600"
+    Height="450"
+    MaxWidth="1000"
+    MaxHeight="700"
+    Loaded="Window_Loaded"
+    StateChanged="Window_StateChanged"
+    Style="{StaticResource ToolWindowStyle}"
+    mc:Ignorable="d">
+
+    <Grid Style="{StaticResource BaseGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <TextBlock Style="{StaticResource SettingsTitleStyle}" Text="{StaticResource Settings_Setup}" />
+            <CheckBox
+                x:Name="RegStartup"
+                Click="RegStartup_Click"
+                Content="{StaticResource RegStartupShortcut}" />
+
+            <TextBlock Style="{StaticResource SettingsTitleStyle}" Text="{StaticResource Settings_Minimize}" />
+            <CheckBox x:Name="EscKeyMinimize" Content="{StaticResource EscKeyMinimized}" />
+            <CheckBox x:Name="DblClickMinimize" Content="{StaticResource MarginDblClickMinimized}" />
+
+            <TextBlock Style="{StaticResource SettingsTitleStyle}" Text="{StaticResource Settings_Confirm}" />
+            <CheckBox x:Name="ConfirmClose" Content="{StaticResource ConfirmClose}" />
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="1"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <Button
+                Click="OkButton_Click"
+                Content="{StaticResource OkButton}"
+                IsDefault="True"
+                Style="{StaticResource CommandButton}" />
+            <Button
+                Click="CancelButton_Click"
+                Content="{StaticResource CancelButton}"
+                IsCancel="True"
+                Style="{StaticResource CommandButton}" />
+        </StackPanel>
+    </Grid>
+</Window>

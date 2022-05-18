@@ -1,0 +1,64 @@
+﻿<Window
+    x:Class="SpaciousStartMenu.Views.PinWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SpaciousStartMenu.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="{StaticResource PinTitle}"
+    Width="850"
+    Height="650"
+    Closing="Window_Closing"
+    Loaded="Window_Loaded"
+    StateChanged="Window_StateChanged"
+    Style="{StaticResource ToolWindowStyle}"
+    Topmost="True"
+    mc:Ignorable="d">
+
+    <Grid Style="{StaticResource BaseGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBox
+            x:Name="DefText"
+            Margin="10,10,10,0"
+            AcceptsReturn="True"
+            AcceptsTab="True"
+            Background="#666666"
+            Foreground="White"
+            VerticalScrollBarVisibility="Visible" />
+
+        <RichTextBox
+            x:Name="ColorList"
+            Margin="10,10,10,0"
+            Background="#4C4C4C"
+            Foreground="White"
+            IsReadOnly="True"
+            VerticalScrollBarVisibility="Visible"
+            Visibility="Collapsed" />
+
+        <StackPanel
+            Grid.Row="1"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+
+            <!--  Interim Functions  -->
+            <CheckBox
+                x:Name="DispColorList"
+                Margin="10,5,20,10"
+                Click="DispColorList_Click"
+                Content="{StaticResource ShowDescription}" />
+
+            <Button
+                Click="SaveButton_Click"
+                Content="{StaticResource SaveButton}"
+                Style="{StaticResource CommandButton}" />
+            <Button
+                Click="CloseButton_Click"
+                Content="{StaticResource CloseButton}"
+                Style="{StaticResource CommandButton}" />
+        </StackPanel>
+    </Grid>
+</Window>

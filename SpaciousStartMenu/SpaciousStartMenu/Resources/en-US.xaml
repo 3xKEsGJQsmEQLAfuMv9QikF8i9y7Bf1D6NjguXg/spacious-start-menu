@@ -1,0 +1,70 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <sys:String x:Key="AppTitle">Start</sys:String>
+    <sys:String x:Key="AppLinkName">Spacious Start Menu</sys:String>
+    <sys:String x:Key="PinTitle">Pinned definition list</sys:String>
+    <sys:String x:Key="SettingsTitle">Settings</sys:String>
+
+    <sys:String x:Key="SystemFolder">System folders</sys:String>
+    <sys:String x:Key="Download">Download</sys:String>
+    <sys:String x:Key="Desktop">Desktop</sys:String>
+    <sys:String x:Key="Document">Document</sys:String>
+    <sys:String x:Key="Picture">Pictures</sys:String>
+    <sys:String x:Key="Video">Videos</sys:String>
+    <sys:String x:Key="Music">Music</sys:String>
+    <sys:String x:Key="Tools">Tools</sys:String>
+    <sys:String x:Key="Calc">Calculator</sys:String>
+    <sys:String x:Key="Notepad">Notepad</sys:String>
+    <sys:String x:Key="Paint">Paint</sys:String>
+    <sys:String x:Key="Settings">Settings</sys:String>
+    <sys:String x:Key="ControlPanel">Control panel</sys:String>
+
+    <sys:String x:Key="ToolTip_MinimizedButton">Minimized (Esc)</sys:String>
+    <sys:String x:Key="ToolTip_CloseButton">Close</sys:String>
+
+    <sys:String x:Key="SaveButton">Save(_S)</sys:String>
+    <sys:String x:Key="CloseButton">Close(_X)</sys:String>
+    <sys:String x:Key="OkButton">OK</sys:String>
+    <sys:String x:Key="CancelButton">Cancel</sys:String>
+
+    <sys:String x:Key="Menu_Pinning">Pin to Menu(_P)...</sys:String>
+    <sys:String x:Key="Menu_Settings">Settings(_S)...</sys:String>
+    <sys:String x:Key="Menu_OpenExePath">Open Program Location(_O)</sys:String>
+
+    <sys:String x:Key="Scale">Scale</sys:String>
+
+    <sys:String x:Key="Settings_Setup">Setup</sys:String>
+    <sys:String x:Key="RegStartupShortcut">Register to startup(_S)</sys:String>
+    <sys:String x:Key="Settings_Minimize">Minimize</sys:String>
+    <sys:String x:Key="EscKeyMinimized">Esc key to minimize(_E)</sys:String>
+    <sys:String x:Key="MarginDblClickMinimized">Minimize by double-clicking on the menu margin(_M)</sys:String>
+    <sys:String x:Key="Settings_Confirm">Confirm</sys:String>
+    <sys:String x:Key="ConfirmClose">Confirm when exiting menu(_C)</sys:String>
+
+    <sys:String x:Key="ShowDescription">Show description(_D)</sys:String>
+
+    <sys:String x:Key="Error">Error</sys:String>
+    <sys:String x:Key="Info">Information</sys:String>
+    <sys:String x:Key="Confirm">Confirm</sys:String>
+
+    <!--  Messages  -->
+    <sys:String x:Key="MsgErrUnsupportedOS">Unsupported Operating System.</sys:String>
+    <sys:String x:Key="MsgErrGetExePath">Failed to get the path of the executable file.</sys:String>
+    <sys:String x:Key="MsgErrStartup">Startup failed.</sys:String>
+    <sys:String x:Key="MsgErrSaveSettings">Failed to save application settings.</sys:String>
+    <sys:String x:Key="MsgErrSettingsColumn">Invalid number of columns.</sys:String>
+    <sys:String x:Key="MsgErrColorName">Invalid color name.</sys:String>
+    <sys:String x:Key="MsgErrNoDefinition">No definition.</sys:String>
+    <sys:String x:Key="MsgErrAdminInstallPath">Do not install in locations that require administrative privileges.</sys:String>
+    <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">Would you like to create a recommended destination folder?</sys:String>
+
+    <sys:String x:Key="MsgConfirmRemoveStartupShortcut">Do you want to remove the shortcut from startup?</sys:String>
+    <sys:String x:Key="MsgConfirmCloseMenu">Do you want to exit the menu?</sys:String>
+
+    <sys:String x:Key="MsgInfoRegStartupShortcut">I created a shortcut for startup.</sys:String>
+    <sys:String x:Key="MsgInfoRemoveStartupShortcut">Removed shortcut from startup.</sys:String>
+
+</ResourceDictionary>

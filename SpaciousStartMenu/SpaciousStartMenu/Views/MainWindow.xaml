@@ -1,0 +1,139 @@
+﻿<Window
+    x:Class="SpaciousStartMenu.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SpaciousStartMenu.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="{StaticResource AppTitle}"
+    Width="800"
+    Height="450"
+    AllowsTransparency="True"
+    Background="#CC000000"
+    Closing="Window_Closing"
+    ContextMenuOpening="Window_ContextMenuOpening"
+    FontSize="16"
+    KeyDown="Window_KeyDown"
+    Loaded="Window_Loaded"
+    MouseDoubleClick="Window_MouseDoubleClick"
+    SizeChanged="Window_SizeChanged"
+    WindowState="Maximized"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <Window.ContextMenu>
+        <ContextMenu x:Name="WindowContextMenu">
+            <MenuItem x:Name="PinMenuItem" Click="PinMenuItem_Click">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE840;" />
+                        <Label Content="{StaticResource Menu_Pinning}" Style="{StaticResource MenuItemLabelStyle}" />
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+
+            <Separator />
+
+            <StackPanel x:Name="ScaleMenu" Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="RadioButton">
+                        <Setter Property="Margin" Value="5,0" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                        <EventSetter Event="Click" Handler="ScaleItem_Click" />
+                    </Style>
+                </StackPanel.Resources>
+
+                <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE71E;" />
+                <TextBlock
+                    Margin="0,0,10,0"
+                    VerticalAlignment="Center"
+                    Text="{StaticResource Scale}" />
+
+                <RadioButton Content="0.8" />
+                <RadioButton
+                    x:Name="DefaultScaleItem"
+                    Content="1.0"
+                    IsChecked="True" />
+                <RadioButton Content="1.2" />
+                <RadioButton Content="1.5" />
+                <RadioButton Content="2.0" />
+                <RadioButton Content="3.0" />
+            </StackPanel>
+
+            <MenuItem Click="MenuSettings_Click">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE713;" />
+                        <Label Content="{StaticResource Menu_Settings}" Style="{StaticResource MenuItemLabelStyle}" />
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+
+            <Separator />
+
+            <MenuItem Click="MenuFolderOpen_Click">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE838;" />
+                        <Label Content="{StaticResource Menu_OpenExePath}" Style="{StaticResource MenuItemLabelStyle}" />
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+
+        </ContextMenu>
+    </Window.ContextMenu>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="8" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
+            <RowDefinition />
+            <RowDefinition Height="8" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Grid.Column="1"
+            Margin="4,8,0,0"
+            VerticalAlignment="Center"
+            Foreground="White"
+            Text="{StaticResource AppTitle}" />
+        <StackPanel
+            Grid.Column="1"
+            Margin="0,8,0,0"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <Button
+                x:Name="TitleBarMoreButton"
+                Margin="0,0,40,0"
+                Padding="10,5"
+                Click="TitleBarMoreButton_Click"
+                Content="&#xE712;"
+                Style="{StaticResource TitleBarButtonStyle}" />
+            <Button
+                Click="TitleBarMinButton_Click"
+                Content="&#xE921;"
+                Style="{StaticResource TitleBarButtonStyle}"
+                ToolTip="{StaticResource ToolTip_MinimizedButton}" />
+            <Button
+                Click="TitleBarCloseButton_Click"
+                Content="&#xE8BB;"
+                Style="{StaticResource TitleBarCloseButtonStyle}"
+                ToolTip="{StaticResource ToolTip_CloseButton}" />
+
+        </StackPanel>
+
+        <ScrollViewer
+            x:Name="MainScroll"
+            Grid.Row="2"
+            Grid.Column="1"
+            HorizontalScrollBarVisibility="Disabled"
+            VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="MainContainer" />
+        </ScrollViewer>
+    </Grid>
+</Window>

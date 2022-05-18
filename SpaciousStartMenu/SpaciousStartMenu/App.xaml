@@ -1,0 +1,27 @@
+﻿<Application
+    x:Class="SpaciousStartMenu.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:SpaciousStartMenu"
+    Startup="Application_Startup"
+    StartupUri="Views/MainWindow.xaml">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="/SpaciousStartMenu;component/Resources/en-US.xaml" />
+
+                <ResourceDictionary Source="/Views/Styles/Button.xaml" />
+                <ResourceDictionary Source="/Views/Styles/CheckBox.xaml" />
+                <ResourceDictionary Source="/Views/Styles/Grid.xaml" />
+                <ResourceDictionary Source="/Views/Styles/Label.xaml" />
+                <ResourceDictionary Source="/Views/Styles/ScrollBar.xaml" />
+                <ResourceDictionary Source="/Views/Styles/TextBlock.xaml" />
+                <ResourceDictionary Source="/Views/Styles/Window.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

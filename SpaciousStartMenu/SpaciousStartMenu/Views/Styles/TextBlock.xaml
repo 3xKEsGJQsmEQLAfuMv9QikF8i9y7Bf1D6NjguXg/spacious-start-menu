@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="GroupTitleStyle" TargetType="TextBlock">
+        <Setter Property="Margin" Value="5,15,5,0" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="LightCyan" />
+    </Style>
+
+    <Style x:Key="IconTextStyle" TargetType="TextBlock">
+        <Setter Property="Margin" Value="5,5,8,5" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+    </Style>
+
+    <Style x:Key="SettingsTitleStyle" TargetType="TextBlock">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Background" Value="#30808080" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+</ResourceDictionary>
