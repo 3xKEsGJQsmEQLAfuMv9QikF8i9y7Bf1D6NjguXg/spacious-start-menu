@@ -43,10 +43,11 @@ Launch defined applications, folders, etc. at the click of a button.
 - Setup
   - Register to startup
   - Remove from Startup
-  - Start with minimized state
+  - Minimize when starting from startup
 - Minimize
   - Esc key to minimize
   - Minimize by double-clicking on the menu margin
+  - Minimization is suppressed when the launch button is pressed while the Ctrl key is held down
 - Confirm
   - Confirm when exiting menu
 
