@@ -389,15 +389,24 @@ namespace SpaciousStartMenu.Views
             btn.Content = txtContainer;
             btn.Click += (_, _) =>
             {
-                if (Execute(execute) &&
-                    !Keyboard.IsKeyDown(Key.LeftCtrl) &&
-                    !Keyboard.IsKeyDown(Key.RightCtrl))
+                if (Execute(execute))
                 {
-                    WindowState = WindowState.Minimized;
+                    MinimizedWindow();
                 }
             };
 
             return btn;
+        }
+
+        private void MinimizedWindow()
+        {
+            if ((Keyboard.IsKeyDown(Key.LeftCtrl) ||
+                Keyboard.IsKeyDown(Key.RightCtrl)) &&
+                _settings.DisabledMinimizeCtrlClick)
+            {
+                return;
+            }
+            WindowState = WindowState.Minimized;
         }
 
         private bool Execute(string cmd)

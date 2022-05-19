@@ -17,10 +17,13 @@ namespace SpaciousStartMenu.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            RemoveShortcut.IsEnabled = Shortcut.ExistsStartupShortcut(App.GetRes("AppLinkName"));
+
             MinimizeStartup.IsChecked = _settings.MinimizeStartup;
 
-            EscKeyMinimize.IsChecked = _settings.EscKeyMinimize;
-            DblClickMinimize.IsChecked = _settings.MarginDoubleClickMinimize;
+            EscKeyMin.IsChecked = _settings.EscKeyMinimize;
+            DblClickMin.IsChecked = _settings.MarginDoubleClickMinimize;
+            CtrlClickDisabledMin.IsChecked = _settings.DisabledMinimizeCtrlClick;
 
             ConfirmClose.IsChecked = _settings.ConfirmCloseMenu;
         }
@@ -36,8 +39,11 @@ namespace SpaciousStartMenu.Views
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             _settings.MinimizeStartup = MinimizeStartup.IsChecked == true;
-            _settings.EscKeyMinimize = EscKeyMinimize.IsChecked == true;
-            _settings.MarginDoubleClickMinimize = DblClickMinimize.IsChecked == true;
+
+            _settings.EscKeyMinimize = EscKeyMin.IsChecked == true;
+            _settings.MarginDoubleClickMinimize = DblClickMin.IsChecked == true;
+            _settings.DisabledMinimizeCtrlClick = CtrlClickDisabledMin.IsChecked == true;
+
             _settings.ConfirmCloseMenu = ConfirmClose.IsChecked == true;
 
             Close();

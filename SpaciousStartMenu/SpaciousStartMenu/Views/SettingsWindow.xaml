@@ -6,10 +6,10 @@
     xmlns:local="clr-namespace:SpaciousStartMenu.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="{StaticResource SettingsTitle}"
-    Width="700"
-    Height="450"
-    MaxWidth="1000"
-    MaxHeight="700"
+    Width="800"
+    Height="500"
+    MaxWidth="1200"
+    MaxHeight="800"
     Loaded="Window_Loaded"
     StateChanged="Window_StateChanged"
     Style="{StaticResource ToolWindowStyle}"
@@ -43,8 +43,9 @@
                 Content="{StaticResource MinimizeStartup}" />
 
             <TextBlock Style="{StaticResource SettingsTitleStyle}" Text="{StaticResource Settings_Minimize}" />
-            <CheckBox x:Name="EscKeyMinimize" Content="{StaticResource EscKeyMinimized}" />
-            <CheckBox x:Name="DblClickMinimize" Content="{StaticResource MarginDblClickMinimized}" />
+            <CheckBox x:Name="EscKeyMin" Content="{StaticResource EscKeyMinimized}" />
+            <CheckBox x:Name="DblClickMin" Content="{StaticResource MarginDblClickMinimized}" />
+            <CheckBox x:Name="CtrlClickDisabledMin" Content="{StaticResource DisabledMinimizeCtrlClick}" />
 
             <TextBlock Style="{StaticResource SettingsTitleStyle}" Text="{StaticResource Settings_Confirm}" />
             <CheckBox x:Name="ConfirmClose" Content="{StaticResource ConfirmClose}" />
