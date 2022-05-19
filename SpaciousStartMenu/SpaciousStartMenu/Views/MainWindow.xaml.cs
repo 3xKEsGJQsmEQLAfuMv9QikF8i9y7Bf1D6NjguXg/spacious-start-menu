@@ -38,6 +38,11 @@ namespace SpaciousStartMenu.Views
         {
             try
             {
+                if (App.MinimizeStartup)
+                {
+                    WindowState = WindowState.Minimized;
+                }
+
                 LoadAppSettings();
 
                 string filePath = App.GetLaunchDefFilePath();
@@ -222,8 +227,6 @@ namespace SpaciousStartMenu.Views
 
         private AppSettings GetScreen()
         {
-            _settings.RegStartupShortcut = Shortcut.ExistsStartupShortcut(App.GetRes("AppLinkName"));
-
             double scale = 1.0;
             foreach (var child in LogicalTreeHelper.GetChildren(ScaleMenu))
             {
@@ -301,7 +304,7 @@ namespace SpaciousStartMenu.Views
         {
             if (btnContainer is null)
             {
-                MakeGroup(ref btnContainer, ref _groupCount);
+                MakeGroup(ref btnContainer, ref groupCount);
             }
 
             Button btn = CreateLaunchButton(
@@ -310,7 +313,7 @@ namespace SpaciousStartMenu.Views
                 columns[LauncherDefinition.Columns["Path"]]);
             btnContainer?.Children.Add(btn);
 
-            _buttonCount++;
+            buttonCount++;
         }
 
         private void MakeGroup(ref WrapPanel? btnContainer, ref int groupCount, string groupTitle = "")

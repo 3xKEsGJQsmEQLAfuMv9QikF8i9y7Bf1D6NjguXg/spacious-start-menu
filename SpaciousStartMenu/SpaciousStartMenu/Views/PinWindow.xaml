@@ -54,11 +54,11 @@
             <Button
                 Click="SaveButton_Click"
                 Content="{StaticResource SaveButton}"
-                Style="{StaticResource CommandButton}" />
+                Style="{StaticResource CommandButtonStyle}" />
             <Button
                 Click="CloseButton_Click"
                 Content="{StaticResource CloseButton}"
-                Style="{StaticResource CommandButton}" />
+                Style="{StaticResource CommandButtonStyle}" />
         </StackPanel>
     </Grid>
 </Window>

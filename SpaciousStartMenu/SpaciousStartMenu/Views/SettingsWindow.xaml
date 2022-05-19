@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:SpaciousStartMenu.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="{StaticResource SettingsTitle}"
-    Width="600"
+    Width="700"
     Height="450"
     MaxWidth="1000"
     MaxHeight="700"
@@ -23,10 +23,24 @@
 
         <StackPanel>
             <TextBlock Style="{StaticResource SettingsTitleStyle}" Text="{StaticResource Settings_Setup}" />
+            <StackPanel Orientation="Horizontal">
+                <Button
+                    x:Name="RegShortcut"
+                    Margin="40,5,5,5"
+                    Click="RegShortcut_Click"
+                    Content="{StaticResource RegStartupShortcut}"
+                    Style="{StaticResource SettingsButtonStyle}" />
+                <Button
+                    x:Name="RemoveShortcut"
+                    Margin="5"
+                    Click="RemoveShortcut_Click"
+                    Content="{StaticResource RemoveStartupShortcut}"
+                    Style="{StaticResource SettingsButtonStyle}" />
+            </StackPanel>
             <CheckBox
-                x:Name="RegStartup"
-                Click="RegStartup_Click"
-                Content="{StaticResource RegStartupShortcut}" />
+                x:Name="MinimizeStartup"
+                Click="MinimizeStartup_Click"
+                Content="{StaticResource MinimizeStartup}" />
 
             <TextBlock Style="{StaticResource SettingsTitleStyle}" Text="{StaticResource Settings_Minimize}" />
             <CheckBox x:Name="EscKeyMinimize" Content="{StaticResource EscKeyMinimized}" />
@@ -44,12 +58,12 @@
                 Click="OkButton_Click"
                 Content="{StaticResource OkButton}"
                 IsDefault="True"
-                Style="{StaticResource CommandButton}" />
+                Style="{StaticResource CommandButtonStyle}" />
             <Button
                 Click="CancelButton_Click"
                 Content="{StaticResource CancelButton}"
                 IsCancel="True"
-                Style="{StaticResource CommandButton}" />
+                Style="{StaticResource CommandButtonStyle}" />
         </StackPanel>
     </Grid>
 </Window>

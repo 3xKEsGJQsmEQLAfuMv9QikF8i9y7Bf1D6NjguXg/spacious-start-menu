@@ -93,7 +93,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="4" />
             <RowDefinition />
-            <RowDefinition Height="8" />
+            <RowDefinition Height="16" />
         </Grid.RowDefinitions>
 
         <TextBlock
