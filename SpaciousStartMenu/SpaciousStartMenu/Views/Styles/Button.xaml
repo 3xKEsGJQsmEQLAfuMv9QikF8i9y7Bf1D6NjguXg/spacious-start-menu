@@ -106,11 +106,11 @@
 
     <Style BasedOn="{StaticResource LaunchButton}" TargetType="Button" />
 
-    <Style x:Key="CommandButton" TargetType="Button">
+    <Style x:Key="StandardButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="#E5E5E5" />
         <Setter Property="Background" Value="#2F3445" />
-        <Setter Property="Margin" Value="0,5,10,10" />
-        <Setter Property="Padding" Value="10,5,10,8" />
+        <Setter Property="Margin" Value="10" />
+        <Setter Property="Padding" Value="10,5" />
         <Setter Property="MinWidth" Value="120" />
 
         <Setter Property="Template">
@@ -143,7 +143,27 @@
             <Trigger Property="IsPressed" Value="true">
                 <Setter Property="Background" Value="#30323B" />
             </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Foreground" Value="DarkGray" />
+                <Setter Property="Background" Value="#818391" />
+            </Trigger>
         </Style.Triggers>
+    </Style>
+
+    <Style
+        x:Key="CommandButtonStyle"
+        BasedOn="{StaticResource StandardButtonStyle}"
+        TargetType="Button">
+        <Setter Property="Margin" Value="0,5,10,10" />
+        <Setter Property="Padding" Value="10,5,10,8" />
+    </Style>
+
+    <Style
+        x:Key="SettingsButtonStyle"
+        BasedOn="{StaticResource StandardButtonStyle}"
+        TargetType="Button">
+        <Setter Property="Margin" Value="40,5,10,5" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
     </Style>
 
 </ResourceDictionary>
