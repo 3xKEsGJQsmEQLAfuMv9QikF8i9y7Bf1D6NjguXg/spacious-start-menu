@@ -23,6 +23,8 @@ Extract the zip and place it in any location that does not require administrativ
 
 # Usage
 
+Launch `SpaciousStartMenu.exe`.
+
 Right-click on the screen and select `Pin to Menu` to add a definition.
 
 Launch defined applications, folders, etc. at the click of a button.
