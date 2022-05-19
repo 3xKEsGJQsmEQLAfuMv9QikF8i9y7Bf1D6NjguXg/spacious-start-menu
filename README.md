@@ -1,6 +1,6 @@
 # Spacious Start Menu
 
-This is an application launcher.
+A launcher that can use the entire screen area.
 
 ![image00](https://user-images.githubusercontent.com/99333667/169164785-427a4c31-04c6-4023-bc39-9e21ae4550c2.png)
 
@@ -26,6 +26,25 @@ Extract the zip and place it in any location that does not require administrativ
 Right-click on the screen and select `Pin to Menu` to add a definition.
 
 Launch defined applications, folders, etc. at the click of a button.
+
+## Context menu
+
+| Menu item             | Description                                          |
+| --------------------- | ---------------------------------------------------- |
+| Pin to Menu           | Displays the edit screen of the item to be launched. |
+| Scale                 | Changes the display magnification of an item.        |
+| Settings              | Displays the settings screen.                        |
+| Open Program Location | Open the folder where this program is located.       |
+
+## Settings screen
+
+- Setup
+  - Register to startup
+- Minimize
+  - Esc key to minimize
+  - Minimize by double-clicking on the menu margin
+- Confirm
+  - Confirm when exiting menu
 
 # Recommended initial settings
 
