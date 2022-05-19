@@ -38,11 +38,12 @@
 
     <sys:String x:Key="Settings_Setup">セットアップ</sys:String>
     <sys:String x:Key="RegStartupShortcut">スタートアップに登録(_S)</sys:String>
-    <sys:String x:Key="MinimizeStartup">最小化状態で起動</sys:String>
+    <sys:String x:Key="MinimizeStartup">スタートアップから起動時は最小化</sys:String>
     <sys:String x:Key="RemoveStartupShortcut">スタートアップから削除</sys:String>
     <sys:String x:Key="Settings_Minimize">最小化</sys:String>
     <sys:String x:Key="EscKeyMinimized">Escキーで最小化(_E)</sys:String>
     <sys:String x:Key="MarginDblClickMinimized">メニューの余白ダブルクリックで最小化(_M)</sys:String>
+    <sys:String x:Key="DisabledMinimizeCtrlClick">Ctrlキーを押しながら起動ボタンを押したときは最小化抑止</sys:String>
     <sys:String x:Key="Settings_Confirm">確認</sys:String>
     <sys:String x:Key="ConfirmClose">メニュー終了時に確認(_C)</sys:String>
 

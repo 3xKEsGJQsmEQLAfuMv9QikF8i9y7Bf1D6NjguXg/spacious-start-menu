@@ -38,11 +38,12 @@
 
     <sys:String x:Key="Settings_Setup">Setup</sys:String>
     <sys:String x:Key="RegStartupShortcut">Register to startup(_S)</sys:String>
-    <sys:String x:Key="MinimizeStartup">Start with minimized state</sys:String>
+    <sys:String x:Key="MinimizeStartup">Minimize when starting from startup</sys:String>
     <sys:String x:Key="RemoveStartupShortcut">Remove from Startup</sys:String>
     <sys:String x:Key="Settings_Minimize">Minimize</sys:String>
     <sys:String x:Key="EscKeyMinimized">Esc key to minimize(_E)</sys:String>
     <sys:String x:Key="MarginDblClickMinimized">Minimize by double-clicking on the menu margin(_M)</sys:String>
+    <sys:String x:Key="DisabledMinimizeCtrlClick">Minimization is suppressed when the launch button is pressed while the Ctrl key is held down</sys:String>
     <sys:String x:Key="Settings_Confirm">Confirm</sys:String>
     <sys:String x:Key="ConfirmClose">Confirm when exiting menu(_C)</sys:String>
 
