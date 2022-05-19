@@ -3,6 +3,7 @@ using SpaciousStartMenu.Views;
 using System;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Windows;
 
 namespace SpaciousStartMenu
@@ -16,6 +17,7 @@ namespace SpaciousStartMenu
         public const string LaunchDefFileName = "menuItems.def";
         private const string DefaultLanguage = "en-US";
         public static bool Abend { get; private set; } = false;
+        public static bool MinimizeStartup { get; private set; } = false;
 
         public App()
         {
@@ -59,28 +61,32 @@ namespace SpaciousStartMenu
         {
             if (Environment.OSVersion.Version.Major < 10)
             {
-                MessageBox.Show(App.GetRes("MsgErrUnsupportedOS"));
+                Msg.Error(App.GetRes("MsgErrUnsupportedOS"));
                 Abend = true;
                 Shutdown();
-            }
-
-            if (ValidateInstallPath())
-            {
-                // OK
                 return;
             }
 
-            // NG
-            Msg.Error(App.GetRes("MsgErrAdminInstallPath"));
-
-            if (Msg.Confirm(App.GetRes("MsgConfirmCreateRecommendInstallFolder")) == MessageBoxResult.Yes)
+            if (!ValidateInstallPath())
             {
-                string path = GetReccomendInstallPath();
-                Directory.CreateDirectory(path);
-                ShellExecution.Run(path);
+                Msg.Error(App.GetRes("MsgErrAdminInstallPath"));
+
+                if (Msg.Confirm(App.GetRes("MsgConfirmCreateRecommendInstallFolder")) == MessageBoxResult.Yes)
+                {
+                    string path = GetReccomendInstallPath();
+                    Directory.CreateDirectory(path);
+                    ShellExecution.Run(path);
+                }
+                Abend = true;
+                Shutdown();
+                return;
             }
-            Abend = true;
-            Shutdown();
+
+            string? arg1 = e.Args.FirstOrDefault();
+            if (arg1 == "/min")
+            {
+                MinimizeStartup = true;
+            }
         }
 
 
