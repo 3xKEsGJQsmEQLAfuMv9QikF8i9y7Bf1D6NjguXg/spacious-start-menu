@@ -7,5 +7,6 @@
         public bool MarginDoubleClickMinimize { get; set; } = false;
         public bool ConfirmCloseMenu { get; set; } = false;
         public bool MinimizeStartup { get; set; } = false;
+        public bool DisabledMinimizeCtrlClick { get; set; } = true;
     }
 }
