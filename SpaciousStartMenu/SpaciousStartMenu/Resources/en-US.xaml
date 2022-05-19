@@ -20,7 +20,7 @@
     <sys:String x:Key="Notepad">Notepad</sys:String>
     <sys:String x:Key="Paint">Paint</sys:String>
     <sys:String x:Key="Settings">Settings</sys:String>
-    <sys:String x:Key="ControlPanel">Control panel</sys:String>
+    <sys:String x:Key="ControlPanel">Control Panel</sys:String>
 
     <sys:String x:Key="ToolTip_MinimizedButton">Minimized (Esc)</sys:String>
     <sys:String x:Key="ToolTip_CloseButton">Close</sys:String>
@@ -38,6 +38,8 @@
 
     <sys:String x:Key="Settings_Setup">Setup</sys:String>
     <sys:String x:Key="RegStartupShortcut">Register to startup(_S)</sys:String>
+    <sys:String x:Key="MinimizeStartup">Start with minimized state</sys:String>
+    <sys:String x:Key="RemoveStartupShortcut">Remove from Startup</sys:String>
     <sys:String x:Key="Settings_Minimize">Minimize</sys:String>
     <sys:String x:Key="EscKeyMinimized">Esc key to minimize(_E)</sys:String>
     <sys:String x:Key="MarginDblClickMinimized">Minimize by double-clicking on the menu margin(_M)</sys:String>
@@ -59,12 +61,11 @@
     <sys:String x:Key="MsgErrColorName">Invalid color name.</sys:String>
     <sys:String x:Key="MsgErrNoDefinition">No definition.</sys:String>
     <sys:String x:Key="MsgErrAdminInstallPath">Do not install in locations that require administrative privileges.</sys:String>
-    <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">Would you like to create a recommended destination folder?</sys:String>
-
-    <sys:String x:Key="MsgConfirmRemoveStartupShortcut">Do you want to remove the shortcut from startup?</sys:String>
-    <sys:String x:Key="MsgConfirmCloseMenu">Do you want to exit the menu?</sys:String>
 
     <sys:String x:Key="MsgInfoRegStartupShortcut">I created a shortcut for startup.</sys:String>
     <sys:String x:Key="MsgInfoRemoveStartupShortcut">Removed shortcut from startup.</sys:String>
+
+    <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">Would you like to create a recommended destination folder?</sys:String>
+    <sys:String x:Key="MsgConfirmCloseMenu">Do you want to exit the menu?</sys:String>
 
 </ResourceDictionary>

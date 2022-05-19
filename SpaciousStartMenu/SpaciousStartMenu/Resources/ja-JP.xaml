@@ -38,6 +38,8 @@
 
     <sys:String x:Key="Settings_Setup">セットアップ</sys:String>
     <sys:String x:Key="RegStartupShortcut">スタートアップに登録(_S)</sys:String>
+    <sys:String x:Key="MinimizeStartup">最小化状態で起動</sys:String>
+    <sys:String x:Key="RemoveStartupShortcut">スタートアップから削除</sys:String>
     <sys:String x:Key="Settings_Minimize">最小化</sys:String>
     <sys:String x:Key="EscKeyMinimized">Escキーで最小化(_E)</sys:String>
     <sys:String x:Key="MarginDblClickMinimized">メニューの余白ダブルクリックで最小化(_M)</sys:String>
@@ -45,7 +47,7 @@
     <sys:String x:Key="ConfirmClose">メニュー終了時に確認(_C)</sys:String>
 
     <sys:String x:Key="ShowDescription">説明を表示(_D)</sys:String>
-    
+
     <sys:String x:Key="Error">エラー</sys:String>
     <sys:String x:Key="Info">情報</sys:String>
     <sys:String x:Key="Confirm">確認</sys:String>
@@ -60,11 +62,10 @@
     <sys:String x:Key="MsgErrNoDefinition">定義内容なし。</sys:String>
     <sys:String x:Key="MsgErrAdminInstallPath">管理者権限が必要な場所へはインストールしないでください。</sys:String>
 
-    <sys:String x:Key="MsgConfirmRemoveStartupShortcut">スタートアップからショートカットを削除しますか？</sys:String>
-    <sys:String x:Key="MsgConfirmCloseMenu">メニューを終了しますか?</sys:String>
-    <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">お勧めのインストール先フォルダーを作成しますか?</sys:String>
-
     <sys:String x:Key="MsgInfoRegStartupShortcut">スタートアップにショートカットを作成しました。</sys:String>
     <sys:String x:Key="MsgInfoRemoveStartupShortcut">スタートアップからショートカットを削除しました。</sys:String>
+
+    <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">お勧めのインストール先フォルダーを作成しますか?</sys:String>
+    <sys:String x:Key="MsgConfirmCloseMenu">メニューを終了しますか?</sys:String>
 
 </ResourceDictionary>
