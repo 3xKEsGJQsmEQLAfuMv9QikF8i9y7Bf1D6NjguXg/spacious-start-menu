@@ -256,7 +256,8 @@ namespace SpaciousStartMenu.Views
                 // TAB split
                 var columns = reader.ReadLine()?.Split(LauncherDefinition.Delimiter);
                 if (columns is null ||
-                    columns.Length < 1)
+                    columns.Length < 1 ||
+                    string.IsNullOrWhiteSpace(columns[0]))
                 {
                     // No data
                     continue;
