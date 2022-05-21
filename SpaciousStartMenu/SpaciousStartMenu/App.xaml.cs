@@ -1,9 +1,11 @@
 ﻿using SpaciousStartMenu.Shell;
 using SpaciousStartMenu.Views;
 using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 
 namespace SpaciousStartMenu
@@ -15,7 +17,13 @@ namespace SpaciousStartMenu
     {
         public const string AppSettingsFileName = "settings.json";
         public const string LaunchDefFileName = "menuItems.def";
+
         private const string DefaultLanguage = "en-US";
+
+        // Multiple launch prohibition only for programs in the same location.
+        private static readonly Mutex _mutex = new(false, $"{GetAppPath().Replace('\\', '_')}_SpaciousStartMenu");
+        private static bool _isMutexOwner = false;
+
         public static bool Abend { get; private set; } = false;
         public static bool MinimizeStartup { get; private set; } = false;
 
@@ -57,6 +65,52 @@ namespace SpaciousStartMenu
         public static string GetLaunchDefFilePath() =>
             Path.Combine(GetAppPath(), LaunchDefFileName);
 
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            if (!(_isMutexOwner = _mutex.WaitOne(0, false)))
+            {
+                ForegroundWindow();
+                Shutdown();
+                return;
+            }
+
+            base.OnStartup(e);
+        }
+
+        private void ForegroundWindow()
+        {
+            var current = Process.GetCurrentProcess();
+            if (current is null)
+            {
+                return;
+            }
+            var processes = Process.GetProcessesByName(current.ProcessName);
+            foreach (var p in processes)
+            {
+                if (p is null ||
+                    p.Id == current.Id ||
+                    p.MainModule is null)
+                {
+                    continue;
+                }
+                if (p.MainModule.FileName == current.MainModule?.FileName)
+                {
+                    Win32.Window.ActivateWindow(p.MainWindowHandle);
+                    break;
+                }
+            }
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            base.OnExit(e);
+            if (_isMutexOwner)
+            {
+                _mutex.ReleaseMutex();
+            }
+            _mutex.Close();
+        }
+
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             if (Environment.OSVersion.Version.Major < 10)
@@ -82,6 +136,8 @@ namespace SpaciousStartMenu
                 return;
             }
 
+            SetJumpList();
+
             string? arg1 = e.Args.FirstOrDefault();
             if (arg1 == "/min")
             {
@@ -89,6 +145,37 @@ namespace SpaciousStartMenu
             }
         }
 
+        private void SetJumpList()
+        {
+            var jumpList = new System.Windows.Shell.JumpList();
+
+            jumpList.JumpItems.Add(
+                new System.Windows.Shell.JumpTask()
+                {
+                    Title = GetRes("R_TaskManager"),
+                    ApplicationPath = "Taskmgr.exe",
+                    IconResourceIndex = -1,
+                });
+
+            jumpList.JumpItems.Add(
+                new System.Windows.Shell.JumpTask()
+                {
+                    Title = GetRes("R_Explorer"),
+                    ApplicationPath = "Explorer.exe",
+                    IconResourceIndex = -1,
+                });
+
+            jumpList.JumpItems.Add(
+                new System.Windows.Shell.JumpTask()
+                {
+                    Title = GetRes("R_Run"),
+                    ApplicationPath = "Explorer.exe",
+                    Arguments = "Shell:::{2559A1F3-21D7-11D4-BDAF-00C04F60B9F0}",
+                    IconResourceIndex = -1,
+                });
+
+            jumpList.Apply();
+        }
 
         private static bool ValidateInstallPath()
         {
