@@ -2,7 +2,7 @@
 
 A launcher that can use the entire screen area.
 
-![image00](https://user-images.githubusercontent.com/99333667/169164785-427a4c31-04c6-4023-bc39-9e21ae4550c2.png)
+![image00](https://user-images.githubusercontent.com/99333667/169648178-7e2a724c-ecaf-4700-a962-3b890b2fe21d.png)
 
 # Environment
 
@@ -55,11 +55,11 @@ Launch defined applications, folders, etc. at the click of a button.
 
 Move the taskbar icon to the leftmost position.
 
-![image10](https://user-images.githubusercontent.com/99333667/169164925-3abc5ac8-85f7-429d-a809-8294b63bd6a5.png)
+![image10](https://user-images.githubusercontent.com/99333667/169648188-5ecdc736-b12d-403e-ba67-5c9d5648b46d.png)
 
 Pin it to the taskbar.
 
-![image11](https://user-images.githubusercontent.com/99333667/169164942-4c4e8f76-f700-4665-922b-cf6573c0e068.png)
+![image11](https://user-images.githubusercontent.com/99333667/169648202-b4ef02dc-9e97-4d80-b23c-77b07a92baa0.png)
 
 This allows the menu to be launched or activated with `Win` + `1`.
 
