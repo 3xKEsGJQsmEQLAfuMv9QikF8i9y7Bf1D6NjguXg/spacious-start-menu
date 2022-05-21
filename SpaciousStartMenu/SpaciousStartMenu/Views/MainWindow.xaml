@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:SpaciousStartMenu.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="{StaticResource AppTitle}"
+    Title="{StaticResource R_AppTitle}"
     Width="800"
     Height="450"
     AllowsTransparency="True"
@@ -27,7 +27,7 @@
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE840;" />
-                        <Label Content="{StaticResource Menu_Pinning}" Style="{StaticResource MenuItemLabelStyle}" />
+                        <Label Content="{StaticResource R_Menu_Pinning}" Style="{StaticResource MenuItemLabelStyle}" />
                     </StackPanel>
                 </MenuItem.Header>
             </MenuItem>
@@ -47,7 +47,7 @@
                 <TextBlock
                     Margin="0,0,10,0"
                     VerticalAlignment="Center"
-                    Text="{StaticResource Scale}" />
+                    Text="{StaticResource R_Scale}" />
 
                 <RadioButton Content="0.8" />
                 <RadioButton
@@ -64,7 +64,7 @@
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE713;" />
-                        <Label Content="{StaticResource Menu_Settings}" Style="{StaticResource MenuItemLabelStyle}" />
+                        <Label Content="{StaticResource R_Menu_Settings}" Style="{StaticResource MenuItemLabelStyle}" />
                     </StackPanel>
                 </MenuItem.Header>
             </MenuItem>
@@ -75,7 +75,7 @@
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE838;" />
-                        <Label Content="{StaticResource Menu_OpenExePath}" Style="{StaticResource MenuItemLabelStyle}" />
+                        <Label Content="{StaticResource R_Menu_OpenExePath}" Style="{StaticResource MenuItemLabelStyle}" />
                     </StackPanel>
                 </MenuItem.Header>
             </MenuItem>
@@ -101,7 +101,7 @@
             Margin="4,8,0,0"
             VerticalAlignment="Center"
             Foreground="White"
-            Text="{StaticResource AppTitle}" />
+            Text="{StaticResource R_AppTitle}" />
         <StackPanel
             Grid.Column="1"
             Margin="0,8,0,0"
@@ -118,12 +118,12 @@
                 Click="TitleBarMinButton_Click"
                 Content="&#xE921;"
                 Style="{StaticResource TitleBarButtonStyle}"
-                ToolTip="{StaticResource ToolTip_MinimizedButton}" />
+                ToolTip="{StaticResource R_ToolTip_MinimizedButton}" />
             <Button
                 Click="TitleBarCloseButton_Click"
                 Content="&#xE8BB;"
                 Style="{StaticResource TitleBarCloseButtonStyle}"
-                ToolTip="{StaticResource ToolTip_CloseButton}" />
+                ToolTip="{StaticResource R_ToolTip_CloseButton}" />
 
         </StackPanel>
 

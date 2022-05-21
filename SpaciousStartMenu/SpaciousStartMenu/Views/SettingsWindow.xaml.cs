@@ -17,7 +17,7 @@ namespace SpaciousStartMenu.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            RemoveShortcut.IsEnabled = Shortcut.ExistsStartupShortcut(App.GetRes("AppLinkName"));
+            RemoveShortcut.IsEnabled = Shortcut.ExistsStartupShortcut(App.GetRes("R_AppLinkName"));
 
             MinimizeStartup.IsChecked = _settings.MinimizeStartup;
 
@@ -58,7 +58,7 @@ namespace SpaciousStartMenu.Views
         {
             try
             {
-                if (Shortcut.ExistsStartupShortcut(App.GetRes("AppLinkName")))
+                if (Shortcut.ExistsStartupShortcut(App.GetRes("R_AppLinkName")))
                 {
                     RemoveStartupShortcut();
                 }
@@ -83,7 +83,7 @@ namespace SpaciousStartMenu.Views
         {
             try
             {
-                if (Shortcut.ExistsStartupShortcut(App.GetRes("AppLinkName")))
+                if (Shortcut.ExistsStartupShortcut(App.GetRes("R_AppLinkName")))
                 {
                     RemoveStartupShortcut();
                     Msg.Info(App.GetRes("MsgInfoRemoveStartupShortcut"));
@@ -101,14 +101,14 @@ namespace SpaciousStartMenu.Views
         private void CreateStartupShortcut()
         {
             Shortcut.CreateStartupShortcut(
-                App.GetRes("AppLinkName"),
+                App.GetRes("R_AppLinkName"),
                 Environment.ProcessPath!,
                 MinimizeStartup.IsChecked == true);
         }
 
         private void RemoveStartupShortcut()
         {
-            Shortcut.RemoveStartupShortcut(App.GetRes("AppLinkName"));
+            Shortcut.RemoveStartupShortcut(App.GetRes("R_AppLinkName"));
         }
 
     }

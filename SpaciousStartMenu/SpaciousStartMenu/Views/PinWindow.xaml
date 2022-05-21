@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:SpaciousStartMenu.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="{StaticResource PinTitle}"
+    Title="{StaticResource R_PinTitle}"
     Width="850"
     Height="650"
     Closing="Window_Closing"
@@ -49,15 +49,15 @@
                 x:Name="DispColorList"
                 Margin="10,5,20,10"
                 Click="DispColorList_Click"
-                Content="{StaticResource ShowDescription}" />
+                Content="{StaticResource R_ShowDescription}" />
 
             <Button
                 Click="SaveButton_Click"
-                Content="{StaticResource SaveButton}"
+                Content="{StaticResource R_SaveButton}"
                 Style="{StaticResource CommandButtonStyle}" />
             <Button
                 Click="CloseButton_Click"
-                Content="{StaticResource CloseButton}"
+                Content="{StaticResource R_CloseButton}"
                 Style="{StaticResource CommandButtonStyle}" />
         </StackPanel>
     </Grid>
