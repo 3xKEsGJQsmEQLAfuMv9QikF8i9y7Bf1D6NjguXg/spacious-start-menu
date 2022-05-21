@@ -3,55 +3,59 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <sys:String x:Key="AppTitle">Start</sys:String>
-    <sys:String x:Key="AppLinkName">Spacious Start Menu</sys:String>
-    <sys:String x:Key="PinTitle">Pinned definition list</sys:String>
-    <sys:String x:Key="SettingsTitle">Settings</sys:String>
+    <sys:String x:Key="R_AppTitle">Start</sys:String>
+    <sys:String x:Key="R_AppLinkName">Spacious Start Menu</sys:String>
+    <sys:String x:Key="R_PinTitle">Pinned definition list</sys:String>
+    <sys:String x:Key="R_SettingsTitle">Settings</sys:String>
 
-    <sys:String x:Key="SystemFolder">System folders</sys:String>
-    <sys:String x:Key="Download">Download</sys:String>
-    <sys:String x:Key="Desktop">Desktop</sys:String>
-    <sys:String x:Key="Document">Document</sys:String>
-    <sys:String x:Key="Picture">Pictures</sys:String>
-    <sys:String x:Key="Video">Videos</sys:String>
-    <sys:String x:Key="Music">Music</sys:String>
-    <sys:String x:Key="Tools">Tools</sys:String>
-    <sys:String x:Key="Calc">Calculator</sys:String>
-    <sys:String x:Key="Notepad">Notepad</sys:String>
-    <sys:String x:Key="Paint">Paint</sys:String>
-    <sys:String x:Key="Settings">Settings</sys:String>
-    <sys:String x:Key="ControlPanel">Control Panel</sys:String>
+    <sys:String x:Key="R_SystemFolder">System folders</sys:String>
+    <sys:String x:Key="R_Download">Download</sys:String>
+    <sys:String x:Key="R_Desktop">Desktop</sys:String>
+    <sys:String x:Key="R_Document">Document</sys:String>
+    <sys:String x:Key="R_Picture">Pictures</sys:String>
+    <sys:String x:Key="R_Video">Videos</sys:String>
+    <sys:String x:Key="R_Music">Music</sys:String>
+    <sys:String x:Key="R_Tools">Tools</sys:String>
+    <sys:String x:Key="R_Calc">Calculator</sys:String>
+    <sys:String x:Key="R_Notepad">Notepad</sys:String>
+    <sys:String x:Key="R_Paint">Paint</sys:String>
+    <sys:String x:Key="R_Settings">Settings</sys:String>
+    <sys:String x:Key="R_ControlPanel">Control Panel</sys:String>
 
-    <sys:String x:Key="ToolTip_MinimizedButton">Minimized (Esc)</sys:String>
-    <sys:String x:Key="ToolTip_CloseButton">Close</sys:String>
+    <sys:String x:Key="R_TaskManager">Task Manager</sys:String>
+    <sys:String x:Key="R_Explorer">Explorer</sys:String>
+    <sys:String x:Key="R_Run">Run</sys:String>
 
-    <sys:String x:Key="SaveButton">Save(_S)</sys:String>
-    <sys:String x:Key="CloseButton">Close(_X)</sys:String>
-    <sys:String x:Key="OkButton">OK</sys:String>
-    <sys:String x:Key="CancelButton">Cancel</sys:String>
+    <sys:String x:Key="R_ToolTip_MinimizedButton">Minimized (Esc)</sys:String>
+    <sys:String x:Key="R_ToolTip_CloseButton">Close</sys:String>
 
-    <sys:String x:Key="Menu_Pinning">Pin to Menu(_P)...</sys:String>
-    <sys:String x:Key="Menu_Settings">Settings(_S)...</sys:String>
-    <sys:String x:Key="Menu_OpenExePath">Open Program Location(_O)</sys:String>
+    <sys:String x:Key="R_SaveButton">Save(_S)</sys:String>
+    <sys:String x:Key="R_CloseButton">Close(_X)</sys:String>
+    <sys:String x:Key="R_OkButton">OK</sys:String>
+    <sys:String x:Key="R_CancelButton">Cancel</sys:String>
 
-    <sys:String x:Key="Scale">Scale</sys:String>
+    <sys:String x:Key="R_Menu_Pinning">Pin to Menu(_P)...</sys:String>
+    <sys:String x:Key="R_Menu_Settings">Settings(_S)...</sys:String>
+    <sys:String x:Key="R_Menu_OpenExePath">Open Program Location(_O)</sys:String>
 
-    <sys:String x:Key="Settings_Setup">Setup</sys:String>
-    <sys:String x:Key="RegStartupShortcut">Register to startup(_S)</sys:String>
-    <sys:String x:Key="MinimizeStartup">Minimize when starting from startup</sys:String>
-    <sys:String x:Key="RemoveStartupShortcut">Remove from Startup</sys:String>
-    <sys:String x:Key="Settings_Minimize">Minimize</sys:String>
-    <sys:String x:Key="EscKeyMinimized">Esc key to minimize(_E)</sys:String>
-    <sys:String x:Key="MarginDblClickMinimized">Minimize by double-clicking on the menu margin(_M)</sys:String>
-    <sys:String x:Key="DisabledMinimizeCtrlClick">Minimization is suppressed when the launch button is pressed while the Ctrl key is held down</sys:String>
-    <sys:String x:Key="Settings_Confirm">Confirm</sys:String>
-    <sys:String x:Key="ConfirmClose">Confirm when exiting menu(_C)</sys:String>
+    <sys:String x:Key="R_Scale">Scale</sys:String>
 
-    <sys:String x:Key="ShowDescription">Show description(_D)</sys:String>
+    <sys:String x:Key="R_Settings_Setup">Setup</sys:String>
+    <sys:String x:Key="R_RegStartupShortcut">Register to startup(_S)</sys:String>
+    <sys:String x:Key="R_MinimizeStartup">Minimize when starting from startup</sys:String>
+    <sys:String x:Key="R_RemoveStartupShortcut">Remove from Startup</sys:String>
+    <sys:String x:Key="R_Settings_Minimize">Minimize</sys:String>
+    <sys:String x:Key="R_EscKeyMinimized">Esc key to minimize(_E)</sys:String>
+    <sys:String x:Key="R_MarginDblClickMinimized">Minimize by double-clicking on the menu margin(_M)</sys:String>
+    <sys:String x:Key="R_DisabledMinimizeCtrlClick">Minimization is suppressed when the launch button is pressed while the Ctrl key is held down</sys:String>
+    <sys:String x:Key="R_Settings_Confirm">Confirm</sys:String>
+    <sys:String x:Key="R_ConfirmClose">Confirm when exiting menu(_C)</sys:String>
 
-    <sys:String x:Key="Error">Error</sys:String>
-    <sys:String x:Key="Info">Information</sys:String>
-    <sys:String x:Key="Confirm">Confirm</sys:String>
+    <sys:String x:Key="R_ShowDescription">Show description(_D)</sys:String>
+
+    <sys:String x:Key="R_Error">Error</sys:String>
+    <sys:String x:Key="R_Info">Information</sys:String>
+    <sys:String x:Key="R_Confirm">Confirm</sys:String>
 
     <!--  Messages  -->
     <sys:String x:Key="MsgErrUnsupportedOS">Unsupported Operating System.</sys:String>

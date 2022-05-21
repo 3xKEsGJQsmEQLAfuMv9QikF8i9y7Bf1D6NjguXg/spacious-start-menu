@@ -3,55 +3,59 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <sys:String x:Key="AppTitle">スタート</sys:String>
-    <sys:String x:Key="AppLinkName">Spacious Start Menu</sys:String>
-    <sys:String x:Key="PinTitle">ピン留め定義一覧</sys:String>
-    <sys:String x:Key="SettingsTitle">設定</sys:String>
+    <sys:String x:Key="R_AppTitle">スタート</sys:String>
+    <sys:String x:Key="R_AppLinkName">Spacious Start Menu</sys:String>
+    <sys:String x:Key="R_PinTitle">ピン留め定義一覧</sys:String>
+    <sys:String x:Key="R_SettingsTitle">設定</sys:String>
 
-    <sys:String x:Key="SystemFolder">システムフォルダー</sys:String>
-    <sys:String x:Key="Download">ダウンロード</sys:String>
-    <sys:String x:Key="Desktop">デスクトップ</sys:String>
-    <sys:String x:Key="Document">ドキュメント</sys:String>
-    <sys:String x:Key="Picture">ピクチャ</sys:String>
-    <sys:String x:Key="Video">ビデオ</sys:String>
-    <sys:String x:Key="Music">ミュージック</sys:String>
-    <sys:String x:Key="Tools">ツール</sys:String>
-    <sys:String x:Key="Calc">電卓</sys:String>
-    <sys:String x:Key="Notepad">メモ帳</sys:String>
-    <sys:String x:Key="Paint">ペイント</sys:String>
-    <sys:String x:Key="Settings">設定</sys:String>
-    <sys:String x:Key="ControlPanel">コントロール パネル</sys:String>
+    <sys:String x:Key="R_SystemFolder">システムフォルダー</sys:String>
+    <sys:String x:Key="R_Download">ダウンロード</sys:String>
+    <sys:String x:Key="R_Desktop">デスクトップ</sys:String>
+    <sys:String x:Key="R_Document">ドキュメント</sys:String>
+    <sys:String x:Key="R_Picture">ピクチャ</sys:String>
+    <sys:String x:Key="R_Video">ビデオ</sys:String>
+    <sys:String x:Key="R_Music">ミュージック</sys:String>
+    <sys:String x:Key="R_Tools">ツール</sys:String>
+    <sys:String x:Key="R_Calc">電卓</sys:String>
+    <sys:String x:Key="R_Notepad">メモ帳</sys:String>
+    <sys:String x:Key="R_Paint">ペイント</sys:String>
+    <sys:String x:Key="R_Settings">設定</sys:String>
+    <sys:String x:Key="R_ControlPanel">コントロール パネル</sys:String>
 
-    <sys:String x:Key="ToolTip_MinimizedButton">最小化 (Esc)</sys:String>
-    <sys:String x:Key="ToolTip_CloseButton">閉じる</sys:String>
+    <sys:String x:Key="R_TaskManager">タスク マネージャー</sys:String>
+    <sys:String x:Key="R_Explorer">エクスプローラー</sys:String>
+    <sys:String x:Key="R_Run">ファイル名を指定して実行</sys:String>
 
-    <sys:String x:Key="SaveButton">保存(_S)</sys:String>
-    <sys:String x:Key="CloseButton">閉じる(_X)</sys:String>
-    <sys:String x:Key="OkButton">OK</sys:String>
-    <sys:String x:Key="CancelButton">キャンセル</sys:String>
+    <sys:String x:Key="R_ToolTip_MinimizedButton">最小化 (Esc)</sys:String>
+    <sys:String x:Key="R_ToolTip_CloseButton">閉じる</sys:String>
 
-    <sys:String x:Key="Menu_Pinning">メニューにピン留め(_P)...</sys:String>
-    <sys:String x:Key="Menu_Settings">設定(_S)...</sys:String>
-    <sys:String x:Key="Menu_OpenExePath">プログラムの場所を開く(_O)</sys:String>
+    <sys:String x:Key="R_SaveButton">保存(_S)</sys:String>
+    <sys:String x:Key="R_CloseButton">閉じる(_X)</sys:String>
+    <sys:String x:Key="R_OkButton">OK</sys:String>
+    <sys:String x:Key="R_CancelButton">キャンセル</sys:String>
 
-    <sys:String x:Key="Scale">表示倍率</sys:String>
+    <sys:String x:Key="R_Menu_Pinning">メニューにピン留め(_P)...</sys:String>
+    <sys:String x:Key="R_Menu_Settings">設定(_S)...</sys:String>
+    <sys:String x:Key="R_Menu_OpenExePath">プログラムの場所を開く(_O)</sys:String>
 
-    <sys:String x:Key="Settings_Setup">セットアップ</sys:String>
-    <sys:String x:Key="RegStartupShortcut">スタートアップに登録(_S)</sys:String>
-    <sys:String x:Key="MinimizeStartup">スタートアップから起動時は最小化</sys:String>
-    <sys:String x:Key="RemoveStartupShortcut">スタートアップから削除</sys:String>
-    <sys:String x:Key="Settings_Minimize">最小化</sys:String>
-    <sys:String x:Key="EscKeyMinimized">Escキーで最小化(_E)</sys:String>
-    <sys:String x:Key="MarginDblClickMinimized">メニューの余白ダブルクリックで最小化(_M)</sys:String>
-    <sys:String x:Key="DisabledMinimizeCtrlClick">Ctrlキーを押しながら起動ボタンを押したときは最小化抑止</sys:String>
-    <sys:String x:Key="Settings_Confirm">確認</sys:String>
-    <sys:String x:Key="ConfirmClose">メニュー終了時に確認(_C)</sys:String>
+    <sys:String x:Key="R_Scale">表示倍率</sys:String>
 
-    <sys:String x:Key="ShowDescription">説明を表示(_D)</sys:String>
+    <sys:String x:Key="R_Settings_Setup">セットアップ</sys:String>
+    <sys:String x:Key="R_RegStartupShortcut">スタートアップに登録(_S)</sys:String>
+    <sys:String x:Key="R_MinimizeStartup">スタートアップから起動時は最小化</sys:String>
+    <sys:String x:Key="R_RemoveStartupShortcut">スタートアップから削除</sys:String>
+    <sys:String x:Key="R_Settings_Minimize">最小化</sys:String>
+    <sys:String x:Key="R_EscKeyMinimized">Escキーで最小化(_E)</sys:String>
+    <sys:String x:Key="R_MarginDblClickMinimized">メニューの余白ダブルクリックで最小化(_M)</sys:String>
+    <sys:String x:Key="R_DisabledMinimizeCtrlClick">Ctrlキーを押しながら起動ボタンを押したときは最小化抑止</sys:String>
+    <sys:String x:Key="R_Settings_Confirm">確認</sys:String>
+    <sys:String x:Key="R_ConfirmClose">メニュー終了時に確認(_C)</sys:String>
 
-    <sys:String x:Key="Error">エラー</sys:String>
-    <sys:String x:Key="Info">情報</sys:String>
-    <sys:String x:Key="Confirm">確認</sys:String>
+    <sys:String x:Key="R_ShowDescription">説明を表示(_D)</sys:String>
+
+    <sys:String x:Key="R_Error">エラー</sys:String>
+    <sys:String x:Key="R_Info">情報</sys:String>
+    <sys:String x:Key="R_Confirm">確認</sys:String>
 
     <!--  メッセージ  -->
     <sys:String x:Key="MsgErrUnsupportedOS">未サポートのOSです。</sys:String>
