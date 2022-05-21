@@ -39,25 +39,35 @@ White	Microsoft Store	shell:AppsFolder\Microsoft.WindowsStore_8wekyb3d8bbwe!App
 //{11}
 SkyBlue	{12}	shell:ControlPanelFolder
 Gray	System Properties	SystemPropertiesAdvanced.exe
-Gray	System/About	ms-settings:about
+Gray	System > Display	ms-settings:display
+Gray	System > Power & battery	ms-settings:powersleep
+Gray	System > About	ms-settings:about
+Gray	Network & internet > Ethernet	ms-settings:network-ethernet
+Gray	Network & internet > Proxy	ms-settings:network-proxy
+Gray	Personalization > Colors	ms-settings:personalization-colors
+Gray	Personalization > Start	ms-settings:personalization-start
+Gray	Personalization > Taskbar	ms-settings:taskbar
+Gray	Apps > Apps & features	ms-settings:appsfeatures
+Gray	Time & language > Language & region	ms-settings:regionlanguage
+Gray	Windows Update	ms-settings:windowsupdate
 ";
 
         public static string GetDefaultData()
         {
             return string.Format(_defaultDataFormat, 
-                App.GetRes("SystemFolder"),
-                App.GetRes("Download"),
-                App.GetRes("Desktop"),
-                App.GetRes("Document"),
-                App.GetRes("Picture"),
-                App.GetRes("Video"),
-                App.GetRes("Music"),
-                App.GetRes("Tools"),
-                App.GetRes("Calc"),
-                App.GetRes("Notepad"),
-                App.GetRes("Paint"),
-                App.GetRes("Settings"),
-                App.GetRes("ControlPanel"));
+                App.GetRes("R_SystemFolder"),
+                App.GetRes("R_Download"),
+                App.GetRes("R_Desktop"),
+                App.GetRes("R_Document"),
+                App.GetRes("R_Picture"),
+                App.GetRes("R_Video"),
+                App.GetRes("R_Music"),
+                App.GetRes("R_Tools"),
+                App.GetRes("R_Calc"),
+                App.GetRes("R_Notepad"),
+                App.GetRes("R_Paint"),
+                App.GetRes("R_Settings"),
+                App.GetRes("R_ControlPanel"));
         }
 
         public static IReadOnlyDictionary<string, int> Columns = new Dictionary<string, int>
