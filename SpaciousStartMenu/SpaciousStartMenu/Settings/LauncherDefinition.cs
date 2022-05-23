@@ -55,19 +55,19 @@ Gray	Windows Update	ms-settings:windowsupdate
         public static string GetDefaultData()
         {
             return string.Format(_defaultDataFormat, 
-                App.GetRes("R_SystemFolder"),
-                App.GetRes("R_Download"),
-                App.GetRes("R_Desktop"),
-                App.GetRes("R_Document"),
-                App.GetRes("R_Picture"),
-                App.GetRes("R_Video"),
-                App.GetRes("R_Music"),
-                App.GetRes("R_Tools"),
-                App.GetRes("R_Calc"),
-                App.GetRes("R_Notepad"),
-                App.GetRes("R_Paint"),
-                App.GetRes("R_Settings"),
-                App.GetRes("R_ControlPanel"));
+                App.R("R_SystemFolder"),
+                App.R("R_Download"),
+                App.R("R_Desktop"),
+                App.R("R_Document"),
+                App.R("R_Picture"),
+                App.R("R_Video"),
+                App.R("R_Music"),
+                App.R("R_Tools"),
+                App.R("R_Calc"),
+                App.R("R_Notepad"),
+                App.R("R_Paint"),
+                App.R("R_Settings"),
+                App.R("R_ControlPanel"));
         }
 
         public static IReadOnlyDictionary<string, int> Columns = new Dictionary<string, int>
