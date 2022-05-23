@@ -17,7 +17,7 @@ namespace SpaciousStartMenu.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            RemoveShortcut.IsEnabled = Shortcut.ExistsStartupShortcut(App.GetRes("R_AppLinkName"));
+            RemoveShortcut.IsEnabled = Shortcut.ExistsStartupShortcut(App.R("R_AppLinkName"));
 
             MinimizeStartup.IsChecked = _settings.MinimizeStartup;
 
@@ -58,12 +58,12 @@ namespace SpaciousStartMenu.Views
         {
             try
             {
-                if (Shortcut.ExistsStartupShortcut(App.GetRes("R_AppLinkName")))
+                if (Shortcut.ExistsStartupShortcut(App.R("R_AppLinkName")))
                 {
                     RemoveStartupShortcut();
                 }
                 CreateStartupShortcut();
-                Msg.Info(App.GetRes("MsgInfoRegStartupShortcut"));
+                Msg.Info(App.R("MsgInfoRegStartupShortcut"));
 
                 RegShortcut.IsEnabled = false;
                 RemoveShortcut.IsEnabled = true;
@@ -83,10 +83,10 @@ namespace SpaciousStartMenu.Views
         {
             try
             {
-                if (Shortcut.ExistsStartupShortcut(App.GetRes("R_AppLinkName")))
+                if (Shortcut.ExistsStartupShortcut(App.R("R_AppLinkName")))
                 {
                     RemoveStartupShortcut();
-                    Msg.Info(App.GetRes("MsgInfoRemoveStartupShortcut"));
+                    Msg.Info(App.R("MsgInfoRemoveStartupShortcut"));
                 }
                 RegShortcut.IsEnabled = true;
                 RemoveShortcut.IsEnabled = false;
@@ -101,14 +101,14 @@ namespace SpaciousStartMenu.Views
         private void CreateStartupShortcut()
         {
             Shortcut.CreateStartupShortcut(
-                App.GetRes("R_AppLinkName"),
+                App.R("R_AppLinkName"),
                 Environment.ProcessPath!,
                 MinimizeStartup.IsChecked == true);
         }
 
         private void RemoveStartupShortcut()
         {
-            Shortcut.RemoveStartupShortcut(App.GetRes("R_AppLinkName"));
+            Shortcut.RemoveStartupShortcut(App.R("R_AppLinkName"));
         }
 
     }

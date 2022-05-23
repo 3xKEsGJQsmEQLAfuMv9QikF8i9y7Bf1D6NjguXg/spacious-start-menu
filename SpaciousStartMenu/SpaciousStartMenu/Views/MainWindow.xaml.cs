@@ -61,7 +61,7 @@ namespace SpaciousStartMenu.Views
             {
                 if (_settings.ConfirmCloseMenu)
                 {
-                    if (Msg.Confirm(App.GetRes("MsgConfirmCloseMenu")) != MessageBoxResult.Yes)
+                    if (Msg.Confirm(App.R("MsgConfirmCloseMenu")) != MessageBoxResult.Yes)
                     {
                         e.Cancel = true;
                         return;
@@ -73,7 +73,7 @@ namespace SpaciousStartMenu.Views
             }
             catch (Exception ex)
             {
-                Msg.Error($"{App.GetRes("MsgErrSaveSettings")}\n{ex}");
+                Msg.Error($"{App.R("MsgErrSaveSettings")}\n{ex}");
             }
         }
 
@@ -290,14 +290,14 @@ namespace SpaciousStartMenu.Views
                 else
                 {
                     throw new Exception(
-                        $"{App.GetRes("MsgErrSettingsColumn")}\n{string.Join(LauncherDefinition.Delimiter, columns)}");
+                        $"{App.R("MsgErrSettingsColumn")}\n{string.Join(LauncherDefinition.Delimiter, columns)}");
                 }
             }
 
             if (_buttonCount == 0 &&
                 _groupCount == 0)
             {
-                throw new Exception(App.GetRes("MsgErrNoDefinition"));
+                throw new Exception(App.R("MsgErrNoDefinition"));
             }
         }
 
@@ -376,7 +376,7 @@ namespace SpaciousStartMenu.Views
             }
             catch
             {
-                throw new Exception($"{App.GetRes("MsgErrColorName")}[{colorName}]");
+                throw new Exception($"{App.R("MsgErrColorName")}[{colorName}]");
             }
 
             txtContainer.Children.Add(txtMark);
@@ -419,7 +419,7 @@ namespace SpaciousStartMenu.Views
             }
             catch
             {
-                Msg.Error($"{App.GetRes("MsgErrStartup")}\n{cmd}");
+                Msg.Error($"{App.R("MsgErrStartup")}\n{cmd}");
                 return false;
             }
         }

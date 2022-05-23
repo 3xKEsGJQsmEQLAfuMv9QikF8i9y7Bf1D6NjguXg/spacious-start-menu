@@ -37,7 +37,8 @@
             <StackPanel x:Name="ScaleMenu" Orientation="Horizontal">
                 <StackPanel.Resources>
                     <Style TargetType="RadioButton">
-                        <Setter Property="Margin" Value="5,0" />
+                        <Setter Property="Foreground" Value="White" />
+                        <Setter Property="Margin" Value="15,0,5,0" />
                         <Setter Property="VerticalContentAlignment" Value="Center" />
                         <EventSetter Event="Click" Handler="ScaleItem_Click" />
                     </Style>
@@ -45,7 +46,7 @@
 
                 <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE71E;" />
                 <TextBlock
-                    Margin="0,0,10,0"
+                    Margin="0"
                     VerticalAlignment="Center"
                     Text="{StaticResource R_Scale}" />
 
