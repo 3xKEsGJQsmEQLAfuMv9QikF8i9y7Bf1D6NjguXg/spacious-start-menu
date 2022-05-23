@@ -45,7 +45,12 @@ namespace SpaciousStartMenu
             Resources.MergedDictionaries[0] = rd;
         }
 
-        public static string GetRes(string key) =>
+        /// <summary>
+        /// Get resource string
+        /// </summary>
+        /// <param name="key">resource key</param>
+        /// <returns>resource string</returns>
+        public static string R(string key) =>
             Current?.Resources[key]?.ToString() ?? "";
 
         public static string GetAppPath()
@@ -53,7 +58,7 @@ namespace SpaciousStartMenu
             string? appPath = AppContext.BaseDirectory;
             if (appPath is null)
             {
-                throw new DirectoryNotFoundException(App.GetRes("MsgErrGetExePath"));
+                throw new DirectoryNotFoundException(App.R("MsgErrGetExePath"));
             }
 
             return appPath;
@@ -115,7 +120,7 @@ namespace SpaciousStartMenu
         {
             if (Environment.OSVersion.Version.Major < 10)
             {
-                Msg.Error(App.GetRes("MsgErrUnsupportedOS"));
+                Msg.Error(App.R("MsgErrUnsupportedOS"));
                 Abend = true;
                 Shutdown();
                 return;
@@ -123,9 +128,9 @@ namespace SpaciousStartMenu
 
             if (!ValidateInstallPath())
             {
-                Msg.Error(App.GetRes("MsgErrAdminInstallPath"));
+                Msg.Error(App.R("MsgErrAdminInstallPath"));
 
-                if (Msg.Confirm(App.GetRes("MsgConfirmCreateRecommendInstallFolder")) == MessageBoxResult.Yes)
+                if (Msg.Confirm(App.R("MsgConfirmCreateRecommendInstallFolder")) == MessageBoxResult.Yes)
                 {
                     string path = GetReccomendInstallPath();
                     Directory.CreateDirectory(path);
@@ -152,7 +157,7 @@ namespace SpaciousStartMenu
             jumpList.JumpItems.Add(
                 new System.Windows.Shell.JumpTask()
                 {
-                    Title = GetRes("R_TaskManager"),
+                    Title = R("R_TaskManager"),
                     ApplicationPath = "Taskmgr.exe",
                     IconResourceIndex = -1,
                 });
@@ -160,7 +165,7 @@ namespace SpaciousStartMenu
             jumpList.JumpItems.Add(
                 new System.Windows.Shell.JumpTask()
                 {
-                    Title = GetRes("R_Explorer"),
+                    Title = R("R_Explorer"),
                     ApplicationPath = "Explorer.exe",
                     IconResourceIndex = -1,
                 });
@@ -168,7 +173,7 @@ namespace SpaciousStartMenu
             jumpList.JumpItems.Add(
                 new System.Windows.Shell.JumpTask()
                 {
-                    Title = GetRes("R_Run"),
+                    Title = R("R_Run"),
                     ApplicationPath = "Explorer.exe",
                     Arguments = "Shell:::{2559A1F3-21D7-11D4-BDAF-00C04F60B9F0}",
                     IconResourceIndex = -1,
