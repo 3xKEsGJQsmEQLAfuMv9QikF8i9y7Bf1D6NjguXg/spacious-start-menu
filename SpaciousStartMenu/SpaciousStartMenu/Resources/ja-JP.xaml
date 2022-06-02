@@ -3,10 +3,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
+    <!--  タイトル  -->
     <sys:String x:Key="R_AppTitle">スタート</sys:String>
     <sys:String x:Key="R_AppLinkName">Spacious Start Menu</sys:String>
     <sys:String x:Key="R_PinTitle">ピン留め定義一覧</sys:String>
     <sys:String x:Key="R_SettingsTitle">設定</sys:String>
+    <sys:String x:Key="R_EditTitle">編集</sys:String>
 
     <sys:String x:Key="R_SystemFolder">システムフォルダー</sys:String>
     <sys:String x:Key="R_Download">ダウンロード</sys:String>
@@ -26,20 +28,47 @@
     <sys:String x:Key="R_Explorer">エクスプローラー</sys:String>
     <sys:String x:Key="R_Run">ファイル名を指定して実行</sys:String>
 
+    <!--  タイトルボタンのツールチップ  -->
     <sys:String x:Key="R_ToolTip_MinimizedButton">最小化 (Esc)</sys:String>
     <sys:String x:Key="R_ToolTip_CloseButton">閉じる</sys:String>
 
-    <sys:String x:Key="R_SaveButton">保存(_S)</sys:String>
-    <sys:String x:Key="R_CloseButton">閉じる(_X)</sys:String>
-    <sys:String x:Key="R_OkButton">OK</sys:String>
-    <sys:String x:Key="R_CancelButton">キャンセル</sys:String>
-
-    <sys:String x:Key="R_Menu_Pinning">メニューにピン留め(_P)...</sys:String>
+    <!--  コンテキストメニュー  -->
+    <sys:String x:Key="R_Menu_Pinning">ピン留め編集(_P)...</sys:String>
+    <sys:String x:Key="R_Menu_Scale">表示倍率</sys:String>
     <sys:String x:Key="R_Menu_Settings">設定(_S)...</sys:String>
     <sys:String x:Key="R_Menu_OpenExePath">プログラムの場所を開く(_O)</sys:String>
+    <sys:String x:Key="R_Menu_OpenExePathAndExit">プログラムの場所を開いて終了(_X)</sys:String>
 
-    <sys:String x:Key="R_Scale">表示倍率</sys:String>
+    <!--  ボタン  -->
+    <sys:String x:Key="R_AddButton">行の追加(_A)</sys:String>
+    <sys:String x:Key="R_DuplicateButton">行の複製(_D)</sys:String>
+    <sys:String x:Key="R_SaveButton">保存(_S)</sys:String>
+    <sys:String x:Key="R_CloseButton">閉じる(_X)</sys:String>
+    <sys:String x:Key="R_OtherWindowMinimize">他の画面を最小化(_M)</sys:String>
+    <sys:String x:Key="R_OkButton">OK</sys:String>
+    <sys:String x:Key="R_CancelButton">キャンセル</sys:String>
+    <sys:String x:Key="R_YesButton">はい(_Y)</sys:String>
+    <sys:String x:Key="R_NoButton">いいえ(_N)</sys:String>
 
+    <sys:String x:Key="R_List_Color">色</sys:String>
+    <sys:String x:Key="R_List_Title">タイトル</sys:String>
+    <sys:String x:Key="R_List_Path">パス</sys:String>
+
+    <!--  ボタンのツールチップ  -->
+    <sys:String x:Key="R_ToolTip_Edit">編集</sys:String>
+    <sys:String x:Key="R_ToolTip_Delete">削除</sys:String>
+    <sys:String x:Key="R_ToolTip_UpButton">選択行を上に移動します。</sys:String>
+    <sys:String x:Key="R_ToolTip_DownButton">選択行を下に移動します。</sys:String>
+    <sys:String x:Key="R_ToolTip_SaveButton">設定を保存して画面を閉じます。</sys:String>
+
+    <sys:String x:Key="R_Edit_Headline">見出し(_H)</sys:String>
+    <sys:String x:Key="R_Edit_Color">色(_C)</sys:String>
+    <sys:String x:Key="R_Edit_Title">タイトル(_T)</sys:String>
+    <sys:String x:Key="R_Edit_Path">パス(_P)</sys:String>
+
+    <sys:String x:Key="R_ToolTip_EditPath">エクスプローラーからここにオブジェクトをドラッグ&amp;ドロップできます。</sys:String>
+
+    <!--  設定画面  -->
     <sys:String x:Key="R_Settings_Setup">セットアップ</sys:String>
     <sys:String x:Key="R_RegStartupShortcut">スタートアップに登録(_S)</sys:String>
     <sys:String x:Key="R_MinimizeStartup">スタートアップから起動時は最小化</sys:String>
@@ -50,12 +79,8 @@
     <sys:String x:Key="R_DisabledMinimizeCtrlClick">Ctrlキーを押しながら起動ボタンを押したときは最小化抑止</sys:String>
     <sys:String x:Key="R_Settings_Confirm">確認</sys:String>
     <sys:String x:Key="R_ConfirmClose">メニュー終了時に確認(_C)</sys:String>
-
-    <sys:String x:Key="R_ShowDescription">説明を表示(_D)</sys:String>
-
-    <sys:String x:Key="R_Error">エラー</sys:String>
-    <sys:String x:Key="R_Info">情報</sys:String>
-    <sys:String x:Key="R_Confirm">確認</sys:String>
+    <sys:String x:Key="R_Settings_ContextMenu">コンテキスト メニュー</sys:String>
+    <sys:String x:Key="R_ShowOpenAndExitMenuItem">「プログラムの場所を開いて終了」メニューを表示</sys:String>
 
     <!--  メッセージ  -->
     <sys:String x:Key="MsgErrUnsupportedOS">未サポートのOSです。</sys:String>
@@ -64,7 +89,6 @@
     <sys:String x:Key="MsgErrSaveSettings">アプリケーション設定の保存に失敗しました。</sys:String>
     <sys:String x:Key="MsgErrSettingsColumn">カラム数不正。</sys:String>
     <sys:String x:Key="MsgErrColorName">無効な色名。</sys:String>
-    <sys:String x:Key="MsgErrNoDefinition">定義内容なし。</sys:String>
     <sys:String x:Key="MsgErrAdminInstallPath">管理者権限が必要な場所へはインストールしないでください。</sys:String>
 
     <sys:String x:Key="MsgInfoRegStartupShortcut">スタートアップにショートカットを作成しました。</sys:String>
@@ -72,5 +96,10 @@
 
     <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">お勧めのインストール先フォルダーを作成しますか?</sys:String>
     <sys:String x:Key="MsgConfirmCloseMenu">メニューを終了しますか?</sys:String>
+    <sys:String x:Key="MsgConfirmDefSave">定義情報は編集されています。保存しますか?</sys:String>
+
+    <sys:String x:Key="R_Error">エラー</sys:String>
+    <sys:String x:Key="R_Info">情報</sys:String>
+    <sys:String x:Key="R_Confirm">確認</sys:String>
 
 </ResourceDictionary>

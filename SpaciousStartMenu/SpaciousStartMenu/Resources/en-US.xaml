@@ -3,10 +3,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
+    <!--  Title  -->
     <sys:String x:Key="R_AppTitle">Start</sys:String>
     <sys:String x:Key="R_AppLinkName">Spacious Start Menu</sys:String>
     <sys:String x:Key="R_PinTitle">Pinned definition list</sys:String>
     <sys:String x:Key="R_SettingsTitle">Settings</sys:String>
+    <sys:String x:Key="R_EditTitle">Edit</sys:String>
 
     <sys:String x:Key="R_SystemFolder">System folders</sys:String>
     <sys:String x:Key="R_Download">Download</sys:String>
@@ -26,20 +28,47 @@
     <sys:String x:Key="R_Explorer">Explorer</sys:String>
     <sys:String x:Key="R_Run">Run</sys:String>
 
+    <!--  Title button tooltip  -->
     <sys:String x:Key="R_ToolTip_MinimizedButton">Minimized (Esc)</sys:String>
     <sys:String x:Key="R_ToolTip_CloseButton">Close</sys:String>
 
-    <sys:String x:Key="R_SaveButton">Save(_S)</sys:String>
-    <sys:String x:Key="R_CloseButton">Close(_X)</sys:String>
-    <sys:String x:Key="R_OkButton">OK</sys:String>
-    <sys:String x:Key="R_CancelButton">Cancel</sys:String>
-
-    <sys:String x:Key="R_Menu_Pinning">Pin to Menu(_P)...</sys:String>
+    <!--  Context menu  -->
+    <sys:String x:Key="R_Menu_Pinning">Edit Pinning(_P)...</sys:String>
+    <sys:String x:Key="R_Menu_Scale">Scale</sys:String>
     <sys:String x:Key="R_Menu_Settings">Settings(_S)...</sys:String>
     <sys:String x:Key="R_Menu_OpenExePath">Open Program Location(_O)</sys:String>
+    <sys:String x:Key="R_Menu_OpenExePathAndExit">Open the program location and then exit the program(_X)</sys:String>
 
-    <sys:String x:Key="R_Scale">Scale</sys:String>
+    <!--  Buttons  -->
+    <sys:String x:Key="R_AddButton">Add row(_A)</sys:String>
+    <sys:String x:Key="R_DuplicateButton">Duplicate a row(_D)</sys:String>
+    <sys:String x:Key="R_SaveButton">Save(_S)</sys:String>
+    <sys:String x:Key="R_CloseButton">Close(_X)</sys:String>
+    <sys:String x:Key="R_OtherWindowMinimize">Minimize other screens(_M)</sys:String>
+    <sys:String x:Key="R_OkButton">OK</sys:String>
+    <sys:String x:Key="R_CancelButton">Cancel</sys:String>
+    <sys:String x:Key="R_YesButton">_Yes</sys:String>
+    <sys:String x:Key="R_NoButton">_No</sys:String>
 
+    <sys:String x:Key="R_List_Color">Color</sys:String>
+    <sys:String x:Key="R_List_Title">Title</sys:String>
+    <sys:String x:Key="R_List_Path">Path</sys:String>
+
+    <!--  Button tooltips  -->
+    <sys:String x:Key="R_ToolTip_Edit">Edit</sys:String>
+    <sys:String x:Key="R_ToolTip_Delete">Delete</sys:String>
+    <sys:String x:Key="R_ToolTip_UpButton">Moves the selection line up.</sys:String>
+    <sys:String x:Key="R_ToolTip_DownButton">Move the selection line down.</sys:String>
+    <sys:String x:Key="R_ToolTip_SaveButton">Save the settings and close the screen.</sys:String>
+
+    <sys:String x:Key="R_Edit_Headline">Headline(_H)</sys:String>
+    <sys:String x:Key="R_Edit_Color">Color(_C)</sys:String>
+    <sys:String x:Key="R_Edit_Title">Title(_T)</sys:String>
+    <sys:String x:Key="R_Edit_Path">Path(_P)</sys:String>
+
+    <sys:String x:Key="R_ToolTip_EditPath">You can drag and drop objects here from Explorer.</sys:String>
+
+    <!--  Settings screen  -->
     <sys:String x:Key="R_Settings_Setup">Setup</sys:String>
     <sys:String x:Key="R_RegStartupShortcut">Register to startup(_S)</sys:String>
     <sys:String x:Key="R_MinimizeStartup">Minimize when starting from startup</sys:String>
@@ -50,12 +79,8 @@
     <sys:String x:Key="R_DisabledMinimizeCtrlClick">Minimization is suppressed when the launch button is pressed while the Ctrl key is held down</sys:String>
     <sys:String x:Key="R_Settings_Confirm">Confirm</sys:String>
     <sys:String x:Key="R_ConfirmClose">Confirm when exiting menu(_C)</sys:String>
-
-    <sys:String x:Key="R_ShowDescription">Show description(_D)</sys:String>
-
-    <sys:String x:Key="R_Error">Error</sys:String>
-    <sys:String x:Key="R_Info">Information</sys:String>
-    <sys:String x:Key="R_Confirm">Confirm</sys:String>
+    <sys:String x:Key="R_Settings_ContextMenu">Context menu</sys:String>
+    <sys:String x:Key="R_ShowOpenAndExitMenuItem">Show &quot;Open the program location and then exit the program&quot; menu</sys:String>
 
     <!--  Messages  -->
     <sys:String x:Key="MsgErrUnsupportedOS">Unsupported Operating System.</sys:String>
@@ -64,7 +89,6 @@
     <sys:String x:Key="MsgErrSaveSettings">Failed to save application settings.</sys:String>
     <sys:String x:Key="MsgErrSettingsColumn">Invalid number of columns.</sys:String>
     <sys:String x:Key="MsgErrColorName">Invalid color name.</sys:String>
-    <sys:String x:Key="MsgErrNoDefinition">No definition.</sys:String>
     <sys:String x:Key="MsgErrAdminInstallPath">Do not install in locations that require administrative privileges.</sys:String>
 
     <sys:String x:Key="MsgInfoRegStartupShortcut">I created a shortcut for startup.</sys:String>
@@ -72,5 +96,10 @@
 
     <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">Would you like to create a recommended destination folder?</sys:String>
     <sys:String x:Key="MsgConfirmCloseMenu">Do you want to exit the menu?</sys:String>
+    <sys:String x:Key="MsgConfirmDefSave">Definition information has been edited. Do you want to save it?</sys:String>
+
+    <sys:String x:Key="R_Error">Error</sys:String>
+    <sys:String x:Key="R_Info">Information</sys:String>
+    <sys:String x:Key="R_Confirm">Confirm</sys:String>
 
 </ResourceDictionary>
