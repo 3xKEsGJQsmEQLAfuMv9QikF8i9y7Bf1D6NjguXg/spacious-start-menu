@@ -12,7 +12,7 @@
                 <ControlTemplate TargetType="ContextMenu">
                     <Border
                         x:Name="Border"
-                        Background="#262626"
+                        Background="#EE262626"
                         BorderBrush="#333333"
                         BorderThickness="1">
                         <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
@@ -59,7 +59,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
     </Style>
 
     <Style x:Key="{x:Static MenuItem.SeparatorStyleKey}" TargetType="Separator">

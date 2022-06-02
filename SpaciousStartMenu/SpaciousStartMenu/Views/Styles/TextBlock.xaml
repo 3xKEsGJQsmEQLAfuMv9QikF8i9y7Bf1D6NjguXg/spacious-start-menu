@@ -3,7 +3,7 @@
     <Style x:Key="GroupTitleStyle" TargetType="TextBlock">
         <Setter Property="Margin" Value="5,15,5,0" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Foreground" Value="LightCyan" />
+        <Setter Property="Foreground" Value="#D6FFFF" />
     </Style>
 
     <Style x:Key="IconTextStyle" TargetType="TextBlock">

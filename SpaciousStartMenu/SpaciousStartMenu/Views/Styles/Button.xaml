@@ -159,6 +159,15 @@
     </Style>
 
     <Style
+        x:Key="IconButtonStyle"
+        BasedOn="{StaticResource StandardButtonStyle}"
+        TargetType="Button">
+        <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+        <Setter Property="Padding" Value="10,0" />
+        <Setter Property="MinWidth" Value="0" />
+    </Style>
+
+    <Style
         x:Key="SettingsButtonStyle"
         BasedOn="{StaticResource StandardButtonStyle}"
         TargetType="Button">
