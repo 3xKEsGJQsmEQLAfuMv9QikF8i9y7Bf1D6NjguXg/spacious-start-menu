@@ -16,9 +16,11 @@
                 <ResourceDictionary Source="/Views/Styles/CheckBox.xaml" />
                 <ResourceDictionary Source="/Views/Styles/Grid.xaml" />
                 <ResourceDictionary Source="/Views/Styles/Label.xaml" />
+                <ResourceDictionary Source="/Views/Styles/ListView.xaml" />
                 <ResourceDictionary Source="/Views/Styles/Menu.xaml" />
                 <ResourceDictionary Source="/Views/Styles/ScrollBar.xaml" />
                 <ResourceDictionary Source="/Views/Styles/TextBlock.xaml" />
+                <ResourceDictionary Source="/Views/Styles/TextBox.xaml" />
                 <ResourceDictionary Source="/Views/Styles/Window.xaml" />
 
             </ResourceDictionary.MergedDictionaries>

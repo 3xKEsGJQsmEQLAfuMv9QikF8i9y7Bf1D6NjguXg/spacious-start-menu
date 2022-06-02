@@ -18,7 +18,7 @@ namespace SpaciousStartMenu
         public const string AppSettingsFileName = "settings.json";
         public const string LaunchDefFileName = "menuItems.def";
 
-        private const string DefaultLanguage = "en-US";
+        private const string _defaultLanguage = "en-US";
 
         // Multiple launch prohibition only for programs in the same location.
         private static readonly Mutex _mutex = new(false, $"{GetAppPath().Replace('\\', '_')}_SpaciousStartMenu");
@@ -39,7 +39,7 @@ namespace SpaciousStartMenu
             string lang = CultureInfo.CurrentUICulture.Name switch
             {
                 "ja-JP" => CultureInfo.CurrentUICulture.Name,
-                _ => DefaultLanguage,
+                _ => _defaultLanguage,
             };
             rd.Source = new Uri($"/SpaciousStartMenu;component/Resources/{lang}.xaml", UriKind.Relative);
             Resources.MergedDictionaries[0] = rd;
@@ -120,7 +120,7 @@ namespace SpaciousStartMenu
         {
             if (Environment.OSVersion.Version.Major < 10)
             {
-                Msg.Error(App.R("MsgErrUnsupportedOS"));
+                MsgBox.Error(null, App.R("MsgErrUnsupportedOS"));
                 Abend = true;
                 Shutdown();
                 return;
@@ -128,9 +128,9 @@ namespace SpaciousStartMenu
 
             if (!ValidateInstallPath())
             {
-                Msg.Error(App.R("MsgErrAdminInstallPath"));
+                MsgBox.Error(null, App.R("MsgErrAdminInstallPath"));
 
-                if (Msg.Confirm(App.R("MsgConfirmCreateRecommendInstallFolder")) == MessageBoxResult.Yes)
+                if (MsgBox.Confirm(null, App.R("MsgConfirmCreateRecommendInstallFolder")) == MessageBoxResult.Yes)
                 {
                     string path = GetReccomendInstallPath();
                     Directory.CreateDirectory(path);
