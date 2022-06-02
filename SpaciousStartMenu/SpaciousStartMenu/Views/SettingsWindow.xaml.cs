@@ -26,6 +26,8 @@ namespace SpaciousStartMenu.Views
             CtrlClickDisabledMin.IsChecked = _settings.DisabledMinimizeCtrlClick;
 
             ConfirmClose.IsChecked = _settings.ConfirmCloseMenu;
+
+            ShowOpenAndExitMenuItem.IsChecked = _settings.ShowOpenAndExitMenuItem;
         }
 
         private void Window_StateChanged(object sender, EventArgs e)
@@ -46,6 +48,8 @@ namespace SpaciousStartMenu.Views
 
             _settings.ConfirmCloseMenu = ConfirmClose.IsChecked == true;
 
+            _settings.ShowOpenAndExitMenuItem = ShowOpenAndExitMenuItem.IsChecked == true;
+
             Close();
         }
 
@@ -63,14 +67,14 @@ namespace SpaciousStartMenu.Views
                     RemoveStartupShortcut();
                 }
                 CreateStartupShortcut();
-                Msg.Info(App.R("MsgInfoRegStartupShortcut"));
+                this.Info(App.R("MsgInfoRegStartupShortcut"));
 
                 RegShortcut.IsEnabled = false;
                 RemoveShortcut.IsEnabled = true;
             }
             catch (Exception ex)
             {
-                Msg.Error(ex.ToString());
+                this.Error(ex.ToString());
             }
         }
 
@@ -86,14 +90,14 @@ namespace SpaciousStartMenu.Views
                 if (Shortcut.ExistsStartupShortcut(App.R("R_AppLinkName")))
                 {
                     RemoveStartupShortcut();
-                    Msg.Info(App.R("MsgInfoRemoveStartupShortcut"));
+                    this.Info(App.R("MsgInfoRemoveStartupShortcut"));
                 }
                 RegShortcut.IsEnabled = true;
                 RemoveShortcut.IsEnabled = false;
             }
             catch (Exception ex)
             {
-                Msg.Error(ex.ToString());
+                this.Error(ex.ToString());
             }
         }
 

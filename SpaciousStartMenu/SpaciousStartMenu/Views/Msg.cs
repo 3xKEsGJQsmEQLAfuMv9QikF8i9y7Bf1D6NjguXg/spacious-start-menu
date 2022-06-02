@@ -2,17 +2,18 @@
 
 namespace SpaciousStartMenu.Views
 {
-    internal class Msg
+    internal static class MsgExtensions
     {
-        public static void Error(string msg) =>
-            MessageBox.Show(msg, App.R("R_Error"), MessageBoxButton.OK, MessageBoxImage.Error);
+        public static void Error(this Window owner, string msg) =>
+            MsgBox.Error(owner, msg);
 
-        public static void Info(string msg) =>
-            MessageBox.Show(msg, App.R("R_Info"), MessageBoxButton.OK, MessageBoxImage.Information);
+        public static void Info(this Window owner, string msg) =>
+            MsgBox.Info(owner, msg);
 
-        public static MessageBoxResult Confirm(string msg) =>
-            MessageBox.Show(
-                msg, App.R("R_Confirm"), MessageBoxButton.YesNo, MessageBoxImage.Question);
+        public static MessageBoxResult Confirm(this Window owner, string msg) =>
+            MsgBox.Confirm(owner, msg);
 
+        public static MessageBoxResult Confirm3Buttons(this Window owner, string msg) =>
+            MsgBox.Confirm3Buttons(owner, msg);
     }
 }

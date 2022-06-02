@@ -6,10 +6,10 @@
     xmlns:local="clr-namespace:SpaciousStartMenu.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="{StaticResource R_SettingsTitle}"
-    Width="800"
-    Height="500"
+    Width="850"
+    Height="600"
     MaxWidth="1200"
-    MaxHeight="800"
+    MaxHeight="850"
     Loaded="Window_Loaded"
     StateChanged="Window_StateChanged"
     Style="{StaticResource ToolWindowStyle}"
@@ -49,6 +49,9 @@
 
             <TextBlock Style="{StaticResource SettingsTitleStyle}" Text="{StaticResource R_Settings_Confirm}" />
             <CheckBox x:Name="ConfirmClose" Content="{StaticResource R_ConfirmClose}" />
+
+            <TextBlock Style="{StaticResource SettingsTitleStyle}" Text="{StaticResource R_Settings_ContextMenu}" />
+            <CheckBox x:Name="ShowOpenAndExitMenuItem" Content="{StaticResource R_ShowOpenAndExitMenuItem}" />
         </StackPanel>
 
         <StackPanel

@@ -1,4 +1,5 @@
-﻿using SpaciousStartMenu.Settings;
+﻿using SpaciousStartMenu.DataTypes;
+using SpaciousStartMenu.Settings;
 using SpaciousStartMenu.Shell;
 using System;
 using System.IO;
@@ -19,6 +20,8 @@ namespace SpaciousStartMenu.Views
         private PinWindow? _pinWindow = null;
         private AppSettings _settings = new();
         private readonly Style _groupTitleStyle = (Style)(Application.Current.FindResource("GroupTitleStyle"));
+        private static readonly FontFamily _segoeMdl2Font = new("Segoe MDL2 Assets");
+        private const string _colorMark = "\uE91F";
 
         public MainWindow()
         {
@@ -61,7 +64,7 @@ namespace SpaciousStartMenu.Views
             {
                 if (_settings.ConfirmCloseMenu)
                 {
-                    if (Msg.Confirm(App.R("MsgConfirmCloseMenu")) != MessageBoxResult.Yes)
+                    if (this.Confirm(App.R("MsgConfirmCloseMenu")) != MessageBoxResult.Yes)
                     {
                         e.Cancel = true;
                         return;
@@ -73,7 +76,7 @@ namespace SpaciousStartMenu.Views
             }
             catch (Exception ex)
             {
-                Msg.Error($"{App.R("MsgErrSaveSettings")}\n{ex}");
+                this.Error($"{App.R("MsgErrSaveSettings")}\n{ex}");
             }
         }
 
@@ -123,34 +126,56 @@ namespace SpaciousStartMenu.Views
 
         private void PinMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            if (_pinWindow is null ||
-                !_pinWindow.IsVisible)
+            try
             {
-                _pinWindow = new PinWindow(this, () => LoadLauncherDef(App.GetLaunchDefFilePath()));
-                _pinWindow.Show();
+                if (_pinWindow is null ||
+                    !_pinWindow.IsVisible)
+                {
+                    _pinWindow = new PinWindow(this, () => LoadLauncherDef(App.GetLaunchDefFilePath()));
+                    _pinWindow.Show();
+                }
+                else
+                {
+                    _pinWindow.Activate();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                _pinWindow.Activate();
+                this.Error(ex.ToString());
             }
         }
 
         private void ScaleItem_Click(object sender, RoutedEventArgs e)
         {
-            string? scaleStr = (sender as RadioButton)?.Content?.ToString();
-            if (!double.TryParse(scaleStr, out double scale))
+            try
             {
-                scale = 1.0;
-                DefaultScaleItem.IsChecked = true;
+                string? scaleStr = (sender as RadioButton)?.Content?.ToString();
+                if (!double.TryParse(scaleStr, out double scale))
+                {
+                    scale = 1.0;
+                    DefaultScaleItem.IsChecked = true;
+                }
+                SetContainerScale(scale);
+                WindowContextMenu.IsOpen = false;
             }
-            SetContainerScale(scale);
-            WindowContextMenu.IsOpen = false;
+            catch (Exception ex)
+            {
+                this.Error(ex.ToString());
+            }
         }
 
         private void MenuSettings_Click(object sender, RoutedEventArgs e)
         {
-            var window = new SettingsWindow(_settings);
-            window.ShowDialog();
+            try
+            {
+                var window = new SettingsWindow(_settings);
+                window.ShowDialog();
+                SetScreenFromSettings(_settings);
+            }
+            catch (Exception ex)
+            {
+                this.Error(ex.ToString());
+            }
         }
 
         private void MenuFolderOpen_Click(object sender, RoutedEventArgs e)
@@ -163,8 +188,14 @@ namespace SpaciousStartMenu.Views
             }
             catch (Exception ex)
             {
-                Msg.Error(ex.ToString());
+                this.Error(ex.ToString());
             }
+        }
+
+        private void MenuFolderOpenAndExit_Click(object sender, RoutedEventArgs e)
+        {
+            MenuFolderOpen_Click(sender, e);
+            Close();
         }
 
         private void SetContainerScale(double scaleXY)
@@ -193,10 +224,11 @@ namespace SpaciousStartMenu.Views
         {
             var asr = new AppSettingsReader();
             _settings = asr.ReadFromFile();
-            SetScreen(_settings);
+            SetScreenFromMain(_settings);
+            SetScreenFromSettings(_settings);
         }
 
-        private void SetScreen(AppSettings appStg)
+        private void SetScreenFromMain(AppSettings appStg)
         {
             DefaultScaleItem.IsChecked = true;
             foreach (var child in LogicalTreeHelper.GetChildren(ScaleMenu))
@@ -210,6 +242,15 @@ namespace SpaciousStartMenu.Views
                     break;
                 }
             }
+
+        }
+
+        private void SetScreenFromSettings(AppSettings appStg)
+        {
+            MenuItemFolderOpenAndExit.Visibility =
+                appStg.ShowOpenAndExitMenuItem
+                ? Visibility.Visible
+                : Visibility.Collapsed;
         }
 
         private void SaveAppSettings()
@@ -283,7 +324,7 @@ namespace SpaciousStartMenu.Views
                 {
                     MakeGroup(ref btnContainer, ref _groupCount, _btnDef.GetGroupTitle(columns));
                 }
-                else if (columns.Length == LauncherDefinition.Columns.Count)
+                else if (columns.Length == LauncherDefinition.MaxColumns)
                 {
                     MakeButton(columns, ref btnContainer, ref _buttonCount, ref _groupCount);
                 }
@@ -294,11 +335,6 @@ namespace SpaciousStartMenu.Views
                 }
             }
 
-            if (_buttonCount == 0 &&
-                _groupCount == 0)
-            {
-                throw new Exception(App.R("MsgErrNoDefinition"));
-            }
         }
 
         private void MakeButton(string[] columns, ref WrapPanel? btnContainer, ref int buttonCount, ref int groupCount)
@@ -309,9 +345,9 @@ namespace SpaciousStartMenu.Views
             }
 
             Button btn = CreateLaunchButton(
-                columns[LauncherDefinition.Columns["Color"]],
-                columns[LauncherDefinition.Columns["ButtonTitle"]],
-                columns[LauncherDefinition.Columns["Path"]]);
+                columns[LauncherDefinition.ColorOrGroupTitleColumnIndex],
+                columns[LauncherDefinition.TitleColumnIndex],
+                columns[LauncherDefinition.PathColumnIndex]);
             btnContainer?.Children.Add(btn);
 
             buttonCount++;
@@ -365,14 +401,15 @@ namespace SpaciousStartMenu.Views
             
             var txtMark = new TextBlock
             {
-                Text = "●",
-                Margin = new Thickness(0, 0, 2, 0)
+                FontFamily = _segoeMdl2Font,
+                Text = _colorMark,
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(0, 0, 4, 0)
             };
 
             try
             {
-                var bcnv = new BrushConverter();
-                txtMark.Foreground = (Brush)bcnv.ConvertFromString(colorName)!;
+                txtMark.Foreground = MarkColor.GetBrushFromColorName(colorName);
             }
             catch
             {
@@ -419,7 +456,7 @@ namespace SpaciousStartMenu.Views
             }
             catch
             {
-                Msg.Error($"{App.R("MsgErrStartup")}\n{cmd}");
+                this.Error($"{App.R("MsgErrStartup")}\n{cmd}");
                 return false;
             }
         }
@@ -441,5 +478,6 @@ namespace SpaciousStartMenu.Views
                 return;
             }
         }
+
     }
 }

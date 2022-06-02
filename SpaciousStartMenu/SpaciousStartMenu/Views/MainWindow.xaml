@@ -48,7 +48,7 @@
                 <TextBlock
                     Margin="0"
                     VerticalAlignment="Center"
-                    Text="{StaticResource R_Scale}" />
+                    Text="{StaticResource R_Menu_Scale}" />
 
                 <RadioButton Content="0.8" />
                 <RadioButton
@@ -77,6 +77,18 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE838;" />
                         <Label Content="{StaticResource R_Menu_OpenExePath}" Style="{StaticResource MenuItemLabelStyle}" />
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+
+            <MenuItem
+                x:Name="MenuItemFolderOpenAndExit"
+                Click="MenuFolderOpenAndExit_Click"
+                Visibility="Collapsed">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE838;" />
+                        <Label Content="{StaticResource R_Menu_OpenExePathAndExit}" Style="{StaticResource MenuItemLabelStyle}" />
                     </StackPanel>
                 </MenuItem.Header>
             </MenuItem>
