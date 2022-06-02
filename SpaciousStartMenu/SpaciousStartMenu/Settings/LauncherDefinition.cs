@@ -6,7 +6,10 @@ namespace SpaciousStartMenu.Settings
     {
         public const char Delimiter = '\t';
         public const string GroupTitleHeader = "//";
-        public const int GroupTitleColumnIndex = 0;
+        public const int ColorOrGroupTitleColumnIndex = 0;
+        public const int TitleColumnIndex = 1;
+        public const int PathColumnIndex = 2;
+        public const int MaxColumns = 3;
 
         private const string _defaultDataFormat = @"//{0}
 CadetBlue	{1}	shell:Downloads
@@ -27,6 +30,7 @@ Gold	Start/Program/Startup	shell:Startup
 Gold	SendTo	shell:SendTo
 Gold	Screenshots	shell:My Pictures\Screenshots
 Gold	drivers/etc	shell:System\drivers\etc
+
 //{7}
 Gray	{8}	calc.exe
 LightSkyBlue	{9}	notepad.exe
@@ -36,6 +40,7 @@ DodgerBlue	Windows PowerShell	PowerShell.exe
 Navy	PowerShell	pwsh.exe
 DimGray	Windows Terminal	wt.exe
 White	Microsoft Store	shell:AppsFolder\Microsoft.WindowsStore_8wekyb3d8bbwe!App
+
 //{11}
 SkyBlue	{12}	shell:ControlPanelFolder
 Gray	System Properties	SystemPropertiesAdvanced.exe
@@ -70,21 +75,14 @@ Gray	Windows Update	ms-settings:windowsupdate
                 App.R("R_ControlPanel"));
         }
 
-        public static IReadOnlyDictionary<string, int> Columns = new Dictionary<string, int>
-        {
-            {"Color", 0},
-            {"ButtonTitle", 1},
-            {"Path", 2},
-        };
-
         public bool IsGroupTitle(string[] values)
         {
-            return values[GroupTitleColumnIndex].StartsWith(GroupTitleHeader);
+            return values[ColorOrGroupTitleColumnIndex].StartsWith(GroupTitleHeader);
         }
 
         public string GetGroupTitle(string[] values)
         {
-            return values[GroupTitleColumnIndex][GroupTitleHeader.Length..];
+            return values[ColorOrGroupTitleColumnIndex][GroupTitleHeader.Length..];
         }
     }
 }
