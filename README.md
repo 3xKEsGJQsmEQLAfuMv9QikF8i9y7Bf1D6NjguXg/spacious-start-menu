@@ -2,12 +2,12 @@
 
 A launcher that can use the entire screen area.
 
-![image00](https://user-images.githubusercontent.com/99333667/169648178-7e2a724c-ecaf-4700-a962-3b890b2fe21d.png)
+![image00](https://user-images.githubusercontent.com/99333667/171615512-c89fbc54-c051-4acf-b616-f76338a8a635.png)
 
-# Environment
+# Requirements
 
-- Windows 10 or later
-- .NET 6
+- Windows 10 or lator
+- .NET 6 Desktop Runtime
 
 # Install
 
@@ -25,20 +25,47 @@ Extract the zip and place it in any location that does not require administrativ
 
 Launch `SpaciousStartMenu.exe`.
 
-Right-click on the screen and select `Pin to Menu` to add a definition.
+Right-click on the screen and select `Edit Pinning` to add a definition.
 
 Launch defined applications, folders, etc. at the click of a button.
 
-## Context menu
+## Main screen context menu
 
 | Menu item             | Description                                          |
 | --------------------- | ---------------------------------------------------- |
-| Pin to Menu           | Displays the edit screen of the item to be launched. |
+| Edit Pinning           | Displays the edit screen of the item to be launched. |
 | Scale                 | Changes the display magnification of an item.        |
 | Settings              | Displays the settings screen.                        |
 | Open Program Location | Open the folder where this program is located.       |
+| Open the program location and then exit the program | Open the folder where this program is located and exit the program. This menu item can be displayed in the settings.       |
+
+## Pinned definition list screen
+
+This is the screen displayed by `Edit Pinning`.
+
+Double-click the list, click the Edit button on the far right, or click the `Add row` button to open the editing window.
+
+Deletion of a checked line is confirmed when the `Save` button is pressed.
+
+![image20](https://user-images.githubusercontent.com/99333667/171615972-7b647655-0b01-42b2-ace3-cd85a3a0813e.png)
+
+## Pinning Edit Screen
+
+Edit screen.
+
+The `Path` field allows you to enter files and folders by drag & drop.
+
+When `Heading` is selected, only `Title` can be entered.
+
+![image21](https://user-images.githubusercontent.com/99333667/171616112-08fa2c48-a75f-43e3-bb29-b92dd346cea7.png)
+
+Color selection menu.
+
+![image22](https://user-images.githubusercontent.com/99333667/171616144-531c6a2d-f831-4e0c-a3a5-5fb8402ec814.png)
 
 ## Settings screen
+
+![image23](https://user-images.githubusercontent.com/99333667/171616189-3366389f-e645-4324-9927-26d21c7b2bc7.png)
 
 - Setup
   - Register to startup
@@ -50,6 +77,8 @@ Launch defined applications, folders, etc. at the click of a button.
   - Minimization is suppressed when the launch button is pressed while the Ctrl key is held down
 - Confirm
   - Confirm when exiting menu
+- Context menu
+  - Show `Open the program location and then exit the program` menu
 
 # Recommended initial settings
 
