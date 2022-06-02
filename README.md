@@ -1,3 +1,16 @@
+- [Spacious Start Menu](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#spacious-start-menu)
+- [Requirements](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#requirements)
+- [Install](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#install)
+- [Usage](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#usage)
+  - [Main screen context menu](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#main-screen-context-menu)
+  - [Pinned definition list screen](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#pinned-definition-list-screen)
+  - [Pinning edit screen](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#pinning-edit-screen)
+  - [Settings screen](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#settings-screen)
+- [Recommended initial settings](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#recommended-initial-settings)
+- [Reference](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#reference)
+
+---
+
 # Spacious Start Menu
 
 A launcher that can use the entire screen area.
@@ -49,13 +62,13 @@ Deletion of a checked line is confirmed when the `Save` button is pressed.
 
 ![image20](https://user-images.githubusercontent.com/99333667/171615972-7b647655-0b01-42b2-ace3-cd85a3a0813e.png)
 
-## Pinning Edit Screen
+## Pinning edit screen
 
 Edit screen.
 
 The `Path` field allows you to enter files and folders by drag & drop.
 
-When `Heading` is selected, only `Title` can be entered.
+When `Headline` is selected, only `Title` can be entered.
 
 ![image21](https://user-images.githubusercontent.com/99333667/171616112-08fa2c48-a75f-43e3-bb29-b92dd346cea7.png)
 
