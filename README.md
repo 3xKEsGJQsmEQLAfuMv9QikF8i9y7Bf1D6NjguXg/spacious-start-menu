@@ -54,11 +54,11 @@ Launch defined applications, folders, etc. at the click of a button.
 
 ## Pinned definition list screen
 
-This is the screen displayed by `Edit Pinning`.
+This is the list screen displayed by `Edit Pinning`.
 
 Double-click the list, click the Edit button on the far right, or click the `Add row` button to open the editing window.
 
-Deletion of a checked line is confirmed when the `Save` button is pressed.
+If a line is checked for deletion, the deletion will be executed when the "Save" button is clicked.
 
 ![image20](https://user-images.githubusercontent.com/99333667/171615972-7b647655-0b01-42b2-ace3-cd85a3a0813e.png)
 
@@ -70,7 +70,7 @@ The `Path` field allows you to enter files and folders by drag & drop.
 
 When `Headline` is selected, only `Title` can be entered.
 
-![image21](https://user-images.githubusercontent.com/99333667/171616112-08fa2c48-a75f-43e3-bb29-b92dd346cea7.png)
+![image21](https://user-images.githubusercontent.com/99333667/171844166-30e38220-a22c-4cfc-bc2b-b0bb519af0d5.png)
 
 Color selection menu.
 
