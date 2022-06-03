@@ -3,9 +3,16 @@
     <Style x:Key="StandardTextBoxStyle" TargetType="TextBox">
         <Setter Property="Margin" Value="10" />
         <Setter Property="Padding" Value="3" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="#AA474747" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="BorderBrush" Value="#333333" />
+
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="4" />
+            </Style>
+        </Style.Resources>
     </Style>
 
     <Style BasedOn="{StaticResource StandardTextBoxStyle}" TargetType="TextBox" />
