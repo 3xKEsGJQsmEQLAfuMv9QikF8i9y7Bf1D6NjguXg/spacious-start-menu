@@ -10,7 +10,9 @@
     Height="600"
     MaxWidth="1200"
     MaxHeight="850"
+    Closing="Window_Closing"
     Loaded="Window_Loaded"
+    SourceInitialized="Window_SourceInitialized"
     StateChanged="Window_StateChanged"
     Style="{StaticResource ToolWindowStyle}"
     mc:Ignorable="d">

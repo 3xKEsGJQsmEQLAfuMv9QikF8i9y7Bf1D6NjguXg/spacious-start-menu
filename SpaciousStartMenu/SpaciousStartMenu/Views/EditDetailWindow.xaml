@@ -10,9 +10,11 @@
     Width="800"
     Height="380"
     MaxHeight="600"
+    Closing="Window_Closing"
     FocusManager.FocusedElement="{Binding ElementName=HeadlineCheck}"
     KeyDown="Window_KeyDown"
     Loaded="Window_Loaded"
+    SourceInitialized="Window_SourceInitialized"
     StateChanged="Window_StateChanged"
     Style="{StaticResource ToolWindowStyle}"
     Topmost="True"
@@ -101,6 +103,7 @@
                     Background="#4F4F4F"
                     BorderBrush="#333333"
                     BorderThickness="1"
+                    CornerRadius="4"
                     MouseLeftButtonUp="ColorBorder_MouseLeftButtonUp"
                     Opacity="{Binding ElementName=HeadlineCheck, Path=IsChecked, Mode=OneWay, Converter={StaticResource BoolToDoubleConv}, ConverterParameter=0.2}">
                     <StackPanel Orientation="Horizontal">

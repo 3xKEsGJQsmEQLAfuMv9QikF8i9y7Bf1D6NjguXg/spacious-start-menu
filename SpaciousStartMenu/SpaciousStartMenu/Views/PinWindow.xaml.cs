@@ -23,6 +23,9 @@ namespace SpaciousStartMenu.Views
         private bool _isEditing = false;
         private bool _isEdited = false;
         private ObservableCollection<LaunchDefItem>? _defItems;
+        private static double _previousWidth = 0.0;
+        private static double _previousHeight = 0.0;
+        private static bool _isMaximize = false;
 
         public PinWindow(Window parentWindow, Action postSaveAction)
         {
@@ -57,6 +60,26 @@ namespace SpaciousStartMenu.Views
             cv.SortDescriptions.Add(new SortDescription("Order", ListSortDirection.Ascending));
         }
 
+        private void Window_SourceInitialized(object sender, EventArgs e)
+        {
+            RestoreTemporaryWindowSize();
+        }
+
+        private void RestoreTemporaryWindowSize()
+        {
+            if (_previousHeight != 0.0 &&
+                _previousWidth != 0.0)
+            {
+                Height = _previousHeight;
+                Width = _previousWidth;
+            }
+
+            if (_isMaximize)
+            {
+                WindowState = WindowState.Maximized;
+            }
+        }
+
         private async void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (_isEdited)
@@ -74,6 +97,14 @@ namespace SpaciousStartMenu.Views
                 }
             }
             _parentWindow.WindowState = WindowState.Maximized;
+            SaveTemporaryWindowSize();
+        }
+
+        private void SaveTemporaryWindowSize()
+        {
+            _previousWidth = Width;
+            _previousHeight = Height;
+            _isMaximize = WindowState == WindowState.Maximized;
         }
 
         private void Window_StateChanged(object sender, EventArgs e)

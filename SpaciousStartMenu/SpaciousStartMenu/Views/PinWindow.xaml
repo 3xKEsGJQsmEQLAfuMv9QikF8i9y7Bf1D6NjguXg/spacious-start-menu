@@ -11,6 +11,7 @@
     Height="650"
     Closing="Window_Closing"
     FocusManager.FocusedElement="{Binding ElementName=DefList}"
+    SourceInitialized="Window_SourceInitialized"
     StateChanged="Window_StateChanged"
     Style="{StaticResource ToolWindowStyle}"
     Topmost="True"

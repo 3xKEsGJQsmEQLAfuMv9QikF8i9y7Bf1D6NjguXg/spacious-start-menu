@@ -15,6 +15,8 @@ namespace SpaciousStartMenu.Views
         private readonly Window[] _parentWindows;
         private readonly List<MarkColor> _colors;
         private readonly LaunchDefItem _item;
+        private static double _previousWidth = 0.0;
+        private static double _previousHeight = 0.0;
 
         public EditDetailWindow(Window[] parentWindows, List<MarkColor> colors, LaunchDefItem item)
         {
@@ -26,10 +28,36 @@ namespace SpaciousStartMenu.Views
             ColorList.ItemsSource = _colors;
         }
 
+        private void Window_SourceInitialized(object sender, EventArgs e)
+        {
+            RestoreTemporaryWindowSize();
+        }
+
+        private void RestoreTemporaryWindowSize()
+        {
+            if (_previousHeight != 0.0 &&
+                _previousWidth != 0.0)
+            {
+                Height = _previousHeight;
+                Width = _previousWidth;
+            }
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ItemToScreen(_item);
             UpdateOkButtonEnabled();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            SaveTemporaryWindowSize();
+        }
+
+        private void SaveTemporaryWindowSize()
+        {
+            _previousWidth = Width;
+            _previousHeight = Height;
         }
 
         private void ItemToScreen(LaunchDefItem item)
@@ -203,5 +231,6 @@ namespace SpaciousStartMenu.Views
 
             txt.SelectAll();
         }
+
     }
 }

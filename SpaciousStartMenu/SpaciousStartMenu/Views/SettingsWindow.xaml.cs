@@ -8,11 +8,28 @@ namespace SpaciousStartMenu.Views
     public partial class SettingsWindow : Window
     {
         private readonly AppSettings _settings;
+        private static double _previousWidth = 0.0;
+        private static double _previousHeight = 0.0;
 
         public SettingsWindow(AppSettings settings)
         {
             InitializeComponent();
             _settings = settings;
+        }
+
+        private void Window_SourceInitialized(object sender, EventArgs e)
+        {
+            RestoreTemporaryWindowSize();
+        }
+
+        private void RestoreTemporaryWindowSize()
+        {
+            if (_previousHeight != 0.0 &&
+                _previousWidth != 0.0)
+            {
+                Height = _previousHeight;
+                Width = _previousWidth;
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -28,6 +45,17 @@ namespace SpaciousStartMenu.Views
             ConfirmClose.IsChecked = _settings.ConfirmCloseMenu;
 
             ShowOpenAndExitMenuItem.IsChecked = _settings.ShowOpenAndExitMenuItem;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            SaveTemporaryWindowSize();
+        }
+
+        private void SaveTemporaryWindowSize()
+        {
+            _previousWidth = Width;
+            _previousHeight = Height;
         }
 
         private void Window_StateChanged(object sender, EventArgs e)
