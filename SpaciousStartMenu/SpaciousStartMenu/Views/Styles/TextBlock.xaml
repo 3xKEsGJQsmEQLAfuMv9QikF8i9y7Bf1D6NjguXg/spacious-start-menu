@@ -16,7 +16,6 @@
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Background" Value="#30808080" />
         <Setter Property="Foreground" Value="White" />
     </Style>
 

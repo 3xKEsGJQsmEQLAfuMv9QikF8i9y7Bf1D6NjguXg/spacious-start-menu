@@ -6,7 +6,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="#AA474747" />
         <Setter Property="Foreground" Value="White" />
-        <Setter Property="BorderBrush" Value="#333333" />
+        <!--<Setter Property="BorderBrush" Value="#333333" />-->
 
         <Style.Resources>
             <Style TargetType="Border">
@@ -18,7 +18,7 @@
     <Style BasedOn="{StaticResource StandardTextBoxStyle}" TargetType="TextBox" />
 
     <Style
-        x:Key="EditItemTextBoxStyle"
+        x:Key="EditItemStyle"
         BasedOn="{StaticResource StandardTextBoxStyle}"
         TargetType="TextBox">
         <Setter Property="Margin" Value="10,0,10,10" />
