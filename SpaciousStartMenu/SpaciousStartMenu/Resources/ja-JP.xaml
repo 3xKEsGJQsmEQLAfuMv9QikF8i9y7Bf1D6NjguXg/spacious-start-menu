@@ -29,11 +29,11 @@
     <sys:String x:Key="R_Run">ファイル名を指定して実行</sys:String>
 
     <!--  タイトルボタンのツールチップ  -->
-    <sys:String x:Key="R_ToolTip_MinimizedButton">最小化 (Esc)</sys:String>
+    <sys:String x:Key="R_ToolTip_MinimizedButton">最小化</sys:String>
     <sys:String x:Key="R_ToolTip_CloseButton">閉じる</sys:String>
 
     <!--  コンテキストメニュー  -->
-    <sys:String x:Key="R_Menu_Pinning">ピン留め編集(_P)...</sys:String>
+    <sys:String x:Key="R_Menu_Pinning">ピン留めの編集(_P)...</sys:String>
     <sys:String x:Key="R_Menu_Scale">表示倍率</sys:String>
     <sys:String x:Key="R_Menu_Settings">設定(_S)...</sys:String>
     <sys:String x:Key="R_Menu_OpenExePath">プログラムの場所を開く(_O)</sys:String>
@@ -50,29 +50,31 @@
     <sys:String x:Key="R_YesButton">はい(_Y)</sys:String>
     <sys:String x:Key="R_NoButton">いいえ(_N)</sys:String>
 
-    <sys:String x:Key="R_List_Color">色</sys:String>
-    <sys:String x:Key="R_List_Title">タイトル</sys:String>
-    <sys:String x:Key="R_List_Path">パス</sys:String>
-
     <!--  ボタンのツールチップ  -->
     <sys:String x:Key="R_ToolTip_Edit">編集</sys:String>
     <sys:String x:Key="R_ToolTip_Delete">削除</sys:String>
-    <sys:String x:Key="R_ToolTip_UpButton">選択行を上に移動します。</sys:String>
-    <sys:String x:Key="R_ToolTip_DownButton">選択行を下に移動します。</sys:String>
+    <sys:String x:Key="R_ToolTip_DirectEditButton">定義ファイルを直接編集します。</sys:String>
+    <sys:String x:Key="R_ToolTip_UpButton">選択行を上に移動します。 (Alt + Up)</sys:String>
+    <sys:String x:Key="R_ToolTip_DownButton">選択行を下に移動します。 (Alt + Down)</sys:String>
     <sys:String x:Key="R_ToolTip_SaveButton">設定を保存して画面を閉じます。</sys:String>
+
+    <sys:String x:Key="R_Description_EditPath">ファイルやフォルダーをここにドラッグ&amp;ドロップできます。</sys:String>
+
+    <!--  ピン留め画面  -->
+    <sys:String x:Key="R_List_Color">色</sys:String>
+    <sys:String x:Key="R_List_Title">タイトル</sys:String>
+    <sys:String x:Key="R_List_Path">パス</sys:String>
 
     <sys:String x:Key="R_Edit_Headline">見出し(_H)</sys:String>
     <sys:String x:Key="R_Edit_Color">色(_C)</sys:String>
     <sys:String x:Key="R_Edit_Title">タイトル(_T)</sys:String>
     <sys:String x:Key="R_Edit_Path">パス(_P)</sys:String>
 
-    <sys:String x:Key="R_ToolTip_EditPath">エクスプローラーからここにオブジェクトをドラッグ&amp;ドロップできます。</sys:String>
-
     <!--  設定画面  -->
     <sys:String x:Key="R_Settings_Setup">セットアップ</sys:String>
     <sys:String x:Key="R_RegStartupShortcut">スタートアップに登録(_S)</sys:String>
-    <sys:String x:Key="R_MinimizeStartup">スタートアップから起動時は最小化</sys:String>
     <sys:String x:Key="R_RemoveStartupShortcut">スタートアップから削除</sys:String>
+    <sys:String x:Key="R_MinimizeStartup">スタートアップから起動時は最小化</sys:String>
     <sys:String x:Key="R_Settings_Minimize">最小化</sys:String>
     <sys:String x:Key="R_EscKeyMinimized">Escキーで最小化(_E)</sys:String>
     <sys:String x:Key="R_MarginDblClickMinimized">メニューの余白ダブルクリックで最小化(_M)</sys:String>
@@ -81,6 +83,8 @@
     <sys:String x:Key="R_ConfirmClose">メニュー終了時に確認(_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">コンテキスト メニュー</sys:String>
     <sys:String x:Key="R_ShowOpenAndExitMenuItem">「プログラムの場所を開いて終了」メニューを表示</sys:String>
+    <sys:String x:Key="R_Settings_Advanced">高度なオプション</sys:String>
+    <sys:String x:Key="R_ShowDirectEditDefineButton">「ピン留め定義一覧」画面に定義ファイル直接編集ボタンを表示</sys:String>
 
     <!--  メッセージ  -->
     <sys:String x:Key="MsgErrUnsupportedOS">未サポートのOSです。</sys:String>
@@ -97,6 +101,7 @@
     <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">お勧めのインストール先フォルダーを作成しますか?</sys:String>
     <sys:String x:Key="MsgConfirmCloseMenu">メニューを終了しますか?</sys:String>
     <sys:String x:Key="MsgConfirmDefSave">定義情報は編集されています。保存しますか?</sys:String>
+    <sys:String x:Key="MsgConfirmUndoDef">定義情報にエラーがあります。元に戻しますか?</sys:String>
 
     <sys:String x:Key="R_Error">エラー</sys:String>
     <sys:String x:Key="R_Info">情報</sys:String>

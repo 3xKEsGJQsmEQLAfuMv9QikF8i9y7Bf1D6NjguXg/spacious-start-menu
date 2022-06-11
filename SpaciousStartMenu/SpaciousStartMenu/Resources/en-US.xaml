@@ -29,50 +29,52 @@
     <sys:String x:Key="R_Run">Run</sys:String>
 
     <!--  Title button tooltip  -->
-    <sys:String x:Key="R_ToolTip_MinimizedButton">Minimized (Esc)</sys:String>
+    <sys:String x:Key="R_ToolTip_MinimizedButton">Minimized</sys:String>
     <sys:String x:Key="R_ToolTip_CloseButton">Close</sys:String>
 
     <!--  Context menu  -->
-    <sys:String x:Key="R_Menu_Pinning">Edit Pinning(_P)...</sys:String>
+    <sys:String x:Key="R_Menu_Pinning">Edit Pin(_P)...</sys:String>
     <sys:String x:Key="R_Menu_Scale">Scale</sys:String>
     <sys:String x:Key="R_Menu_Settings">Settings(_S)...</sys:String>
     <sys:String x:Key="R_Menu_OpenExePath">Open Program Location(_O)</sys:String>
     <sys:String x:Key="R_Menu_OpenExePathAndExit">Open the program location and then exit the program(_X)</sys:String>
 
     <!--  Buttons  -->
-    <sys:String x:Key="R_AddButton">Add row(_A)</sys:String>
-    <sys:String x:Key="R_DuplicateButton">Duplicate a row(_D)</sys:String>
-    <sys:String x:Key="R_SaveButton">Save(_S)</sys:String>
+    <sys:String x:Key="R_AddButton">_Add row</sys:String>
+    <sys:String x:Key="R_DuplicateButton">_Duplicate a row</sys:String>
+    <sys:String x:Key="R_SaveButton">_Save</sys:String>
     <sys:String x:Key="R_CloseButton">Close(_X)</sys:String>
-    <sys:String x:Key="R_OtherWindowMinimize">Minimize other screens(_M)</sys:String>
+    <sys:String x:Key="R_OtherWindowMinimize">_Minimize other screens</sys:String>
     <sys:String x:Key="R_OkButton">OK</sys:String>
     <sys:String x:Key="R_CancelButton">Cancel</sys:String>
     <sys:String x:Key="R_YesButton">_Yes</sys:String>
     <sys:String x:Key="R_NoButton">_No</sys:String>
 
+    <!--  Button tooltips  -->
+    <sys:String x:Key="R_ToolTip_Edit">Edit</sys:String>
+    <sys:String x:Key="R_ToolTip_Delete">Delete</sys:String>
+    <sys:String x:Key="R_ToolTip_DirectEditButton">Edit the definition file directly.</sys:String>
+    <sys:String x:Key="R_ToolTip_UpButton">Moves the selection line up. (Alt + Up)</sys:String>
+    <sys:String x:Key="R_ToolTip_DownButton">Move the selection line down. (Alt + Down)</sys:String>
+    <sys:String x:Key="R_ToolTip_SaveButton">Save the settings and close the screen.</sys:String>
+
+    <sys:String x:Key="R_Description_EditPath">File and folder can be dragged and dropped here.</sys:String>
+
+    <!--  Pinning screen  -->
     <sys:String x:Key="R_List_Color">Color</sys:String>
     <sys:String x:Key="R_List_Title">Title</sys:String>
     <sys:String x:Key="R_List_Path">Path</sys:String>
 
-    <!--  Button tooltips  -->
-    <sys:String x:Key="R_ToolTip_Edit">Edit</sys:String>
-    <sys:String x:Key="R_ToolTip_Delete">Delete</sys:String>
-    <sys:String x:Key="R_ToolTip_UpButton">Moves the selection line up.</sys:String>
-    <sys:String x:Key="R_ToolTip_DownButton">Move the selection line down.</sys:String>
-    <sys:String x:Key="R_ToolTip_SaveButton">Save the settings and close the screen.</sys:String>
-
-    <sys:String x:Key="R_Edit_Headline">Headline(_H)</sys:String>
-    <sys:String x:Key="R_Edit_Color">Color(_C)</sys:String>
-    <sys:String x:Key="R_Edit_Title">Title(_T)</sys:String>
-    <sys:String x:Key="R_Edit_Path">Path(_P)</sys:String>
-
-    <sys:String x:Key="R_ToolTip_EditPath">You can drag and drop objects here from Explorer.</sys:String>
+    <sys:String x:Key="R_Edit_Headline">_Headline</sys:String>
+    <sys:String x:Key="R_Edit_Color">_Color</sys:String>
+    <sys:String x:Key="R_Edit_Title">_Title</sys:String>
+    <sys:String x:Key="R_Edit_Path">_Path</sys:String>
 
     <!--  Settings screen  -->
     <sys:String x:Key="R_Settings_Setup">Setup</sys:String>
     <sys:String x:Key="R_RegStartupShortcut">Register to startup(_S)</sys:String>
-    <sys:String x:Key="R_MinimizeStartup">Minimize when starting from startup</sys:String>
     <sys:String x:Key="R_RemoveStartupShortcut">Remove from Startup</sys:String>
+    <sys:String x:Key="R_MinimizeStartup">Minimize when starting from startup</sys:String>
     <sys:String x:Key="R_Settings_Minimize">Minimize</sys:String>
     <sys:String x:Key="R_EscKeyMinimized">Esc key to minimize(_E)</sys:String>
     <sys:String x:Key="R_MarginDblClickMinimized">Minimize by double-clicking on the menu margin(_M)</sys:String>
@@ -81,6 +83,8 @@
     <sys:String x:Key="R_ConfirmClose">Confirm when exiting menu(_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">Context menu</sys:String>
     <sys:String x:Key="R_ShowOpenAndExitMenuItem">Show &quot;Open the program location and then exit the program&quot; menu</sys:String>
+    <sys:String x:Key="R_Settings_Advanced">Advanced options</sys:String>
+    <sys:String x:Key="R_ShowDirectEditDefineButton">Direct definition file edit button on the &quot;pinned definition list&quot; screen</sys:String>
 
     <!--  Messages  -->
     <sys:String x:Key="MsgErrUnsupportedOS">Unsupported Operating System.</sys:String>
@@ -97,6 +101,7 @@
     <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">Would you like to create a recommended destination folder?</sys:String>
     <sys:String x:Key="MsgConfirmCloseMenu">Do you want to exit the menu?</sys:String>
     <sys:String x:Key="MsgConfirmDefSave">Definition information has been edited. Do you want to save it?</sys:String>
+    <sys:String x:Key="MsgConfirmUndoDef">There is an error in the definition information. Do you want to revert?</sys:String>
 
     <sys:String x:Key="R_Error">Error</sys:String>
     <sys:String x:Key="R_Info">Information</sys:String>
