@@ -2,14 +2,15 @@
     x:Class="SpaciousStartMenu.Views.SettingsWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctrl="clr-namespace:SpaciousStartMenu.Views.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:SpaciousStartMenu.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="{StaticResource R_SettingsTitle}"
     Width="850"
-    Height="600"
+    Height="650"
     MaxWidth="1200"
-    MaxHeight="850"
+    MaxHeight="900"
     Closing="Window_Closing"
     Loaded="Window_Loaded"
     SourceInitialized="Window_SourceInitialized"
@@ -24,7 +25,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel>
-            <TextBlock Style="{StaticResource SettingsTitleStyle}" Text="{StaticResource R_Settings_Setup}" />
+            <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_Setup}" />
             <StackPanel Orientation="Horizontal">
                 <Button
                     x:Name="RegShortcut"
@@ -44,16 +45,19 @@
                 Click="MinimizeStartup_Click"
                 Content="{StaticResource R_MinimizeStartup}" />
 
-            <TextBlock Style="{StaticResource SettingsTitleStyle}" Text="{StaticResource R_Settings_Minimize}" />
+            <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_Minimize}" />
             <CheckBox x:Name="EscKeyMin" Content="{StaticResource R_EscKeyMinimized}" />
             <CheckBox x:Name="DblClickMin" Content="{StaticResource R_MarginDblClickMinimized}" />
             <CheckBox x:Name="CtrlClickDisabledMin" Content="{StaticResource R_DisabledMinimizeCtrlClick}" />
 
-            <TextBlock Style="{StaticResource SettingsTitleStyle}" Text="{StaticResource R_Settings_Confirm}" />
+            <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_Confirm}" />
             <CheckBox x:Name="ConfirmClose" Content="{StaticResource R_ConfirmClose}" />
 
-            <TextBlock Style="{StaticResource SettingsTitleStyle}" Text="{StaticResource R_Settings_ContextMenu}" />
+            <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_ContextMenu}" />
             <CheckBox x:Name="ShowOpenAndExitMenuItem" Content="{StaticResource R_ShowOpenAndExitMenuItem}" />
+
+            <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_Advanced}" />
+            <CheckBox x:Name="ShowDirectEditDefine" Content="{StaticResource R_ShowDirectEditDefineButton}" />
         </StackPanel>
 
         <StackPanel

@@ -18,7 +18,10 @@ namespace SpaciousStartMenu.Views
         private static double _previousWidth = 0.0;
         private static double _previousHeight = 0.0;
 
-        public EditDetailWindow(Window[] parentWindows, List<MarkColor> colors, LaunchDefItem item)
+        public EditDetailWindow(
+            Window[] parentWindows,
+            List<MarkColor> colors,
+            LaunchDefItem item)
         {
             _parentWindows = parentWindows;
             _colors = colors;
@@ -26,6 +29,7 @@ namespace SpaciousStartMenu.Views
 
             InitializeComponent();
             ColorList.ItemsSource = _colors;
+
         }
 
         private void Window_SourceInitialized(object sender, EventArgs e)
@@ -72,7 +76,7 @@ namespace SpaciousStartMenu.Views
             {
                 ColorNameLabel.Text = item.ColorName;
                 ColorMarkLabel.Foreground = MarkColor.GetBrushFromColorName(item.ColorName);
-                PathText.Text = item.Path;
+                PathText.Text = item.Path ?? "";
             }
 
             var c = _colors.SingleOrDefault(x => x.ColorName == item.ColorName);
@@ -232,5 +236,19 @@ namespace SpaciousStartMenu.Views
             txt.SelectAll();
         }
 
+        private void TitleText_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is not TextBox t)
+            {
+                return;
+            }
+
+            if (t.IsFocused)
+            {
+                return;
+            }
+            e.Handled = true;
+            t.Focus();
+        }
     }
 }

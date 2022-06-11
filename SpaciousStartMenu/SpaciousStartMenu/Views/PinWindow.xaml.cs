@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace SpaciousStartMenu.Views
@@ -19,19 +20,29 @@ namespace SpaciousStartMenu.Views
     {
         private readonly Window _parentWindow;
         private readonly Action _postSaveAction;
+        private readonly AppSettings _settings;
         private readonly List<MarkColor> _colors = new();
         private bool _isEditing = false;
-        private bool _isEdited = false;
+        private bool _hasError = false;
         private ObservableCollection<LaunchDefItem>? _defItems;
         private static double _previousWidth = 0.0;
         private static double _previousHeight = 0.0;
         private static bool _isMaximize = false;
+        private readonly PinVm _pinVm = new();
 
-        public PinWindow(Window parentWindow, Action postSaveAction)
+        public PinWindow(Window parentWindow, Action postSaveAction, AppSettings settings)
         {
             InitializeComponent();
             _parentWindow = parentWindow;
             _postSaveAction = postSaveAction;
+            _settings = settings;
+            DataContext = _pinVm;
+            _pinVm.IsEdited = false;
+
+            DirectEditButton.Visibility = _settings.ShowDirectEditDefineButton
+                ? Visibility.Visible
+                : Visibility.Collapsed;
+
             InitializeDefList();
             InitializeColorList();
         }
@@ -82,22 +93,70 @@ namespace SpaciousStartMenu.Views
 
         private async void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (_isEdited)
+            try
             {
-                switch (this.Confirm3Buttons(App.R("MsgConfirmDefSave")))
+                if (_hasError)
                 {
-                    case MessageBoxResult.Yes:
-                        await SaveDefFileAsync();
-                        break;
-                    case MessageBoxResult.No:
-                        break;
-                    default:
-                        e.Cancel = true;
+                    if (HasErrorClosingProc(e))
+                    {
+                        _postSaveAction();
+                    }
+                    else
+                    {
                         return;
+                    }
                 }
+                else if (_pinVm.IsEdited)
+                {
+                    if (!await IsEditedClosingProcAsync(e))
+                    {
+                        return;
+                    }
+                }
+
+                _parentWindow.WindowState = WindowState.Maximized;
+                SaveTemporaryWindowSize();
             }
-            _parentWindow.WindowState = WindowState.Maximized;
-            SaveTemporaryWindowSize();
+            catch (Exception ex)
+            {
+                this.Error(ex.ToString());
+            }
+        }
+
+        private bool HasErrorClosingProc(CancelEventArgs e)
+        {
+            if (this.Confirm(App.R("MsgConfirmUndoDef")) == MessageBoxResult.Yes)
+            {
+                string filePath = App.GetLaunchDefFilePath();
+                File.Copy($"{filePath}.bak", filePath, overwrite: true);
+                return true;
+            }
+            else
+            {
+                e.Cancel = true;
+                return false;
+            }
+        }
+
+        private async Task<bool> IsEditedClosingProcAsync(CancelEventArgs e)
+        {
+            switch (this.Confirm3Buttons(App.R("MsgConfirmDefSave")))
+            {
+                case MessageBoxResult.Yes:
+                    if (!await SaveDefFileAsync())
+                    {
+                        e.Cancel = true;
+                        return false;
+                    }
+                    break;
+                case MessageBoxResult.No:
+                    break;
+                default:
+                    e.Cancel = true;
+                    return false;
+            }
+
+            return true;
         }
 
         private void SaveTemporaryWindowSize()
@@ -136,7 +195,35 @@ namespace SpaciousStartMenu.Views
             }
 
             item.IsDelete = !item.IsDelete;
-            _isEdited = true;
+            _pinVm.IsEdited = true;
+        }
+
+        private async void DirectEditButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string filePath = App.GetLaunchDefFilePath();
+                if (File.Exists(filePath))
+                {
+                    using var sr = new StreamReader(filePath, Encoding.UTF8);
+                    DefText.Text = await sr.ReadToEndAsync();
+                    _pinVm.IsEdited = false;
+                }
+
+                DefList.Visibility = Visibility.Collapsed;
+                DefText.Visibility = Visibility.Visible;
+
+                DirectEditButton.Visibility = Visibility.Collapsed;
+
+                UpButton.IsEnabled = false;
+                DownButton.IsEnabled = false;
+                AddButton.IsEnabled = false;
+                DuplicateButton.IsEnabled = false;
+            }
+            catch (Exception ex)
+            {
+                this.Error(ex.ToString());
+            }
         }
 
         private void UpButton_Click(object sender, RoutedEventArgs e)
@@ -154,7 +241,7 @@ namespace SpaciousStartMenu.Views
                 _defItems?.Remove(selectedItem!);
                 _defItems?.Insert(newIdx, selectedItem!);
                 DefList.SelectedIndex = newIdx;
-                _isEdited = true;
+                _pinVm.IsEdited = true;
             }
             catch (Exception ex)
             {
@@ -178,7 +265,7 @@ namespace SpaciousStartMenu.Views
                 _defItems?.Remove(selectedItem!);
                 _defItems?.Insert(newIdx, selectedItem!);
                 DefList.SelectedIndex = newIdx;
-                _isEdited = true;
+                _pinVm.IsEdited = true;
             }
             catch (Exception ex)
             {
@@ -208,7 +295,7 @@ namespace SpaciousStartMenu.Views
             }
             if (ret == true)
             {
-                _isEdited = true;
+                _pinVm.IsEdited = true;
             }
             _isEditing = false;
             if (WindowState == WindowState.Minimized)
@@ -251,7 +338,7 @@ namespace SpaciousStartMenu.Views
                 {
                     DefList.ScrollIntoView(DefList.Items[^1]);
                 }
-                _isEdited = true;
+                _pinVm.IsEdited = true;
             }
             catch (Exception ex)
             {
@@ -269,9 +356,12 @@ namespace SpaciousStartMenu.Views
             try
             {
                 btn.IsEnabled = false;
-                await SaveDefFileAsync();
+                bool saved = await SaveDefFileAsync();
                 btn.IsEnabled = true;
-                Close();
+                if (saved)
+                {
+                    Close();
+                }
             }
             catch (Exception ex)
             {
@@ -280,25 +370,46 @@ namespace SpaciousStartMenu.Views
             }
         }
 
-        private async Task SaveDefFileAsync()
+        private async Task<bool> SaveDefFileAsync()
         {
             if (_defItems is null)
             {
-                return;
+                return false;
             }
 
             string filePath = App.GetLaunchDefFilePath();
-            if (File.Exists(filePath))
+            if (File.Exists(filePath) && !_hasError)
             {
                 File.Copy(filePath, $"{filePath}.bak", overwrite: true);
             }
 
-            var ldw = new LaunchDefWriter(filePath);
-            await ldw.WriteToFileAsync(_defItems);
+            if (DefList.Visibility == Visibility.Visible)
+            {
+                // List
+                var ldw = new LaunchDefWriter(filePath);
+                await ldw.WriteToFileAsync(_defItems);
+            }
+            else
+            {
+                // Text
+                using var sw = new StreamWriter(filePath, append: false, encoding: Encoding.UTF8);
+                await sw.WriteLineAsync(DefText.Text);
+            }
 
-            _isEdited = false;
+            try
+            {
+                _postSaveAction();
+                _pinVm.IsEdited = false;
+                _hasError = false;
+            }
+            catch (Exception ex)
+            {
+                _hasError = true;
+                this.Error(ex.ToString());
+                return false;
+            }
 
-            _postSaveAction();
+            return true;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -351,5 +462,55 @@ namespace SpaciousStartMenu.Views
 
         }
 
+        private void DefListItem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key != Key.Delete)
+            {
+                return;
+            }
+            if (DefList.SelectedIndex == -1)
+            {
+                return;
+            }
+            if (DefList.SelectedItem is not LaunchDefItem item)
+            {
+                return;
+            }
+
+            item.IsDelete = !item.IsDelete;
+            _pinVm.IsEdited = true;
+        }
+
+        private void DefText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            _pinVm.IsEdited = true;
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.Modifiers == ModifierKeys.Alt)
+            {
+                if (e.SystemKey == Key.Up &&
+                    UpButton.IsEnabled)
+                {
+                    UpButton_Click(sender, e);
+                }
+                else if (e.SystemKey == Key.Down &&
+                    DownButton.IsEnabled)
+                {
+                    DownButton_Click(sender, e);
+                }
+            }
+        }
+    }
+
+    class PinVm : NotifyPropertyChanged
+    {
+        private bool _isEdited;
+        public bool IsEdited
+        {
+            get => _isEdited;
+            set => SetProperty(ref _isEdited, value);
+        }
     }
 }

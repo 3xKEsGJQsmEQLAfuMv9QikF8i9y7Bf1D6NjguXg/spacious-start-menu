@@ -131,7 +131,8 @@ namespace SpaciousStartMenu.Views
                 if (_pinWindow is null ||
                     !_pinWindow.IsVisible)
                 {
-                    _pinWindow = new PinWindow(this, () => LoadLauncherDef(App.GetLaunchDefFilePath()));
+                    _pinWindow = new PinWindow(
+                        this, () => LoadLauncherDef(App.GetLaunchDefFilePath()), _settings);
                     _pinWindow.Show();
                 }
                 else
@@ -224,11 +225,11 @@ namespace SpaciousStartMenu.Views
         {
             var asr = new AppSettingsReader();
             _settings = asr.ReadFromFile();
-            SetScreenFromMain(_settings);
+            SetScreen(_settings);
             SetScreenFromSettings(_settings);
         }
 
-        private void SetScreenFromMain(AppSettings appStg)
+        private void SetScreen(AppSettings appStg)
         {
             DefaultScaleItem.IsChecked = true;
             foreach (var child in LogicalTreeHelper.GetChildren(ScaleMenu))
@@ -243,8 +244,13 @@ namespace SpaciousStartMenu.Views
                 }
             }
 
+            
         }
 
+        /// <summary>
+        /// Reflects the contents of the settings screen
+        /// </summary>
+        /// <param name="appStg"></param>
         private void SetScreenFromSettings(AppSettings appStg)
         {
             MenuItemFolderOpenAndExit.Visibility =

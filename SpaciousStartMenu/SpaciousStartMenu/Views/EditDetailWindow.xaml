@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cnv="clr-namespace:SpaciousStartMenu.Converters"
+    xmlns:ctrl="clr-namespace:SpaciousStartMenu.Views.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:SpaciousStartMenu.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -19,6 +20,7 @@
     Style="{StaticResource ToolWindowStyle}"
     Topmost="True"
     mc:Ignorable="d">
+
     <Window.Resources>
         <cnv:InvertBooleanConverter x:Key="InvertBoolConv" />
         <cnv:BooleanToDoubleConverter x:Key="BoolToDoubleConv" />
@@ -136,17 +138,13 @@
                 Content="{StaticResource R_Edit_Path}"
                 Style="{StaticResource EditItemLabelStyle}"
                 Target="{Binding ElementName=PathText}" />
-            <TextBox
+            <ctrl:WatermarkTextBox
                 x:Name="PathText"
                 Drop="PathText_Drop"
-                GotFocus="TextBox_GotFocus"
                 IsEnabled="{Binding ElementName=HeadlineCheck, Path=IsChecked, Mode=OneWay, Converter={StaticResource InvertBoolConv}}"
                 Opacity="{Binding ElementName=HeadlineCheck, Path=IsChecked, Mode=OneWay, Converter={StaticResource BoolToDoubleConv}, ConverterParameter=0.5}"
-                PreviewDragOver="PathText_PreviewDragOver"
-                Style="{StaticResource EditItemTextBoxStyle}"
-                Text=""
-                TextChanged="TextBox_TextChanged"
-                ToolTip="{StaticResource R_ToolTip_EditPath}" />
+                Placeholder="{StaticResource R_Description_EditPath}"
+                PreviewDragOver="PathText_PreviewDragOver" />
 
             <!--  Title  -->
             <Label
@@ -156,7 +154,8 @@
             <TextBox
                 x:Name="TitleText"
                 GotFocus="TextBox_GotFocus"
-                Style="{StaticResource EditItemTextBoxStyle}"
+                PreviewMouseLeftButtonDown="TitleText_PreviewMouseLeftButtonDown"
+                Style="{StaticResource EditItemStyle}"
                 Text=""
                 TextChanged="TextBox_TextChanged" />
 

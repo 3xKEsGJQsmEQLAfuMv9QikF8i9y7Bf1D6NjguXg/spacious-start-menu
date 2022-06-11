@@ -1,0 +1,38 @@
+﻿<UserControl
+    x:Class="SpaciousStartMenu.Views.Controls.WatermarkTextBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SpaciousStartMenu.Views.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="Root"
+    d:DesignHeight="150"
+    d:DesignWidth="800"
+    AllowDrop="True"
+    DragEnter="Root_DragEnter"
+    Loaded="UserControl_Loaded"
+    mc:Ignorable="d">
+
+    <Grid
+        IsEnabled="{Binding IsEnabled, ElementName=Root}"
+        IsEnabledChanged="Grid_IsEnabledChanged"
+        Opacity="{Binding Opacity, ElementName=Root}">
+
+        <TextBox
+            x:Name="T"
+            GotFocus="T_GotFocus"
+            PreviewMouseLeftButtonDown="T_PreviewMouseLeftButtonDown"
+            Style="{StaticResource EditItemStyle}"
+            Text="{Binding Path=Text, ElementName=Root}" />
+
+        <TextBlock
+            x:Name="Watermark"
+            Margin="10,0,10,10"
+            Padding="10,0"
+            VerticalAlignment="Center"
+            Foreground="White"
+            MouseDown="Watermark_MouseDown"
+            Opacity="0.4"
+            Text="{Binding Path=Placeholder, ElementName=Root}" />
+    </Grid>
+</UserControl>

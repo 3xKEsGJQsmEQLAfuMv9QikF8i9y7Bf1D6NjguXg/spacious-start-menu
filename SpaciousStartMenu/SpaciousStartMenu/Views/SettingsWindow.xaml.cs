@@ -45,6 +45,8 @@ namespace SpaciousStartMenu.Views
             ConfirmClose.IsChecked = _settings.ConfirmCloseMenu;
 
             ShowOpenAndExitMenuItem.IsChecked = _settings.ShowOpenAndExitMenuItem;
+
+            ShowDirectEditDefine.IsChecked = _settings.ShowDirectEditDefineButton;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -77,6 +79,8 @@ namespace SpaciousStartMenu.Views
             _settings.ConfirmCloseMenu = ConfirmClose.IsChecked == true;
 
             _settings.ShowOpenAndExitMenuItem = ShowOpenAndExitMenuItem.IsChecked == true;
+
+            _settings.ShowDirectEditDefineButton = ShowDirectEditDefine.IsChecked == true;
 
             Close();
         }

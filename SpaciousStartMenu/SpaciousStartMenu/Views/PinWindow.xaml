@@ -11,6 +11,7 @@
     Height="650"
     Closing="Window_Closing"
     FocusManager.FocusedElement="{Binding ElementName=DefList}"
+    KeyDown="Window_KeyDown"
     SourceInitialized="Window_SourceInitialized"
     StateChanged="Window_StateChanged"
     Style="{StaticResource ToolWindowStyle}"
@@ -50,6 +51,7 @@
                     </Style.Triggers>
                     <EventSetter Event="PreviewGotKeyboardFocus" Handler="DefListItem_PreviewGotKeyboardFocus" />
                     <EventSetter Event="MouseDoubleClick" Handler="DefListItem_MouseDoubleClick" />
+                    <EventSetter Event="KeyDown" Handler="DefListItem_KeyDown" />
                 </Style>
             </ListView.Resources>
 
@@ -122,42 +124,94 @@
 
         </ListView>
 
-        <StackPanel
-            Grid.Row="1"
-            HorizontalAlignment="Right"
-            Orientation="Horizontal">
+        <TextBox
+            x:Name="DefText"
+            Margin="10"
+            VerticalContentAlignment="Top"
+            AcceptsReturn="True"
+            AcceptsTab="True"
+            Background="#666666"
+            Foreground="White"
+            TextChanged="DefText_TextChanged"
+            VerticalScrollBarVisibility="Visible"
+            Visibility="Collapsed" />
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
 
             <Button
-                Margin="0,5,10,10"
-                Padding="20,5,20,8"
-                Click="UpButton_Click"
-                Content="&#xE74A;"
+                x:Name="DirectEditButton"
+                Margin="10,5,10,10"
+                Padding="10,5,10,8"
+                d:Visibility="Visible"
+                Click="DirectEditButton_Click"
+                Content="&#xE8E5;"
+                IsEnabled="{Binding IsEdited, Converter={StaticResource InvertBoolConv}}"
                 Style="{StaticResource IconButtonStyle}"
-                ToolTip="{StaticResource R_ToolTip_UpButton}" />
-            <Button
-                Margin="0,5,10,10"
-                Padding="20,5,20,8"
-                Click="DownButton_Click"
-                Content="&#xE74B;"
-                Style="{StaticResource IconButtonStyle}"
-                ToolTip="{StaticResource R_ToolTip_DownButton}" />
-            <Button
-                Click="AddButton_Click"
-                Content="{StaticResource R_AddButton}"
-                Style="{StaticResource CommandButtonStyle}" />
-            <Button
-                Click="DuplicateButton_Click"
-                Content="{StaticResource R_DuplicateButton}"
-                Style="{StaticResource CommandButtonStyle}" />
-            <Button
-                Click="SaveButton_Click"
-                Content="{StaticResource R_SaveButton}"
-                Style="{StaticResource CommandButtonStyle}"
-                ToolTip="{StaticResource R_ToolTip_SaveButton}" />
-            <Button
-                Click="CloseButton_Click"
-                Content="{StaticResource R_CloseButton}"
-                Style="{StaticResource CommandButtonStyle}" />
-        </StackPanel>
+                ToolTip="{StaticResource R_ToolTip_DirectEditButton}"
+                Visibility="Collapsed" />
+
+            <StackPanel
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+
+                <Button
+                    x:Name="DownButton"
+                    Margin="0,5,10,10"
+                    Padding="20,5,20,8"
+                    Click="DownButton_Click"
+                    Content="&#xE74B;"
+                    Style="{StaticResource IconButtonStyle}"
+                    ToolTip="{StaticResource R_ToolTip_DownButton}" />
+                <Button
+                    x:Name="UpButton"
+                    Margin="0,5,10,10"
+                    Padding="20,5,20,8"
+                    Click="UpButton_Click"
+                    Content="&#xE74A;"
+                    Style="{StaticResource IconButtonStyle}"
+                    ToolTip="{StaticResource R_ToolTip_UpButton}" />
+                <Button
+                    x:Name="AddButton"
+                    Click="AddButton_Click"
+                    Content="{StaticResource R_AddButton}"
+                    Style="{StaticResource CommandButtonStyle}" />
+                <Button
+                    x:Name="DuplicateButton"
+                    Click="DuplicateButton_Click"
+                    Content="{StaticResource R_DuplicateButton}"
+                    Style="{StaticResource CommandButtonStyle}" />
+                <Button
+                    Click="SaveButton_Click"
+                    IsEnabled="{Binding IsEdited}"
+                    Style="{StaticResource CommandButtonStyle}"
+                    ToolTip="{StaticResource R_ToolTip_SaveButton}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Margin="0,2,4,0"
+                            VerticalAlignment="Center"
+                            FontFamily="Segoe MDL2 Assets"
+                            Text="&#xE74E;" />
+                        <Label
+                            Grid.Column="1"
+                            Margin="0"
+                            Padding="0"
+                            Content="{StaticResource R_SaveButton}" />
+                    </Grid>
+                </Button>
+                <Button
+                    Click="CloseButton_Click"
+                    Content="{StaticResource R_CloseButton}"
+                    Style="{StaticResource CommandButtonStyle}" />
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

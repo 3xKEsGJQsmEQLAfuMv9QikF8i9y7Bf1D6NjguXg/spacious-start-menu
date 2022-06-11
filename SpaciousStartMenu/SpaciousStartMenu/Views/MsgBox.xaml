@@ -10,6 +10,7 @@
     AllowsTransparency="True"
     Background="Transparent"
     FocusManager.FocusedElement="{Binding ElementName=Button1}"
+    KeyDown="Window_KeyDown"
     ShowInTaskbar="False"
     SizeToContent="Height"
     Style="{StaticResource StandardWindowStyle}"
@@ -25,7 +26,7 @@
         <Border
             Grid.RowSpan="2"
             Background="#4F4F4F"
-            BorderBrush="#55666666"
+            BorderBrush="#667F7F7F"
             BorderThickness="2"
             CornerRadius="5" />
 
