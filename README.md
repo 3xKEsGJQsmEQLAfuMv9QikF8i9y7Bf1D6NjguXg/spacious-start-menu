@@ -56,7 +56,7 @@ Launch defined applications, folders, etc. at the click of a button.
 
 This is the list screen displayed by `Edit Pin`.
 
-Double-click the list, click the Edit button on the far right, or click the `Add row` button to open the editing window.
+Double-click the list, click the Edit button on the far right, or click the `Add row` button to open the edit screen.
 
 If a line is checked for deletion, the deletion will be executed when the `Save` button is clicked.
 
