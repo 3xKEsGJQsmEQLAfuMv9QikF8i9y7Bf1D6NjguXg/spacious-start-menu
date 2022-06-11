@@ -4,7 +4,7 @@
 - [Usage](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#usage)
   - [Main screen context menu](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#main-screen-context-menu)
   - [Pinned definition list screen](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#pinned-definition-list-screen)
-  - [Pinning edit screen](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#pinning-edit-screen)
+  - [Pin edit screen](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#pin-edit-screen)
   - [Settings screen](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#settings-screen)
 - [Recommended initial settings](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#recommended-initial-settings)
 - [Reference](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#reference)
@@ -15,7 +15,7 @@
 
 A launcher that can use the entire screen area.
 
-![image00](https://user-images.githubusercontent.com/99333667/171615512-c89fbc54-c051-4acf-b616-f76338a8a635.png)
+![image00](https://user-images.githubusercontent.com/99333667/173183598-42dc5a99-e26d-4905-8d23-0abd741c329a.png)
 
 # Requirements
 
@@ -46,7 +46,7 @@ Launch defined applications, folders, etc. at the click of a button.
 
 | Menu item             | Description                                          |
 | --------------------- | ---------------------------------------------------- |
-| Edit Pinning           | Displays the edit screen of the item to be launched. |
+| Edit Pin              | Displays the edit screen of the item to be launched. |
 | Scale                 | Changes the display magnification of an item.        |
 | Settings              | Displays the settings screen.                        |
 | Open Program Location | Open the folder where this program is located.       |
@@ -54,15 +54,15 @@ Launch defined applications, folders, etc. at the click of a button.
 
 ## Pinned definition list screen
 
-This is the list screen displayed by `Edit Pinning`.
+This is the list screen displayed by `Edit Pin`.
 
 Double-click the list, click the Edit button on the far right, or click the `Add row` button to open the editing window.
 
-If a line is checked for deletion, the deletion will be executed when the "Save" button is clicked.
+If a line is checked for deletion, the deletion will be executed when the `Save` button is clicked.
 
-![image20](https://user-images.githubusercontent.com/99333667/171615972-7b647655-0b01-42b2-ace3-cd85a3a0813e.png)
+![image20](https://user-images.githubusercontent.com/99333667/173183605-ad645e19-9e2c-4ce6-a89e-268ea509437c.png)
 
-## Pinning edit screen
+## Pin edit screen
 
 Edit screen.
 
@@ -70,15 +70,15 @@ The `Path` field allows you to enter files and folders by drag & drop.
 
 When `Headline` is selected, only `Title` can be entered.
 
-![image21](https://user-images.githubusercontent.com/99333667/171844166-30e38220-a22c-4cfc-bc2b-b0bb519af0d5.png)
+![image21](https://user-images.githubusercontent.com/99333667/173183611-6e28621f-d847-4166-97b9-0a7be6ab12a4.png)
 
 Color selection menu.
 
-![image22](https://user-images.githubusercontent.com/99333667/171616144-531c6a2d-f831-4e0c-a3a5-5fb8402ec814.png)
+![image22](https://user-images.githubusercontent.com/99333667/173183618-cde4c8fe-1943-4678-a9f2-99fee0a9fb75.png)
 
 ## Settings screen
 
-![image23](https://user-images.githubusercontent.com/99333667/171616189-3366389f-e645-4324-9927-26d21c7b2bc7.png)
+![image23](https://user-images.githubusercontent.com/99333667/173183629-29fc52a5-0ec3-4979-ba2b-f917aa3da3a9.png)
 
 - Setup
   - Register to startup
@@ -92,6 +92,8 @@ Color selection menu.
   - Confirm when exiting menu
 - Context menu
   - Show `Open the program location and then exit the program` menu
+- Advanced options
+  - Direct definition file edit button on the pinned definition list screen
 
 # Recommended initial settings
 
