@@ -9,5 +9,6 @@
         public bool MinimizeStartup { get; set; } = false;
         public bool DisabledMinimizeCtrlClick { get; set; } = true;
         public bool ShowOpenAndExitMenuItem { get; set; } = false;
+        public bool ShowDirectEditDefineButton { get; set; } = false;
     }
 }

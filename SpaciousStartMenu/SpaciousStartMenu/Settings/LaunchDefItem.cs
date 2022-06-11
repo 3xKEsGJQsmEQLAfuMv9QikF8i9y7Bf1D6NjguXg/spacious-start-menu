@@ -5,15 +5,6 @@ namespace SpaciousStartMenu.Settings
 {
     public class LaunchDefItem : NotifyPropertyChanged
     {
-        //private static int _count = 0;
-
-        //private int _id;
-        //public int Id
-        //{
-        //    get => _id;
-        //    set => SetProperty(ref _id, value);
-        //}
-
         private bool _isDelete;
         public bool IsDelete
         {
@@ -52,8 +43,6 @@ namespace SpaciousStartMenu.Settings
         public LaunchDefItem(string? title)
         {
             IsDelete = false;
-            //_count++;
-            //Id = _count;
             ColorName = null;
             MarkBrush = null;
             Title = title;
@@ -63,8 +52,6 @@ namespace SpaciousStartMenu.Settings
         public LaunchDefItem(string? colorName, string? title, string? path)
         {
             IsDelete = false;
-            //_count++;
-            //Id = _count;
 
             ColorName = colorName;
 
@@ -76,8 +63,6 @@ namespace SpaciousStartMenu.Settings
             Title = title;
             Path = path;
         }
-
-        //public static void ResetId() => _count = 0;
 
         public string ToDefString()
         {
