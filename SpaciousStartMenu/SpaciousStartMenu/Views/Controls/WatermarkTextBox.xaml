@@ -19,9 +19,9 @@
         Opacity="{Binding Opacity, ElementName=Root}">
 
         <TextBox
-            x:Name="T"
-            GotFocus="T_GotFocus"
-            PreviewMouseLeftButtonDown="T_PreviewMouseLeftButtonDown"
+            x:Name="Txt"
+            GotFocus="Txt_GotFocus"
+            PreviewMouseLeftButtonDown="Txt_PreviewMouseLeftButtonDown"
             Style="{StaticResource EditItemStyle}"
             Text="{Binding Path=Text, ElementName=Root}" />
 

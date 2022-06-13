@@ -58,36 +58,36 @@ namespace SpaciousStartMenu.Views.Controls
 
         private void UpdateWatermarkVisibility()
         {
-            if (Watermark is null || T is null)
+            if (Watermark is null || Txt is null)
             {
                 return;
             }
 
-            Watermark.Visibility = string.IsNullOrEmpty(Text) && !T.IsFocused && Root.IsEnabled
+            Watermark.Visibility = string.IsNullOrEmpty(Text) && !Txt.IsFocused && Root.IsEnabled
                 ? Visibility.Visible
                 : Visibility.Collapsed;
         }
 
-        private void T_GotFocus(object sender, RoutedEventArgs e)
+        private void Txt_GotFocus(object sender, RoutedEventArgs e)
         {
             Watermark.Visibility = Visibility.Collapsed;
-            T.SelectAll();
+            Txt.SelectAll();
         }
 
-        private void T_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Txt_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if (T.IsFocused)
+            if (Txt.IsFocused)
             {
                 return;
             }
             e.Handled = true;
-            T.Focus();
+            Txt.Focus();
         }
 
         private void Watermark_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Watermark.Visibility = Visibility.Collapsed;
-            T.Focus();
+            Txt.Focus();
         }
 
         private void Root_DragEnter(object sender, DragEventArgs e) =>
