@@ -39,6 +39,10 @@ namespace SpaciousStartMenu
             string lang = CultureInfo.CurrentUICulture.Name switch
             {
                 "ja-JP" => CultureInfo.CurrentUICulture.Name,
+                "zh-CN" => CultureInfo.CurrentUICulture.Name,
+                "zh-TW" => CultureInfo.CurrentUICulture.Name,
+                "ko-KR" => CultureInfo.CurrentUICulture.Name,
+                "es-ES" => CultureInfo.CurrentUICulture.Name,
                 _ => _defaultLanguage,
             };
             rd.Source = new Uri($"/SpaciousStartMenu;component/Resources/{lang}.xaml", UriKind.Relative);
