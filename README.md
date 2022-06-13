@@ -85,9 +85,9 @@ Color selection menu.
   - Remove from Startup
   - Minimize when starting from startup
 - Minimize
-  - Esc key to minimize
-  - Minimize by double-clicking on the menu margin
-  - Minimization is suppressed when the launch button is pressed while the Ctrl key is held down
+  - Minimize menu with Esc key
+  - Minimize the menu by double-clicking on the menu margin
+  - Suppresses menu minimization when pressing the launch button while holding down the Ctrl key
 - Confirm
   - Confirm when exiting menu
 - Context menu
