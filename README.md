@@ -19,7 +19,7 @@ A launcher that can use the entire screen area.
 
 # Requirements
 
-- Windows 10 or lator
+- Windows 10 or later
 - .NET 6 Desktop Runtime
 
 # Install
