@@ -1,0 +1,110 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!--  Title  -->
+    <sys:String x:Key="R_AppTitle">開始</sys:String>
+    <sys:String x:Key="R_AppLinkName">Spacious Start Menu</sys:String>
+    <sys:String x:Key="R_PinTitle">固定定義列表</sys:String>
+    <sys:String x:Key="R_SettingsTitle">設定</sys:String>
+    <sys:String x:Key="R_EditTitle">編輯</sys:String>
+
+    <sys:String x:Key="R_SystemFolder">系統 資料夾</sys:String>
+    <sys:String x:Key="R_Download">下載</sys:String>
+    <sys:String x:Key="R_Desktop">桌面</sys:String>
+    <sys:String x:Key="R_Document">文件</sys:String>
+    <sys:String x:Key="R_Picture">圖片</sys:String>
+    <sys:String x:Key="R_Video">影片</sys:String>
+    <sys:String x:Key="R_Music">音樂</sys:String>
+    <sys:String x:Key="R_Tools">工具</sys:String>
+    <sys:String x:Key="R_Calc">小算盤</sys:String>
+    <sys:String x:Key="R_Notepad">記事本</sys:String>
+    <sys:String x:Key="R_Paint">小畫家</sys:String>
+    <sys:String x:Key="R_Settings">設置</sys:String>
+    <sys:String x:Key="R_ControlPanel">控制台</sys:String>
+
+    <sys:String x:Key="R_TaskManager">工作管理員</sys:String>
+    <sys:String x:Key="R_Explorer">檔案總管</sys:String>
+    <sys:String x:Key="R_Run">執行</sys:String>
+
+    <!--  Title button tooltip  -->
+    <sys:String x:Key="R_ToolTip_MinimizedButton">最小化</sys:String>
+    <sys:String x:Key="R_ToolTip_CloseButton">關</sys:String>
+
+    <!--  Context menu  -->
+    <sys:String x:Key="R_Menu_Pinning">編輯引腳(_P)...</sys:String>
+    <sys:String x:Key="R_Menu_Scale">規模</sys:String>
+    <sys:String x:Key="R_Menu_Settings">設置(_S)...</sys:String>
+    <sys:String x:Key="R_Menu_OpenExePath">打開程序位置(_O)</sys:String>
+    <sys:String x:Key="R_Menu_OpenExePathAndExit">打開程序位置然後退出程序(_X)</sys:String>
+
+    <!--  Buttons  -->
+    <sys:String x:Key="R_AddButton">添加行(_A)</sys:String>
+    <sys:String x:Key="R_DuplicateButton">複製一行(_D)</sys:String>
+    <sys:String x:Key="R_SaveButton">保持(_S)</sys:String>
+    <sys:String x:Key="R_CloseButton">關閉(_X)</sys:String>
+    <sys:String x:Key="R_OtherWindowMinimize">最小化其他屏幕(_M)</sys:String>
+    <sys:String x:Key="R_OkButton">好的</sys:String>
+    <sys:String x:Key="R_CancelButton">取消</sys:String>
+    <sys:String x:Key="R_YesButton">是的(_Y)</sys:String>
+    <sys:String x:Key="R_NoButton">不(_N)</sys:String>
+
+    <!--  Button tooltips  -->
+    <sys:String x:Key="R_ToolTip_Edit">編輯</sys:String>
+    <sys:String x:Key="R_ToolTip_Delete">刪除</sys:String>
+    <sys:String x:Key="R_ToolTip_DirectEditButton">直接編輯定義文件。</sys:String>
+    <sys:String x:Key="R_ToolTip_UpButton">向上移動選擇線。(Alt + Up)</sys:String>
+    <sys:String x:Key="R_ToolTip_DownButton">向下移動選擇線。(Alt + Down)</sys:String>
+    <sys:String x:Key="R_ToolTip_SaveButton">保存設置並關閉屏幕。</sys:String>
+
+    <sys:String x:Key="R_Description_EditPath">文件和文件夾可以在這裡拖放。</sys:String>
+
+    <!--  Pinning screen  -->
+    <sys:String x:Key="R_List_Color">顏色</sys:String>
+    <sys:String x:Key="R_List_Title">標題</sys:String>
+    <sys:String x:Key="R_List_Path">小路</sys:String>
+
+    <sys:String x:Key="R_Edit_Headline">標題(_H)</sys:String>
+    <sys:String x:Key="R_Edit_Color">顏色(_C)</sys:String>
+    <sys:String x:Key="R_Edit_Title">標題(_T)</sys:String>
+    <sys:String x:Key="R_Edit_Path">小路(_P)</sys:String>
+
+    <!--  Settings screen  -->
+    <sys:String x:Key="R_Settings_Setup">設置</sys:String>
+    <sys:String x:Key="R_RegStartupShortcut">註冊啟動(_S)</sys:String>
+    <sys:String x:Key="R_RemoveStartupShortcut">從啟動中刪除</sys:String>
+    <sys:String x:Key="R_MinimizeStartup">從啟動開始時最小化</sys:String>
+    <sys:String x:Key="R_Settings_Minimize">最小化</sys:String>
+    <sys:String x:Key="R_EscKeyMinimized">使用 Esc 鍵最小化菜單(_E)</sys:String>
+    <sys:String x:Key="R_MarginDblClickMinimized">通過雙擊菜單邊距來最小化菜單(_M)</sys:String>
+    <sys:String x:Key="R_DisabledMinimizeCtrlClick">在按住 Ctrl 鍵的同時按下啟動按鈕時抑制菜單最小化</sys:String>
+    <sys:String x:Key="R_Settings_Confirm">確認</sys:String>
+    <sys:String x:Key="R_ConfirmClose">退出菜單時確認(_C)</sys:String>
+    <sys:String x:Key="R_Settings_ContextMenu">上下文菜單</sys:String>
+    <sys:String x:Key="R_ShowOpenAndExitMenuItem">顯示“打開程序位置然後退出程序” 菜單</sys:String>
+    <sys:String x:Key="R_Settings_Advanced">高級選項</sys:String>
+    <sys:String x:Key="R_ShowDirectEditDefineButton">“固定定義列表”上的直接定義文件編輯按鈕 屏幕</sys:String>
+
+    <!--  Messages  -->
+    <sys:String x:Key="MsgErrUnsupportedOS">不支持的操作系統。</sys:String>
+    <sys:String x:Key="MsgErrGetExePath">獲取可執行文件路徑失敗。</sys:String>
+    <sys:String x:Key="MsgErrStartup">啟動失敗。</sys:String>
+    <sys:String x:Key="MsgErrSaveSettings">未能保存應用程序設置。</sys:String>
+    <sys:String x:Key="MsgErrSettingsColumn">列數無效。</sys:String>
+    <sys:String x:Key="MsgErrColorName">顏色名稱無效。</sys:String>
+    <sys:String x:Key="MsgErrAdminInstallPath">不要安裝在需要管理權限的位置。</sys:String>
+
+    <sys:String x:Key="MsgInfoRegStartupShortcut">我為啟動創建了一個快捷方式。</sys:String>
+    <sys:String x:Key="MsgInfoRemoveStartupShortcut">從啟動中刪除了快捷方式。</sys:String>
+
+    <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">您想創建推薦的目標文件夾嗎？</sys:String>
+    <sys:String x:Key="MsgConfirmCloseMenu">您要退出菜單嗎？</sys:String>
+    <sys:String x:Key="MsgConfirmDefSave">定義信息已被編輯。 你想保存它嗎？</sys:String>
+    <sys:String x:Key="MsgConfirmUndoDef">定義信息中有錯誤。 你想恢復嗎？</sys:String>
+
+    <sys:String x:Key="R_Error">錯誤</sys:String>
+    <sys:String x:Key="R_Info">信息</sys:String>
+    <sys:String x:Key="R_Confirm">確認</sys:String>
+
+</ResourceDictionary>

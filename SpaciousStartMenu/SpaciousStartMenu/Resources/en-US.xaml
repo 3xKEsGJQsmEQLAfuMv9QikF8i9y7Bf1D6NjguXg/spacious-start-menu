@@ -72,15 +72,15 @@
 
     <!--  Settings screen  -->
     <sys:String x:Key="R_Settings_Setup">Setup</sys:String>
-    <sys:String x:Key="R_RegStartupShortcut">Register to startup(_S)</sys:String>
+    <sys:String x:Key="R_RegStartupShortcut">Register to startup (_S)</sys:String>
     <sys:String x:Key="R_RemoveStartupShortcut">Remove from Startup</sys:String>
     <sys:String x:Key="R_MinimizeStartup">Minimize when starting from startup</sys:String>
     <sys:String x:Key="R_Settings_Minimize">Minimize</sys:String>
-    <sys:String x:Key="R_EscKeyMinimized">Esc key to minimize(_E)</sys:String>
-    <sys:String x:Key="R_MarginDblClickMinimized">Minimize by double-clicking on the menu margin(_M)</sys:String>
-    <sys:String x:Key="R_DisabledMinimizeCtrlClick">Minimization is suppressed when the launch button is pressed while the Ctrl key is held down</sys:String>
+    <sys:String x:Key="R_EscKeyMinimized">Minimize menu with Esc key (_E)</sys:String>
+    <sys:String x:Key="R_MarginDblClickMinimized">Minimize the menu by double-clicking on the menu margin (_M)</sys:String>
+    <sys:String x:Key="R_DisabledMinimizeCtrlClick">Suppresses menu minimization when pressing the launch button while holding down the Ctrl key</sys:String>
     <sys:String x:Key="R_Settings_Confirm">Confirm</sys:String>
-    <sys:String x:Key="R_ConfirmClose">Confirm when exiting menu(_C)</sys:String>
+    <sys:String x:Key="R_ConfirmClose">Confirm when exiting menu (_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">Context menu</sys:String>
     <sys:String x:Key="R_ShowOpenAndExitMenuItem">Show &quot;Open the program location and then exit the program&quot; menu</sys:String>
     <sys:String x:Key="R_Settings_Advanced">Advanced options</sys:String>

@@ -1,0 +1,110 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!--  Title  -->
+    <sys:String x:Key="R_AppTitle">시작</sys:String>
+    <sys:String x:Key="R_AppLinkName">Spacious Start Menu</sys:String>
+    <sys:String x:Key="R_PinTitle">고정된 정의 목록</sys:String>
+    <sys:String x:Key="R_SettingsTitle">설정</sys:String>
+    <sys:String x:Key="R_EditTitle">편집하다</sys:String>
+
+    <sys:String x:Key="R_SystemFolder">시스템 폴더</sys:String>
+    <sys:String x:Key="R_Download">다운로드</sys:String>
+    <sys:String x:Key="R_Desktop">데스크탑</sys:String>
+    <sys:String x:Key="R_Document">문서</sys:String>
+    <sys:String x:Key="R_Picture">사진</sys:String>
+    <sys:String x:Key="R_Video">동영상</sys:String>
+    <sys:String x:Key="R_Music">음악</sys:String>
+    <sys:String x:Key="R_Tools">도구</sys:String>
+    <sys:String x:Key="R_Calc">계산기</sys:String>
+    <sys:String x:Key="R_Notepad">메모장</sys:String>
+    <sys:String x:Key="R_Paint">그림판</sys:String>
+    <sys:String x:Key="R_Settings">설정</sys:String>
+    <sys:String x:Key="R_ControlPanel">제어판</sys:String>
+
+    <sys:String x:Key="R_TaskManager">작업 관리자</sys:String>
+    <sys:String x:Key="R_Explorer">파일 탐색기</sys:String>
+    <sys:String x:Key="R_Run">실행</sys:String>
+
+    <!--  Title button tooltip  -->
+    <sys:String x:Key="R_ToolTip_MinimizedButton">최소화</sys:String>
+    <sys:String x:Key="R_ToolTip_CloseButton">닫기</sys:String>
+
+    <!--  Context menu  -->
+    <sys:String x:Key="R_Menu_Pinning">핀 수정(_P)...</sys:String>
+    <sys:String x:Key="R_Menu_Scale">규모</sys:String>
+    <sys:String x:Key="R_Menu_Settings">설정(_S)...</sys:String>
+    <sys:String x:Key="R_Menu_OpenExePath">프로그램 위치 열기(_O)</sys:String>
+    <sys:String x:Key="R_Menu_OpenExePathAndExit">프로그램 위치를 연 다음 프로그램을 종료합니다.(_X)</sys:String>
+
+    <!--  Buttons  -->
+    <sys:String x:Key="R_AddButton">행 추가(_A)</sys:String>
+    <sys:String x:Key="R_DuplicateButton">행 복제(_D)</sys:String>
+    <sys:String x:Key="R_SaveButton">구하다(_S)</sys:String>
+    <sys:String x:Key="R_CloseButton">닫다(_X)</sys:String>
+    <sys:String x:Key="R_OtherWindowMinimize">다른 화면 최소화(_M)</sys:String>
+    <sys:String x:Key="R_OkButton">확인</sys:String>
+    <sys:String x:Key="R_CancelButton">취소</sys:String>
+    <sys:String x:Key="R_YesButton">예(_Y)</sys:String>
+    <sys:String x:Key="R_NoButton">아니(_N)</sys:String>
+
+    <!--  Button tooltips  -->
+    <sys:String x:Key="R_ToolTip_Edit">편집하다</sys:String>
+    <sys:String x:Key="R_ToolTip_Delete">삭제</sys:String>
+    <sys:String x:Key="R_ToolTip_DirectEditButton">정의 파일을 직접 편집하십시오.</sys:String>
+    <sys:String x:Key="R_ToolTip_UpButton">선택 라인을 위로 이동합니다. (Alt + Up)</sys:String>
+    <sys:String x:Key="R_ToolTip_DownButton">선택 라인을 아래로 이동합니다. (Alt + Down)</sys:String>
+    <sys:String x:Key="R_ToolTip_SaveButton">설정을 저장하고 화면을 닫습니다.</sys:String>
+
+    <sys:String x:Key="R_Description_EditPath">파일 및 폴더를 여기에 끌어다 놓을 수 있습니다.</sys:String>
+
+    <!--  Pinning screen  -->
+    <sys:String x:Key="R_List_Color">색깔</sys:String>
+    <sys:String x:Key="R_List_Title">제목</sys:String>
+    <sys:String x:Key="R_List_Path">길</sys:String>
+
+    <sys:String x:Key="R_Edit_Headline">표제(_H)</sys:String>
+    <sys:String x:Key="R_Edit_Color">색깔(_C)</sys:String>
+    <sys:String x:Key="R_Edit_Title">제목(_T)</sys:String>
+    <sys:String x:Key="R_Edit_Path">길(_P)</sys:String>
+
+    <!--  Settings screen  -->
+    <sys:String x:Key="R_Settings_Setup">설정</sys:String>
+    <sys:String x:Key="R_RegStartupShortcut">시작에 등록(_S)</sys:String>
+    <sys:String x:Key="R_RemoveStartupShortcut">시작 프로그램에서 제거</sys:String>
+    <sys:String x:Key="R_MinimizeStartup">시작할 때 최소화</sys:String>
+    <sys:String x:Key="R_Settings_Minimize">최소화</sys:String>
+    <sys:String x:Key="R_EscKeyMinimized">Esc 키로 메뉴 최소화(_E)</sys:String>
+    <sys:String x:Key="R_MarginDblClickMinimized">메뉴 여백을 두 번 클릭하여 메뉴 최소화(_M)</sys:String>
+    <sys:String x:Key="R_DisabledMinimizeCtrlClick">Ctrl 키를 누른 상태에서 실행 버튼을 누를 때 메뉴 최소화를 억제합니다.</sys:String>
+    <sys:String x:Key="R_Settings_Confirm">확인하다</sys:String>
+    <sys:String x:Key="R_ConfirmClose">메뉴 종료 시 확인(_C)</sys:String>
+    <sys:String x:Key="R_Settings_ContextMenu">상황에 맞는 메뉴</sys:String>
+    <sys:String x:Key="R_ShowOpenAndExitMenuItem">&quot;프로그램 위치를 연 다음 프로그램을 종료하십시오&quot;를 표시하십시오. 메뉴</sys:String>
+    <sys:String x:Key="R_Settings_Advanced">고급 옵션</sys:String>
+    <sys:String x:Key="R_ShowDirectEditDefineButton">고정된 정의 목록의 직접 정의 파일 편집 버튼 화면</sys:String>
+
+    <!--  Messages  -->
+    <sys:String x:Key="MsgErrUnsupportedOS">지원되지 않는 운영 체제입니다.</sys:String>
+    <sys:String x:Key="MsgErrGetExePath">실행 파일의 경로를 가져오지 못했습니다.</sys:String>
+    <sys:String x:Key="MsgErrStartup">시작하지 못했습니다.</sys:String>
+    <sys:String x:Key="MsgErrSaveSettings">애플리케이션 설정을 저장하지 못했습니다.</sys:String>
+    <sys:String x:Key="MsgErrSettingsColumn">열 수가 잘못되었습니다.</sys:String>
+    <sys:String x:Key="MsgErrColorName">잘못된 색상 이름입니다.</sys:String>
+    <sys:String x:Key="MsgErrAdminInstallPath">관리자 권한이 필요한 위치에 설치하지 마십시오.</sys:String>
+
+    <sys:String x:Key="MsgInfoRegStartupShortcut">시작 바로가기를 만들었습니다.</sys:String>
+    <sys:String x:Key="MsgInfoRemoveStartupShortcut">시작에서 바로 가기를 제거했습니다.</sys:String>
+
+    <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">추천 대상 폴더를 생성하시겠습니까?</sys:String>
+    <sys:String x:Key="MsgConfirmCloseMenu">메뉴를 종료하시겠습니까?</sys:String>
+    <sys:String x:Key="MsgConfirmDefSave">정의 정보가 수정되었습니다. 저장하시겠습니까?</sys:String>
+    <sys:String x:Key="MsgConfirmUndoDef">정의 정보에 오류가 있습니다. 되돌리시겠습니까?</sys:String>
+
+    <sys:String x:Key="R_Error">오류</sys:String>
+    <sys:String x:Key="R_Info">정보</sys:String>
+    <sys:String x:Key="R_Confirm">확인하다</sys:String>
+
+</ResourceDictionary>
