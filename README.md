@@ -78,7 +78,7 @@ Color selection menu.
 
 ## Settings screen
 
-![image23](https://user-images.githubusercontent.com/99333667/173183629-29fc52a5-0ec3-4979-ba2b-f917aa3da3a9.png)
+![image23](https://user-images.githubusercontent.com/99333667/173438245-d823fab8-fe1d-4bb4-b524-80fb555e104f.png)
 
 - Setup
   - Register to startup
