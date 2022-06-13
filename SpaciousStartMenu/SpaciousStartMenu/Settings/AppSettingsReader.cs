@@ -18,6 +18,11 @@ namespace SpaciousStartMenu.Settings
             }
 
             string jsonStr = File.ReadAllText(App.GetAppSettingsFilePath());
+            if (string.IsNullOrWhiteSpace(jsonStr))
+            {
+                return new AppSettings();
+            }
+
             var stg = JsonSerializer.Deserialize<AppSettings>(jsonStr);
 
             return stg ?? new AppSettings();
