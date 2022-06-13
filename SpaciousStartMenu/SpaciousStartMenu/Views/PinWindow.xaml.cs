@@ -128,7 +128,7 @@ namespace SpaciousStartMenu.Views
             if (this.Confirm(App.R("MsgConfirmUndoDef")) == MessageBoxResult.Yes)
             {
                 string filePath = App.GetLaunchDefFilePath();
-                File.Copy($"{filePath}.bak", filePath, overwrite: true);
+                File.Copy(FileIO.BackupFile.GetFilePath(filePath), filePath, overwrite: true);
                 return true;
             }
             else
@@ -203,7 +203,7 @@ namespace SpaciousStartMenu.Views
             try
             {
                 string filePath = App.GetLaunchDefFilePath();
-                if (File.Exists(filePath))
+                if (System.IO.File.Exists(filePath))
                 {
                     using var sr = new StreamReader(filePath, Encoding.UTF8);
                     DefText.Text = await sr.ReadToEndAsync();
@@ -380,7 +380,7 @@ namespace SpaciousStartMenu.Views
             string filePath = App.GetLaunchDefFilePath();
             if (File.Exists(filePath) && !_hasError)
             {
-                File.Copy(filePath, $"{filePath}.bak", overwrite: true);
+                File.Copy(filePath, FileIO.BackupFile.GetFilePath(filePath), overwrite: true);
             }
 
             if (DefList.Visibility == Visibility.Visible)

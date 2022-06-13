@@ -184,6 +184,7 @@ namespace SpaciousStartMenu.Views
                 TitleText.Text = Path.GetFileName(path);
             }
             PathText.Text = path;
+            UpdateOkButtonEnabled();
         }
 
         private void HeadlineCheck_Checked(object sender, RoutedEventArgs e)

@@ -9,7 +9,7 @@
     Title="{StaticResource R_SettingsTitle}"
     Width="850"
     Height="650"
-    MaxWidth="1200"
+    MaxWidth="1800"
     MaxHeight="900"
     Closing="Window_Closing"
     Loaded="Window_Loaded"
@@ -48,16 +48,22 @@
             <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_Minimize}" />
             <CheckBox x:Name="EscKeyMin" Content="{StaticResource R_EscKeyMinimized}" />
             <CheckBox x:Name="DblClickMin" Content="{StaticResource R_MarginDblClickMinimized}" />
-            <CheckBox x:Name="CtrlClickDisabledMin" Content="{StaticResource R_DisabledMinimizeCtrlClick}" />
+            <CheckBox x:Name="CtrlClickDisabledMin">
+                <TextBlock Text="{StaticResource R_DisabledMinimizeCtrlClick}" TextWrapping="Wrap" />
+            </CheckBox>
 
             <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_Confirm}" />
             <CheckBox x:Name="ConfirmClose" Content="{StaticResource R_ConfirmClose}" />
 
             <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_ContextMenu}" />
-            <CheckBox x:Name="ShowOpenAndExitMenuItem" Content="{StaticResource R_ShowOpenAndExitMenuItem}" />
+            <CheckBox x:Name="ShowOpenAndExitMenuItem">
+                <TextBlock Text="{StaticResource R_ShowOpenAndExitMenuItem}" TextWrapping="Wrap" />
+            </CheckBox>
 
             <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_Advanced}" />
-            <CheckBox x:Name="ShowDirectEditDefine" Content="{StaticResource R_ShowDirectEditDefineButton}" />
+            <CheckBox x:Name="ShowDirectEditDefine">
+                <TextBlock Text="{StaticResource R_ShowDirectEditDefineButton}" TextWrapping="Wrap" />
+            </CheckBox>
         </StackPanel>
 
         <StackPanel
