@@ -13,7 +13,9 @@
 
 # Spacious Start Menu
 
-A launcher that can use the entire screen area.
+This is a program launcher that allows you to take advantage of the entire screen area.
+
+The full screen listing frees the user from cumbersome scrolling operations.
 
 ![image00](https://user-images.githubusercontent.com/99333667/173183598-42dc5a99-e26d-4905-8d23-0abd741c329a.png)
 
