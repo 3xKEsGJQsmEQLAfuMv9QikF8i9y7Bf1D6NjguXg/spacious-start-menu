@@ -26,7 +26,11 @@ The full screen listing frees the user from cumbersome scrolling operations.
 
 # Install
 
+## Step 1
+
 Download and install `x64` of `.NET Desktop Runtime 6.x` from [Download .NET 6.0 (Linux, macOS, and Windows)](https://dotnet.microsoft.com/download/dotnet/6.0).
+
+## Step 2
 
 Download `SpaciousStartMenu.zip` from [Releases](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/releases).
 
@@ -49,7 +53,7 @@ Launch defined applications, folders, etc. at the click of a button.
 | Menu item             | Description                                          |
 | --------------------- | ---------------------------------------------------- |
 | Edit Pin              | Displays the edit screen of the item to be launched. |
-| Scale                 | Changes the display magnification of an item.        |
+| Scale                 | Changes the display magnification of an item. You can also change it by holding down Ctrl and rotating the mouse wheel.      |
 | Settings              | Displays the settings screen.                        |
 | Open Program Location | Open the folder where this program is located.       |
 | Open the program location and then exit the program | Open the folder where this program is located and exit the program. This menu item can be displayed in the settings.       |
