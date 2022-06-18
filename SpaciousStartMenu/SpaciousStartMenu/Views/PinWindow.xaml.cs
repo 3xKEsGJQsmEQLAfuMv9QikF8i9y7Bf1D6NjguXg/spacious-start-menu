@@ -1,4 +1,5 @@
 ﻿using SpaciousStartMenu.DataTypes;
+using SpaciousStartMenu.Extensions;
 using SpaciousStartMenu.Settings;
 using System;
 using System.Collections.Generic;
@@ -25,17 +26,18 @@ namespace SpaciousStartMenu.Views
         private bool _isEditing = false;
         private bool _hasError = false;
         private ObservableCollection<LaunchDefItem>? _defItems;
-        private static double _previousWidth = 0.0;
-        private static double _previousHeight = 0.0;
-        private static bool _isMaximize = false;
         private readonly PinVm _pinVm = new();
 
-        public PinWindow(Window parentWindow, Action postSaveAction, AppSettings settings)
+        public PinWindow(
+            Window parentWindow,
+            Action postSaveAction,
+            AppSettings settings)
         {
             InitializeComponent();
             _parentWindow = parentWindow;
             _postSaveAction = postSaveAction;
             _settings = settings;
+            RestoreWindowSize(_settings);
             DataContext = _pinVm;
             _pinVm.IsEdited = false;
 
@@ -49,7 +51,7 @@ namespace SpaciousStartMenu.Views
 
         private void InitializeDefList()
         {
-            var dr = new LaunchDefReader(App.GetLaunchDefFilePath());
+            var dr = new LaunchDefReader(App.GetLaunchDefineFilePath());
             _defItems = dr.ReadFromFile();
 
             DefList.Items.Clear();
@@ -71,23 +73,22 @@ namespace SpaciousStartMenu.Views
             cv.SortDescriptions.Add(new SortDescription("Order", ListSortDirection.Ascending));
         }
 
-        private void Window_SourceInitialized(object sender, EventArgs e)
+        private void RestoreWindowSize(AppSettings stg)
         {
-            RestoreTemporaryWindowSize();
-        }
-
-        private void RestoreTemporaryWindowSize()
-        {
-            if (_previousHeight != 0.0 &&
-                _previousWidth != 0.0)
+            if (stg.SaveScreenPosition)
             {
-                Height = _previousHeight;
-                Width = _previousWidth;
+                WindowStartupLocation = WindowStartupLocation.Manual;
+                this.SetWindowPosition(
+                    stg.PinListScreenLeft,
+                    stg.PinListScreenTop);
             }
 
-            if (_isMaximize)
+            if (_settings.SaveScreenSize)
             {
-                WindowState = WindowState.Maximized;
+                this.SetWindowSize(
+                    stg.PinListScreenHeight,
+                    stg.PinListScreenWidth,
+                    stg.PinListScreenMaximum);
             }
         }
 
@@ -115,7 +116,7 @@ namespace SpaciousStartMenu.Views
                 }
 
                 _parentWindow.WindowState = WindowState.Maximized;
-                SaveTemporaryWindowSize();
+                SaveWindowSize(_settings);
             }
             catch (Exception ex)
             {
@@ -127,7 +128,7 @@ namespace SpaciousStartMenu.Views
         {
             if (this.Confirm(App.R("MsgConfirmUndoDef")) == MessageBoxResult.Yes)
             {
-                string filePath = App.GetLaunchDefFilePath();
+                string filePath = App.GetLaunchDefineFilePath();
                 File.Copy(FileIO.BackupFile.GetFilePath(filePath), filePath, overwrite: true);
                 return true;
             }
@@ -159,11 +160,23 @@ namespace SpaciousStartMenu.Views
             return true;
         }
 
-        private void SaveTemporaryWindowSize()
+        private void SaveWindowSize(AppSettings stg)
         {
-            _previousWidth = Width;
-            _previousHeight = Height;
-            _isMaximize = WindowState == WindowState.Maximized;
+            if (stg.SaveScreenPosition)
+            {
+                stg.PinListScreenLeft = Left;
+                stg.PinListScreenTop = Top;
+            }
+
+            if (stg.SaveScreenSize)
+            {
+                stg.PinListScreenMaximum = WindowState == WindowState.Maximized;
+                if (!stg.PinListScreenMaximum)
+                {
+                    stg.PinListScreenHeight = Height;
+                    stg.PinListScreenWidth = Width;
+                }
+            }
         }
 
         private void Window_StateChanged(object sender, EventArgs e)
@@ -202,7 +215,7 @@ namespace SpaciousStartMenu.Views
         {
             try
             {
-                string filePath = App.GetLaunchDefFilePath();
+                string filePath = App.GetLaunchDefineFilePath();
                 if (System.IO.File.Exists(filePath))
                 {
                     using var sr = new StreamReader(filePath, Encoding.UTF8);
@@ -275,14 +288,20 @@ namespace SpaciousStartMenu.Views
 
         private void ShowEditWindow(LaunchDefItem item, bool isNew)
         {
-            var win = new EditDetailWindow(new Window[] { _parentWindow, this }, _colors, item);
+            var win = new EditDetailWindow(
+                new Window[] { _parentWindow, this },
+                _colors,
+                item,
+                _settings);
 
             _isEditing = true;
             Opacity = 0.5;
 
+            win.Owner = this;
             var ret =win.ShowDialog();
 
             Opacity = 1.0;
+
             if (isNew &&
                 ret == true)
             {
@@ -308,7 +327,7 @@ namespace SpaciousStartMenu.Views
         {
             try
             {
-                var newItem = new LaunchDefItem("Black", null, null);
+                var newItem = new LaunchDefItem("Black", null, null, null, null);
                 ShowEditWindow(newItem, true);
             }
             catch (Exception ex)
@@ -377,7 +396,7 @@ namespace SpaciousStartMenu.Views
                 return false;
             }
 
-            string filePath = App.GetLaunchDefFilePath();
+            string filePath = App.GetLaunchDefineFilePath();
             if (File.Exists(filePath) && !_hasError)
             {
                 File.Copy(filePath, FileIO.BackupFile.GetFilePath(filePath), overwrite: true);
@@ -431,7 +450,9 @@ namespace SpaciousStartMenu.Views
             var w = lv.ActualWidth
                 - v.Columns[0].ActualWidth  // Color
                 - v.Columns[1].ActualWidth  // Title
-                - v.Columns[3].ActualWidth  // Buttons
+                - v.Columns[3].ActualWidth  // Work Dir
+                - v.Columns[4].ActualWidth  // Args
+                - v.Columns[5].ActualWidth  // Buttons
                 - MarginW;
             if (w < MinW)
             {

@@ -1,4 +1,5 @@
-﻿using SpaciousStartMenu.Settings;
+﻿using SpaciousStartMenu.Extensions;
+using SpaciousStartMenu.Settings;
 using SpaciousStartMenu.Shell;
 using System;
 using System.Windows;
@@ -8,27 +9,21 @@ namespace SpaciousStartMenu.Views
     public partial class SettingsWindow : Window
     {
         private readonly AppSettings _settings;
-        private static double _previousWidth = 0.0;
-        private static double _previousHeight = 0.0;
 
         public SettingsWindow(AppSettings settings)
         {
             InitializeComponent();
             _settings = settings;
+            RestoreWindowSize(_settings);
         }
 
-        private void Window_SourceInitialized(object sender, EventArgs e)
+        private void RestoreWindowSize(AppSettings stg)
         {
-            RestoreTemporaryWindowSize();
-        }
-
-        private void RestoreTemporaryWindowSize()
-        {
-            if (_previousHeight != 0.0 &&
-                _previousWidth != 0.0)
+            if (stg.SaveScreenSize)
             {
-                Height = _previousHeight;
-                Width = _previousWidth;
+                this.SetWindowSize(
+                    stg.SettingsScreenHeight,
+                    stg.SettingsScreenWidth);
             }
         }
 
@@ -46,18 +41,24 @@ namespace SpaciousStartMenu.Views
 
             ShowOpenAndExitMenuItem.IsChecked = _settings.ShowOpenAndExitMenuItem;
 
+            SaveScreenSize.IsChecked = _settings.SaveScreenSize;
+            SaveScreenPos.IsChecked = _settings.SaveScreenPosition;
+
             ShowDirectEditDefine.IsChecked = _settings.ShowDirectEditDefineButton;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            SaveTemporaryWindowSize();
+            SaveWindowSize(_settings);
         }
 
-        private void SaveTemporaryWindowSize()
+        private void SaveWindowSize(AppSettings stg)
         {
-            _previousWidth = Width;
-            _previousHeight = Height;
+            if (stg.SaveScreenSize)
+            {
+                stg.SettingsScreenHeight = Height;
+                stg.SettingsScreenWidth = Width;
+            }
         }
 
         private void Window_StateChanged(object sender, EventArgs e)
@@ -79,6 +80,9 @@ namespace SpaciousStartMenu.Views
             _settings.ConfirmCloseMenu = ConfirmClose.IsChecked == true;
 
             _settings.ShowOpenAndExitMenuItem = ShowOpenAndExitMenuItem.IsChecked == true;
+
+            _settings.SaveScreenSize = SaveScreenSize.IsChecked == true;
+            _settings.SaveScreenPosition = SaveScreenPos.IsChecked == true;
 
             _settings.ShowDirectEditDefineButton = ShowDirectEditDefine.IsChecked == true;
 

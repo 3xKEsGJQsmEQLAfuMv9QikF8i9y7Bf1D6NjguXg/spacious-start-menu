@@ -12,10 +12,10 @@
     Closing="Window_Closing"
     FocusManager.FocusedElement="{Binding ElementName=DefList}"
     KeyDown="Window_KeyDown"
-    SourceInitialized="Window_SourceInitialized"
     StateChanged="Window_StateChanged"
     Style="{StaticResource ToolWindowStyle}"
     Topmost="True"
+    WindowStartupLocation="CenterOwner"
     mc:Ignorable="d">
 
     <Window.Resources>
@@ -91,6 +91,28 @@
                                     Foreground="{Binding Path, Mode=OneWay, Converter={StaticResource StrToGrpTitleColorConv}}"
                                     Opacity="{Binding IsDelete, Mode=OneWay, Converter={StaticResource BoolToDoubleConv}, ConverterParameter=0.2}"
                                     Text="{Binding Path, Mode=OneWay, Converter={StaticResource StrToHrConv}}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Width="180" Header="{StaticResource R_List_WorkDirectory}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    Foreground="{Binding Path, Mode=OneWay, Converter={StaticResource StrToGrpTitleColorConv}}"
+                                    Opacity="{Binding IsDelete, Mode=OneWay, Converter={StaticResource BoolToDoubleConv}, ConverterParameter=0.2}"
+                                    Text="{Binding WorkDir, Mode=OneWay}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Width="100" Header="{StaticResource R_List_Arguments}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    Foreground="{Binding Path, Mode=OneWay, Converter={StaticResource StrToGrpTitleColorConv}}"
+                                    Opacity="{Binding IsDelete, Mode=OneWay, Converter={StaticResource BoolToDoubleConv}, ConverterParameter=0.2}"
+                                    Text="{Binding Args, Mode=OneWay}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

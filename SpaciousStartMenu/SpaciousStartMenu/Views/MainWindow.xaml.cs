@@ -2,6 +2,7 @@
 using SpaciousStartMenu.Settings;
 using SpaciousStartMenu.Shell;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Linq;
 
 namespace SpaciousStartMenu.Views
 {
@@ -22,6 +24,7 @@ namespace SpaciousStartMenu.Views
         private readonly Style _groupTitleStyle = (Style)(Application.Current.FindResource("GroupTitleStyle"));
         private static readonly FontFamily _segoeMdl2Font = new("Segoe MDL2 Assets");
         private const string _colorMark = "\uE91F";
+        private readonly List<double> _scales = new();
 
         public MainWindow()
         {
@@ -48,9 +51,10 @@ namespace SpaciousStartMenu.Views
 
                 LoadAppSettings();
 
-                string filePath = App.GetLaunchDefFilePath();
-                CreateDefaultLaunchDefFile(filePath);
-                LoadLauncherDef(filePath);
+                GetScales();
+                string filePath = App.GetLaunchDefineFilePath();
+                CreateDefaultLaunchDefineFile(filePath);
+                LoadLauncherDefine(filePath);
             }
             catch (Exception ex)
             {
@@ -124,6 +128,26 @@ namespace SpaciousStartMenu.Views
             SuppressContextMenuOpen(e);
         }
 
+        private void Window_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                ChangeScale(e.Delta > 0);
+            }
+        }
+
+        private void ChangeScale(bool isZoom)
+        {
+            if (isZoom)
+            {
+                ZoomIn();
+            }
+            else
+            {
+                ZoomOut();
+            }
+        }
+
         private void PinMenuItem_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -132,7 +156,10 @@ namespace SpaciousStartMenu.Views
                     !_pinWindow.IsVisible)
                 {
                     _pinWindow = new PinWindow(
-                        this, () => LoadLauncherDef(App.GetLaunchDefFilePath()), _settings);
+                        this,
+                        () => LoadLauncherDefine(App.GetLaunchDefineFilePath()),
+                        _settings);
+                    _pinWindow.Owner = this;
                     _pinWindow.Show();
                 }
                 else
@@ -170,6 +197,7 @@ namespace SpaciousStartMenu.Views
             try
             {
                 var window = new SettingsWindow(_settings);
+                window.Owner = this;
                 window.ShowDialog();
                 SetScreenFromSettings(_settings);
             }
@@ -184,7 +212,7 @@ namespace SpaciousStartMenu.Views
             try
             {
                 string appPath = App.GetAppPath();
-                Execute(appPath);
+                Execute(appPath, null, null);
                 WindowState = WindowState.Minimized;
             }
             catch (Exception ex)
@@ -231,20 +259,59 @@ namespace SpaciousStartMenu.Views
 
         private void SetScreen(AppSettings appStg)
         {
-            DefaultScaleItem.IsChecked = true;
+            SetScale(appStg.Scale);
+        }
+
+        private void SetScale(double value)
+        {
             foreach (var child in LogicalTreeHelper.GetChildren(ScaleMenu))
             {
                 if (child is RadioButton radio &&
                     double.TryParse(radio.Content.ToString(), out double scale) &&
-                    scale == appStg.Scale)
+                    scale == value)
                 {
                     radio.IsChecked = true;
                     SetContainerScale(scale);
+                    return;
+                }
+            }
+            DefaultScaleItem.IsChecked = true;
+        }
+
+        private void ZoomIn()
+        {
+            double scale = GetScale();
+            if (scale == _scales.Last())
+            {
+                return;
+            }
+
+            for (int i = 0; i < _scales.Count - 1; i++)
+            {
+                if (_scales[i] == scale)
+                {
+                    SetScale(_scales[i + 1]);
                     break;
                 }
             }
+        }
 
-            
+        private void ZoomOut()
+        {
+            double scale = GetScale();
+            if (scale == _scales.First())
+            {
+                return;
+            }
+
+            for (int i = _scales.Count - 1; 1 <= i; i--)
+            {
+                if (_scales[i] == scale)
+                {
+                    SetScale(_scales[i - 1]);
+                    break;
+                }
+            }
         }
 
         /// <summary>
@@ -274,22 +341,39 @@ namespace SpaciousStartMenu.Views
 
         private AppSettings GetScreen()
         {
-            double scale = 1.0;
-            foreach (var child in LogicalTreeHelper.GetChildren(ScaleMenu))
-            {
-                if (child is RadioButton radio &&
-                    radio.IsChecked == true &&
-                    double.TryParse(radio.Content.ToString(), out scale))
-                {
-                    break;
-                }
-            }
-            _settings.Scale = scale;
+            _settings.Scale = GetScale();
 
             return _settings;
         }
 
-        private void LoadLauncherDef(string filePath)
+        private void GetScales()
+        {
+            _scales.Clear();
+            foreach (var child in LogicalTreeHelper.GetChildren(ScaleMenu))
+            {
+                if (child is RadioButton radio &&
+                    double.TryParse(radio.Content.ToString(), out double scale))
+                {
+                    _scales.Add(scale);
+                }
+            }
+        }
+
+        private double GetScale()
+        {
+            foreach (var child in LogicalTreeHelper.GetChildren(ScaleMenu))
+            {
+                if (child is RadioButton radio &&
+                    radio.IsChecked == true &&
+                    double.TryParse(radio.Content.ToString(), out double scale))
+                {
+                    return scale;
+                }
+            }
+            return 1.0;
+        }
+
+        private void LoadLauncherDefine(string filePath)
         {
             MainContainer.Children.Clear();
             using var reader = new StreamReader(filePath, Encoding.UTF8);
@@ -330,7 +414,7 @@ namespace SpaciousStartMenu.Views
                 {
                     MakeGroup(ref btnContainer, ref _groupCount, _btnDef.GetGroupTitle(columns));
                 }
-                else if (columns.Length == LauncherDefinition.MaxColumns)
+                else if (LauncherDefinition.RequiredColumns <= columns.Length)
                 {
                     MakeButton(columns, ref btnContainer, ref _buttonCount, ref _groupCount);
                 }
@@ -353,7 +437,10 @@ namespace SpaciousStartMenu.Views
             Button btn = CreateLaunchButton(
                 columns[LauncherDefinition.ColorOrGroupTitleColumnIndex],
                 columns[LauncherDefinition.TitleColumnIndex],
-                columns[LauncherDefinition.PathColumnIndex]);
+                columns[LauncherDefinition.PathColumnIndex],
+                LauncherDefinition.WorkDirColumnIndex <= columns.Length - 1 ? columns[LauncherDefinition.WorkDirColumnIndex] : null,
+                LauncherDefinition.ArgsColumnIndex <= columns.Length - 1 ? columns[LauncherDefinition.ArgsColumnIndex] : null);
+            
             btnContainer?.Children.Add(btn);
 
             buttonCount++;
@@ -374,15 +461,28 @@ namespace SpaciousStartMenu.Views
             groupCount++;
         }
 
-        private void CreateDefaultLaunchDefFile(string filePath)
+        private void CreateDefaultLaunchDefineFile(string filePath)
         {
-            if (File.Exists(filePath))
+            if (!IsEmptyFile(filePath))
             {
                 return;
             }
 
             using var sw = new StreamWriter(filePath, append: false, encoding: Encoding.UTF8);
             sw.Write(LauncherDefinition.GetDefaultData());
+        }
+
+        private bool IsEmptyFile(string filePath)
+        {
+            const int bomAndCrLfSize = 5;
+
+            if (File.Exists(filePath))
+            {
+                var f = new FileInfo(filePath);
+                return f.Length <= bomAndCrLfSize;
+            }
+
+            return true;
         }
 
         private TextBlock CreateGroupTitle(string title)
@@ -397,7 +497,12 @@ namespace SpaciousStartMenu.Views
             return txt;
         }
 
-        private Button CreateLaunchButton(string colorName, string text, string execute)
+        private Button CreateLaunchButton(
+            string colorName,
+            string text,
+            string execute,
+            string? workDir,
+            string? args)
         {
             var btn = new Button();
             var txtContainer = new StackPanel
@@ -433,7 +538,7 @@ namespace SpaciousStartMenu.Views
             btn.Content = txtContainer;
             btn.Click += (_, _) =>
             {
-                if (Execute(execute))
+                if (Execute(execute, workDir, args))
                 {
                     MinimizedWindow();
                 }
@@ -453,11 +558,11 @@ namespace SpaciousStartMenu.Views
             WindowState = WindowState.Minimized;
         }
 
-        private bool Execute(string cmd)
+        private bool Execute(string cmd, string? workDir, string? args)
         {
             try
             {
-                ShellExecution.Run(cmd);
+                ShellExecution.Run(cmd, workDir, args);
                 return true;
             }
             catch

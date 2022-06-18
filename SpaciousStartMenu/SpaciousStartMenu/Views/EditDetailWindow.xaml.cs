@@ -1,4 +1,5 @@
 ﻿using SpaciousStartMenu.DataTypes;
+using SpaciousStartMenu.Extensions;
 using SpaciousStartMenu.Settings;
 using System;
 using System.Collections.Generic;
@@ -15,35 +16,38 @@ namespace SpaciousStartMenu.Views
         private readonly Window[] _parentWindows;
         private readonly List<MarkColor> _colors;
         private readonly LaunchDefItem _item;
-        private static double _previousWidth = 0.0;
-        private static double _previousHeight = 0.0;
+        private readonly AppSettings _settings;
 
         public EditDetailWindow(
             Window[] parentWindows,
             List<MarkColor> colors,
-            LaunchDefItem item)
+            LaunchDefItem item,
+            AppSettings settings)
         {
+            InitializeComponent();
             _parentWindows = parentWindows;
             _colors = colors;
             _item = item;
-
-            InitializeComponent();
+            _settings = settings;
+            RestoreWindowSize(_settings);
             ColorList.ItemsSource = _colors;
-
         }
 
-        private void Window_SourceInitialized(object sender, EventArgs e)
+        private void RestoreWindowSize(AppSettings stg)
         {
-            RestoreTemporaryWindowSize();
-        }
-
-        private void RestoreTemporaryWindowSize()
-        {
-            if (_previousHeight != 0.0 &&
-                _previousWidth != 0.0)
+            if (stg.SaveScreenPosition)
             {
-                Height = _previousHeight;
-                Width = _previousWidth;
+                WindowStartupLocation = WindowStartupLocation.Manual;
+                this.SetWindowPosition(
+                    stg.PinEditScreenLeft,
+                    stg.PinEditScreenTop);
+            }
+
+            if (_settings.SaveScreenSize)
+            {
+                this.SetWindowSize(
+                    stg.PinEditScreenHeight,
+                    stg.PinEditScreenWidth);
             }
         }
 
@@ -55,13 +59,25 @@ namespace SpaciousStartMenu.Views
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            SaveTemporaryWindowSize();
+            SaveWindowSize(_settings);
         }
 
-        private void SaveTemporaryWindowSize()
+        private void SaveWindowSize(AppSettings stg)
         {
-            _previousWidth = Width;
-            _previousHeight = Height;
+            if (stg.SaveScreenPosition)
+            {
+                stg.PinEditScreenLeft = Left;
+                stg.PinEditScreenTop = Top;
+            }
+
+            if (stg.SaveScreenSize)
+            {
+                if (WindowState != WindowState.Maximized)
+                {
+                    stg.PinEditScreenHeight = Height;
+                    stg.PinEditScreenWidth = Width;
+                }
+            }
         }
 
         private void ItemToScreen(LaunchDefItem item)
@@ -77,6 +93,8 @@ namespace SpaciousStartMenu.Views
                 ColorNameLabel.Text = item.ColorName;
                 ColorMarkLabel.Foreground = MarkColor.GetBrushFromColorName(item.ColorName);
                 PathText.Text = item.Path ?? "";
+                WorkDirText.Text = item.WorkDir ?? "";
+                ArgsText.Text = item.Args ?? "";
             }
 
             var c = _colors.SingleOrDefault(x => x.ColorName == item.ColorName);
@@ -95,12 +113,16 @@ namespace SpaciousStartMenu.Views
                 item.ColorName = null;
                 item.MarkBrush = null;
                 item.Path = null;
+                item.WorkDir = null;
+                item.Args = null;
             }
             else
             {
                 item.ColorName = ColorNameLabel.Text;
                 item.MarkBrush = ColorMarkLabel.Foreground;
                 item.Path = PathText.Text;
+                item.WorkDir = WorkDirText.Text;
+                item.Args = ArgsText.Text;
             }
         }
 
@@ -111,7 +133,15 @@ namespace SpaciousStartMenu.Views
 
         private void ColorList_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            if ((sender as ListBox)?.SelectedItem is not MarkColor item)
+            if (sender is not ListBox list ||
+                list.SelectedItem is not MarkColor item)
+            {
+                return;
+            }
+
+            if (e.OriginalSource is
+                System.Windows.Controls.Primitives.RepeatButton or
+                System.Windows.Controls.Primitives.Thumb)
             {
                 return;
             }
@@ -120,10 +150,9 @@ namespace SpaciousStartMenu.Views
             ColorNameLabel.Text = item.ColorName;
 
             ColorPopup.IsOpen = false;
-
         }
 
-        private void ColorBorder_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void ColorBorder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (HeadlineCheck.IsChecked == false)
             {
@@ -149,6 +178,12 @@ namespace SpaciousStartMenu.Views
             if (ColorPopup.IsOpen)
             {
                 ColorPopup.IsOpen = false;
+                e.Handled = true;
+                return;
+            }
+            else if (SpecialFolderPopup.IsOpen)
+            {
+                SpecialFolderPopup.IsOpen = false;
                 e.Handled = true;
                 return;
             }
@@ -237,7 +272,7 @@ namespace SpaciousStartMenu.Views
             txt.SelectAll();
         }
 
-        private void TitleText_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void TextBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (sender is not TextBox t)
             {
@@ -250,6 +285,101 @@ namespace SpaciousStartMenu.Views
             }
             e.Handled = true;
             t.Focus();
+        }
+
+        private void SpecialFolderMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender == PathContextButton)
+            {
+                SpecialFolderPopup.PlacementTarget = PathContextButton;
+            }
+            else if (sender == WorkDirContextButton)
+            {
+                SpecialFolderPopup.PlacementTarget = WorkDirContextButton;
+            }
+            else
+            {
+                return;
+            }
+
+            SpecialFolderPopup.IsOpen = true;
+        }
+
+        private void ColorPopup_Opened(object sender, EventArgs e)
+        {
+            ColorList.Focus();
+        }
+
+        private void ColorList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key != Key.Enter ||
+                ColorList.SelectedItem is not MarkColor item)
+            {
+                return;
+            }
+
+            ColorMarkLabel.Foreground = item.MarkBrush;
+            ColorNameLabel.Text = item.ColorName;
+
+            ColorPopup.IsOpen = false;
+        }
+
+        private void SpecialFolderPopup_Opened(object sender, EventArgs e)
+        {
+            SpecialFolderList.Focus();
+            ((ListBoxItem)SpecialFolderList.SelectedItem)?.Focus();
+        }
+
+        private void FolderList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key != Key.Enter ||
+                sender is not ListBox list)
+            {
+                return;
+            }
+            if (list.SelectedItem is not ListBoxItem item)
+            {
+                return;
+            }
+
+            AddSelectedValueToTextBox(list, item);
+
+            SpecialFolderPopup.IsOpen = false;
+        }
+
+        private void AddSelectedValueToTextBox(ListBox list, ListBoxItem item)
+        {
+            string env = list == SpecialFolderList ? "" : "ENV:";
+            string content = $"<{env}{item.Content}>";
+
+            if (SpecialFolderPopup.PlacementTarget == PathContextButton)
+            {
+                PathText.Text += content;
+            }
+            else if (SpecialFolderPopup.PlacementTarget == WorkDirContextButton)
+            {
+                WorkDirText.Text += content;
+            }
+        }
+
+        private void FolderList_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is not ListBox list ||
+                list.SelectedItem is not ListBoxItem item)
+            {
+                return;
+            }
+
+            if (e.OriginalSource is
+                System.Windows.Controls.Primitives.RepeatButton or
+                System.Windows.Controls.Primitives.Thumb)
+            {
+                return;
+            }
+
+            AddSelectedValueToTextBox(list, item);
+
+            SpecialFolderPopup.IsOpen = false;
         }
     }
 }

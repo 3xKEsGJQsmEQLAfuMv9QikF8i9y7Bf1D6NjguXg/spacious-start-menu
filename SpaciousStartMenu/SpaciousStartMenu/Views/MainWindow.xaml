@@ -16,6 +16,7 @@
     KeyDown="Window_KeyDown"
     Loaded="Window_Loaded"
     MouseDoubleClick="Window_MouseDoubleClick"
+    PreviewMouseWheel="Window_PreviewMouseWheel"
     SizeChanged="Window_SizeChanged"
     WindowState="Maximized"
     WindowStyle="None"

@@ -9,21 +9,41 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="{StaticResource R_EditTitle}"
     Width="800"
-    Height="380"
-    MaxHeight="600"
+    Height="520"
+    MaxHeight="750"
     Closing="Window_Closing"
     FocusManager.FocusedElement="{Binding ElementName=HeadlineCheck}"
     KeyDown="Window_KeyDown"
     Loaded="Window_Loaded"
-    SourceInitialized="Window_SourceInitialized"
     StateChanged="Window_StateChanged"
     Style="{StaticResource ToolWindowStyle}"
     Topmost="True"
+    WindowStartupLocation="CenterOwner"
     mc:Ignorable="d">
 
     <Window.Resources>
         <cnv:InvertBooleanConverter x:Key="InvertBoolConv" />
         <cnv:BooleanToDoubleConverter x:Key="BoolToDoubleConv" />
+
+        <ContextMenu x:Key="SpecialFolderMenu">
+            <MenuItem Header="Env">
+                <MenuItem Header="ALLUSERSPROFILE" />
+                <MenuItem Header="APPDATA" />
+                <MenuItem Header="HOMEPATH" />
+                <MenuItem Header="LOCALAPPDATA" />
+                <MenuItem Header="PROGRAMDATA" />
+                <MenuItem Header="PROGRAMFILES" />
+                <MenuItem Header="PROGRAMFILES(X86)" />
+                <MenuItem Header="SYSTEMROOT" />
+                <MenuItem Header="TEMP" />
+                <MenuItem Header="TMP" />
+                <MenuItem Header="USERPROFILE" />
+                <MenuItem Header="WINDIR" />
+            </MenuItem>
+            <MenuItem x:Name="SpecialMenuRoo1" Header="Sp1" />
+            <MenuItem x:Name="SpecialMenuRoo2" Header="Sp2" />
+        </ContextMenu>
+
     </Window.Resources>
 
     <Grid Style="{StaticResource BaseGridStyle}">
@@ -36,6 +56,7 @@
             x:Name="ColorPopup"
             AllowsTransparency="True"
             HorizontalOffset="-200"
+            Opened="ColorPopup_Opened"
             PlacementTarget="{Binding ElementName=ColorButton}"
             StaysOpen="False">
             <Grid>
@@ -47,6 +68,7 @@
                         Background="Transparent"
                         BorderThickness="0"
                         Foreground="White"
+                        KeyDown="ColorList_KeyDown"
                         PreviewMouseLeftButtonUp="ColorList_PreviewMouseLeftButtonUp"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                         SelectedIndex="0">
@@ -84,82 +106,261 @@
             </Grid>
         </Popup>
 
-        <StackPanel>
-            <!--  Headline  -->
-            <CheckBox
-                x:Name="HeadlineCheck"
-                Margin="10,10,10,0"
-                HorizontalAlignment="Left"
-                Checked="HeadlineCheck_Checked"
-                Click="HeadlineCheck_Click"
-                Content="{StaticResource R_Edit_Headline}" />
-
-            <!--  Color  -->
-            <Label
-                Content="{StaticResource R_Edit_Color}"
-                Style="{StaticResource EditItemLabelStyle}"
-                Target="{Binding ElementName=ColorButton}" />
-            <StackPanel Margin="10,0,10,10" Orientation="Horizontal">
+        <Popup
+            x:Name="SpecialFolderPopup"
+            AllowsTransparency="True"
+            HorizontalOffset="-400"
+            Opened="SpecialFolderPopup_Opened"
+            StaysOpen="False">
+            <Grid>
                 <Border
-                    Width="250"
-                    Background="#4F4F4F"
-                    BorderBrush="#333333"
-                    BorderThickness="1"
-                    CornerRadius="4"
-                    MouseLeftButtonUp="ColorBorder_MouseLeftButtonUp"
-                    Opacity="{Binding ElementName=HeadlineCheck, Path=IsChecked, Mode=OneWay, Converter={StaticResource BoolToDoubleConv}, ConverterParameter=0.2}">
-                    <StackPanel Orientation="Horizontal">
+                    Width="600"
+                    Background="#EE2F3445"
+                    CornerRadius="4">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
                         <TextBlock
-                            x:Name="ColorMarkLabel"
-                            Margin="5,3,5,3"
-                            VerticalAlignment="Center"
-                            FontFamily="Segoe MDL2 Assets"
-                            Foreground="Black"
-                            Text="&#xE91F;" />
-                        <TextBlock
-                            x:Name="ColorNameLabel"
-                            Margin="3"
-                            VerticalAlignment="Center"
+                            Margin="5"
+                            Style="{StaticResource GroupTitleStyle}"
+                            Text="{StaticResource R_Edit_SpecialFolder}" />
+                        <ListBox
+                            x:Name="SpecialFolderList"
+                            Grid.Row="1"
+                            Padding="5"
+                            Background="Transparent"
+                            BorderThickness="0"
                             Foreground="White"
-                            Text="Black" />
-                    </StackPanel>
+                            KeyDown="FolderList_KeyDown"
+                            PreviewMouseLeftButtonUp="FolderList_PreviewMouseLeftButtonUp"
+                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                            SelectedIndex="0">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Style.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="4" />
+                                        </Style>
+                                    </Style.Resources>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                            <ListBoxItem Content="ApplicationData" />
+                            <ListBoxItem Content="CommonApplicationData" />
+                            <ListBoxItem Content="Cookies" />
+                            <ListBoxItem Content="DesktopDirectory" />
+                            <ListBoxItem Content="Favorites" />
+                            <ListBoxItem Content="Fonts" />
+                            <ListBoxItem Content="History" />
+                            <ListBoxItem Content="InternetCache" />
+                            <ListBoxItem Content="LocalApplicationData" />
+                            <ListBoxItem Content="MyDocuments" />
+                            <ListBoxItem Content="MyMusic" />
+                            <ListBoxItem Content="MyPictures" />
+                            <ListBoxItem Content="MyVideos" />
+                            <ListBoxItem Content="ProgramFiles" />
+                            <ListBoxItem Content="ProgramFilesX86" />
+                            <ListBoxItem Content="Programs" />
+                            <ListBoxItem Content="SendTo" />
+                            <ListBoxItem Content="StartMenu" />
+                            <ListBoxItem Content="Startup" />
+                            <ListBoxItem Content="System" />
+                            <ListBoxItem Content="SystemX86" />
+                            <ListBoxItem Content="UserProfile" />
+                            <ListBoxItem Content="Windows" />
+                        </ListBox>
+
+                        <TextBlock
+                            Grid.Column="1"
+                            Margin="5"
+                            Style="{StaticResource GroupTitleStyle}"
+                            Text="{StaticResource R_Edit_EnvVar}" />
+                        <ListBox
+                            x:Name="EnvFolderList"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Padding="5"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Foreground="White"
+                            KeyDown="FolderList_KeyDown"
+                            PreviewMouseLeftButtonUp="FolderList_PreviewMouseLeftButtonUp"
+                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                            SelectedIndex="0">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Style.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="4" />
+                                        </Style>
+                                    </Style.Resources>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                            <ListBoxItem Content="ALLUSERSPROFILE" />
+                            <ListBoxItem Content="APPDATA" />
+                            <ListBoxItem Content="HOMEPATH" />
+                            <ListBoxItem Content="LOCALAPPDATA" />
+                            <ListBoxItem Content="PROGRAMDATA" />
+                            <ListBoxItem Content="PROGRAMFILES" />
+                            <ListBoxItem Content="PROGRAMFILES(X86)" />
+                            <ListBoxItem Content="SYSTEMROOT" />
+                            <ListBoxItem Content="TEMP" />
+                            <ListBoxItem Content="TMP" />
+                            <ListBoxItem Content="USERPROFILE" />
+                        </ListBox>
+                    </Grid>
                 </Border>
-                <Button
-                    x:Name="ColorButton"
-                    Margin="5,0,0,0"
-                    Click="ColorButton_Click"
-                    Content="&#xE790;"
-                    IsEnabled="{Binding ElementName=HeadlineCheck, Path=IsChecked, Mode=OneWay, Converter={StaticResource InvertBoolConv}}"
-                    Style="{StaticResource IconButtonStyle}" />
+            </Grid>
+        </Popup>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+            <StackPanel>
+                <!--  Headline  -->
+                <CheckBox
+                    x:Name="HeadlineCheck"
+                    Margin="10,10,10,0"
+                    HorizontalAlignment="Left"
+                    Checked="HeadlineCheck_Checked"
+                    Click="HeadlineCheck_Click"
+                    Content="{StaticResource R_Edit_Headline}" />
+
+                <!--  Color  -->
+                <Label
+                    Content="{StaticResource R_Edit_Color}"
+                    Style="{StaticResource EditItemLabelStyle}"
+                    Target="{Binding ElementName=ColorButton}" />
+                <StackPanel Margin="10,0,10,10" Orientation="Horizontal">
+                    <Border
+                        Width="250"
+                        Background="#4F4F4F"
+                        BorderBrush="#333333"
+                        BorderThickness="1"
+                        CornerRadius="4"
+                        Opacity="{Binding IsChecked, ConverterParameter=0.2, Converter={StaticResource BoolToDoubleConv}, ElementName=HeadlineCheck, Mode=OneWay}">
+
+                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                            <TextBlock
+                                x:Name="ColorMarkLabel"
+                                Margin="5,3,5,3"
+                                VerticalAlignment="Center"
+                                FontFamily="Segoe MDL2 Assets"
+                                Foreground="Black"
+                                Text="&#xE91F;" />
+                            <TextBlock
+                                x:Name="ColorNameLabel"
+                                Margin="3"
+                                VerticalAlignment="Center"
+                                Foreground="White"
+                                Text="Black" />
+                        </StackPanel>
+
+                    </Border>
+                    <Button
+                        x:Name="ColorButton"
+                        Margin="5,0,0,0"
+                        Padding="20,0"
+                        Click="ColorButton_Click"
+                        Content="&#xE790;"
+                        IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}"
+                        Style="{StaticResource IconButtonStyle}" />
+                </StackPanel>
+
+                <!--  Path  -->
+                <Label
+                    Content="{StaticResource R_Edit_Path}"
+                    Style="{StaticResource EditItemLabelStyle}"
+                    Target="{Binding ElementName=PathText}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <ctrl:WatermarkTextBox
+                        x:Name="PathText"
+                        Drop="PathText_Drop"
+                        IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}"
+                        Opacity="{Binding IsChecked, ConverterParameter=0.5, Converter={StaticResource BoolToDoubleConv}, ElementName=HeadlineCheck, Mode=OneWay}"
+                        Placeholder="{StaticResource R_Description_EditPath}"
+                        PreviewDragOver="PathText_PreviewDragOver" />
+                    <Button
+                        x:Name="PathContextButton"
+                        Grid.Column="1"
+                        Margin="0,0,10,10"
+                        Click="SpecialFolderMenuButton_Click"
+                        Content="&#xE712;"
+                        ContextMenu="{StaticResource SpecialFolderMenu}"
+                        IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}"
+                        Style="{StaticResource IconButtonStyle}" />
+                </Grid>
+
+                <!--  Title  -->
+                <Label
+                    Content="{StaticResource R_Edit_Title}"
+                    Style="{StaticResource EditItemLabelStyle}"
+                    Target="{Binding ElementName=TitleText}" />
+                <TextBox
+                    x:Name="TitleText"
+                    GotFocus="TextBox_GotFocus"
+                    PreviewMouseLeftButtonDown="TextBox_PreviewMouseLeftButtonDown"
+                    Style="{StaticResource EditItemStyle}"
+                    Text=""
+                    TextChanged="TextBox_TextChanged" />
+
+                <!--  Work Directory  -->
+                <Label
+                    Content="{StaticResource R_Edit_WorkDirectory}"
+                    Style="{StaticResource EditItemLabelStyle}"
+                    Target="{Binding ElementName=WorkDirText}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox
+                        x:Name="WorkDirText"
+                        GotFocus="TextBox_GotFocus"
+                        IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}"
+                        Opacity="{Binding IsChecked, ConverterParameter=0.5, Converter={StaticResource BoolToDoubleConv}, ElementName=HeadlineCheck, Mode=OneWay}"
+                        PreviewMouseLeftButtonDown="TextBox_PreviewMouseLeftButtonDown"
+                        Style="{StaticResource EditItemStyle}"
+                        Text=""
+                        TextChanged="TextBox_TextChanged" />
+                    <Button
+                        x:Name="WorkDirContextButton"
+                        Grid.Column="1"
+                        Margin="0,0,10,10"
+                        Click="SpecialFolderMenuButton_Click"
+                        Content="&#xE712;"
+                        ContextMenu="{StaticResource SpecialFolderMenu}"
+                        IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}"
+                        Style="{StaticResource IconButtonStyle}" />
+                </Grid>
+
+                <!--  Arguments  -->
+                <Label
+                    Content="{StaticResource R_Edit_Arguments}"
+                    Style="{StaticResource EditItemLabelStyle}"
+                    Target="{Binding ElementName=ArgsText}" />
+                <TextBox
+                    x:Name="ArgsText"
+                    GotFocus="TextBox_GotFocus"
+                    IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}"
+                    Opacity="{Binding IsChecked, ConverterParameter=0.5, Converter={StaticResource BoolToDoubleConv}, ElementName=HeadlineCheck, Mode=OneWay}"
+                    PreviewMouseLeftButtonDown="TextBox_PreviewMouseLeftButtonDown"
+                    Style="{StaticResource EditItemStyle}"
+                    Text=""
+                    TextChanged="TextBox_TextChanged" />
+
             </StackPanel>
 
-            <!--  Path  -->
-            <Label
-                Content="{StaticResource R_Edit_Path}"
-                Style="{StaticResource EditItemLabelStyle}"
-                Target="{Binding ElementName=PathText}" />
-            <ctrl:WatermarkTextBox
-                x:Name="PathText"
-                Drop="PathText_Drop"
-                IsEnabled="{Binding ElementName=HeadlineCheck, Path=IsChecked, Mode=OneWay, Converter={StaticResource InvertBoolConv}}"
-                Opacity="{Binding ElementName=HeadlineCheck, Path=IsChecked, Mode=OneWay, Converter={StaticResource BoolToDoubleConv}, ConverterParameter=0.5}"
-                Placeholder="{StaticResource R_Description_EditPath}"
-                PreviewDragOver="PathText_PreviewDragOver" />
-
-            <!--  Title  -->
-            <Label
-                Content="{StaticResource R_Edit_Title}"
-                Style="{StaticResource EditItemLabelStyle}"
-                Target="{Binding ElementName=TitleText}" />
-            <TextBox
-                x:Name="TitleText"
-                GotFocus="TextBox_GotFocus"
-                PreviewMouseLeftButtonDown="TitleText_PreviewMouseLeftButtonDown"
-                Style="{StaticResource EditItemStyle}"
-                Text=""
-                TextChanged="TextBox_TextChanged" />
-
-        </StackPanel>
+        </ScrollViewer>
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
