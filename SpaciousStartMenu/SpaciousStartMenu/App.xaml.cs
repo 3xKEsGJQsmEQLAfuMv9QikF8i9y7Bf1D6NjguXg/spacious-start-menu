@@ -16,7 +16,7 @@ namespace SpaciousStartMenu
     public partial class App : Application
     {
         public const string AppSettingsFileName = "settings.json";
-        public const string LaunchDefFileName = "menuItems.def";
+        public const string LaunchDefineFileName = "menuItems.def";
 
         private const string _defaultLanguage = "en-US";
 
@@ -71,8 +71,8 @@ namespace SpaciousStartMenu
         public static string GetAppSettingsFilePath() =>
             Path.Combine(GetAppPath(), AppSettingsFileName);
 
-        public static string GetLaunchDefFilePath() =>
-            Path.Combine(GetAppPath(), LaunchDefFileName);
+        public static string GetLaunchDefineFilePath() =>
+            Path.Combine(GetAppPath(), LaunchDefineFileName);
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -138,7 +138,7 @@ namespace SpaciousStartMenu
                 {
                     string path = GetReccomendInstallPath();
                     Directory.CreateDirectory(path);
-                    ShellExecution.Run(path);
+                    ShellExecution.Run(path, null, null);
                 }
                 Abend = true;
                 Shutdown();
