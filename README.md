@@ -62,7 +62,7 @@ Double-click the list, click the Edit button on the far right, or click the `Add
 
 If a line is checked for deletion, the deletion will be executed when the `Save` button is clicked.
 
-![image20](https://user-images.githubusercontent.com/99333667/173183605-ad645e19-9e2c-4ce6-a89e-268ea509437c.png)
+![imagePin1](https://user-images.githubusercontent.com/99333667/174437260-01ceefe0-8622-465a-9adf-32cdc8674997.png)
 
 ## Pin edit screen
 
@@ -72,15 +72,19 @@ The `Path` field allows you to enter files and folders by drag & drop.
 
 When `Headline` is selected, only `Title` can be entered.
 
-![image21](https://user-images.githubusercontent.com/99333667/173183611-6e28621f-d847-4166-97b9-0a7be6ab12a4.png)
+![imagePin2](https://user-images.githubusercontent.com/99333667/174437286-efe1e40c-20e1-4119-93c5-02cd89a47b9b.png)
 
 Color selection menu.
 
-![image22](https://user-images.githubusercontent.com/99333667/173183618-cde4c8fe-1943-4678-a9f2-99fee0a9fb75.png)
+![imagePin3](https://user-images.githubusercontent.com/99333667/174437303-994dc96b-c5b4-4c5b-8299-7d2885bc3e2c.png)
+
+Special folders and environment variables selection menu.
+
+![imagePin4](https://user-images.githubusercontent.com/99333667/174437314-fd06abfd-19d2-4066-b7a7-f85473afa4d2.png)
 
 ## Settings screen
 
-![image23](https://user-images.githubusercontent.com/99333667/173438245-d823fab8-fe1d-4bb4-b524-80fb555e104f.png)
+![imageStg](https://user-images.githubusercontent.com/99333667/174437384-e50bd045-de09-4b4e-85a1-67c9c1ea8cf3.png)
 
 - Setup
   - Register to startup
@@ -94,6 +98,9 @@ Color selection menu.
   - Confirm when exiting menu
 - Context menu
   - Show `Open the program location and then exit the program` menu
+- Child screen
+  - Save screen size
+  - Save screen position
 - Advanced options
   - Direct definition file edit button on the pinned definition list screen
 
