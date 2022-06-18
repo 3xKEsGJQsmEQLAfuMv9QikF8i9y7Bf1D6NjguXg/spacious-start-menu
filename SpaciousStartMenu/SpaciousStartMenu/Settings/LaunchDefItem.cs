@@ -40,6 +40,20 @@ namespace SpaciousStartMenu.Settings
             set => SetProperty(ref _path, value);
         }
 
+        private string? _workDir;
+        public string? WorkDir
+        {
+            get => _workDir;
+            set => SetProperty(ref _workDir, value);
+        }
+
+        private string? _args;
+        public string? Args
+        {
+            get => _args;
+            set => SetProperty(ref _args, value);
+        }
+
         public LaunchDefItem(string? title)
         {
             IsDelete = false;
@@ -47,9 +61,12 @@ namespace SpaciousStartMenu.Settings
             MarkBrush = null;
             Title = title;
             Path = null;
+            WorkDir = null;
+            Args = null;
         }
 
-        public LaunchDefItem(string? colorName, string? title, string? path)
+        public LaunchDefItem(
+            string? colorName, string? title, string? path, string? workDir, string? args)
         {
             IsDelete = false;
 
@@ -62,6 +79,8 @@ namespace SpaciousStartMenu.Settings
 
             Title = title;
             Path = path;
+            WorkDir = workDir;
+            Args = args;
         }
 
         public string ToDefString()
@@ -72,13 +91,13 @@ namespace SpaciousStartMenu.Settings
             }
             else
             {
-                return $"{ColorName}\t{Title}\t{Path}";
+                return $"{ColorName}\t{Title}\t{Path}\t{WorkDir}\t{Args}";
             }
         }
 
         public LaunchDefItem Copy()
         {
-            return new LaunchDefItem(ColorName, Title, Path);
+            return new LaunchDefItem(ColorName, Title, Path, WorkDir, Args);
         }
 
     }

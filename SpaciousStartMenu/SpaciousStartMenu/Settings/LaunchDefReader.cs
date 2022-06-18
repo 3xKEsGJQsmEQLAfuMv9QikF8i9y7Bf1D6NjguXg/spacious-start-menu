@@ -38,12 +38,14 @@ namespace SpaciousStartMenu.Settings
                 {
                     item = new LaunchDefItem(_btnDef.GetGroupTitle(columns));
                 }
-                else if (columns.Length == LauncherDefinition.MaxColumns)
+                else if (LauncherDefinition.RequiredColumns <= columns.Length)
                 {
                     item = new LaunchDefItem(
                         columns[LauncherDefinition.ColorOrGroupTitleColumnIndex],
                         columns[LauncherDefinition.TitleColumnIndex],
-                        columns[LauncherDefinition.PathColumnIndex]);
+                        columns[LauncherDefinition.PathColumnIndex],
+                        LauncherDefinition.WorkDirColumnIndex <= columns.Length - 1 ? columns[LauncherDefinition.WorkDirColumnIndex] : null,
+                        LauncherDefinition.ArgsColumnIndex <= columns.Length - 1 ? columns[LauncherDefinition.ArgsColumnIndex] : null);
                 }
                 else
                 {

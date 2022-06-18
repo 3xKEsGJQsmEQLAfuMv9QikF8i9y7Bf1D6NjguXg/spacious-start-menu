@@ -9,15 +9,17 @@ namespace SpaciousStartMenu.Settings
         public const int ColorOrGroupTitleColumnIndex = 0;
         public const int TitleColumnIndex = 1;
         public const int PathColumnIndex = 2;
-        public const int MaxColumns = 3;
+        public const int WorkDirColumnIndex = 3;
+        public const int ArgsColumnIndex = 4;
+        public const int RequiredColumns = 3;
 
         private const string _defaultDataFormat = @"//{0}
 CadetBlue	{1}	shell:Downloads
-DeepSkyBlue	{2}	shell:Desktop
-Silver	{3}	shell:Personal
-DodgerBlue	{4}	shell:My Pictures
-BlueViolet	{5}	shell:My Video
-Chocolate	{6}	shell:My Music
+DeepSkyBlue	{2}	<DesktopDirectory>
+Silver	{3}	<MyDocuments>
+DodgerBlue	{4}	<MyPictures>
+BlueViolet	{5}	<MyVideos>
+Chocolate	{6}	<MyMusic>
 Silver	C Drive	C:\
 Gold	Local	shell:Local AppData
 Gold	Apps/2.0	shell:Local AppData\Apps\2.0
@@ -28,17 +30,17 @@ Gold	Profile	shell:Profile
 Gold	Start/Program	shell:Programs
 Gold	Start/Program/Startup	shell:Startup
 Gold	SendTo	shell:SendTo
-Gold	Screenshots	shell:My Pictures\Screenshots
+Gold	Screenshots	shell:Screenshots
 Gold	drivers/etc	shell:System\drivers\etc
 
 //{7}
 Gray	{8}	calc.exe
 LightSkyBlue	{9}	notepad.exe
 SkyBlue	{10}	mspaint.exe
-Black	Command Prompt	cmd.exe
-DodgerBlue	Windows PowerShell	PowerShell.exe
-Navy	PowerShell	pwsh.exe
-DimGray	Windows Terminal	wt.exe
+Black	Command Prompt	cmd.exe	<ENV:USERPROFILE>
+DodgerBlue	Windows PowerShell	PowerShell.exe	<ENV:USERPROFILE>
+Navy	PowerShell	pwsh.exe	<ENV:USERPROFILE>
+DimGray	Windows Terminal	wt.exe	<ENV:USERPROFILE>
 White	Microsoft Store	shell:AppsFolder\Microsoft.WindowsStore_8wekyb3d8bbwe!App
 
 //{11}
