@@ -64,11 +64,18 @@
     <sys:String x:Key="R_List_Color">色</sys:String>
     <sys:String x:Key="R_List_Title">タイトル</sys:String>
     <sys:String x:Key="R_List_Path">パス</sys:String>
+    <sys:String x:Key="R_List_WorkDirectory">作業フォルダー</sys:String>
+    <sys:String x:Key="R_List_Arguments">引数</sys:String>
 
     <sys:String x:Key="R_Edit_Headline">見出し(_H)</sys:String>
     <sys:String x:Key="R_Edit_Color">色(_C)</sys:String>
     <sys:String x:Key="R_Edit_Title">タイトル(_T)</sys:String>
     <sys:String x:Key="R_Edit_Path">パス(_P)</sys:String>
+    <sys:String x:Key="R_Edit_WorkDirectory">作業フォルダー(_W)</sys:String>
+    <sys:String x:Key="R_Edit_Arguments">引数(_A)</sys:String>
+
+    <sys:String x:Key="R_Edit_SpecialFolder">特殊フォルダー</sys:String>
+    <sys:String x:Key="R_Edit_EnvVar">環境変数</sys:String>
 
     <!--  設定画面  -->
     <sys:String x:Key="R_Settings_Setup">セットアップ</sys:String>
@@ -82,6 +89,9 @@
     <sys:String x:Key="R_Settings_Confirm">確認</sys:String>
     <sys:String x:Key="R_ConfirmClose">メニュー終了時に確認(_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">コンテキスト メニュー</sys:String>
+    <sys:String x:Key="R_Settings_SubScreen">子画面</sys:String>
+    <sys:String x:Key="R_SaveScreenSize">画面サイズ保存</sys:String>
+    <sys:String x:Key="R_SaveScreenPos">画面位置保存</sys:String>
     <sys:String x:Key="R_ShowOpenAndExitMenuItem">「プログラムの場所を開いて終了」メニューを表示</sys:String>
     <sys:String x:Key="R_Settings_Advanced">高度なオプション</sys:String>
     <sys:String x:Key="R_ShowDirectEditDefineButton">「ピン留め定義一覧」画面に定義ファイル直接編集ボタンを表示</sys:String>

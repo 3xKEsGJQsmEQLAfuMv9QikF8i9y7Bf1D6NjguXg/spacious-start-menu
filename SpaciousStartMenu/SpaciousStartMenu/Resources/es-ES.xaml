@@ -64,11 +64,20 @@
     <sys:String x:Key="R_List_Color">Color</sys:String>
     <sys:String x:Key="R_List_Title">Título</sys:String>
     <sys:String x:Key="R_List_Path">Sendero</sys:String>
+    <sys:String x:Key="R_List_WorkDirectory">Working Directory</sys:String>
+    <sys:String x:Key="R_List_Arguments">Arguments</sys:String>
+    <sys:String x:Key="R_List_WorkDirectory">directorio de trabajo</sys:String>
+    <sys:String x:Key="R_List_Arguments">argumentos</sys:String>
 
     <sys:String x:Key="R_Edit_Headline">Titular (_H)</sys:String>
     <sys:String x:Key="R_Edit_Color">Color (_C)</sys:String>
     <sys:String x:Key="R_Edit_Title">Título (_T)</sys:String>
     <sys:String x:Key="R_Edit_Path">Sendero (_P)</sys:String>
+    <sys:String x:Key="R_Edit_WorkDirectory">directorio de trabajo (_W)</sys:String>
+    <sys:String x:Key="R_Edit_Arguments">argumentos (_A)</sys:String>
+
+    <sys:String x:Key="R_Edit_SpecialFolder">carpeta especial</sys:String>
+    <sys:String x:Key="R_Edit_EnvVar">Variable ambiental</sys:String>
 
     <!--  Settings screen  -->
     <sys:String x:Key="R_Settings_Setup">Configuración</sys:String>
@@ -82,6 +91,9 @@
     <sys:String x:Key="R_Settings_Confirm">Confirmar</sys:String>
     <sys:String x:Key="R_ConfirmClose">Confirmar al salir del menú (_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">Menú de contexto</sys:String>
+    <sys:String x:Key="R_Settings_SubScreen">pantalla infantil</sys:String>
+    <sys:String x:Key="R_SaveScreenSize">Guardar tamaño de pantalla</sys:String>
+    <sys:String x:Key="R_SaveScreenPos">Guardar posición de pantalla</sys:String>
     <sys:String x:Key="R_ShowOpenAndExitMenuItem">Mostrar &quot;Abrir la ubicación del programa y luego salir del programa&quot; menú</sys:String>
     <sys:String x:Key="R_Settings_Advanced">Opciones avanzadas</sys:String>
     <sys:String x:Key="R_ShowDirectEditDefineButton">Botón de edición directa del archivo de definición en la &quot;lista de definiciones fijadas&quot; pantalla</sys:String>

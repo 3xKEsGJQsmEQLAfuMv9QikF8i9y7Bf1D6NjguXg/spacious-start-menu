@@ -64,11 +64,18 @@
     <sys:String x:Key="R_List_Color">색깔</sys:String>
     <sys:String x:Key="R_List_Title">제목</sys:String>
     <sys:String x:Key="R_List_Path">길</sys:String>
+    <sys:String x:Key="R_List_WorkDirectory">작업 디렉터리를</sys:String>
+    <sys:String x:Key="R_List_Arguments">인수</sys:String>
 
     <sys:String x:Key="R_Edit_Headline">표제(_H)</sys:String>
     <sys:String x:Key="R_Edit_Color">색깔(_C)</sys:String>
     <sys:String x:Key="R_Edit_Title">제목(_T)</sys:String>
     <sys:String x:Key="R_Edit_Path">길(_P)</sys:String>
+    <sys:String x:Key="R_Edit_WorkDirectory">작업 디렉터리를(_W)</sys:String>
+    <sys:String x:Key="R_Edit_Arguments">인수(_A)</sys:String>
+
+    <sys:String x:Key="R_Edit_SpecialFolder">특수 폴더</sys:String>
+    <sys:String x:Key="R_Edit_EnvVar">환경 변수</sys:String>
 
     <!--  Settings screen  -->
     <sys:String x:Key="R_Settings_Setup">설정</sys:String>
@@ -82,6 +89,9 @@
     <sys:String x:Key="R_Settings_Confirm">확인하다</sys:String>
     <sys:String x:Key="R_ConfirmClose">메뉴 종료 시 확인(_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">상황에 맞는 메뉴</sys:String>
+    <sys:String x:Key="R_Settings_SubScreen">자식 화면</sys:String>
+    <sys:String x:Key="R_SaveScreenSize">화면 크기 저장</sys:String>
+    <sys:String x:Key="R_SaveScreenPos">화면 위치 저장</sys:String>
     <sys:String x:Key="R_ShowOpenAndExitMenuItem">&quot;프로그램 위치를 연 다음 프로그램을 종료하십시오&quot;를 표시하십시오. 메뉴</sys:String>
     <sys:String x:Key="R_Settings_Advanced">고급 옵션</sys:String>
     <sys:String x:Key="R_ShowDirectEditDefineButton">고정된 정의 목록의 직접 정의 파일 편집 버튼 화면</sys:String>

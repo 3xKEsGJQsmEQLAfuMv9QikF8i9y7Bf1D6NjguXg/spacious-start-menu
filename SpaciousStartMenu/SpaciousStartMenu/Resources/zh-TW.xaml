@@ -64,11 +64,18 @@
     <sys:String x:Key="R_List_Color">顏色</sys:String>
     <sys:String x:Key="R_List_Title">標題</sys:String>
     <sys:String x:Key="R_List_Path">小路</sys:String>
+    <sys:String x:Key="R_List_WorkDirectory">工作目錄</sys:String>
+    <sys:String x:Key="R_List_Arguments">參數</sys:String>
 
     <sys:String x:Key="R_Edit_Headline">標題(_H)</sys:String>
     <sys:String x:Key="R_Edit_Color">顏色(_C)</sys:String>
     <sys:String x:Key="R_Edit_Title">標題(_T)</sys:String>
     <sys:String x:Key="R_Edit_Path">小路(_P)</sys:String>
+    <sys:String x:Key="R_Edit_WorkDirectory">工作目錄(_W)</sys:String>
+    <sys:String x:Key="R_Edit_Arguments">參數(_A)</sys:String>
+
+    <sys:String x:Key="R_Edit_SpecialFolder">特殊文件夾</sys:String>
+    <sys:String x:Key="R_Edit_EnvVar">環境變量</sys:String>
 
     <!--  Settings screen  -->
     <sys:String x:Key="R_Settings_Setup">設置</sys:String>
@@ -82,6 +89,9 @@
     <sys:String x:Key="R_Settings_Confirm">確認</sys:String>
     <sys:String x:Key="R_ConfirmClose">退出菜單時確認(_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">上下文菜單</sys:String>
+    <sys:String x:Key="R_Settings_SubScreen">子屏幕</sys:String>
+    <sys:String x:Key="R_SaveScreenSize">節省屏幕尺寸</sys:String>
+    <sys:String x:Key="R_SaveScreenPos">保存屏幕位置</sys:String>
     <sys:String x:Key="R_ShowOpenAndExitMenuItem">顯示“打開程序位置然後退出程序” 菜單</sys:String>
     <sys:String x:Key="R_Settings_Advanced">高級選項</sys:String>
     <sys:String x:Key="R_ShowDirectEditDefineButton">“固定定義列表”上的直接定義文件編輯按鈕 屏幕</sys:String>

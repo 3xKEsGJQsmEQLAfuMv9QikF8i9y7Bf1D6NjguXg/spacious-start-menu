@@ -64,11 +64,18 @@
     <sys:String x:Key="R_List_Color">Color</sys:String>
     <sys:String x:Key="R_List_Title">Title</sys:String>
     <sys:String x:Key="R_List_Path">Path</sys:String>
+    <sys:String x:Key="R_List_WorkDirectory">Working Directory</sys:String>
+    <sys:String x:Key="R_List_Arguments">Arguments</sys:String>
 
     <sys:String x:Key="R_Edit_Headline">_Headline</sys:String>
     <sys:String x:Key="R_Edit_Color">_Color</sys:String>
     <sys:String x:Key="R_Edit_Title">_Title</sys:String>
     <sys:String x:Key="R_Edit_Path">_Path</sys:String>
+    <sys:String x:Key="R_Edit_WorkDirectory">_Working Directory</sys:String>
+    <sys:String x:Key="R_Edit_Arguments">_Arguments</sys:String>
+
+    <sys:String x:Key="R_Edit_SpecialFolder">Special folder</sys:String>
+    <sys:String x:Key="R_Edit_EnvVar">Environment variable</sys:String>
 
     <!--  Settings screen  -->
     <sys:String x:Key="R_Settings_Setup">Setup</sys:String>
@@ -82,6 +89,9 @@
     <sys:String x:Key="R_Settings_Confirm">Confirm</sys:String>
     <sys:String x:Key="R_ConfirmClose">Confirm when exiting menu (_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">Context menu</sys:String>
+    <sys:String x:Key="R_Settings_SubScreen">Child screen</sys:String>
+    <sys:String x:Key="R_SaveScreenSize">Save screen size</sys:String>
+    <sys:String x:Key="R_SaveScreenPos">Save screen position</sys:String>
     <sys:String x:Key="R_ShowOpenAndExitMenuItem">Show &quot;Open the program location and then exit the program&quot; menu</sys:String>
     <sys:String x:Key="R_Settings_Advanced">Advanced options</sys:String>
     <sys:String x:Key="R_ShowDirectEditDefineButton">Direct definition file edit button on the &quot;pinned definition list&quot; screen</sys:String>
