@@ -10,7 +10,9 @@
     d:DesignWidth="800"
     AllowDrop="True"
     DragEnter="Root_DragEnter"
+    Focusable="True"
     Loaded="UserControl_Loaded"
+    PreviewGotKeyboardFocus="Root_PreviewGotKeyboardFocus"
     mc:Ignorable="d">
 
     <Grid

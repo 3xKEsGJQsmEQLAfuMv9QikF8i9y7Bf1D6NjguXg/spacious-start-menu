@@ -33,7 +33,11 @@ namespace SpaciousStartMenu.Views.Controls
         public string Text
         {
             get => (string)GetValue(TextProperty);
-            set => SetValue(TextProperty, value);
+            set
+            {
+                SetValue(TextProperty, value);
+                UpdateWatermarkVisibility();
+            }
         }
 
         public static readonly DependencyProperty TextProperty =
@@ -93,5 +97,13 @@ namespace SpaciousStartMenu.Views.Controls
         private void Root_DragEnter(object sender, DragEventArgs e) =>
             Watermark.Visibility = Visibility.Collapsed;
 
+        private void Root_PreviewGotKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            if (e.NewFocus == this)
+            {
+                Txt.Focus();
+                e.Handled = true;
+            }
+        }
     }
 }
