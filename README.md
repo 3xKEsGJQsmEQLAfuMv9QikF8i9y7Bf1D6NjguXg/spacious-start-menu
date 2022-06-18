@@ -1,6 +1,7 @@
 - [Spacious Start Menu](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#spacious-start-menu)
 - [Requirements](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#requirements)
 - [Install](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#install)
+- [Unnstall](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#uninstall)
 - [Usage](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#usage)
   - [Main screen context menu](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#main-screen-context-menu)
   - [Pinned definition list screen](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#pinned-definition-list-screen)
@@ -39,6 +40,10 @@ Right-click on the zip, select Properties, check `Unblock` and close with the OK
 ![image01](https://user-images.githubusercontent.com/99333667/169164842-892d479f-7def-4044-ab0a-9b404d0ce194.png)
 
 Extract the zip and place it in any location that does not require administrative privileges.
+
+# Uninstall
+
+Delete the expanded folder.
 
 # Usage
 
