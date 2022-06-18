@@ -12,11 +12,14 @@
         <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
     </Style>
 
-    <Style x:Key="SettingsTitleStyle" TargetType="TextBlock">
+    <Style x:Key="StandardTextStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+    
+    <Style x:Key="SettingsTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource StandardTextStyle}">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Foreground" Value="White" />
     </Style>
 
 </ResourceDictionary>
