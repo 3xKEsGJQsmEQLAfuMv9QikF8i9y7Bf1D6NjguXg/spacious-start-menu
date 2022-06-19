@@ -12,11 +12,12 @@
     Closing="Window_Closing"
     FocusManager.FocusedElement="{Binding ElementName=DefList}"
     KeyDown="Window_KeyDown"
+    Loaded="Window_Loaded"
     StateChanged="Window_StateChanged"
     Style="{StaticResource ToolWindowStyle}"
     Topmost="True"
     WindowStartupLocation="CenterOwner"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Closed="Window_Closed">
 
     <Window.Resources>
         <cnv:ObjectToVisibilityConverter x:Key="ObjToVisibilityConv" />
@@ -200,13 +201,45 @@
                 <Button
                     x:Name="AddButton"
                     Click="AddButton_Click"
-                    Content="{StaticResource R_AddButton}"
-                    Style="{StaticResource CommandButtonStyle}" />
+                    Style="{StaticResource CommandButtonStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Margin="0,2,8,0"
+                            VerticalAlignment="Center"
+                            FontFamily="Segoe MDL2 Assets"
+                            Text="&#xE710;" />
+                        <Label
+                            Grid.Column="1"
+                            Margin="0"
+                            Padding="0"
+                            Content="{StaticResource R_AddButton}" />
+                    </Grid>
+                </Button>
                 <Button
                     x:Name="DuplicateButton"
                     Click="DuplicateButton_Click"
-                    Content="{StaticResource R_DuplicateButton}"
-                    Style="{StaticResource CommandButtonStyle}" />
+                    Style="{StaticResource CommandButtonStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Margin="0,2,8,0"
+                            VerticalAlignment="Center"
+                            FontFamily="Segoe MDL2 Assets"
+                            Text="&#xE8C8;" />
+                        <Label
+                            Grid.Column="1"
+                            Margin="0"
+                            Padding="0"
+                            Content="{StaticResource R_DuplicateButton}" />
+                    </Grid>
+                </Button>
                 <Button
                     Click="SaveButton_Click"
                     IsEnabled="{Binding IsEdited}"
@@ -218,7 +251,8 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <TextBlock
-                            Margin="0,2,4,0"
+                            x:Name="SaveIcon"
+                            Margin="0,2,8,0"
                             VerticalAlignment="Center"
                             FontFamily="Segoe MDL2 Assets"
                             Text="&#xE74E;" />

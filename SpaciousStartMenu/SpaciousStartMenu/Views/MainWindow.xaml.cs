@@ -157,7 +157,8 @@ namespace SpaciousStartMenu.Views
                 {
                     _pinWindow = new PinWindow(
                         this,
-                        () => LoadLauncherDefine(App.GetLaunchDefineFilePath()),
+                        () =>LoadLauncherDefine(App.GetLaunchDefineFilePath()),
+                        () => Activate(),
                         _settings);
                     _pinWindow.Owner = this;
                     _pinWindow.Show();

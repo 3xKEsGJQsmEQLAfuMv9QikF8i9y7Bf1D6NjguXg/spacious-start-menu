@@ -21,6 +21,7 @@ namespace SpaciousStartMenu.Views
     {
         private readonly Window _parentWindow;
         private readonly Action _postSaveAction;
+        private readonly Action _postCloseAction;
         private readonly AppSettings _settings;
         private readonly List<MarkColor> _colors = new();
         private bool _isEditing = false;
@@ -31,11 +32,13 @@ namespace SpaciousStartMenu.Views
         public PinWindow(
             Window parentWindow,
             Action postSaveAction,
+            Action postCloseAction,
             AppSettings settings)
         {
             InitializeComponent();
             _parentWindow = parentWindow;
             _postSaveAction = postSaveAction;
+            _postCloseAction = postCloseAction;
             _settings = settings;
             RestoreWindowSize(_settings);
             DataContext = _pinVm;
@@ -71,6 +74,28 @@ namespace SpaciousStartMenu.Views
             var cv = CollectionViewSource.GetDefaultView(_colors);
             cv.SortDescriptions.Clear();
             cv.SortDescriptions.Add(new SortDescription("Order", ListSortDirection.Ascending));
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            SaveIcon.Foreground = new SolidColorBrush(SystemParameters.WindowGlassColor);
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.Modifiers == ModifierKeys.Alt)
+            {
+                if (e.SystemKey == Key.Up &&
+                    UpButton.IsEnabled)
+                {
+                    UpButton_Click(sender, e);
+                }
+                else if (e.SystemKey == Key.Down &&
+                    DownButton.IsEnabled)
+                {
+                    DownButton_Click(sender, e);
+                }
+            }
         }
 
         private void RestoreWindowSize(AppSettings stg)
@@ -299,7 +324,7 @@ namespace SpaciousStartMenu.Views
 
             win.Owner = this;
             var ret =win.ShowDialog();
-
+            
             Opacity = 1.0;
 
             if (isNew &&
@@ -320,6 +345,7 @@ namespace SpaciousStartMenu.Views
             if (WindowState == WindowState.Minimized)
             {
                 WindowState = WindowState.Normal;
+                _parentWindow.WindowState = WindowState.Maximized;
             }
         }
 
@@ -507,21 +533,9 @@ namespace SpaciousStartMenu.Views
             _pinVm.IsEdited = true;
         }
 
-        private void Window_KeyDown(object sender, KeyEventArgs e)
+        private void Window_Closed(object sender, EventArgs e)
         {
-            if (Keyboard.Modifiers == ModifierKeys.Alt)
-            {
-                if (e.SystemKey == Key.Up &&
-                    UpButton.IsEnabled)
-                {
-                    UpButton_Click(sender, e);
-                }
-                else if (e.SystemKey == Key.Down &&
-                    DownButton.IsEnabled)
-                {
-                    DownButton_Click(sender, e);
-                }
-            }
+            _postCloseAction();
         }
     }
 
