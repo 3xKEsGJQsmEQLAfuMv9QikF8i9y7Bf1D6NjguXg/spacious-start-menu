@@ -71,7 +71,7 @@ Double-click the list, click the Edit button on the far right, or click the `Add
 
 If a line is checked for deletion, the deletion will be executed when the `Save` button is clicked.
 
-![imagePin1](https://user-images.githubusercontent.com/99333667/174437260-01ceefe0-8622-465a-9adf-32cdc8674997.png)
+![imagePin1](https://user-images.githubusercontent.com/99333667/174482870-d9617b5d-67dd-4da4-970e-1f40ff1d471d.png)
 
 ## Pin edit screen
 
