@@ -15,8 +15,11 @@
     <Style x:Key="StandardTextStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="White" />
     </Style>
-    
-    <Style x:Key="SettingsTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource StandardTextStyle}">
+
+    <Style
+        x:Key="SettingsTitleStyle"
+        BasedOn="{StaticResource StandardTextStyle}"
+        TargetType="TextBlock">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="FontWeight" Value="Bold" />
