@@ -64,8 +64,6 @@
     <sys:String x:Key="R_List_Color">Color</sys:String>
     <sys:String x:Key="R_List_Title">Título</sys:String>
     <sys:String x:Key="R_List_Path">Sendero</sys:String>
-    <sys:String x:Key="R_List_WorkDirectory">Working Directory</sys:String>
-    <sys:String x:Key="R_List_Arguments">Arguments</sys:String>
     <sys:String x:Key="R_List_WorkDirectory">directorio de trabajo</sys:String>
     <sys:String x:Key="R_List_Arguments">argumentos</sys:String>
 
