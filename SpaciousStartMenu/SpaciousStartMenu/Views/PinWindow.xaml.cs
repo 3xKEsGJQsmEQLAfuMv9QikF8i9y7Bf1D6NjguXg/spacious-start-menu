@@ -19,7 +19,7 @@ namespace SpaciousStartMenu.Views
 {
     public partial class PinWindow : Window
     {
-        private readonly Window _parentWindow;
+        private readonly MainWindow _mainWindow;
         private readonly Action _postSaveAction;
         private readonly Action _postCloseAction;
         private readonly AppSettings _settings;
@@ -30,13 +30,13 @@ namespace SpaciousStartMenu.Views
         private readonly PinVm _pinVm = new();
 
         public PinWindow(
-            Window parentWindow,
+            MainWindow mainWindow,
             Action postSaveAction,
             Action postCloseAction,
             AppSettings settings)
         {
             InitializeComponent();
-            _parentWindow = parentWindow;
+            _mainWindow = mainWindow;
             _postSaveAction = postSaveAction;
             _postCloseAction = postCloseAction;
             _settings = settings;
@@ -140,7 +140,7 @@ namespace SpaciousStartMenu.Views
                     }
                 }
 
-                _parentWindow.WindowState = WindowState.Maximized;
+                _mainWindow.WindowState = WindowState.Maximized;
                 SaveWindowSize(_settings);
             }
             catch (Exception ex)
@@ -314,18 +314,26 @@ namespace SpaciousStartMenu.Views
         private void ShowEditWindow(LaunchDefItem item, bool isNew)
         {
             var win = new EditDetailWindow(
-                new Window[] { _parentWindow, this },
+                new Window[] { _mainWindow, this },
                 _colors,
                 item,
                 _settings);
 
             _isEditing = true;
             Opacity = 0.5;
+            _mainWindow.SetDisabledStyle();
 
             win.Owner = this;
-            var ret =win.ShowDialog();
-            
-            Opacity = 1.0;
+            bool? ret;
+            try
+            {
+                ret = win.ShowDialog();
+            }
+            finally
+            {
+                Opacity = 1.0;
+                _mainWindow.SetDisabledStyle(false);
+            }
 
             if (isNew &&
                 ret == true)
@@ -345,7 +353,7 @@ namespace SpaciousStartMenu.Views
             if (WindowState == WindowState.Minimized)
             {
                 WindowState = WindowState.Normal;
-                _parentWindow.WindowState = WindowState.Maximized;
+                _mainWindow.WindowState = WindowState.Maximized;
             }
         }
 

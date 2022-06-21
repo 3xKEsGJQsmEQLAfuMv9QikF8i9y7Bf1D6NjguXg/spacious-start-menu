@@ -193,17 +193,34 @@ namespace SpaciousStartMenu.Views
             }
         }
 
+        public void SetDisabledStyle(bool disabled = true)
+        {
+            if (disabled)
+            {
+                DisabledBorder.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                DisabledBorder.Visibility = Visibility.Collapsed;
+            }
+        }
+
         private void MenuSettings_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 var window = new SettingsWindow(_settings);
                 window.Owner = this;
+                SetDisabledStyle();
+
                 window.ShowDialog();
+
+                SetDisabledStyle(false);
                 SetScreenFromSettings(_settings);
             }
             catch (Exception ex)
             {
+                SetDisabledStyle(false);
                 this.Error(ex.ToString());
             }
         }

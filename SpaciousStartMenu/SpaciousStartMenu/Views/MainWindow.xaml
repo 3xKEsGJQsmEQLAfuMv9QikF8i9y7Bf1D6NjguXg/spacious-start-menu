@@ -150,5 +150,14 @@
             VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="MainContainer" />
         </ScrollViewer>
+
+        <Border
+            x:Name="DisabledBorder"
+            Grid.RowSpan="5"
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="#99000000"
+            Visibility="Collapsed" />
     </Grid>
 </Window>
