@@ -27,6 +27,22 @@ namespace SpaciousStartMenu
         public static bool Abend { get; private set; } = false;
         public static bool MinimizeStartup { get; private set; } = false;
 
+        public static string Version
+        {
+            get
+            {
+                string? path = Environment.ProcessPath;
+                if (string.IsNullOrEmpty(path))
+                {
+                    return "";
+                }
+                else
+                {
+                    return FileVersionInfo.GetVersionInfo(path).FileVersion ?? "";
+                }
+            }
+        }
+
         public App()
         {
             InitializeComponent();
