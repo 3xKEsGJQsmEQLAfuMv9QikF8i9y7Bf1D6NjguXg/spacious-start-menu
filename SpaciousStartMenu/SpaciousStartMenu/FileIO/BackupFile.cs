@@ -8,7 +8,7 @@ namespace SpaciousStartMenu.FileIO
     {
         private static readonly Regex _targetPathTail = new(@"\.bak[2-3]?$");
 
-        public static string GetFilePath(string orginalFilePath)
+        public static string GetRotateBackupFilePath(string orginalFilePath)
         {
             string b1 = $"{orginalFilePath}.bak";
             string b2 = $"{orginalFilePath}.bak2";

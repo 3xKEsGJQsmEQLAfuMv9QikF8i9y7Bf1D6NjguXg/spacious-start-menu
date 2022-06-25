@@ -50,7 +50,7 @@
     <sys:String x:Key="R_YesButton">Sí (_Y)</sys:String>
     <sys:String x:Key="R_NoButton">No (_N)</sys:String>
 
-    <!--  Button tooltips  -->
+    <!--  Tooltips  -->
     <sys:String x:Key="R_ToolTip_Edit">Editar</sys:String>
     <sys:String x:Key="R_ToolTip_Delete">Borrar</sys:String>
     <sys:String x:Key="R_ToolTip_DirectEditButton">Edite el archivo de definición directamente.</sys:String>
@@ -60,6 +60,9 @@
 
     <sys:String x:Key="R_Description_EditPath">El archivo y la carpeta se pueden arrastrar y soltar aquí.</sys:String>
 
+    <sys:String x:Key="R_ToolTip_ExportSettingsButton">Haga una copia de seguridad de los valores y las definiciones de los pines en la pantalla de configuración y cierre la pantalla de configuración.</sys:String>
+    <sys:String x:Key="R_ToolTip_MinShortcut">Cuando se registra un acceso directo en el inicio, se le da la opción de comenzar en el estado minimizado.</sys:String>
+
     <!--  Pinning screen  -->
     <sys:String x:Key="R_List_Color">Color</sys:String>
     <sys:String x:Key="R_List_Title">Título</sys:String>
@@ -67,22 +70,25 @@
     <sys:String x:Key="R_List_WorkDirectory">directorio de trabajo</sys:String>
     <sys:String x:Key="R_List_Arguments">argumentos</sys:String>
 
-    <sys:String x:Key="R_Edit_Headline">Titular (_H)</sys:String>
-    <sys:String x:Key="R_Edit_Color">Color (_C)</sys:String>
-    <sys:String x:Key="R_Edit_Title">Título (_T)</sys:String>
-    <sys:String x:Key="R_Edit_Path">Sendero (_P)</sys:String>
-    <sys:String x:Key="R_Edit_WorkDirectory">directorio de trabajo (_W)</sys:String>
-    <sys:String x:Key="R_Edit_Arguments">argumentos (_A)</sys:String>
+    <sys:String x:Key="R_Edit_Headline">Titular</sys:String>
+    <sys:String x:Key="R_Edit_Color">_Color</sys:String>
+    <sys:String x:Key="R_Edit_Title">Título</sys:String>
+    <sys:String x:Key="R_Edit_Path">Sendero</sys:String>
+    <sys:String x:Key="R_Edit_WorkDirectory">directorio de trabajo</sys:String>
+    <sys:String x:Key="R_Edit_Arguments">argumentos</sys:String>
 
     <sys:String x:Key="R_Edit_SpecialFolder">carpeta especial</sys:String>
     <sys:String x:Key="R_Edit_EnvVar">Variable ambiental</sys:String>
 
     <!--  Settings screen  -->
     <sys:String x:Key="R_Settings_Setup">Configuración</sys:String>
-    <sys:String x:Key="R_RegStartupShortcut">Regístrese para iniciar (_S)</sys:String>
+    <sys:String x:Key="R_RegStartupShortcut">Regístrese para iniciar</sys:String>
     <sys:String x:Key="R_RemoveStartupShortcut">Eliminar del inicio</sys:String>
-    <sys:String x:Key="R_MinimizeStartup">Minimizar al comenzar desde el inicio</sys:String>
+    <sys:String x:Key="R_MinimizeStartupShortcut">Agregue una opción de inicio minimizado al acceso directo</sys:String>
+    <sys:String x:Key="R_ExportSettings">Configuración de exportación...</sys:String>
+    <sys:String x:Key="R_ImportSettings">Importar ajustes...</sys:String>
     <sys:String x:Key="R_Settings_Minimize">Minimizar</sys:String>
+    <sys:String x:Key="R_MinimizeStartup">Empezar en estado minimizado</sys:String>
     <sys:String x:Key="R_EscKeyMinimized">Minimizar el menú con la tecla Esc (_E)</sys:String>
     <sys:String x:Key="R_MarginDblClickMinimized">Minimice el menú haciendo doble clic en el margen del menú (_M)</sys:String>
     <sys:String x:Key="R_DisabledMinimizeCtrlClick">Suprime la minimización del menú al presionar el botón de inicio mientras se mantiene presionada la tecla Ctrl</sys:String>
@@ -95,6 +101,11 @@
     <sys:String x:Key="R_ShowOpenAndExitMenuItem">Mostrar &quot;Abrir la ubicación del programa y luego salir del programa&quot; menú</sys:String>
     <sys:String x:Key="R_Settings_Advanced">Opciones avanzadas</sys:String>
     <sys:String x:Key="R_ShowDirectEditDefineButton">Botón de edición directa del archivo de definición en la &quot;lista de definiciones fijadas&quot; pantalla</sys:String>
+    <sys:String x:Key="R_Settings_About">Acerca de</sys:String>
+
+    <!--  Dialog  -->
+    <sys:String x:Key="R_SaveFileDialogTitle">Especifique el nombre del archivo para guardar</sys:String>
+    <sys:String x:Key="R_OpenFileDialogTitle">Especificar el archivo a importar</sys:String>
 
     <!--  Messages  -->
     <sys:String x:Key="MsgErrUnsupportedOS">Sistema operativo no compatible.</sys:String>
@@ -104,9 +115,13 @@
     <sys:String x:Key="MsgErrSettingsColumn">Número de columnas no válido.</sys:String>
     <sys:String x:Key="MsgErrColorName">Nombre de color no válido.</sys:String>
     <sys:String x:Key="MsgErrAdminInstallPath">No instale en ubicaciones que requieran privilegios administrativos.</sys:String>
+    <sys:String x:Key="MsgErrInvalidFileNoHeader">El formato de archivo no es válido. Encabezado no encontrado.</sys:String>
+    <sys:String x:Key="MsgErrInvalidFileNoDelimiter">El formato de archivo no es válido. No se encontró el delimitador de información de configuración.</sys:String>
 
     <sys:String x:Key="MsgInfoRegStartupShortcut">Creé un acceso directo para el inicio.</sys:String>
     <sys:String x:Key="MsgInfoRemoveStartupShortcut">Se eliminó el acceso directo desde el inicio.</sys:String>
+    <sys:String x:Key="MsgInfoExportComplete">Configuraciones exportadas.</sys:String>
+    <sys:String x:Key="MsgInfoImportComplete">Configuraciones importadas.</sys:String>
 
     <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">¿Le gustaría crear una carpeta de destino recomendada?</sys:String>
     <sys:String x:Key="MsgConfirmCloseMenu">¿Quieres salir del menú?</sys:String>

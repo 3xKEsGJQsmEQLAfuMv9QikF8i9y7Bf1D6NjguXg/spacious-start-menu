@@ -50,7 +50,7 @@
     <sys:String x:Key="R_YesButton">はい(_Y)</sys:String>
     <sys:String x:Key="R_NoButton">いいえ(_N)</sys:String>
 
-    <!--  ボタンのツールチップ  -->
+    <!--  ツールチップ  -->
     <sys:String x:Key="R_ToolTip_Edit">編集</sys:String>
     <sys:String x:Key="R_ToolTip_Delete">削除</sys:String>
     <sys:String x:Key="R_ToolTip_DirectEditButton">定義ファイルを直接編集します。</sys:String>
@@ -60,6 +60,9 @@
 
     <sys:String x:Key="R_Description_EditPath">ファイルやフォルダーをここにドラッグ&amp;ドロップできます。</sys:String>
 
+    <sys:String x:Key="R_ToolTip_ExportSettingsButton">設定画面の値とピン定義をバックアップし、設定画面を閉じます。</sys:String>
+    <sys:String x:Key="R_ToolTip_MinShortcut">スタートアップにショートカット登録時、最小化状態で起動するオプションを付与します。</sys:String>
+
     <!--  ピン留め画面  -->
     <sys:String x:Key="R_List_Color">色</sys:String>
     <sys:String x:Key="R_List_Title">タイトル</sys:String>
@@ -67,22 +70,25 @@
     <sys:String x:Key="R_List_WorkDirectory">作業フォルダー</sys:String>
     <sys:String x:Key="R_List_Arguments">引数</sys:String>
 
-    <sys:String x:Key="R_Edit_Headline">見出し(_H)</sys:String>
+    <sys:String x:Key="R_Edit_Headline">見出し</sys:String>
     <sys:String x:Key="R_Edit_Color">色(_C)</sys:String>
-    <sys:String x:Key="R_Edit_Title">タイトル(_T)</sys:String>
-    <sys:String x:Key="R_Edit_Path">パス(_P)</sys:String>
-    <sys:String x:Key="R_Edit_WorkDirectory">作業フォルダー(_W)</sys:String>
-    <sys:String x:Key="R_Edit_Arguments">引数(_A)</sys:String>
+    <sys:String x:Key="R_Edit_Title">タイトル</sys:String>
+    <sys:String x:Key="R_Edit_Path">パス</sys:String>
+    <sys:String x:Key="R_Edit_WorkDirectory">作業フォルダー</sys:String>
+    <sys:String x:Key="R_Edit_Arguments">引数</sys:String>
 
     <sys:String x:Key="R_Edit_SpecialFolder">特殊フォルダー</sys:String>
     <sys:String x:Key="R_Edit_EnvVar">環境変数</sys:String>
 
     <!--  設定画面  -->
     <sys:String x:Key="R_Settings_Setup">セットアップ</sys:String>
-    <sys:String x:Key="R_RegStartupShortcut">スタートアップに登録(_S)</sys:String>
+    <sys:String x:Key="R_RegStartupShortcut">スタートアップに登録</sys:String>
     <sys:String x:Key="R_RemoveStartupShortcut">スタートアップから削除</sys:String>
-    <sys:String x:Key="R_MinimizeStartup">スタートアップから起動時は最小化</sys:String>
+    <sys:String x:Key="R_MinimizeStartupShortcut">ショートカットに最小化起動のオプション付与</sys:String>
+    <sys:String x:Key="R_ExportSettings">設定のエクスポート...</sys:String>
+    <sys:String x:Key="R_ImportSettings">設定のインポート...</sys:String>
     <sys:String x:Key="R_Settings_Minimize">最小化</sys:String>
+    <sys:String x:Key="R_MinimizeStartup">最小化状態で起動</sys:String>
     <sys:String x:Key="R_EscKeyMinimized">Escキーで最小化(_E)</sys:String>
     <sys:String x:Key="R_MarginDblClickMinimized">メニューの余白ダブルクリックで最小化(_M)</sys:String>
     <sys:String x:Key="R_DisabledMinimizeCtrlClick">Ctrlキーを押しながら起動ボタンを押したときは最小化抑止</sys:String>
@@ -95,6 +101,11 @@
     <sys:String x:Key="R_ShowOpenAndExitMenuItem">「プログラムの場所を開いて終了」メニューを表示</sys:String>
     <sys:String x:Key="R_Settings_Advanced">高度なオプション</sys:String>
     <sys:String x:Key="R_ShowDirectEditDefineButton">「ピン留め定義一覧」画面に定義ファイル直接編集ボタンを表示</sys:String>
+    <sys:String x:Key="R_Settings_About">バージョン情報</sys:String>
+
+    <!--  ダイアログ  -->
+    <sys:String x:Key="R_SaveFileDialogTitle">保存するファイル名を指定してください</sys:String>
+    <sys:String x:Key="R_OpenFileDialogTitle">取り込むファイルを指定してください</sys:String>
 
     <!--  メッセージ  -->
     <sys:String x:Key="MsgErrUnsupportedOS">未サポートのOSです。</sys:String>
@@ -104,9 +115,13 @@
     <sys:String x:Key="MsgErrSettingsColumn">カラム数不正。</sys:String>
     <sys:String x:Key="MsgErrColorName">無効な色名。</sys:String>
     <sys:String x:Key="MsgErrAdminInstallPath">管理者権限が必要な場所へはインストールしないでください。</sys:String>
+    <sys:String x:Key="MsgErrInvalidFileNoHeader">ファイル形式が不正です。ヘッダーが見つかりません。</sys:String>
+    <sys:String x:Key="MsgErrInvalidFileNoDelimiter">ファイル形式が不正です。設定情報区切りが見つかりませんでした。</sys:String>
 
     <sys:String x:Key="MsgInfoRegStartupShortcut">スタートアップにショートカットを作成しました。</sys:String>
     <sys:String x:Key="MsgInfoRemoveStartupShortcut">スタートアップからショートカットを削除しました。</sys:String>
+    <sys:String x:Key="MsgInfoExportComplete">設定をエクスポートしました。</sys:String>
+    <sys:String x:Key="MsgInfoImportComplete">設定をインポートしました。</sys:String>
 
     <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">お勧めのインストール先フォルダーを作成しますか?</sys:String>
     <sys:String x:Key="MsgConfirmCloseMenu">メニューを終了しますか?</sys:String>

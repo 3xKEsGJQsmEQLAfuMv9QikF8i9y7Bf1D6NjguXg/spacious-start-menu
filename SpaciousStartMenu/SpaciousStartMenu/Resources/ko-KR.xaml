@@ -50,7 +50,7 @@
     <sys:String x:Key="R_YesButton">예(_Y)</sys:String>
     <sys:String x:Key="R_NoButton">아니(_N)</sys:String>
 
-    <!--  Button tooltips  -->
+    <!--  Tooltips  -->
     <sys:String x:Key="R_ToolTip_Edit">편집하다</sys:String>
     <sys:String x:Key="R_ToolTip_Delete">삭제</sys:String>
     <sys:String x:Key="R_ToolTip_DirectEditButton">정의 파일을 직접 편집하십시오.</sys:String>
@@ -60,6 +60,9 @@
 
     <sys:String x:Key="R_Description_EditPath">파일 및 폴더를 여기에 끌어다 놓을 수 있습니다.</sys:String>
 
+    <sys:String x:Key="R_ToolTip_ExportSettingsButton">설정 화면에서 값과 핀 정의를 백업하고 설정 화면을 닫습니다.</sys:String>
+    <sys:String x:Key="R_ToolTip_MinShortcut">스타트업에 바로가기를 등록하면 최소화된 상태로 시작할 수 있는 옵션이 주어진다.</sys:String>
+
     <!--  Pinning screen  -->
     <sys:String x:Key="R_List_Color">색깔</sys:String>
     <sys:String x:Key="R_List_Title">제목</sys:String>
@@ -67,22 +70,25 @@
     <sys:String x:Key="R_List_WorkDirectory">작업 디렉터리를</sys:String>
     <sys:String x:Key="R_List_Arguments">인수</sys:String>
 
-    <sys:String x:Key="R_Edit_Headline">표제(_H)</sys:String>
+    <sys:String x:Key="R_Edit_Headline">표제</sys:String>
     <sys:String x:Key="R_Edit_Color">색깔(_C)</sys:String>
-    <sys:String x:Key="R_Edit_Title">제목(_T)</sys:String>
-    <sys:String x:Key="R_Edit_Path">길(_P)</sys:String>
-    <sys:String x:Key="R_Edit_WorkDirectory">작업 디렉터리를(_W)</sys:String>
-    <sys:String x:Key="R_Edit_Arguments">인수(_A)</sys:String>
+    <sys:String x:Key="R_Edit_Title">제목</sys:String>
+    <sys:String x:Key="R_Edit_Path">길</sys:String>
+    <sys:String x:Key="R_Edit_WorkDirectory">작업 디렉터리를</sys:String>
+    <sys:String x:Key="R_Edit_Arguments">인수</sys:String>
 
     <sys:String x:Key="R_Edit_SpecialFolder">특수 폴더</sys:String>
     <sys:String x:Key="R_Edit_EnvVar">환경 변수</sys:String>
 
     <!--  Settings screen  -->
     <sys:String x:Key="R_Settings_Setup">설정</sys:String>
-    <sys:String x:Key="R_RegStartupShortcut">시작에 등록(_S)</sys:String>
+    <sys:String x:Key="R_RegStartupShortcut">시작에 등록</sys:String>
     <sys:String x:Key="R_RemoveStartupShortcut">시작 프로그램에서 제거</sys:String>
-    <sys:String x:Key="R_MinimizeStartup">시작할 때 최소화</sys:String>
+    <sys:String x:Key="R_MinimizeStartupShortcut">바로 가기에 실행 최소화 옵션 추가</sys:String>
+    <sys:String x:Key="R_ExportSettings">내보내기 설정...</sys:String>
+    <sys:String x:Key="R_ImportSettings">설정 가져오기...</sys:String>
     <sys:String x:Key="R_Settings_Minimize">최소화</sys:String>
+    <sys:String x:Key="R_MinimizeStartup">최소화된 상태에서 시작</sys:String>
     <sys:String x:Key="R_EscKeyMinimized">Esc 키로 메뉴 최소화(_E)</sys:String>
     <sys:String x:Key="R_MarginDblClickMinimized">메뉴 여백을 두 번 클릭하여 메뉴 최소화(_M)</sys:String>
     <sys:String x:Key="R_DisabledMinimizeCtrlClick">Ctrl 키를 누른 상태에서 실행 버튼을 누를 때 메뉴 최소화를 억제합니다.</sys:String>
@@ -95,6 +101,11 @@
     <sys:String x:Key="R_ShowOpenAndExitMenuItem">&quot;프로그램 위치를 연 다음 프로그램을 종료하십시오&quot;를 표시하십시오. 메뉴</sys:String>
     <sys:String x:Key="R_Settings_Advanced">고급 옵션</sys:String>
     <sys:String x:Key="R_ShowDirectEditDefineButton">고정된 정의 목록의 직접 정의 파일 편집 버튼 화면</sys:String>
+    <sys:String x:Key="R_Settings_About">정보</sys:String>
+
+    <!--  Dialog  -->
+    <sys:String x:Key="R_SaveFileDialogTitle">저장할 파일 이름 지정</sys:String>
+    <sys:String x:Key="R_OpenFileDialogTitle">가져올 파일 지정</sys:String>
 
     <!--  Messages  -->
     <sys:String x:Key="MsgErrUnsupportedOS">지원되지 않는 운영 체제입니다.</sys:String>
@@ -104,9 +115,13 @@
     <sys:String x:Key="MsgErrSettingsColumn">열 수가 잘못되었습니다.</sys:String>
     <sys:String x:Key="MsgErrColorName">잘못된 색상 이름입니다.</sys:String>
     <sys:String x:Key="MsgErrAdminInstallPath">관리자 권한이 필요한 위치에 설치하지 마십시오.</sys:String>
+    <sys:String x:Key="MsgErrInvalidFileNoHeader">파일 형식이 잘못되었습니다. 헤더를 찾을 수 없습니다.</sys:String>
+    <sys:String x:Key="MsgErrInvalidFileNoDelimiter">파일 형식이 잘못되었습니다. 구성 정보 구분자를 찾을 수 없습니다.</sys:String>
 
     <sys:String x:Key="MsgInfoRegStartupShortcut">시작 바로가기를 만들었습니다.</sys:String>
     <sys:String x:Key="MsgInfoRemoveStartupShortcut">시작에서 바로 가기를 제거했습니다.</sys:String>
+    <sys:String x:Key="MsgInfoExportComplete">내보낸 설정.</sys:String>
+    <sys:String x:Key="MsgInfoImportComplete">가져온 설정.</sys:String>
 
     <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">추천 대상 폴더를 생성하시겠습니까?</sys:String>
     <sys:String x:Key="MsgConfirmCloseMenu">메뉴를 종료하시겠습니까?</sys:String>

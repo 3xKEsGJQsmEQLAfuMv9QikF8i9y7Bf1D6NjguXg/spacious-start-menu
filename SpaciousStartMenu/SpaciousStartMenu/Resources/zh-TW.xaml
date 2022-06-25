@@ -50,7 +50,7 @@
     <sys:String x:Key="R_YesButton">是的(_Y)</sys:String>
     <sys:String x:Key="R_NoButton">不(_N)</sys:String>
 
-    <!--  Button tooltips  -->
+    <!--  Tooltips  -->
     <sys:String x:Key="R_ToolTip_Edit">編輯</sys:String>
     <sys:String x:Key="R_ToolTip_Delete">刪除</sys:String>
     <sys:String x:Key="R_ToolTip_DirectEditButton">直接編輯定義文件。</sys:String>
@@ -60,6 +60,9 @@
 
     <sys:String x:Key="R_Description_EditPath">文件和文件夾可以在這裡拖放。</sys:String>
 
+    <sys:String x:Key="R_ToolTip_ExportSettingsButton">備份設置屏幕上的值和引腳定義並關閉設置屏幕。</sys:String>
+    <sys:String x:Key="R_ToolTip_MinShortcut">在啟動時註冊快捷方式時，會提供以最小化狀態啟動的選項。</sys:String>
+
     <!--  Pinning screen  -->
     <sys:String x:Key="R_List_Color">顏色</sys:String>
     <sys:String x:Key="R_List_Title">標題</sys:String>
@@ -67,22 +70,25 @@
     <sys:String x:Key="R_List_WorkDirectory">工作目錄</sys:String>
     <sys:String x:Key="R_List_Arguments">參數</sys:String>
 
-    <sys:String x:Key="R_Edit_Headline">標題(_H)</sys:String>
+    <sys:String x:Key="R_Edit_Headline">標題</sys:String>
     <sys:String x:Key="R_Edit_Color">顏色(_C)</sys:String>
-    <sys:String x:Key="R_Edit_Title">標題(_T)</sys:String>
-    <sys:String x:Key="R_Edit_Path">小路(_P)</sys:String>
-    <sys:String x:Key="R_Edit_WorkDirectory">工作目錄(_W)</sys:String>
-    <sys:String x:Key="R_Edit_Arguments">參數(_A)</sys:String>
+    <sys:String x:Key="R_Edit_Title">標題</sys:String>
+    <sys:String x:Key="R_Edit_Path">小路</sys:String>
+    <sys:String x:Key="R_Edit_WorkDirectory">工作目錄</sys:String>
+    <sys:String x:Key="R_Edit_Arguments">參數</sys:String>
 
     <sys:String x:Key="R_Edit_SpecialFolder">特殊文件夾</sys:String>
     <sys:String x:Key="R_Edit_EnvVar">環境變量</sys:String>
 
     <!--  Settings screen  -->
     <sys:String x:Key="R_Settings_Setup">設置</sys:String>
-    <sys:String x:Key="R_RegStartupShortcut">註冊啟動(_S)</sys:String>
+    <sys:String x:Key="R_RegStartupShortcut">註冊啟動</sys:String>
     <sys:String x:Key="R_RemoveStartupShortcut">從啟動中刪除</sys:String>
-    <sys:String x:Key="R_MinimizeStartup">從啟動開始時最小化</sys:String>
+    <sys:String x:Key="R_MinimizeStartupShortcut">向快捷方式添加最小化啟動選項</sys:String>
+    <sys:String x:Key="R_ExportSettings">導出設置...</sys:String>
+    <sys:String x:Key="R_ImportSettings">導入設置...</sys:String>
     <sys:String x:Key="R_Settings_Minimize">最小化</sys:String>
+    <sys:String x:Key="R_MinimizeStartup">以最小化狀態開始</sys:String>
     <sys:String x:Key="R_EscKeyMinimized">使用 Esc 鍵最小化菜單(_E)</sys:String>
     <sys:String x:Key="R_MarginDblClickMinimized">通過雙擊菜單邊距來最小化菜單(_M)</sys:String>
     <sys:String x:Key="R_DisabledMinimizeCtrlClick">在按住 Ctrl 鍵的同時按下啟動按鈕時抑制菜單最小化</sys:String>
@@ -95,6 +101,11 @@
     <sys:String x:Key="R_ShowOpenAndExitMenuItem">顯示“打開程序位置然後退出程序” 菜單</sys:String>
     <sys:String x:Key="R_Settings_Advanced">高級選項</sys:String>
     <sys:String x:Key="R_ShowDirectEditDefineButton">“固定定義列表”上的直接定義文件編輯按鈕 屏幕</sys:String>
+    <sys:String x:Key="R_Settings_About">關於</sys:String>
+
+    <!--  Dialog  -->
+    <sys:String x:Key="R_SaveFileDialogTitle">指定要保存的文件名</sys:String>
+    <sys:String x:Key="R_OpenFileDialogTitle">指定要導入的文件</sys:String>
 
     <!--  Messages  -->
     <sys:String x:Key="MsgErrUnsupportedOS">不支持的操作系統。</sys:String>
@@ -104,9 +115,13 @@
     <sys:String x:Key="MsgErrSettingsColumn">列數無效。</sys:String>
     <sys:String x:Key="MsgErrColorName">顏色名稱無效。</sys:String>
     <sys:String x:Key="MsgErrAdminInstallPath">不要安裝在需要管理權限的位置。</sys:String>
+    <sys:String x:Key="MsgErrInvalidFileNoHeader">文件格式無效。 找不到標頭。</sys:String>
+    <sys:String x:Key="MsgErrInvalidFileNoDelimiter">文件格式無效。 未找到配置信息分隔符。</sys:String>
 
     <sys:String x:Key="MsgInfoRegStartupShortcut">我為啟動創建了一個快捷方式。</sys:String>
     <sys:String x:Key="MsgInfoRemoveStartupShortcut">從啟動中刪除了快捷方式。</sys:String>
+    <sys:String x:Key="MsgInfoExportComplete">導出的設置。</sys:String>
+    <sys:String x:Key="MsgInfoImportComplete">導入的設置。</sys:String>
 
     <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">您想創建推薦的目標文件夾嗎？</sys:String>
     <sys:String x:Key="MsgConfirmCloseMenu">您要退出菜單嗎？</sys:String>
