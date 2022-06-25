@@ -81,37 +81,19 @@ The `Path` field allows you to enter files and folders by drag & drop.
 
 When `Headline` is selected, only `Title` can be entered.
 
-![imagePin2](https://user-images.githubusercontent.com/99333667/174437286-efe1e40c-20e1-4119-93c5-02cd89a47b9b.png)
+![imagePin2](https://user-images.githubusercontent.com/99333667/175758210-40a76450-c7c6-42ce-993c-9aab44e032ea.png)
 
 Color selection menu.
 
-![imagePin3](https://user-images.githubusercontent.com/99333667/174437303-994dc96b-c5b4-4c5b-8299-7d2885bc3e2c.png)
+![imagePin3](https://user-images.githubusercontent.com/99333667/175758222-c88e784f-48eb-49b2-9d29-a6ed777f6081.png)
 
 Special folders and environment variables selection menu.
 
-![imagePin4](https://user-images.githubusercontent.com/99333667/174437314-fd06abfd-19d2-4066-b7a7-f85473afa4d2.png)
+![imagePin4](https://user-images.githubusercontent.com/99333667/175758232-61659191-4736-4a7b-ae5a-b1190d472419.png)
 
 ## Settings screen
 
-![imageStg](https://user-images.githubusercontent.com/99333667/174437384-e50bd045-de09-4b4e-85a1-67c9c1ea8cf3.png)
-
-- Setup
-  - Register to startup
-  - Remove from Startup
-  - Minimize when starting from startup
-- Minimize
-  - Minimize menu with Esc key
-  - Minimize the menu by double-clicking on the menu margin
-  - Suppresses menu minimization when pressing the launch button while holding down the Ctrl key
-- Confirm
-  - Confirm when exiting menu
-- Context menu
-  - Show `Open the program location and then exit the program` menu
-- Child screen
-  - Save screen size
-  - Save screen position
-- Advanced options
-  - Direct definition file edit button on the pinned definition list screen
+![imageStg](https://user-images.githubusercontent.com/99333667/175758235-0f3c8913-feec-4baf-81b5-63bf602f861d.png)
 
 # Recommended initial settings
 
@@ -125,6 +107,6 @@ Pin it to the taskbar.
 
 This allows the menu to be launched or activated with `Win` + `1`.
 
-# Reference
+# Reference article
 
 - [https://qiita.com/Kosen-amai/items/61e6b03b8e0fccc35ee5](https://qiita.com/Kosen-amai/items/61e6b03b8e0fccc35ee5)
