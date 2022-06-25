@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Linq;
+using SpaciousStartMenu.FileIO;
 
 namespace SpaciousStartMenu.Views
 {
@@ -44,12 +45,14 @@ namespace SpaciousStartMenu.Views
         {
             try
             {
-                if (App.MinimizeStartup)
+                LoadAppSettings();
+
+                if (_settings.MinimizeStartup2 ||
+                    App.MinimizeStartup)
                 {
                     WindowState = WindowState.Minimized;
                 }
 
-                LoadAppSettings();
 
                 GetScales();
                 string filePath = App.GetLaunchDefineFilePath();
@@ -133,6 +136,7 @@ namespace SpaciousStartMenu.Views
             if (Keyboard.Modifiers == ModifierKeys.Control)
             {
                 ChangeScale(e.Delta > 0);
+                e.Handled = true;
             }
         }
 
@@ -209,14 +213,30 @@ namespace SpaciousStartMenu.Views
         {
             try
             {
-                var window = new SettingsWindow(_settings);
-                window.Owner = this;
+                var window = new SettingsWindow(_settings)
+                {
+                    Owner = this
+                };
                 SetDisabledStyle();
 
                 window.ShowDialog();
 
-                SetDisabledStyle(false);
                 SetScreenFromSettings(_settings);
+
+                if (!string.IsNullOrEmpty(window.ExportFilePath))
+                {
+                    ExportSettings(window.ExportFilePath);
+                    this.Info($"{App.R("MsgInfoExportComplete")}\n{window.ExportFilePath}");
+                }
+                else if (window.Imported)
+                {
+                    LoadLauncherDefine(App.GetLaunchDefineFilePath());
+                    LoadAppSettings();
+
+                    this.Info(App.R("MsgInfoImportComplete"));
+                }
+
+                SetDisabledStyle(false);
             }
             catch (Exception ex)
             {
@@ -225,18 +245,27 @@ namespace SpaciousStartMenu.Views
             }
         }
 
+        private void ExportSettings(string exportFilePath)
+        {
+            SaveAppSettings();
+            var asr = new AppSettingsReader();
+            _settings = asr.ReadFromFile();
+
+            SettingsExport.Export(
+                App.Version,
+                App.GetLaunchDefineFilePath(),
+                App.GetAppSettingsFilePath(),
+                exportFilePath);
+        }
+
         private void MenuFolderOpen_Click(object sender, RoutedEventArgs e)
         {
-            try
+            TryCatch(() =>
             {
                 string appPath = App.GetAppPath();
                 Execute(appPath, null, null);
                 WindowState = WindowState.Minimized;
-            }
-            catch (Exception ex)
-            {
-                this.Error(ex.ToString());
-            }
+            });
         }
 
         private void MenuFolderOpenAndExit_Click(object sender, RoutedEventArgs e)
@@ -605,6 +634,30 @@ namespace SpaciousStartMenu.Views
                 // Text in the launch button
                 e.Handled = true;
                 return;
+            }
+        }
+
+        public void TryCatch(Action action)
+        {
+            try
+            {
+                action();
+            }
+            catch (Exception ex)
+            {
+                this.Error(ex.ToString());
+            }
+        }
+
+        public async void TryCatchAsyncVoid(Func<Task> action)
+        {
+            try
+            {
+                await action();
+            }
+            catch (Exception ex)
+            {
+                this.Error(ex.ToString());
             }
         }
 

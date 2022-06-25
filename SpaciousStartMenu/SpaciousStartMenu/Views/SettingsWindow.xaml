@@ -11,11 +11,13 @@
     Height="800"
     MaxWidth="1800"
     MaxHeight="1000"
+    d:Height="850"
     Closing="Window_Closing"
     Loaded="Window_Loaded"
     StateChanged="Window_StateChanged"
     Style="{StaticResource ToolWindowStyle}"
-    mc:Ignorable="d" WindowStartupLocation="CenterOwner">
+    WindowStartupLocation="CenterOwner"
+    mc:Ignorable="d">
 
     <Grid Style="{StaticResource BaseGridStyle}">
         <Grid.RowDefinitions>
@@ -27,26 +29,45 @@
 
             <StackPanel>
                 <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_Setup}" />
-                <StackPanel Orientation="Horizontal">
-                    <Button
-                        x:Name="RegShortcut"
-                        Margin="40,5,5,5"
-                        Click="RegShortcut_Click"
-                        Content="{StaticResource R_RegStartupShortcut}"
-                        Style="{StaticResource SettingsButtonStyle}" />
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button
+                            x:Name="RegShortcut"
+                            Margin="40,5,5,5"
+                            MinWidth="180"
+                            Click="RegShortcut_Click"
+                            Content="{StaticResource R_RegStartupShortcut}"
+                            Style="{StaticResource SettingsButtonStyle}" />
+                        <CheckBox
+                            x:Name="MinimizeStartup"
+                            Margin="5" 
+                            Click="MinimizeStartupShortcut_Click"
+                            Content="{StaticResource R_MinimizeStartupShortcut}"
+                            ToolTip="{StaticResource R_ToolTip_MinShortcut}" />
+                    </StackPanel>
                     <Button
                         x:Name="RemoveShortcut"
-                        Margin="5"
+                        Margin="40,5,5,5" MinWidth="180"
                         Click="RemoveShortcut_Click"
                         Content="{StaticResource R_RemoveStartupShortcut}"
                         Style="{StaticResource SettingsButtonStyle}" />
+
                 </StackPanel>
-                <CheckBox
-                    x:Name="MinimizeStartup"
-                    Click="MinimizeStartup_Click"
-                    Content="{StaticResource R_MinimizeStartup}" />
+
+                <StackPanel Margin="0,15,0,0" Orientation="Horizontal">
+                    <Button
+                        Margin="40,5,5,5"
+                        Click="ExportButton_Click" MinWidth="180"
+                        Content="{StaticResource R_ExportSettings}"
+                        ToolTip="{StaticResource R_ToolTip_ExportSettingsButton}" />
+                    <Button
+                        Margin="5"
+                        Click="ImportButton_Click" MinWidth="180"
+                        Content="{StaticResource R_ImportSettings}" />
+                </StackPanel>
 
                 <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_Minimize}" />
+                <CheckBox x:Name="MinimizeStartup2" Content="{StaticResource R_MinimizeStartup}" />
                 <CheckBox x:Name="EscKeyMin" Content="{StaticResource R_EscKeyMinimized}" />
                 <CheckBox x:Name="DblClickMin" Content="{StaticResource R_MarginDblClickMinimized}" />
                 <CheckBox x:Name="CtrlClickDisabledMin">
@@ -69,6 +90,17 @@
                 <CheckBox x:Name="ShowDirectEditDefine">
                     <TextBlock Text="{StaticResource R_ShowDirectEditDefineButton}" TextWrapping="Wrap" />
                 </CheckBox>
+
+                <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_About}" />
+                <StackPanel Margin="40,5,10,5" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource StandardTextStyle}" Text="Version: "/>
+                    <TextBlock
+                        x:Name="VersionText"
+                        Style="{StaticResource StandardTextStyle}"
+                        Text="" />
+
+                </StackPanel>
+                <Separator Height="30" Visibility="Hidden"/>
             </StackPanel>
 
         </ScrollViewer>

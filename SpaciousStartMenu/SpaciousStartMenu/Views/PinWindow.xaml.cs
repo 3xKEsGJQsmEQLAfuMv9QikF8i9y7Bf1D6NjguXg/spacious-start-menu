@@ -154,7 +154,7 @@ namespace SpaciousStartMenu.Views
             if (this.Confirm(App.R("MsgConfirmUndoDef")) == MessageBoxResult.Yes)
             {
                 string filePath = App.GetLaunchDefineFilePath();
-                File.Copy(FileIO.BackupFile.GetFilePath(filePath), filePath, overwrite: true);
+                File.Copy(FileIO.BackupFile.GetRotateBackupFilePath(filePath), filePath, overwrite: true);
                 return true;
             }
             else
@@ -433,7 +433,7 @@ namespace SpaciousStartMenu.Views
             string filePath = App.GetLaunchDefineFilePath();
             if (File.Exists(filePath) && !_hasError)
             {
-                File.Copy(filePath, FileIO.BackupFile.GetFilePath(filePath), overwrite: true);
+                File.Copy(filePath, FileIO.BackupFile.GetRotateBackupFilePath(filePath), overwrite: true);
             }
 
             if (DefList.Visibility == Visibility.Visible)

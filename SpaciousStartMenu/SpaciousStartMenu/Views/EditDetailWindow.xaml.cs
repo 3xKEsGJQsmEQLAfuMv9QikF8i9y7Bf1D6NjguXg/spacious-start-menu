@@ -354,11 +354,11 @@ namespace SpaciousStartMenu.Views
 
             if (SpecialFolderPopup.PlacementTarget == PathContextButton)
             {
-                PathText.Text += content;
+                PathText.Text = content + PathText.Text;
             }
             else if (SpecialFolderPopup.PlacementTarget == WorkDirContextButton)
             {
-                WorkDirText.Text += content;
+                WorkDirText.Text = content + WorkDirText.Text;
             }
         }
 

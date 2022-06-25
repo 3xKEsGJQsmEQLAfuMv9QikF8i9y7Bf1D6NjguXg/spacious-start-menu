@@ -24,26 +24,6 @@
     <Window.Resources>
         <cnv:InvertBooleanConverter x:Key="InvertBoolConv" />
         <cnv:BooleanToDoubleConverter x:Key="BoolToDoubleConv" />
-
-        <ContextMenu x:Key="SpecialFolderMenu">
-            <MenuItem Header="Env">
-                <MenuItem Header="ALLUSERSPROFILE" />
-                <MenuItem Header="APPDATA" />
-                <MenuItem Header="HOMEPATH" />
-                <MenuItem Header="LOCALAPPDATA" />
-                <MenuItem Header="PROGRAMDATA" />
-                <MenuItem Header="PROGRAMFILES" />
-                <MenuItem Header="PROGRAMFILES(X86)" />
-                <MenuItem Header="SYSTEMROOT" />
-                <MenuItem Header="TEMP" />
-                <MenuItem Header="TMP" />
-                <MenuItem Header="USERPROFILE" />
-                <MenuItem Header="WINDIR" />
-            </MenuItem>
-            <MenuItem x:Name="SpecialMenuRoo1" Header="Sp1" />
-            <MenuItem x:Name="SpecialMenuRoo2" Header="Sp2" />
-        </ContextMenu>
-
     </Window.Resources>
 
     <Grid Style="{StaticResource BaseGridStyle}">
@@ -295,7 +275,6 @@
                         Margin="0,0,10,10"
                         Click="SpecialFolderMenuButton_Click"
                         Content="&#xE712;"
-                        ContextMenu="{StaticResource SpecialFolderMenu}"
                         IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}"
                         Style="{StaticResource IconButtonStyle}" />
                 </Grid>
@@ -338,7 +317,6 @@
                         Margin="0,0,10,10"
                         Click="SpecialFolderMenuButton_Click"
                         Content="&#xE712;"
-                        ContextMenu="{StaticResource SpecialFolderMenu}"
                         IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}"
                         Style="{StaticResource IconButtonStyle}" />
                 </Grid>

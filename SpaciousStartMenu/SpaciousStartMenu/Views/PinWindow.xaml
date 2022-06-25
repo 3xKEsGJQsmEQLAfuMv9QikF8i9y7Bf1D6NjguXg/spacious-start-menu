@@ -9,18 +9,19 @@
     Title="{StaticResource R_PinTitle}"
     Width="950"
     Height="650"
+    Closed="Window_Closed"
     Closing="Window_Closing"
     FocusManager.FocusedElement="{Binding ElementName=DefList}"
     KeyDown="Window_KeyDown"
     Loaded="Window_Loaded"
     StateChanged="Window_StateChanged"
     Style="{StaticResource ToolWindowStyle}"
-    Topmost="True"
     WindowStartupLocation="CenterOwner"
-    mc:Ignorable="d" Closed="Window_Closed">
+    mc:Ignorable="d">
 
     <Window.Resources>
         <cnv:ObjectToVisibilityConverter x:Key="ObjToVisibilityConv" />
+        <cnv:ObjectToWidthConverter x:Key="ObjToWidthConv" />
         <cnv:StringHrConverter x:Key="StrToHrConv" />
         <cnv:InvertBooleanConverter x:Key="InvertBoolConv" />
         <cnv:BooleanToDoubleConverter x:Key="BoolToDoubleConv" />
@@ -63,6 +64,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock
+                                        Width="{Binding ColorName, Mode=OneWay, Converter={StaticResource ObjToWidthConv}}"
                                         Foreground="{Binding MarkBrush, Mode=OneWay}"
                                         Opacity="{Binding IsDelete, Mode=OneWay, Converter={StaticResource BoolToDoubleConv}, ConverterParameter=0.2}"
                                         Style="{StaticResource IconTextStyle}"

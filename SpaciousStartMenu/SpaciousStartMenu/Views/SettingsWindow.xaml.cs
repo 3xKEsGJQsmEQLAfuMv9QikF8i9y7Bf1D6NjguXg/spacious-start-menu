@@ -1,7 +1,10 @@
 ﻿using SpaciousStartMenu.Extensions;
+using SpaciousStartMenu.FileIO;
 using SpaciousStartMenu.Settings;
 using SpaciousStartMenu.Shell;
 using System;
+using System.Diagnostics;
+using System.IO;
 using System.Windows;
 
 namespace SpaciousStartMenu.Views
@@ -10,9 +13,14 @@ namespace SpaciousStartMenu.Views
     {
         private readonly AppSettings _settings;
 
+        public string? ExportFilePath { get; set; } = null;
+        public bool Imported { get; private set; } = false;
+
+
         public SettingsWindow(AppSettings settings)
         {
             InitializeComponent();
+
             _settings = settings;
             RestoreWindowSize(_settings);
         }
@@ -30,21 +38,28 @@ namespace SpaciousStartMenu.Views
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             RemoveShortcut.IsEnabled = Shortcut.ExistsStartupShortcut(App.R("R_AppLinkName"));
+            VersionText.Text = App.Version;
 
-            MinimizeStartup.IsChecked = _settings.MinimizeStartup;
+            SettingsToScreen(_settings);
+        }
 
-            EscKeyMin.IsChecked = _settings.EscKeyMinimize;
-            DblClickMin.IsChecked = _settings.MarginDoubleClickMinimize;
-            CtrlClickDisabledMin.IsChecked = _settings.DisabledMinimizeCtrlClick;
+        private void SettingsToScreen(AppSettings stg)
+        {
+            MinimizeStartup.IsChecked = stg.MinimizeStartup;
 
-            ConfirmClose.IsChecked = _settings.ConfirmCloseMenu;
+            MinimizeStartup2.IsChecked = stg.MinimizeStartup2;
+            EscKeyMin.IsChecked = stg.EscKeyMinimize;
+            DblClickMin.IsChecked = stg.MarginDoubleClickMinimize;
+            CtrlClickDisabledMin.IsChecked = stg.DisabledMinimizeCtrlClick;
 
-            ShowOpenAndExitMenuItem.IsChecked = _settings.ShowOpenAndExitMenuItem;
+            ConfirmClose.IsChecked = stg.ConfirmCloseMenu;
 
-            SaveScreenSize.IsChecked = _settings.SaveScreenSize;
-            SaveScreenPos.IsChecked = _settings.SaveScreenPosition;
+            ShowOpenAndExitMenuItem.IsChecked = stg.ShowOpenAndExitMenuItem;
 
-            ShowDirectEditDefine.IsChecked = _settings.ShowDirectEditDefineButton;
+            SaveScreenSize.IsChecked = stg.SaveScreenSize;
+            SaveScreenPos.IsChecked = stg.SaveScreenPosition;
+
+            ShowDirectEditDefine.IsChecked = stg.ShowDirectEditDefineButton;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -71,8 +86,15 @@ namespace SpaciousStartMenu.Views
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
+            SaveSettings();
+            Close();
+        }
+
+        private void SaveSettings()
+        {
             _settings.MinimizeStartup = MinimizeStartup.IsChecked == true;
 
+            _settings.MinimizeStartup2 = MinimizeStartup2.IsChecked == true;
             _settings.EscKeyMinimize = EscKeyMin.IsChecked == true;
             _settings.MarginDoubleClickMinimize = DblClickMin.IsChecked == true;
             _settings.DisabledMinimizeCtrlClick = CtrlClickDisabledMin.IsChecked == true;
@@ -85,8 +107,6 @@ namespace SpaciousStartMenu.Views
             _settings.SaveScreenPosition = SaveScreenPos.IsChecked == true;
 
             _settings.ShowDirectEditDefineButton = ShowDirectEditDefine.IsChecked == true;
-
-            Close();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -114,7 +134,7 @@ namespace SpaciousStartMenu.Views
             }
         }
 
-        private void MinimizeStartup_Click(object sender, RoutedEventArgs e)
+        private void MinimizeStartupShortcut_Click(object sender, RoutedEventArgs e)
         {
             RegShortcut.IsEnabled = true;
         }
@@ -151,5 +171,67 @@ namespace SpaciousStartMenu.Views
             Shortcut.RemoveStartupShortcut(App.R("R_AppLinkName"));
         }
 
+        private void ExportButton_Click(object sender, RoutedEventArgs e)
+        {
+            var d = DateTime.Now;
+            var dlg = new Microsoft.Win32.SaveFileDialog
+            {
+                Title = App.R("R_SaveFileDialogTitle"),
+                Filter = "(*.defbkup)|*.defbkup|(*.*)|*.*",
+                FileName = $"SpaciousStartMenu-{d.Year:D4}{d.Month:D2}{d.Day:D2}.defbkup",
+                DefaultExt = "defbkup",
+                CheckPathExists = true
+            };
+
+            if (dlg.ShowDialog() == true)
+            {
+                ExportFilePath = dlg.FileName;
+                SaveSettings();
+                Close();
+            }
+        }
+
+        private async void ImportButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var dlg = new Microsoft.Win32.OpenFileDialog
+                {
+                    Title = App.R("R_OpenFileDialogTitle"),
+                    Filter = "(*.defbkup)|*.defbkup|(*.*)|*.*",
+                    CheckFileExists = true
+                };
+
+                if (dlg.ShowDialog() == true)
+                {
+                    IsEnabled = false;
+                    string launchFilePath = App.GetLaunchDefineFilePath();
+                    string settingsFilePath = App.GetAppSettingsFilePath();
+
+                    SettingsImport.Backup(launchFilePath, settingsFilePath);
+
+                    try
+                    {
+                        await SettingsImport.ImportAsync(dlg.FileName, launchFilePath, settingsFilePath);
+                        Imported = true;
+                        Close();
+                    }
+                    catch
+                    {
+                        SettingsImport.Restore(launchFilePath, settingsFilePath);
+                        throw;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                this.Error(ex.ToString());
+            }
+            finally
+            {
+                IsEnabled = true;
+            }
+        }
     }
 }
