@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SpaciousStartMenu.Views.Controls
@@ -88,9 +89,10 @@ namespace SpaciousStartMenu.Views.Controls
             Txt.Focus();
         }
 
-        private void Watermark_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private async void Watermark_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Watermark.Visibility = Visibility.Collapsed;
+            await Task.Delay(50);
             Txt.Focus();
         }
 
