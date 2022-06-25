@@ -84,19 +84,19 @@ zipを解凍し、管理者権限を必要としない任意の場所に配置�
 
 `作業フォルダー`と`引数`は任意入力です。
 
-![imagePin2j](https://user-images.githubusercontent.com/99333667/174457517-dedf7606-a5b5-4dc2-b866-ebddc2aecea8.png)
+![imagePin2j](https://user-images.githubusercontent.com/99333667/175758328-fe293af9-f4c8-4ce9-b80f-e4408e6c1e91.png)
 
 色選択メニューです。
 
-![imagePin3j](https://user-images.githubusercontent.com/99333667/174457579-1336cbb4-372d-41cc-a73b-006624335da8.png)
+![imagePin3j](https://user-images.githubusercontent.com/99333667/175758335-94a75dcb-75a9-4b92-88dc-5fe8ca51667a.png)
 
 特殊フォルダー・環境変数選択メニューです。
 
-![imagePin4j](https://user-images.githubusercontent.com/99333667/174457533-16cf8a2a-d363-441b-97b7-e4ce3a2a0f43.png)
+![imagePin4j](https://user-images.githubusercontent.com/99333667/175758353-260a082d-0747-420e-9184-8848b59363d3.png)
 
 ## 設定画面
 
-![imageStg1j](https://user-images.githubusercontent.com/99333667/174457536-20e83bf3-db9f-4310-bde8-9532b168b5e8.png)
+![imageStgj](https://user-images.githubusercontent.com/99333667/175758361-ece5bc3d-3044-4289-87d1-22eb5e5967b2.png)
 
 # お勧め設定
 
