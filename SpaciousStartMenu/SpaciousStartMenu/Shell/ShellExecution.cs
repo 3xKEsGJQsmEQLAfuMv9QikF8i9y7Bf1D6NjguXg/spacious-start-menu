@@ -39,7 +39,7 @@ namespace SpaciousStartMenu.Shell
             if (m.Groups[1].Value.StartsWith(envMark, StringComparison.OrdinalIgnoreCase))
             {
                 string? env = Environment.GetEnvironmentVariable(
-                    m.Groups[1].Value.Substring(envMark.Length, m.Groups[1].Value.Length - envMark.Length));
+                    m.Groups[1].Value[envMark.Length..]);
                 if (!string.IsNullOrEmpty(env))
                 {
                     return env;
