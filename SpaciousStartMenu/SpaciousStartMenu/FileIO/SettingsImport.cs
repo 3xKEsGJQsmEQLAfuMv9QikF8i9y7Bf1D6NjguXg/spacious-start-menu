@@ -35,7 +35,7 @@ namespace SpaciousStartMenu.FileIO
 
                 if (lineCnt == 1)
                 {
-                    if (!line.StartsWith("#"))
+                    if (!line.StartsWith("# Spacious Start Menu"))
                     {
                         throw new FormatException(App.R("MsgErrInvalidFileNoHeader"));
                     }
