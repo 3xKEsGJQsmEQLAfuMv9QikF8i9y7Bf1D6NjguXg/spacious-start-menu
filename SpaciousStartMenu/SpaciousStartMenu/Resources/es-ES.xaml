@@ -39,6 +39,10 @@
     <sys:String x:Key="R_Menu_OpenExePath">Abrir ubicación del programa (_O)</sys:String>
     <sys:String x:Key="R_Menu_OpenExePathAndExit">Abra la ubicación del programa y luego salga del programa (_X)</sys:String>
 
+    <sys:String x:Key="R_Menu_Signout">Cerrar sesión</sys:String>
+    <sys:String x:Key="R_Menu_Shutdown">Apagar</sys:String>
+    <sys:String x:Key="R_Menu_Restart">Reiniciar</sys:String>
+
     <!--  Buttons  -->
     <sys:String x:Key="R_AddButton">_Añadir fila</sys:String>
     <sys:String x:Key="R_DuplicateButton">_Duplicar una fila</sys:String>
@@ -89,11 +93,17 @@
     <sys:String x:Key="R_ImportSettings">Importar ajustes...</sys:String>
     <sys:String x:Key="R_Settings_Minimize">Minimizar</sys:String>
     <sys:String x:Key="R_MinimizeStartup">Empezar en estado minimizado</sys:String>
-    <sys:String x:Key="R_EscKeyMinimized">Minimizar el menú con la tecla Esc (_E)</sys:String>
-    <sys:String x:Key="R_MarginDblClickMinimized">Minimice el menú haciendo doble clic en el margen del menú (_M)</sys:String>
+    <sys:String x:Key="R_EscKeyMinimized">Minimizar el menú con la tecla _Esc</sys:String>
+    <sys:String x:Key="R_MarginDblClickMinimized">_Minimizar haciendo doble clic en el margen de la pantalla</sys:String>
     <sys:String x:Key="R_DisabledMinimizeCtrlClick">Suprime la minimización del menú al presionar el botón de inicio mientras se mantiene presionada la tecla Ctrl</sys:String>
+    <sys:String x:Key="R_Settings_TitleBar">Barra de título</sys:String>
+    <sys:String x:Key="R_ShowUserInTitleBar">Mostrar usuario conectado en la barra de título</sys:String>
+    <sys:String x:Key="R_UserName">User name</sys:String>
+    <sys:String x:Key="R_DisplayName">Display name</sys:String>
+    <sys:String x:Key="R_Settings_MouseGesture">Gestos del ratón</sys:String>
+    <sys:String x:Key="R_EnableGesture">Habilitar gestos</sys:String>
     <sys:String x:Key="R_Settings_Confirm">Confirmar</sys:String>
-    <sys:String x:Key="R_ConfirmClose">Confirmar al salir del menú (_C)</sys:String>
+    <sys:String x:Key="R_ConfirmClose">_Confirmar al salir del programa</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">Menú de contexto</sys:String>
     <sys:String x:Key="R_Settings_SubScreen">pantalla infantil</sys:String>
     <sys:String x:Key="R_SaveScreenSize">Guardar tamaño de pantalla</sys:String>
@@ -106,6 +116,7 @@
     <!--  Dialog  -->
     <sys:String x:Key="R_SaveFileDialogTitle">Especifique el nombre del archivo para guardar</sys:String>
     <sys:String x:Key="R_OpenFileDialogTitle">Especificar el archivo a importar</sys:String>
+
 
     <!--  Messages  -->
     <sys:String x:Key="MsgErrUnsupportedOS">Sistema operativo no compatible.</sys:String>

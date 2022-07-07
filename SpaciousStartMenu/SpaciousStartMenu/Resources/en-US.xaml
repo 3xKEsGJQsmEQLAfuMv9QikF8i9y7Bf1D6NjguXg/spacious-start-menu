@@ -39,6 +39,10 @@
     <sys:String x:Key="R_Menu_OpenExePath">Open Program Location(_O)</sys:String>
     <sys:String x:Key="R_Menu_OpenExePathAndExit">Open the program location and then exit the program(_X)</sys:String>
 
+    <sys:String x:Key="R_Menu_Signout">Sign out</sys:String>
+    <sys:String x:Key="R_Menu_Shutdown">Shut down</sys:String>
+    <sys:String x:Key="R_Menu_Restart">Restart</sys:String>
+
     <!--  Buttons  -->
     <sys:String x:Key="R_AddButton">_Add row</sys:String>
     <sys:String x:Key="R_DuplicateButton">_Duplicate a row</sys:String>
@@ -89,11 +93,17 @@
     <sys:String x:Key="R_ImportSettings">Import settings...</sys:String>
     <sys:String x:Key="R_Settings_Minimize">Minimize</sys:String>
     <sys:String x:Key="R_MinimizeStartup">Start in minimized state</sys:String>
-    <sys:String x:Key="R_EscKeyMinimized">Minimize menu with Esc key (_E)</sys:String>
-    <sys:String x:Key="R_MarginDblClickMinimized">Minimize the menu by double-clicking on the menu margin (_M)</sys:String>
+    <sys:String x:Key="R_EscKeyMinimized">Minimize menu with _Esc key</sys:String>
+    <sys:String x:Key="R_MarginDblClickMinimized">Minimize by double-clicking on the screen margin (_M)</sys:String>
     <sys:String x:Key="R_DisabledMinimizeCtrlClick">Suppresses menu minimization when pressing the launch button while holding down the Ctrl key</sys:String>
+    <sys:String x:Key="R_Settings_TitleBar">Title bar</sys:String>
+    <sys:String x:Key="R_ShowUserInTitleBar">Show logged-in user in title bar</sys:String>
+    <sys:String x:Key="R_UserName">User name</sys:String>
+    <sys:String x:Key="R_DisplayName">Display name</sys:String>
+    <sys:String x:Key="R_Settings_MouseGesture">Mouse gestures</sys:String>
+    <sys:String x:Key="R_EnableGesture">Enable gestures</sys:String>
     <sys:String x:Key="R_Settings_Confirm">Confirm</sys:String>
-    <sys:String x:Key="R_ConfirmClose">Confirm when exiting menu (_C)</sys:String>
+    <sys:String x:Key="R_ConfirmClose">_Confirm when exiting program</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">Context menu</sys:String>
     <sys:String x:Key="R_Settings_SubScreen">Child screen</sys:String>
     <sys:String x:Key="R_SaveScreenSize">Save screen size</sys:String>
@@ -106,6 +116,7 @@
     <!--  Dialog  -->
     <sys:String x:Key="R_SaveFileDialogTitle">Specify the name of the file to save</sys:String>
     <sys:String x:Key="R_OpenFileDialogTitle">Specify the file to be imported</sys:String>
+
 
     <!--  Messages  -->
     <sys:String x:Key="MsgErrUnsupportedOS">Unsupported Operating System.</sys:String>

@@ -39,6 +39,10 @@
     <sys:String x:Key="R_Menu_OpenExePath">프로그램 위치 열기(_O)</sys:String>
     <sys:String x:Key="R_Menu_OpenExePathAndExit">프로그램 위치를 연 다음 프로그램을 종료합니다.(_X)</sys:String>
 
+    <sys:String x:Key="R_Menu_Signout">로그아웃</sys:String>
+    <sys:String x:Key="R_Menu_Shutdown">시스템 종료</sys:String>
+    <sys:String x:Key="R_Menu_Restart">다시 시작</sys:String>
+
     <!--  Buttons  -->
     <sys:String x:Key="R_AddButton">행 추가(_A)</sys:String>
     <sys:String x:Key="R_DuplicateButton">행 복제(_D)</sys:String>
@@ -90,10 +94,16 @@
     <sys:String x:Key="R_Settings_Minimize">최소화</sys:String>
     <sys:String x:Key="R_MinimizeStartup">최소화된 상태에서 시작</sys:String>
     <sys:String x:Key="R_EscKeyMinimized">Esc 키로 메뉴 최소화(_E)</sys:String>
-    <sys:String x:Key="R_MarginDblClickMinimized">메뉴 여백을 두 번 클릭하여 메뉴 최소화(_M)</sys:String>
+    <sys:String x:Key="R_MarginDblClickMinimized">화면 여백 더블 클릭으로 최소화(_M)</sys:String>
     <sys:String x:Key="R_DisabledMinimizeCtrlClick">Ctrl 키를 누른 상태에서 실행 버튼을 누를 때 메뉴 최소화를 억제합니다.</sys:String>
+    <sys:String x:Key="R_Settings_TitleBar">제목 표시 줄</sys:String>
+    <sys:String x:Key="R_ShowUserInTitleBar">제목 표시줄에 로그인한 사용자 표시</sys:String>
+    <sys:String x:Key="R_UserName">User name</sys:String>
+    <sys:String x:Key="R_DisplayName">Display name</sys:String>
+    <sys:String x:Key="R_Settings_MouseGesture">마우스 제스처</sys:String>
+    <sys:String x:Key="R_EnableGesture">제스처 사용</sys:String>
     <sys:String x:Key="R_Settings_Confirm">확인하다</sys:String>
-    <sys:String x:Key="R_ConfirmClose">메뉴 종료 시 확인(_C)</sys:String>
+    <sys:String x:Key="R_ConfirmClose">프로그램 종료 시 확인(_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">상황에 맞는 메뉴</sys:String>
     <sys:String x:Key="R_Settings_SubScreen">자식 화면</sys:String>
     <sys:String x:Key="R_SaveScreenSize">화면 크기 저장</sys:String>
@@ -106,6 +116,7 @@
     <!--  Dialog  -->
     <sys:String x:Key="R_SaveFileDialogTitle">저장할 파일 이름 지정</sys:String>
     <sys:String x:Key="R_OpenFileDialogTitle">가져올 파일 지정</sys:String>
+
 
     <!--  Messages  -->
     <sys:String x:Key="MsgErrUnsupportedOS">지원되지 않는 운영 체제입니다.</sys:String>

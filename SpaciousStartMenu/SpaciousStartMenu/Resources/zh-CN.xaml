@@ -39,6 +39,10 @@
     <sys:String x:Key="R_Menu_OpenExePath">打开程序位置(_O)</sys:String>
     <sys:String x:Key="R_Menu_OpenExePathAndExit">打开程序位置然后退出程序(_X)</sys:String>
 
+    <sys:String x:Key="R_Menu_Signout">注销</sys:String>
+    <sys:String x:Key="R_Menu_Shutdown">关机</sys:String>
+    <sys:String x:Key="R_Menu_Restart">重启</sys:String>
+
     <!--  Buttons  -->
     <sys:String x:Key="R_AddButton">添加行(_A)</sys:String>
     <sys:String x:Key="R_DuplicateButton">复制一行(_D)</sys:String>
@@ -90,10 +94,16 @@
     <sys:String x:Key="R_Settings_Minimize">最小化</sys:String>
     <sys:String x:Key="R_MinimizeStartup">以最小化状态开始</sys:String>
     <sys:String x:Key="R_EscKeyMinimized">使用 Esc 键最小化菜单(_E)</sys:String>
-    <sys:String x:Key="R_MarginDblClickMinimized">通过双击菜单边距来最小化菜单(_M)</sys:String>
+    <sys:String x:Key="R_MarginDblClickMinimized">双击屏幕边距最小化(_M)</sys:String>
     <sys:String x:Key="R_DisabledMinimizeCtrlClick">在按住 Ctrl 键的同时按下启动按钮时抑制菜单最小化</sys:String>
+    <sys:String x:Key="R_Settings_TitleBar">标题栏</sys:String>
+    <sys:String x:Key="R_ShowUserInTitleBar">在标题栏中显示登录用户</sys:String>
+    <sys:String x:Key="R_UserName">User name</sys:String>
+    <sys:String x:Key="R_DisplayName">Display name</sys:String>
+    <sys:String x:Key="R_Settings_MouseGesture">鼠标手势</sys:String>
+    <sys:String x:Key="R_EnableGesture">启用手势</sys:String>
     <sys:String x:Key="R_Settings_Confirm">确认</sys:String>
-    <sys:String x:Key="R_ConfirmClose">退出菜单时确认(_C)</sys:String>
+    <sys:String x:Key="R_ConfirmClose">退出程序时确认(_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">上下文菜单</sys:String>
     <sys:String x:Key="R_Settings_SubScreen">子屏幕</sys:String>
     <sys:String x:Key="R_SaveScreenSize">节省屏幕尺寸</sys:String>
@@ -106,6 +116,7 @@
     <!--  Dialog  -->
     <sys:String x:Key="R_SaveFileDialogTitle">指定要保存的文件名</sys:String>
     <sys:String x:Key="R_OpenFileDialogTitle">指定要导入的文件</sys:String>
+
 
     <!--  Messages  -->
     <sys:String x:Key="MsgErrUnsupportedOS">不支持的操作系统。</sys:String>

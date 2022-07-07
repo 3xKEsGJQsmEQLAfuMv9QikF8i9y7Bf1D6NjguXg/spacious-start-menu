@@ -39,6 +39,10 @@
     <sys:String x:Key="R_Menu_OpenExePath">プログラムの場所を開く(_O)</sys:String>
     <sys:String x:Key="R_Menu_OpenExePathAndExit">プログラムの場所を開いて終了(_X)</sys:String>
 
+    <sys:String x:Key="R_Menu_Signout">サインアウト</sys:String>
+    <sys:String x:Key="R_Menu_Shutdown">シャットダウン</sys:String>
+    <sys:String x:Key="R_Menu_Restart">再起動</sys:String>
+
     <!--  ボタン  -->
     <sys:String x:Key="R_AddButton">行の追加(_A)</sys:String>
     <sys:String x:Key="R_DuplicateButton">行の複製(_D)</sys:String>
@@ -90,10 +94,16 @@
     <sys:String x:Key="R_Settings_Minimize">最小化</sys:String>
     <sys:String x:Key="R_MinimizeStartup">最小化状態で起動</sys:String>
     <sys:String x:Key="R_EscKeyMinimized">Escキーで最小化(_E)</sys:String>
-    <sys:String x:Key="R_MarginDblClickMinimized">メニューの余白ダブルクリックで最小化(_M)</sys:String>
+    <sys:String x:Key="R_MarginDblClickMinimized">画面の余白ダブルクリックで最小化(_M)</sys:String>
     <sys:String x:Key="R_DisabledMinimizeCtrlClick">Ctrlキーを押しながら起動ボタンを押したときは最小化抑止</sys:String>
+    <sys:String x:Key="R_Settings_TitleBar">タイトルバー</sys:String>
+    <sys:String x:Key="R_ShowUserInTitleBar">タイトルバーにログインユーザーを表示</sys:String>
+    <sys:String x:Key="R_UserName">ユーザー名</sys:String>
+    <sys:String x:Key="R_DisplayName">表示名</sys:String>
+    <sys:String x:Key="R_Settings_MouseGesture">マウスジェスチャー</sys:String>
+    <sys:String x:Key="R_EnableGesture">ジェスチャーを有効にする</sys:String>
     <sys:String x:Key="R_Settings_Confirm">確認</sys:String>
-    <sys:String x:Key="R_ConfirmClose">メニュー終了時に確認(_C)</sys:String>
+    <sys:String x:Key="R_ConfirmClose">プログラム終了時に確認(_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">コンテキスト メニュー</sys:String>
     <sys:String x:Key="R_Settings_SubScreen">子画面</sys:String>
     <sys:String x:Key="R_SaveScreenSize">画面サイズ保存</sys:String>
@@ -106,6 +116,7 @@
     <!--  ダイアログ  -->
     <sys:String x:Key="R_SaveFileDialogTitle">保存するファイル名を指定してください</sys:String>
     <sys:String x:Key="R_OpenFileDialogTitle">取り込むファイルを指定してください</sys:String>
+
 
     <!--  メッセージ  -->
     <sys:String x:Key="MsgErrUnsupportedOS">未サポートのOSです。</sys:String>
