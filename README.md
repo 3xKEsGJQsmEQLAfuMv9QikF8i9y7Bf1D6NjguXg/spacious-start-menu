@@ -18,7 +18,7 @@ This is a program launcher that allows you to take advantage of the entire scree
 
 The full screen listing frees the user from cumbersome scrolling operations.
 
-![image00](https://user-images.githubusercontent.com/99333667/173183598-42dc5a99-e26d-4905-8d23-0abd741c329a.png)
+![image00](https://user-images.githubusercontent.com/99333667/177764481-10bacdda-2ee5-4bbc-aea1-99d5cd088828.png)
 
 # Requirements
 
@@ -93,7 +93,7 @@ Special folders and environment variables selection menu.
 
 ## Settings screen
 
-![imageStg](https://user-images.githubusercontent.com/99333667/175758235-0f3c8913-feec-4baf-81b5-63bf602f861d.png)
+![imageStg](https://user-images.githubusercontent.com/99333667/177764511-eddb6209-6da3-4d62-8a15-5dba3f1fe5c2.png)
 
 # Recommended initial settings
 
