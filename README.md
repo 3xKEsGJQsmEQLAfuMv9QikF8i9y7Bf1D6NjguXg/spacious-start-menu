@@ -20,18 +20,18 @@ The full screen listing frees the user from cumbersome scrolling operations.
 
 ![image00](https://user-images.githubusercontent.com/99333667/177764481-10bacdda-2ee5-4bbc-aea1-99d5cd088828.png)
 
-# Requirements
+# 🟦Requirements
 
 - Windows 10 or later
 - .NET 6 Desktop Runtime
 
-# Install
+# 🟦Install
 
 ## Step 1
 
 Download and install `x64` of `.NET Desktop Runtime 6.x` from [Download .NET 6.0 (Linux, macOS, and Windows)](https://dotnet.microsoft.com/download/dotnet/6.0).
 
-## Step 2
+## Step 2 (For manual installation)
 
 Download `SpaciousStartMenu.zip` from [Releases](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/releases).
 
@@ -41,11 +41,64 @@ Right-click on the zip, select Properties, check `Unblock` and close with the OK
 
 Extract the zip and place it in any location that does not require administrative privileges.
 
-# Uninstall
+## Step 2 (For installation using Scoop)
+
+### Scoop installation
+
+omit
+
+### Add bucket
+
+```
+scoop bucket add 3xkesg https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/scoop-3xke
+```
+
+### Install the app
+
+```
+scoop install spacious-start-menu
+```
+
+# 🟦Update
+
+## For manual installation
+
+Download `SpaciousStartMenu.zip` from [Releases](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/releases).
+
+Right-click on the zip, select Properties, check `Unblock` and close with the OK button.
+
+Unzip the zip and copy the extracted file to the previous location.
+
+## For installation using Scoop
+
+### scoop and app updates
+
+```
+scoop update
+scoop update spacious-start-menu
+```
+
+# 🟦Uninstall
+
+## For manual installation
 
 Delete the expanded folder.
 
-# Usage
+## For installation using Scoop
+
+### Uninstall the app
+
+```
+scoop uninstall spacious-start-menu
+```
+
+### Remove bucket
+
+```
+scoop bucket rm 3xkesg
+```
+
+# 🟦Usage
 
 Launch `SpaciousStartMenu.exe`.
 
@@ -95,7 +148,7 @@ Special folders and environment variables selection menu.
 
 ![imageStg](https://user-images.githubusercontent.com/99333667/177764511-eddb6209-6da3-4d62-8a15-5dba3f1fe5c2.png)
 
-# Recommended initial settings
+# 🟦Recommended initial settings
 
 Move the taskbar icon to the leftmost position.
 
@@ -107,6 +160,6 @@ Pin it to the taskbar.
 
 This allows the menu to be launched or activated with `Win` + `1`.
 
-# Reference article
+# 🟦Reference article
 
 - [https://qiita.com/Kosen-amai/items/61e6b03b8e0fccc35ee5](https://qiita.com/Kosen-amai/items/61e6b03b8e0fccc35ee5)
