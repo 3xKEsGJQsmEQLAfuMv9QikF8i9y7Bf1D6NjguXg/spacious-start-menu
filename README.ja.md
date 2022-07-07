@@ -21,18 +21,18 @@
 
 ![image00](https://user-images.githubusercontent.com/99333667/177764163-f8ecca7f-f4e0-4d81-878d-cbbcf83f6786.png)
 
-# 要件
+# 🟦要件
 
 - Windows10以降
 - .NET6 デスクトップ ランタイム
 
-# インストール
+# 🟦インストール
 
 ## ステップ1
 
 [.NET 6.0 (Linux、macOS、Windows) をダウンロードする](https://dotnet.microsoft.com/download/dotnet/6.0)の`.NET デスクトップ ランタイム`の`x64`リンクからダウンロード・インストールを実行します。
 
-## ステップ2
+## ステップ2 （手動インストールの場合）
 
 [Releases](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/releases)から`SpaciousStartMenu.zip`をダウンロードします。
 
@@ -42,11 +42,69 @@ zipを右クリック、`プロパティ`を選択して、`許可する`にチ�
 
 zipを解凍し、管理者権限を必要としない任意の場所に配置します。
 
-# アンインストール
+## ステップ2 （Scoopを使用したインストールの場合）
+
+### Scoopのインストール
+
+省略
+
+### bucketの追加
+
+```
+scoop bucket add 3xkesg https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/scoop-3xke
+```
+
+### アプリのインストール
+
+```
+scoop install spacious-start-menu
+```
+
+# 🟦バージョンアップ
+
+## 手動インストールの場合
+
+[Releases](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/releases)から`SpaciousStartMenu.zip`をダウンロードします。
+
+zipを右クリック、`プロパティ`を選択して、`許可する`にチェックを入れ、`OK`ボタンで閉じます。
+
+zipを解凍し、展開ファイルを前回配置場所に上書きコピーします。
+
+## Scoopを使用したインストールの場合
+
+### scoopのアップデート
+
+```
+scoop update
+```
+
+### アプリのアップデート
+
+```
+scoop update spacious-start-menu
+```
+
+# 🟦アンインストール
+
+## 手動インストールの場合
 
 展開フォルダごと削除します。
 
-# 使い方
+## Scoopを使用したインストールの場合
+
+### アプリのアンインストール
+
+```
+scoop uninstall spacious-start-menu
+```
+
+### bucketの削除
+
+```
+scoop bucket rm 3xkesg
+```
+
+# 🟦使い方
 
 `SpaciousStartMenu.exe`を起動します。
 
@@ -98,7 +156,7 @@ zipを解凍し、管理者権限を必要としない任意の場所に配置�
 
 ![imageStg](https://user-images.githubusercontent.com/99333667/177764226-bbfa2dd6-c84a-44c4-9348-1c028754c6cd.png)
 
-# お勧め設定
+# 🟦お勧め設定
 
 タスクバーアイコンを左端の位置に移動します。
 
@@ -110,7 +168,7 @@ zipを解凍し、管理者権限を必要としない任意の場所に配置�
 
 これで`Win` + `1`のショートカットキーでメニューを起動またはアクティブにできます。
 
-# 参考資料
+# 🟦参考資料
 
 - [https://qiita.com/Kosen-amai/items/61e6b03b8e0fccc35ee5](https://qiita.com/Kosen-amai/items/61e6b03b8e0fccc35ee5)
 
