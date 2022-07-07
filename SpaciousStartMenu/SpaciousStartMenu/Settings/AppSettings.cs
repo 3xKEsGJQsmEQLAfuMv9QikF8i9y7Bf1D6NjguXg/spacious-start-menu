@@ -11,6 +11,9 @@
         public bool DisabledMinimizeCtrlClick { get; set; } = true;
         public bool ShowOpenAndExitMenuItem { get; set; } = false;
         public bool ShowDirectEditDefineButton { get; set; } = false;
+        public bool ShowUserInTitleBar { get; set; } = false;
+        public UserType ShowUserType { get; set; } = UserType.UserName;
+        public string ValueWhenDisplayNameNotFound { get; set; } = "-----";
 
         // Screen size, position
         public bool SaveScreenSize { get; set; } = true;
@@ -26,5 +29,11 @@
         public double PinEditScreenTop { get; set; } = -1.0;
         public double SettingsScreenHeight { get; set; } = 0.0;
         public double SettingsScreenWidth { get; set; } = 0.0;
+    }
+
+    public enum UserType
+    {
+        UserName = 0,
+        DisplayName = 1,
     }
 }
