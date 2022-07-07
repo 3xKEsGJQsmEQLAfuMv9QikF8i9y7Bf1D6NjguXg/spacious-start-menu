@@ -73,15 +73,10 @@ zipを解凍し、展開ファイルを前回配置場所に上書きコピー�
 
 ## Scoopを使用したインストールの場合
 
-### scoopのアップデート
+### scoopとアプリのアップデート
 
 ```
 scoop update
-```
-
-### アプリのアップデート
-
-```
 scoop update spacious-start-menu
 ```
 
