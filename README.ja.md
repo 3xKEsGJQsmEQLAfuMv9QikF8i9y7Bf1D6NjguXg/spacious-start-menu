@@ -19,7 +19,7 @@
 
 フルスクリーンで一覧できるため、ユーザーは煩雑なスクロール操作から解放されます。
 
-![image00j](https://user-images.githubusercontent.com/99333667/174457163-3da6ae21-8f1c-44f1-b8e2-17661217eed0.png)
+![image00](https://user-images.githubusercontent.com/99333667/177764163-f8ecca7f-f4e0-4d81-878d-cbbcf83f6786.png)
 
 # 要件
 
@@ -96,7 +96,7 @@ zipを解凍し、管理者権限を必要としない任意の場所に配置�
 
 ## 設定画面
 
-![imageStgj](https://user-images.githubusercontent.com/99333667/175758361-ece5bc3d-3044-4289-87d1-22eb5e5967b2.png)
+![imageStg](https://user-images.githubusercontent.com/99333667/177764226-bbfa2dd6-c84a-44c4-9348-1c028754c6cd.png)
 
 # お勧め設定
 
