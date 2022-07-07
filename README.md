@@ -112,7 +112,7 @@ Launch defined applications, folders, etc. at the click of a button.
 | Menu item             | Description                                          |
 | --------------------- | ---------------------------------------------------- |
 | Edit Pin              | Displays the edit screen of the item to be launched. |
-| Scale                 | Changes the display magnification of an item. You can also change it by holding down Ctrl and rotating the mouse wheel.      |
+| Scale                 | Changes the display magnification of an item. You can also change it by holding down Ctrl and rotating the mouse wheel on the main screen. |
 | Settings              | Displays the settings screen.                        |
 | Open Program Location | Open the folder where this program is located.       |
 | Open the program location and then exit the program | Open the folder where this program is located and exit the program. This menu item can be displayed in the settings.       |
