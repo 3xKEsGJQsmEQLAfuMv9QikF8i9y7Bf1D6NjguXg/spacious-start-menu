@@ -3,8 +3,6 @@ using SpaciousStartMenu.FileIO;
 using SpaciousStartMenu.Settings;
 using SpaciousStartMenu.Shell;
 using System;
-using System.Diagnostics;
-using System.IO;
 using System.Windows;
 
 namespace SpaciousStartMenu.Views
@@ -38,7 +36,8 @@ namespace SpaciousStartMenu.Views
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             RemoveShortcut.IsEnabled = Shortcut.ExistsStartupShortcut(App.R("R_AppLinkName"));
-            VersionText.Text = App.Version;
+            AppVersionText.Text = App.Version;
+            RuntimeVersionText.Text = Environment.Version.ToString();
 
             SettingsToScreen(_settings);
         }
@@ -52,6 +51,15 @@ namespace SpaciousStartMenu.Views
             DblClickMin.IsChecked = stg.MarginDoubleClickMinimize;
             CtrlClickDisabledMin.IsChecked = stg.DisabledMinimizeCtrlClick;
 
+            ShowUserInTitleBar.IsChecked = stg.ShowUserInTitleBar;
+            if (stg.ShowUserType == UserType.UserName)
+            {
+                UserName.IsChecked = true;
+            }
+            else
+            {
+                DisplayName.IsChecked = true;
+            }
             ConfirmClose.IsChecked = stg.ConfirmCloseMenu;
 
             ShowOpenAndExitMenuItem.IsChecked = stg.ShowOpenAndExitMenuItem;
@@ -99,7 +107,12 @@ namespace SpaciousStartMenu.Views
             _settings.MarginDoubleClickMinimize = DblClickMin.IsChecked == true;
             _settings.DisabledMinimizeCtrlClick = CtrlClickDisabledMin.IsChecked == true;
 
+            _settings.ShowUserInTitleBar = ShowUserInTitleBar.IsChecked == true;
+
             _settings.ConfirmCloseMenu = ConfirmClose.IsChecked == true;
+            _settings.ShowUserType = UserName.IsChecked == true
+                ? UserType.UserName
+                : UserType.DisplayName;
 
             _settings.ShowOpenAndExitMenuItem = ShowOpenAndExitMenuItem.IsChecked == true;
 

@@ -2,6 +2,7 @@
     x:Class="SpaciousStartMenu.Views.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cnv="clr-namespace:SpaciousStartMenu.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:SpaciousStartMenu.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -22,6 +23,10 @@
     WindowStyle="None"
     mc:Ignorable="d">
 
+    <Window.Resources>
+        <cnv:PercentageConverter x:Key="PercentConv" />
+    </Window.Resources>
+
     <Window.ContextMenu>
         <ContextMenu x:Name="WindowContextMenu">
             <MenuItem x:Name="PinMenuItem" Click="PinMenuItem_Click">
@@ -36,30 +41,32 @@
             <Separator />
 
             <StackPanel x:Name="ScaleMenu" Orientation="Horizontal">
-                <StackPanel.Resources>
-                    <Style TargetType="RadioButton">
-                        <Setter Property="Foreground" Value="White" />
-                        <Setter Property="Margin" Value="15,0,5,0" />
-                        <Setter Property="VerticalContentAlignment" Value="Center" />
-                        <EventSetter Event="Click" Handler="ScaleItem_Click" />
-                    </Style>
-                </StackPanel.Resources>
-
                 <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE71E;" />
                 <TextBlock
                     Margin="0"
                     VerticalAlignment="Center"
                     Text="{StaticResource R_Menu_Scale}" />
 
-                <RadioButton Content="0.8" />
-                <RadioButton
-                    x:Name="DefaultScaleItem"
-                    Content="1.0"
-                    IsChecked="True" />
-                <RadioButton Content="1.2" />
-                <RadioButton Content="1.5" />
-                <RadioButton Content="2.0" />
-                <RadioButton Content="3.0" />
+                <Button
+                    Margin="10,2,5,2"
+                    Padding="10,2"
+                    Click="ZoomOutButton_Click"
+                    Content="&#xE738;"
+                    Style="{StaticResource IconButtonStyle}" />
+                <TextBlock
+                    Width="40"
+                    Margin="5,0"
+                    Padding="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Text="{Binding Scale, Converter={StaticResource PercentConv}}" />
+                <Button
+                    Margin="5,2"
+                    Padding="10,2"
+                    Click="ZoomInButton_Click"
+                    Content="&#xE710;"
+                    Style="{StaticResource IconButtonStyle}" />
+
             </StackPanel>
 
             <MenuItem Click="MenuSettings_Click">
@@ -114,6 +121,7 @@
         <TextBlock
             Grid.Column="1"
             Margin="4,8,0,0"
+            HorizontalAlignment="Left"
             VerticalAlignment="Center"
             Foreground="White"
             Text="{StaticResource R_AppTitle}" />
@@ -123,16 +131,72 @@
             HorizontalAlignment="Right"
             Orientation="Horizontal">
             <Button
+                x:Name="TitleBarUserButton"
+                Margin="0,0,40,0"
+                Padding="10,0"
+                d:Visibility="Visible"
+                Click="UserButton_Click"
+                Style="{StaticResource TitleBarButtonStyle}"
+                Visibility="Collapsed">
+                <Button.ContextMenu>
+                    <ContextMenu x:Name="UserMenu" FontSize="16">
+                        <MenuItem Click="MenuSignout_Click">
+                            <MenuItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xF3B1;" />
+                                    <Label Content="{StaticResource R_Menu_Signout}" Style="{StaticResource MenuItemLabelStyle}" />
+                                </StackPanel>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <Separator />
+                        <MenuItem Click="MenuShutdown_Click">
+                            <MenuItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE7E8;" />
+                                    <Label Content="{StaticResource R_Menu_Shutdown}" Style="{StaticResource MenuItemLabelStyle}" />
+                                </StackPanel>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem Click="MenuRestart_Click">
+                            <MenuItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE72C;" />
+                                    <Label Content="{StaticResource R_Menu_Restart}" Style="{StaticResource MenuItemLabelStyle}" />
+                                </StackPanel>
+                            </MenuItem.Header>
+                        </MenuItem>
+                    </ContextMenu>
+                </Button.ContextMenu>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock
+                        x:Name="UserId"
+                        Margin="0,0,5,0"
+                        d:Text="User1"
+                        Foreground="#FAEEED" />
+                    <Grid>
+                        <Ellipse Stroke="#FAEEED" />
+                        <TextBlock
+                            Margin="0"
+                            Padding="3,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="#FAEEED"
+                            Style="{StaticResource IconTextStyle}"
+                            Text="&#xE77B;" />
+                    </Grid>
+                </StackPanel>
+            </Button>
+            <Button
                 x:Name="TitleBarMoreButton"
                 Margin="0,0,40,0"
                 Padding="10,5"
                 Click="TitleBarMoreButton_Click"
                 Content="&#xE712;"
-                Style="{StaticResource TitleBarButtonStyle}" />
+                Style="{StaticResource TitleBarIconButtonStyle}" />
             <Button
                 Click="TitleBarMinButton_Click"
                 Content="&#xE921;"
-                Style="{StaticResource TitleBarButtonStyle}"
+                Style="{StaticResource TitleBarIconButtonStyle}"
                 ToolTip="{StaticResource R_ToolTip_MinimizedButton}" />
             <Button
                 Click="TitleBarCloseButton_Click"

@@ -1,17 +1,18 @@
 ﻿using SpaciousStartMenu.DataTypes;
+using SpaciousStartMenu.Env;
+using SpaciousStartMenu.FileIO;
+using SpaciousStartMenu.Processings;
 using SpaciousStartMenu.Settings;
 using SpaciousStartMenu.Shell;
 using System;
-using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Linq;
-using SpaciousStartMenu.FileIO;
 
 namespace SpaciousStartMenu.Views
 {
@@ -25,11 +26,33 @@ namespace SpaciousStartMenu.Views
         private readonly Style _groupTitleStyle = (Style)(Application.Current.FindResource("GroupTitleStyle"));
         private static readonly FontFamily _segoeMdl2Font = new("Segoe MDL2 Assets");
         private const string _colorMark = "\uE91F";
-        private readonly List<double> _scales = new();
+        private readonly NumberOfExecution _savingProcessOnExit;
+        private UserInfo? _userInfo;
+        private readonly Vm _vm = new();
+
+        private class Vm : NotifyPropertyChanged
+        {
+            private double _scale = _defaultScale;
+            public double Scale
+            {
+                get => _scale;
+                set => SetProperty(ref _scale, value);
+            }
+        }
+
+        private const double _defaultScale = 1.0;
+        private static readonly double[] _scales = { 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.5, 1.8, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0 };
+        private static readonly double[] _scalesR = _scales.Reverse().ToArray();
 
         public MainWindow()
         {
+            DataContext = _vm;
             InitializeComponent();
+            _savingProcessOnExit = new NumberOfExecution(() =>
+            {
+                SaveAppSettings();
+            });
+            App.Current.TerminateProc = TerminateProc;
         }
 
         private void TitleBarMoreButton_Click(object sender, RoutedEventArgs e) =>
@@ -41,10 +64,12 @@ namespace SpaciousStartMenu.Views
         private void TitleBarCloseButton_Click(object sender, RoutedEventArgs e) =>
             Close();
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
             try
             {
+                App.Current.Resources["AccentBrush"] = new SolidColorBrush(SystemParameters.WindowGlassColor);
+
                 LoadAppSettings();
 
                 if (_settings.MinimizeStartup2 ||
@@ -53,11 +78,14 @@ namespace SpaciousStartMenu.Views
                     WindowState = WindowState.Minimized;
                 }
 
-
-                GetScales();
                 string filePath = App.GetLaunchDefineFilePath();
                 CreateDefaultLaunchDefineFile(filePath);
                 LoadLauncherDefine(filePath);
+
+                if (_settings.ShowUserInTitleBar)
+                {
+                    SetUser(await GetUserAsync());
+                }
             }
             catch (Exception ex)
             {
@@ -154,47 +182,27 @@ namespace SpaciousStartMenu.Views
 
         private void PinMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            try
+            TryCatch(() =>
             {
+                App.Current.Resources["AccentBrush"] = new SolidColorBrush(SystemParameters.WindowGlassColor);
                 if (_pinWindow is null ||
                     !_pinWindow.IsVisible)
                 {
                     _pinWindow = new PinWindow(
                         this,
-                        () =>LoadLauncherDefine(App.GetLaunchDefineFilePath()),
+                        () => LoadLauncherDefine(App.GetLaunchDefineFilePath()),
                         () => Activate(),
-                        _settings);
-                    _pinWindow.Owner = this;
+                        _settings)
+                    {
+                        Owner = this
+                    };
                     _pinWindow.Show();
                 }
                 else
                 {
                     _pinWindow.Activate();
                 }
-            }
-            catch (Exception ex)
-            {
-                this.Error(ex.ToString());
-            }
-        }
-
-        private void ScaleItem_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                string? scaleStr = (sender as RadioButton)?.Content?.ToString();
-                if (!double.TryParse(scaleStr, out double scale))
-                {
-                    scale = 1.0;
-                    DefaultScaleItem.IsChecked = true;
-                }
-                SetContainerScale(scale);
-                WindowContextMenu.IsOpen = false;
-            }
-            catch (Exception ex)
-            {
-                this.Error(ex.ToString());
-            }
+            });
         }
 
         public void SetDisabledStyle(bool disabled = true)
@@ -209,10 +217,11 @@ namespace SpaciousStartMenu.Views
             }
         }
 
-        private void MenuSettings_Click(object sender, RoutedEventArgs e)
+        private async void MenuSettings_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                App.Current.Resources["AccentBrush"] = new SolidColorBrush(SystemParameters.WindowGlassColor);
                 var window = new SettingsWindow(_settings)
                 {
                     Owner = this
@@ -237,6 +246,8 @@ namespace SpaciousStartMenu.Views
                 }
 
                 SetDisabledStyle(false);
+
+                SetUser(await GetUserAsync(hide: !_settings.ShowUserInTitleBar));
             }
             catch (Exception ex)
             {
@@ -253,6 +264,7 @@ namespace SpaciousStartMenu.Views
 
             SettingsExport.Export(
                 App.Version,
+                Environment.Version.ToString(),
                 App.GetLaunchDefineFilePath(),
                 App.GetAppSettingsFilePath(),
                 exportFilePath);
@@ -300,65 +312,93 @@ namespace SpaciousStartMenu.Views
         {
             var asr = new AppSettingsReader();
             _settings = asr.ReadFromFile();
+            CorrectSettings(_settings);
+            _vm.Scale = _settings.Scale;
             SetScreen(_settings);
             SetScreenFromSettings(_settings);
         }
 
-        private void SetScreen(AppSettings appStg)
+        private void CorrectSettings(AppSettings stg)
         {
-            SetScale(appStg.Scale);
+            if (stg.Scale < _scales.First() ||
+                _scales.Last() < stg.Scale)
+            {
+                stg.Scale = _defaultScale;
+            }
+
+            if (!Enum.IsDefined(typeof(UserType), stg.ShowUserType))
+            {
+                stg.ShowUserType = UserType.UserName;
+            }
         }
 
-        private void SetScale(double value)
+        private void SetScreen(AppSettings appStg)
         {
-            foreach (var child in LogicalTreeHelper.GetChildren(ScaleMenu))
-            {
-                if (child is RadioButton radio &&
-                    double.TryParse(radio.Content.ToString(), out double scale) &&
-                    scale == value)
-                {
-                    radio.IsChecked = true;
-                    SetContainerScale(scale);
-                    return;
-                }
-            }
-            DefaultScaleItem.IsChecked = true;
+            _vm.Scale = appStg.Scale;
+            SetContainerScale(appStg.Scale);
         }
 
         private void ZoomIn()
         {
-            double scale = GetScale();
-            if (scale == _scales.Last())
+            if (_scales.Last() == _vm.Scale)
             {
                 return;
             }
 
-            for (int i = 0; i < _scales.Count - 1; i++)
+            try
             {
-                if (_scales[i] == scale)
+                if (_scales.Last() < _vm.Scale)
                 {
-                    SetScale(_scales[i + 1]);
-                    break;
+                    _vm.Scale = _scales.Last();
                 }
+                else
+                {
+                    _vm.Scale = _scales
+                        .SkipWhile(x => x <= _vm.Scale)
+                        .Take(1)
+                        .FirstOrDefault();
+                }
+            }
+            catch
+            {
+                _vm.Scale = 1.0;
+            }
+            finally
+            {
+                SetContainerScale(_vm.Scale);
             }
         }
 
         private void ZoomOut()
         {
-            double scale = GetScale();
-            if (scale == _scales.First())
+            if (_vm.Scale == _scales.First())
             {
                 return;
             }
 
-            for (int i = _scales.Count - 1; 1 <= i; i--)
+            try
             {
-                if (_scales[i] == scale)
+                if (_vm.Scale < _scales.First())
                 {
-                    SetScale(_scales[i - 1]);
-                    break;
+                    _vm.Scale = _scales.First();
+                }
+                else
+                {
+                    _vm.Scale = _scalesR
+                        .SkipWhile(x => _vm.Scale <= x)
+                        .Take(1)
+                        .FirstOrDefault();
                 }
             }
+            catch
+            {
+                _vm.Scale = 1.0;
+            }
+            finally
+            {
+                SetContainerScale(_vm.Scale);
+            }
+
         }
 
         /// <summary>
@@ -371,6 +411,49 @@ namespace SpaciousStartMenu.Views
                 appStg.ShowOpenAndExitMenuItem
                 ? Visibility.Visible
                 : Visibility.Collapsed;
+        }
+
+        private async Task<string> GetUserAsync(bool hide = false)
+        {
+            if (hide)
+            {
+                return "";
+            }
+            else
+            {
+                string user;
+                if (_userInfo is null)
+                {
+                    _userInfo = new(_settings.ValueWhenDisplayNameNotFound);
+
+                    user = await Task.Run(() =>
+                    {
+                        return _settings.ShowUserType == UserType.UserName
+                                ? _userInfo.GetUserName()
+                                : _userInfo.GetDisplayName();
+                    });
+                }
+                else
+                {
+                    user = _settings.ShowUserType == UserType.UserName
+                                ? _userInfo.GetUserName()
+                                : _userInfo.GetDisplayName();
+                }
+                return user;
+            }
+        }
+
+        private void SetUser(string user)
+        {
+            if (string.IsNullOrEmpty(user))
+            {
+                TitleBarUserButton.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                UserId.Text = user;
+                TitleBarUserButton.Visibility = Visibility.Visible;
+            }
         }
 
         private void SaveAppSettings()
@@ -388,36 +471,9 @@ namespace SpaciousStartMenu.Views
 
         private AppSettings GetScreen()
         {
-            _settings.Scale = GetScale();
+            _settings.Scale = _vm.Scale;
 
             return _settings;
-        }
-
-        private void GetScales()
-        {
-            _scales.Clear();
-            foreach (var child in LogicalTreeHelper.GetChildren(ScaleMenu))
-            {
-                if (child is RadioButton radio &&
-                    double.TryParse(radio.Content.ToString(), out double scale))
-                {
-                    _scales.Add(scale);
-                }
-            }
-        }
-
-        private double GetScale()
-        {
-            foreach (var child in LogicalTreeHelper.GetChildren(ScaleMenu))
-            {
-                if (child is RadioButton radio &&
-                    radio.IsChecked == true &&
-                    double.TryParse(radio.Content.ToString(), out double scale))
-                {
-                    return scale;
-                }
-            }
-            return 1.0;
         }
 
         private void LoadLauncherDefine(string filePath)
@@ -649,17 +705,47 @@ namespace SpaciousStartMenu.Views
             }
         }
 
-        public async void TryCatchAsyncVoid(Func<Task> action)
+        private void TerminateProc()
         {
-            try
-            {
-                await action();
-            }
-            catch (Exception ex)
-            {
-                this.Error(ex.ToString());
-            }
+            _savingProcessOnExit.RunOnlyOnce();
         }
 
+        private void UserButton_Click(object sender, RoutedEventArgs e)
+        {
+            UserMenu.IsOpen = true;
+        }
+
+        private async void MenuSignout_Click(object sender, RoutedEventArgs e)
+        {
+            await RunExitCommandAsync(() => Win32.OperatingSystem.Signout());
+        }
+
+        private async Task RunExitCommandAsync(Action action)
+        {
+            _savingProcessOnExit.RunOnlyOnce();
+            await Task.Delay(300);
+            action();
+        }
+
+        private async void MenuShutdown_Click(object sender, RoutedEventArgs e)
+        {
+            await RunExitCommandAsync(() => Win32.OperatingSystem.Shutdown());
+        }
+
+        private async void MenuRestart_Click(object sender, RoutedEventArgs e)
+        {
+            await RunExitCommandAsync(() => Win32.OperatingSystem.Restart());
+        }
+
+        private void ZoomOutButton_Click(object sender, RoutedEventArgs e)
+        {
+            ZoomOut();
+        }
+
+        private void ZoomInButton_Click(object sender, RoutedEventArgs e)
+        {
+            ZoomIn();
+        }
     }
+
 }

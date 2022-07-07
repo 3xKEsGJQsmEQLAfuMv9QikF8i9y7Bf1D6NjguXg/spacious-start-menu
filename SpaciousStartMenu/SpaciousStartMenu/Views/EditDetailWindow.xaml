@@ -214,6 +214,7 @@
                 <!--  Color  -->
                 <Label
                     Content="{StaticResource R_Edit_Color}"
+                    Opacity="{Binding IsChecked, ConverterParameter=0.2, Converter={StaticResource BoolToDoubleConv}, ElementName=HeadlineCheck, Mode=OneWay}"
                     Style="{StaticResource EditItemLabelStyle}"
                     Target="{Binding ElementName=ColorButton}" />
                 <StackPanel Margin="10,0,10,10" Orientation="Horizontal">
@@ -255,6 +256,7 @@
                 <!--  Path  -->
                 <Label
                     Content="{StaticResource R_Edit_Path}"
+                    Opacity="{Binding IsChecked, ConverterParameter=0.2, Converter={StaticResource BoolToDoubleConv}, ElementName=HeadlineCheck, Mode=OneWay}"
                     Style="{StaticResource EditItemLabelStyle}"
                     Target="{Binding ElementName=PathText}" />
                 <Grid>
@@ -295,6 +297,7 @@
                 <!--  Work Directory  -->
                 <Label
                     Content="{StaticResource R_Edit_WorkDirectory}"
+                    Opacity="{Binding IsChecked, ConverterParameter=0.2, Converter={StaticResource BoolToDoubleConv}, ElementName=HeadlineCheck, Mode=OneWay}"
                     Style="{StaticResource EditItemLabelStyle}"
                     Target="{Binding ElementName=WorkDirText}" />
                 <Grid>
@@ -324,6 +327,7 @@
                 <!--  Arguments  -->
                 <Label
                     Content="{StaticResource R_Edit_Arguments}"
+                    Opacity="{Binding IsChecked, ConverterParameter=0.2, Converter={StaticResource BoolToDoubleConv}, ElementName=HeadlineCheck, Mode=OneWay}"
                     Style="{StaticResource EditItemLabelStyle}"
                     Target="{Binding ElementName=ArgsText}" />
                 <TextBox

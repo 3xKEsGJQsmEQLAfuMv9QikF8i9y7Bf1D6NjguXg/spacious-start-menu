@@ -10,7 +10,7 @@
     Width="850"
     Height="800"
     MaxWidth="1800"
-    MaxHeight="1000"
+    MaxHeight="1080"
     d:Height="850"
     Closing="Window_Closing"
     Loaded="Window_Loaded"
@@ -33,36 +33,40 @@
                     <StackPanel Orientation="Horizontal">
                         <Button
                             x:Name="RegShortcut"
-                            Margin="40,5,5,5"
                             MinWidth="180"
+                            Margin="40,5,5,5"
                             Click="RegShortcut_Click"
                             Content="{StaticResource R_RegStartupShortcut}"
                             Style="{StaticResource SettingsButtonStyle}" />
                         <CheckBox
                             x:Name="MinimizeStartup"
-                            Margin="5" 
+                            Margin="5"
                             Click="MinimizeStartupShortcut_Click"
                             Content="{StaticResource R_MinimizeStartupShortcut}"
                             ToolTip="{StaticResource R_ToolTip_MinShortcut}" />
                     </StackPanel>
                     <Button
                         x:Name="RemoveShortcut"
-                        Margin="40,5,5,5" MinWidth="180"
+                        MinWidth="180"
+                        Margin="40,5,5,5"
                         Click="RemoveShortcut_Click"
                         Content="{StaticResource R_RemoveStartupShortcut}"
+                        Foreground="Salmon"
                         Style="{StaticResource SettingsButtonStyle}" />
 
                 </StackPanel>
 
                 <StackPanel Margin="0,15,0,0" Orientation="Horizontal">
                     <Button
+                        MinWidth="180"
                         Margin="40,5,5,5"
-                        Click="ExportButton_Click" MinWidth="180"
+                        Click="ExportButton_Click"
                         Content="{StaticResource R_ExportSettings}"
                         ToolTip="{StaticResource R_ToolTip_ExportSettingsButton}" />
                     <Button
+                        MinWidth="180"
                         Margin="5"
-                        Click="ImportButton_Click" MinWidth="180"
+                        Click="ImportButton_Click"
                         Content="{StaticResource R_ImportSettings}" />
                 </StackPanel>
 
@@ -73,6 +77,29 @@
                 <CheckBox x:Name="CtrlClickDisabledMin">
                     <TextBlock Text="{StaticResource R_DisabledMinimizeCtrlClick}" TextWrapping="Wrap" />
                 </CheckBox>
+
+                <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_TitleBar}" />
+
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox
+                        x:Name="ShowUserInTitleBar"
+                        HorizontalAlignment="Left"
+                        Content="{StaticResource R_ShowUserInTitleBar}" />
+                    <RadioButton
+                        x:Name="UserName"
+                        Margin="25,5,15,5"
+                        Content="{StaticResource R_UserName}"
+                        GroupName="user"
+                        IsChecked="True"
+                        IsEnabled="{Binding IsChecked, ElementName=ShowUserInTitleBar}" />
+                    <RadioButton
+                        x:Name="DisplayName"
+                        Content="{StaticResource R_DisplayName}"
+                        GroupName="user"
+                        IsEnabled="{Binding IsChecked, ElementName=ShowUserInTitleBar}" />
+                </StackPanel>
+                <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_MouseGesture}" Visibility="Collapsed" />
+                <CheckBox Content="{StaticResource R_EnableGesture}" Visibility="Collapsed" />
 
                 <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_Confirm}" />
                 <CheckBox x:Name="ConfirmClose" Content="{StaticResource R_ConfirmClose}" />
@@ -93,14 +120,21 @@
 
                 <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_About}" />
                 <StackPanel Margin="40,5,10,5" Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource StandardTextStyle}" Text="Version: "/>
+                    <TextBlock Style="{StaticResource StandardTextStyle}" Text="Application Version: " />
                     <TextBlock
-                        x:Name="VersionText"
+                        x:Name="AppVersionText"
+                        Style="{StaticResource StandardTextStyle}"
+                        Text="" />
+                </StackPanel>
+                <StackPanel Margin="40,5,10,5" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource StandardTextStyle}" Text="Runtime Version: " />
+                    <TextBlock
+                        x:Name="RuntimeVersionText"
                         Style="{StaticResource StandardTextStyle}"
                         Text="" />
 
                 </StackPanel>
-                <Separator Height="30" Visibility="Hidden"/>
+                <Separator Height="30" Visibility="Hidden" />
             </StackPanel>
 
         </ScrollViewer>

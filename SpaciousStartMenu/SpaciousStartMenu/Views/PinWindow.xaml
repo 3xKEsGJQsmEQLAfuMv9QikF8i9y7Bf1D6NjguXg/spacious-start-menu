@@ -13,7 +13,6 @@
     Closing="Window_Closing"
     FocusManager.FocusedElement="{Binding ElementName=DefList}"
     KeyDown="Window_KeyDown"
-    Loaded="Window_Loaded"
     StateChanged="Window_StateChanged"
     Style="{StaticResource ToolWindowStyle}"
     WindowStartupLocation="CenterOwner"
@@ -255,6 +254,7 @@
                         <TextBlock
                             x:Name="SaveIcon"
                             Margin="0,2,8,0"
+                            Foreground="{DynamicResource AccentBrush}"
                             VerticalAlignment="Center"
                             FontFamily="Segoe MDL2 Assets"
                             Text="&#xE74E;" />

@@ -27,7 +27,17 @@ namespace SpaciousStartMenu.Views
         private bool _isEditing = false;
         private bool _hasError = false;
         private ObservableCollection<LaunchDefItem>? _defItems;
-        private readonly PinVm _pinVm = new();
+        private readonly Vm _vm = new();
+
+        private class Vm : NotifyPropertyChanged
+        {
+            private bool _isEdited;
+            public bool IsEdited
+            {
+                get => _isEdited;
+                set => SetProperty(ref _isEdited, value);
+            }
+        }
 
         public PinWindow(
             MainWindow mainWindow,
@@ -41,8 +51,8 @@ namespace SpaciousStartMenu.Views
             _postCloseAction = postCloseAction;
             _settings = settings;
             RestoreWindowSize(_settings);
-            DataContext = _pinVm;
-            _pinVm.IsEdited = false;
+            DataContext = _vm;
+            _vm.IsEdited = false;
 
             DirectEditButton.Visibility = _settings.ShowDirectEditDefineButton
                 ? Visibility.Visible
@@ -74,11 +84,6 @@ namespace SpaciousStartMenu.Views
             var cv = CollectionViewSource.GetDefaultView(_colors);
             cv.SortDescriptions.Clear();
             cv.SortDescriptions.Add(new SortDescription("Order", ListSortDirection.Ascending));
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            SaveIcon.Foreground = new SolidColorBrush(SystemParameters.WindowGlassColor);
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -132,7 +137,7 @@ namespace SpaciousStartMenu.Views
                         return;
                     }
                 }
-                else if (_pinVm.IsEdited)
+                else if (_vm.IsEdited)
                 {
                     if (!await IsEditedClosingProcAsync(e))
                     {
@@ -233,7 +238,7 @@ namespace SpaciousStartMenu.Views
             }
 
             item.IsDelete = !item.IsDelete;
-            _pinVm.IsEdited = true;
+            _vm.IsEdited = true;
         }
 
         private async void DirectEditButton_Click(object sender, RoutedEventArgs e)
@@ -245,7 +250,7 @@ namespace SpaciousStartMenu.Views
                 {
                     using var sr = new StreamReader(filePath, Encoding.UTF8);
                     DefText.Text = await sr.ReadToEndAsync();
-                    _pinVm.IsEdited = false;
+                    _vm.IsEdited = false;
                 }
 
                 DefList.Visibility = Visibility.Collapsed;
@@ -279,7 +284,7 @@ namespace SpaciousStartMenu.Views
                 _defItems?.Remove(selectedItem!);
                 _defItems?.Insert(newIdx, selectedItem!);
                 DefList.SelectedIndex = newIdx;
-                _pinVm.IsEdited = true;
+                _vm.IsEdited = true;
             }
             catch (Exception ex)
             {
@@ -303,7 +308,7 @@ namespace SpaciousStartMenu.Views
                 _defItems?.Remove(selectedItem!);
                 _defItems?.Insert(newIdx, selectedItem!);
                 DefList.SelectedIndex = newIdx;
-                _pinVm.IsEdited = true;
+                _vm.IsEdited = true;
             }
             catch (Exception ex)
             {
@@ -347,7 +352,7 @@ namespace SpaciousStartMenu.Views
             }
             if (ret == true)
             {
-                _pinVm.IsEdited = true;
+                _vm.IsEdited = true;
             }
             _isEditing = false;
             if (WindowState == WindowState.Minimized)
@@ -391,7 +396,7 @@ namespace SpaciousStartMenu.Views
                 {
                     DefList.ScrollIntoView(DefList.Items[^1]);
                 }
-                _pinVm.IsEdited = true;
+                _vm.IsEdited = true;
             }
             catch (Exception ex)
             {
@@ -452,7 +457,7 @@ namespace SpaciousStartMenu.Views
             try
             {
                 _postSaveAction();
-                _pinVm.IsEdited = false;
+                _vm.IsEdited = false;
                 _hasError = false;
             }
             catch (Exception ex)
@@ -533,27 +538,19 @@ namespace SpaciousStartMenu.Views
             }
 
             item.IsDelete = !item.IsDelete;
-            _pinVm.IsEdited = true;
+            _vm.IsEdited = true;
         }
 
         private void DefText_TextChanged(object sender, TextChangedEventArgs e)
         {
-            _pinVm.IsEdited = true;
+            _vm.IsEdited = true;
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
             _postCloseAction();
         }
+
     }
 
-    class PinVm : NotifyPropertyChanged
-    {
-        private bool _isEdited;
-        public bool IsEdited
-        {
-            get => _isEdited;
-            set => SetProperty(ref _isEdited, value);
-        }
-    }
 }
