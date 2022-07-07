@@ -2,7 +2,6 @@
 
     <Style x:Key="TitleBarButtonStyle" TargetType="Button">
         <Setter Property="Padding" Value="18,5" />
-        <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="Foreground" Value="#FAEEED" />
         <Setter Property="Background" Value="Transparent" />
@@ -40,8 +39,15 @@
     </Style>
 
     <Style
-        x:Key="TitleBarCloseButtonStyle"
+        x:Key="TitleBarIconButtonStyle"
         BasedOn="{StaticResource TitleBarButtonStyle}"
+        TargetType="Button">
+        <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+    </Style>
+
+    <Style
+        x:Key="TitleBarCloseButtonStyle"
+        BasedOn="{StaticResource TitleBarIconButtonStyle}"
         TargetType="Button">
         <Setter Property="Template">
             <Setter.Value>
@@ -145,7 +151,7 @@
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
                 <Setter Property="Foreground" Value="DarkGray" />
-                <Setter Property="Background" Value="#818391" />
+                <Setter Property="Background" Value="#50525C" />
             </Trigger>
         </Style.Triggers>
     </Style>
