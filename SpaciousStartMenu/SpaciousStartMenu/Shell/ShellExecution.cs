@@ -6,9 +6,6 @@ namespace SpaciousStartMenu.Shell
 {
     internal class ShellExecution
     {
-        private static readonly Regex _specialFolder = new("<(.+?)>");
-        private static readonly Regex _envFolder = new("<ENV:(.+?)>");
-
         public static void Run(string cmd, string? workDir, string? args)
         {
             var p = new Process();
@@ -24,6 +21,21 @@ namespace SpaciousStartMenu.Shell
             p.StartInfo.UseShellExecute = true;
 
             p.Start();
+        }
+
+        public static void RunCommand(string cmd, string? args)
+        {
+            var psi = new ProcessStartInfo
+            {
+                FileName = cmd,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
+            if (!string.IsNullOrEmpty(args))
+            {
+                psi.Arguments = args;
+            }
+            Process.Start(psi);
         }
 
         private static string ReplaceSpecialFolder(string path)
