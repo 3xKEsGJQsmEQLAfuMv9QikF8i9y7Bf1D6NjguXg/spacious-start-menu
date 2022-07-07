@@ -23,23 +23,21 @@ namespace SpaciousStartMenu
         // Multiple launch prohibition only for programs in the same location.
         private static readonly Mutex _mutex = new(false, $"{GetAppPath().Replace('\\', '_')}_SpaciousStartMenu");
         private static bool _isMutexOwner = false;
-
+        public Action? TerminateProc { get; set; }
         public static bool Abend { get; private set; } = false;
         public static bool MinimizeStartup { get; private set; } = false;
+        public static new App Current => (App)Application.Current;
 
         public static string Version
         {
             get
             {
                 string? path = Environment.ProcessPath;
-                if (string.IsNullOrEmpty(path))
+                return path switch
                 {
-                    return "";
-                }
-                else
-                {
-                    return FileVersionInfo.GetVersionInfo(path).FileVersion ?? "";
-                }
+                    (null or "") => "",
+                    _ => FileVersionInfo.GetVersionInfo(path).FileVersion ?? ""
+                };
             }
         }
 
@@ -168,6 +166,11 @@ namespace SpaciousStartMenu
             {
                 MinimizeStartup = true;
             }
+        }
+
+        private void Application_SessionEnding(object sender, SessionEndingCancelEventArgs e)
+        {
+            TerminateProc?.Invoke();
         }
 
         private void SetJumpList()

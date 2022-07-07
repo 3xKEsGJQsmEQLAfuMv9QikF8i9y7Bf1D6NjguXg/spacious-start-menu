@@ -3,11 +3,14 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:SpaciousStartMenu"
+    SessionEnding="Application_SessionEnding"
     Startup="Application_Startup"
     StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
 
         <ResourceDictionary>
+            <SolidColorBrush x:Key="AccentBrush" Color="RoyalBlue" />
+
             <ResourceDictionary.MergedDictionaries>
 
                 <ResourceDictionary Source="/SpaciousStartMenu;component/Resources/en-US.xaml" />
@@ -18,6 +21,7 @@
                 <ResourceDictionary Source="/Views/Styles/Label.xaml" />
                 <ResourceDictionary Source="/Views/Styles/ListView.xaml" />
                 <ResourceDictionary Source="/Views/Styles/Menu.xaml" />
+                <ResourceDictionary Source="/Views/Styles/RadioButton.xaml" />
                 <ResourceDictionary Source="/Views/Styles/ScrollBar.xaml" />
                 <ResourceDictionary Source="/Views/Styles/TextBlock.xaml" />
                 <ResourceDictionary Source="/Views/Styles/TextBox.xaml" />

@@ -7,7 +7,7 @@
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>appIcon.ico</ApplicationIcon>
-    <FileVersion>1.2.1.0</FileVersion>
+    <FileVersion>1.2.2.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +24,10 @@
 
   <ItemGroup>
     <Content Include="appIcon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.DirectoryServices" Version="6.0.0" />
   </ItemGroup>
 
 </Project>
