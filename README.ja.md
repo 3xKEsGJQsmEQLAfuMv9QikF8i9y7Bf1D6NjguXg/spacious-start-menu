@@ -29,11 +29,14 @@
 
 # 🟦インストール
 
-## ステップ1
+## 🔷ステップ1
 
 [.NET 6.0 (Linux、macOS、Windows) をダウンロードする](https://dotnet.microsoft.com/download/dotnet/6.0)の`.NET デスクトップ ランタイム`の`x64`リンクからダウンロード・インストールを実行します。
 
-## ステップ2 （手動インストールの場合）
+## 🔷ステップ2
+
+<details open>
+<summary>💠手動インストールの場合</summary>
 
 [Releases](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/releases)から`SpaciousStartMenu.zip`をダウンロードします。
 
@@ -42,63 +45,85 @@ zipを右クリック、`プロパティ`を選択して、`許可する`にチ�
 ![image01j](https://user-images.githubusercontent.com/99333667/174457149-cec1fba3-8a9b-4403-b72f-6320fdb71891.png)
 
 zipを解凍し、管理者権限を必要としない任意の場所に配置します。
+</details>
 
-## ステップ2 （Scoopを使用したインストールの場合）
+<details>
+<summary>💠Scoopを使用したインストールの場合</summary>
 
-### Scoopのインストール
+**🔹Scoopのインストール**
 
 省略
 
-### bucketの追加
+**🔹bucketの追加**
 
 ```
 scoop bucket add 3xkesg https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/scoop-3xke
 ```
 
-### アプリのインストール
+**🔹アプリのインストール**
 
 ```
 scoop install spacious-start-menu
 ```
 
+</details>
+
 # 🟦バージョンアップ
 
-## 手動インストールの場合
+`Spacious Start Menu`を起動していたら終了しておきます。
+
+<details open>
+<summary>💠手動インストールの場合</summary>
 
 [Releases](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/releases)から`SpaciousStartMenu.zip`をダウンロードします。
 
 zipを右クリック、`プロパティ`を選択して、`許可する`にチェックを入れ、`OK`ボタンで閉じます。
 
 zipを解凍し、展開ファイルを前回配置場所に上書きコピーします。
+</details>
 
-## Scoopを使用したインストールの場合
+<details>
+<summary>💠Scoopを使用したインストールの場合</summary>
 
-### scoopとアプリのアップデート
+**🔹scoopとアプリのアップデート**
+
+以下のコマンドを実行します。
 
 ```
 scoop update
 scoop update spacious-start-menu
 ```
+</details>
 
 # 🟦アンインストール
 
-## 手動インストールの場合
+`Spacious Start Menu`を起動していたら終了しておきます。
+
+<details open>
+<summary>💠手動インストールの場合</summary>
 
 展開フォルダごと削除します。
+</details>
 
-## Scoopを使用したインストールの場合
+<details>
+<summary>💠Scoopを使用したインストールの場合</summary>
 
-### アプリのアンインストール
+**🔹アプリのアンインストール**
+
+以下のコマンドを実行します。
 
 ```
 scoop uninstall spacious-start-menu
 ```
 
-### bucketの削除
+**🔹bucketの削除**
+
+以下のコマンドを実行します。
 
 ```
 scoop bucket rm 3xkesg
 ```
+</details>
 
 # 🟦使い方
 
@@ -108,7 +133,7 @@ scoop bucket rm 3xkesg
 
 ボタンをクリックすると、アプリケーションやフォルダなどを起動できます。
 
-## メイン画面のコンテキストメニュー
+## 🔷メイン画面のコンテキストメニュー
 
 | メニュー項目             | 説明                                          |
 | --------------------- | ---------------------------------------------------- |
@@ -118,7 +143,7 @@ scoop bucket rm 3xkesg
 | プログラムの場所を開く | このプログラムが配置されているフォルダを開きます。       |
 | プログラムの場所を開いて終了 | このプログラムが配置されているフォルダを開き、プログラムを終了します。このメニュー項目は、設定で有効化できます。       |
 
-## ピン留め定義一覧画面
+## 🔷ピン留め定義一覧画面
 
 コンテキストメニューの`ピン留めの編集`で表示される一覧画面です。
 
@@ -128,7 +153,7 @@ scoop bucket rm 3xkesg
 
 ![imagePin1j](https://user-images.githubusercontent.com/99333667/174482913-62648e8f-47f2-4e45-923d-8372a65e599c.png)
 
-## ピン留め編集画面
+## 🔷ピン留め編集画面
 
 個々の定義の編集画面です。
 
@@ -148,7 +173,7 @@ scoop bucket rm 3xkesg
 
 ![imagePin4j](https://user-images.githubusercontent.com/99333667/175758353-260a082d-0747-420e-9184-8848b59363d3.png)
 
-## 設定画面
+## 🔷設定画面
 
 ![imageStg](https://user-images.githubusercontent.com/99333667/177764226-bbfa2dd6-c84a-44c4-9348-1c028754c6cd.png)
 
