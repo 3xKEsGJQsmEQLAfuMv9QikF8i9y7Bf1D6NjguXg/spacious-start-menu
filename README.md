@@ -28,11 +28,14 @@ The full screen listing frees the user from cumbersome scrolling operations.
 
 # 🟦Install
 
-## Step 1
+## 🔷Step 1
 
 Download and install `x64` of `.NET Desktop Runtime 6.x` from [Download .NET 6.0 (Linux, macOS, and Windows)](https://dotnet.microsoft.com/download/dotnet/6.0).
 
-## Step 2 (For manual installation)
+## 🔷Step 2
+
+<details open>
+<summary>💠For manual installation</summary>
 
 Download `SpaciousStartMenu.zip` from [Releases](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/releases).
 
@@ -41,63 +44,88 @@ Right-click on the zip, select Properties, check `Unblock` and close with the OK
 ![image01](https://user-images.githubusercontent.com/99333667/169164842-892d479f-7def-4044-ab0a-9b404d0ce194.png)
 
 Extract the zip and place it in any location that does not require administrative privileges.
+</details>
 
-## Step 2 (For installation using Scoop)
+<details>
+<summary>💠For installation using Scoop</summary>
 
-### Scoop installation
+**🔹Scoop installation**
 
 omit
 
-### Add bucket
+**🔹Add bucket**
+
+Execute the following command.
 
 ```
 scoop bucket add 3xkesg https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/scoop-3xke
 ```
 
-### Install the app
+**🔹Install the app**
+
+Execute the following command.
 
 ```
 scoop install spacious-start-menu
 ```
+</details>
 
 # 🟦Update
 
-## For manual installation
+If you have started the `Spacious Start Menu`, close it.
+
+<details open>
+<summary>💠For manual installation</summary>
 
 Download `SpaciousStartMenu.zip` from [Releases](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/releases).
 
 Right-click on the zip, select Properties, check `Unblock` and close with the OK button.
 
 Unzip the zip and copy the extracted file to the previous location.
+</details>
 
-## For installation using Scoop
+<details>
+<summary>💠For installation using Scoop</summary>
 
-### scoop and app updates
+**🔹Scoop and app updates**
+
+Execute the following command.
 
 ```
 scoop update
 scoop update spacious-start-menu
 ```
+</details>
 
 # 🟦Uninstall
 
-## For manual installation
+If you have started the `Spacious Start Menu`, close it.
+
+<details open>
+<summary>💠For manual installation</summary>
 
 Delete the expanded folder.
+</details>
 
-## For installation using Scoop
+<details>
+<summary>💠For installation using Scoop</summary>
 
-### Uninstall the app
+**🔹Uninstall the app**
+
+Execute the following command.
 
 ```
 scoop uninstall spacious-start-menu
 ```
 
-### Remove bucket
+**🔹Remove bucket**
+
+Execute the following command.
 
 ```
 scoop bucket rm 3xkesg
 ```
+</details>
 
 # 🟦Usage
 
@@ -107,17 +135,17 @@ Right-click on the screen and select `Edit Pinning` to add a definition.
 
 Launch defined applications, folders, etc. at the click of a button.
 
-## Main screen context menu
+## 🔷Main screen context menu
 
 | Menu item             | Description                                          |
 | --------------------- | ---------------------------------------------------- |
 | Edit Pin              | Displays the edit screen of the item to be launched. |
-| Scale                 | Changes the display magnification of an item. You can also change it by holding down Ctrl and rotating the mouse wheel on the main screen. |
+| Scale                 | Changes the display magnification of an item. You can also change the scale by rotating Ctrl + mouse wheel on the main screen. |
 | Settings              | Displays the settings screen.                        |
 | Open Program Location | Open the folder where this program is located.       |
 | Open the program location and then exit the program | Open the folder where this program is located and exit the program. This menu item can be displayed in the settings.       |
 
-## Pinned definition list screen
+## 🔷Pinned definition list screen
 
 This is the list screen displayed by `Edit Pin`.
 
@@ -127,7 +155,7 @@ If a line is checked for deletion, the deletion will be executed when the `Save`
 
 ![imagePin1](https://user-images.githubusercontent.com/99333667/174482870-d9617b5d-67dd-4da4-970e-1f40ff1d471d.png)
 
-## Pin edit screen
+## 🔷Pin edit screen
 
 Edit screen.
 
@@ -145,7 +173,7 @@ Special folders and environment variables selection menu.
 
 ![imagePin4](https://user-images.githubusercontent.com/99333667/175758232-61659191-4736-4a7b-ae5a-b1190d472419.png)
 
-## Settings screen
+## 🔷Settings screen
 
 ![imageStg](https://user-images.githubusercontent.com/99333667/177764511-eddb6209-6da3-4d62-8a15-5dba3f1fe5c2.png)
 
