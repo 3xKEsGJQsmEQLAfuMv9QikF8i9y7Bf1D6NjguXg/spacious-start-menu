@@ -175,7 +175,7 @@ Special folders and environment variables selection menu.
 
 ## 🔷Settings screen
 
-![imageStg](https://user-images.githubusercontent.com/99333667/177764511-eddb6209-6da3-4d62-8a15-5dba3f1fe5c2.png)
+![imageStg](https://user-images.githubusercontent.com/99333667/178488148-28baba20-1d21-4cd6-ad93-b99d5e26f9a5.png)
 
 # 🟦Recommended initial settings
 
