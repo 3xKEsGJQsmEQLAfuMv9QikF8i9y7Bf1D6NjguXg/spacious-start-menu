@@ -5,7 +5,7 @@
 - [バージョンアップ](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/blob/main/README.ja.md#%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%82%A2%E3%83%83%E3%83%97)
 - [アンインストール](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/blob/main/README.ja.md#%E3%82%A2%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)
 - [使い方](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/blob/main/README.ja.md#%E4%BD%BF%E3%81%84%E6%96%B9)
-  - [メイン画面のコンテキストメニュー](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/blob/main/README.ja.md#%E3%83%A1%E3%82%A4%E3%83%B3%E7%94%BB%E9%9D%A2%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC)
+  - [メイン画面](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/blob/main/README.ja.md#%E3%83%A1%E3%82%A4%E3%83%B3%E7%94%BB%E9%9D%A2)
   - [ピン留め定義一覧画面](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/blob/main/README.ja.md#%E3%83%94%E3%83%B3%E7%95%99%E3%82%81%E5%AE%9A%E7%BE%A9%E4%B8%80%E8%A6%A7%E7%94%BB%E9%9D%A2)
   - [ピン留め編集画面](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/blob/main/README.ja.md#%E3%83%94%E3%83%B3%E7%95%99%E3%82%81%E7%B7%A8%E9%9B%86%E7%94%BB%E9%9D%A2)
   - [設定画面](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/blob/main/README.ja.md#%E8%A8%AD%E5%AE%9A%E7%94%BB%E9%9D%A2)
