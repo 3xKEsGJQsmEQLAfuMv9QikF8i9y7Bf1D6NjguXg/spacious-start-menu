@@ -6,7 +6,7 @@ namespace SpaciousStartMenu.Shell
 {
     internal class ShellExecution
     {
-        public static void Run(string cmd, string? workDir, string? args)
+        public static void Run(string cmd, string? workDir, string? args, bool isAdmin = false)
         {
             var p = new Process();
             p.StartInfo.FileName = ReplaceSpecialFolder(cmd);
@@ -17,6 +17,10 @@ namespace SpaciousStartMenu.Shell
             if (!string.IsNullOrWhiteSpace(args))
             {
                 p.StartInfo.Arguments = args;
+            }
+            if (isAdmin)
+            {
+                p.StartInfo.Verb = "RunAs";
             }
             p.StartInfo.UseShellExecute = true;
 
