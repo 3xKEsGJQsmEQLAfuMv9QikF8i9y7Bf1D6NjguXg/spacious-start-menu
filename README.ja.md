@@ -175,7 +175,7 @@ scoop bucket rm 3xkesg
 
 ## 🔷設定画面
 
-![imageStg](https://user-images.githubusercontent.com/99333667/177764226-bbfa2dd6-c84a-44c4-9348-1c028754c6cd.png)
+![imageStg](https://user-images.githubusercontent.com/99333667/178487945-a014da3f-9811-4b4c-aba1-ca59e4ade176.png)
 
 # 🟦お勧め設定
 
