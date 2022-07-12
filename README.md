@@ -4,7 +4,7 @@
 - [Update](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#update)
 - [Uninstall](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#uninstall)
 - [Usage](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#usage)
-  - [Main screen context menu](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#main-screen-context-menu)
+  - [Main screen](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#main-screen)
   - [Pinned definition list screen](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#pinned-definition-list-screen)
   - [Pin edit screen](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#pin-edit-screen)
   - [Settings screen](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu#settings-screen)
@@ -135,7 +135,15 @@ Right-click on the screen and select `Edit Pinning` to add a definition.
 
 Launch defined applications, folders, etc. at the click of a button.
 
-## 🔷Main screen context menu
+## 🔷Main screen
+
+You can open a folder or start a program by pressing the launch button.
+
+For executable programs, you can run them as an administrator by pressing the launch button while holding down `Ctrl` + `Shift`.
+
+### 🔹Context menu
+
+It is displayed by right-clicking the `...` button on the title bar or the margin other than the launch button.
 
 | Menu item             | Description                                          |
 | --------------------- | ---------------------------------------------------- |
