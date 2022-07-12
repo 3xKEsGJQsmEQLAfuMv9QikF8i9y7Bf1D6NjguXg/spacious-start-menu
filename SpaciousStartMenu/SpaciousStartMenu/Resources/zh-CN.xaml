@@ -32,6 +32,10 @@
     <sys:String x:Key="R_ToolTip_MinimizedButton">最小化</sys:String>
     <sys:String x:Key="R_ToolTip_CloseButton">关</sys:String>
 
+    <sys:String x:Key="R_ToolTip_AdminMode">以管理员身份运行</sys:String>
+    <sys:String x:Key="R_ToolTip_ZoomMode">使用鼠标滚轮旋转放大/缩小</sys:String>
+    <sys:String x:Key="R_ToolTip_DisabledMinMode">作为窗口运行最小化抑制</sys:String>
+
     <!--  Context menu  -->
     <sys:String x:Key="R_Menu_Pinning">编辑引脚(_P)...</sys:String>
     <sys:String x:Key="R_Menu_Scale">规模</sys:String>
@@ -97,13 +101,17 @@
     <sys:String x:Key="R_MarginDblClickMinimized">双击屏幕边距最小化(_M)</sys:String>
     <sys:String x:Key="R_DisabledMinimizeCtrlClick">在按住 Ctrl 键的同时按下启动按钮时抑制菜单最小化</sys:String>
     <sys:String x:Key="R_Settings_TitleBar">标题栏</sys:String>
+    <sys:String x:Key="R_ShowKeyStatusInTitleBar">在标题栏上显示修饰符键状态</sys:String>
+    <sys:String x:Key="R_Left">剩下</sys:String>
+    <sys:String x:Key="R_Center">中心</sys:String>
+    <sys:String x:Key="R_Right">右边</sys:String>
     <sys:String x:Key="R_ShowUserInTitleBar">在标题栏中显示登录用户</sys:String>
-    <sys:String x:Key="R_UserName">User name</sys:String>
-    <sys:String x:Key="R_DisplayName">Display name</sys:String>
+    <sys:String x:Key="R_UserName">用户名</sys:String>
+    <sys:String x:Key="R_DisplayName">显示名称</sys:String>
     <sys:String x:Key="R_Settings_MouseGesture">鼠标手势</sys:String>
     <sys:String x:Key="R_EnableGesture">启用手势</sys:String>
     <sys:String x:Key="R_Settings_Confirm">确认</sys:String>
-    <sys:String x:Key="R_ConfirmClose">退出程序时确认(_C)</sys:String>
+    <sys:String x:Key="R_ConfirmClose">从标题栏关闭时确认(_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">上下文菜单</sys:String>
     <sys:String x:Key="R_Settings_SubScreen">子屏幕</sys:String>
     <sys:String x:Key="R_SaveScreenSize">节省屏幕尺寸</sys:String>
@@ -117,11 +125,11 @@
     <sys:String x:Key="R_SaveFileDialogTitle">指定要保存的文件名</sys:String>
     <sys:String x:Key="R_OpenFileDialogTitle">指定要导入的文件</sys:String>
 
-
     <!--  Messages  -->
     <sys:String x:Key="MsgErrUnsupportedOS">不支持的操作系统。</sys:String>
     <sys:String x:Key="MsgErrGetExePath">获取可执行文件路径失败。</sys:String>
     <sys:String x:Key="MsgErrStartup">启动失败。</sys:String>
+    <sys:String x:Key="MsgErrAdminStartup">以管理员身份运行失败。</sys:String>
     <sys:String x:Key="MsgErrSaveSettings">未能保存应用程序设置。</sys:String>
     <sys:String x:Key="MsgErrSettingsColumn">列数无效。</sys:String>
     <sys:String x:Key="MsgErrColorName">颜色名称无效。</sys:String>

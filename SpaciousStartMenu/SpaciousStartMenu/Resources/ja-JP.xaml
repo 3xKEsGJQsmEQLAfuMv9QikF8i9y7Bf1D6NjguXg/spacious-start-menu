@@ -32,6 +32,10 @@
     <sys:String x:Key="R_ToolTip_MinimizedButton">最小化</sys:String>
     <sys:String x:Key="R_ToolTip_CloseButton">閉じる</sys:String>
 
+    <sys:String x:Key="R_ToolTip_AdminMode">管理者として実行</sys:String>
+    <sys:String x:Key="R_ToolTip_ZoomMode">マウスホイール回転で拡大/縮小</sys:String>
+    <sys:String x:Key="R_ToolTip_DisabledMinMode">実行時、最小化抑止</sys:String>
+
     <!--  コンテキストメニュー  -->
     <sys:String x:Key="R_Menu_Pinning">ピン留めの編集(_P)...</sys:String>
     <sys:String x:Key="R_Menu_Scale">表示倍率</sys:String>
@@ -97,13 +101,17 @@
     <sys:String x:Key="R_MarginDblClickMinimized">画面の余白ダブルクリックで最小化(_M)</sys:String>
     <sys:String x:Key="R_DisabledMinimizeCtrlClick">Ctrlキーを押しながら起動ボタンを押したときは最小化抑止</sys:String>
     <sys:String x:Key="R_Settings_TitleBar">タイトルバー</sys:String>
+    <sys:String x:Key="R_ShowKeyStatusInTitleBar">タイトルバーに修飾キー ステータスを表示</sys:String>
+    <sys:String x:Key="R_Left">左</sys:String>
+    <sys:String x:Key="R_Center">中央</sys:String>
+    <sys:String x:Key="R_Right">右</sys:String>
     <sys:String x:Key="R_ShowUserInTitleBar">タイトルバーにログインユーザーを表示</sys:String>
     <sys:String x:Key="R_UserName">ユーザー名</sys:String>
     <sys:String x:Key="R_DisplayName">表示名</sys:String>
     <sys:String x:Key="R_Settings_MouseGesture">マウスジェスチャー</sys:String>
     <sys:String x:Key="R_EnableGesture">ジェスチャーを有効にする</sys:String>
     <sys:String x:Key="R_Settings_Confirm">確認</sys:String>
-    <sys:String x:Key="R_ConfirmClose">プログラム終了時に確認(_C)</sys:String>
+    <sys:String x:Key="R_ConfirmClose">タイトルバーから閉じるときに確認(_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">コンテキスト メニュー</sys:String>
     <sys:String x:Key="R_Settings_SubScreen">子画面</sys:String>
     <sys:String x:Key="R_SaveScreenSize">画面サイズ保存</sys:String>
@@ -122,6 +130,7 @@
     <sys:String x:Key="MsgErrUnsupportedOS">未サポートのOSです。</sys:String>
     <sys:String x:Key="MsgErrGetExePath">実行ファイルのパス取得失敗。</sys:String>
     <sys:String x:Key="MsgErrStartup">起動に失敗しました。</sys:String>
+    <sys:String x:Key="MsgErrAdminStartup">管理者として実行に失敗しました。</sys:String>
     <sys:String x:Key="MsgErrSaveSettings">アプリケーション設定の保存に失敗しました。</sys:String>
     <sys:String x:Key="MsgErrSettingsColumn">カラム数不正。</sys:String>
     <sys:String x:Key="MsgErrColorName">無効な色名。</sys:String>

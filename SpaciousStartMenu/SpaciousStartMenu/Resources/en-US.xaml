@@ -32,6 +32,10 @@
     <sys:String x:Key="R_ToolTip_MinimizedButton">Minimized</sys:String>
     <sys:String x:Key="R_ToolTip_CloseButton">Close</sys:String>
 
+    <sys:String x:Key="R_ToolTip_AdminMode">Run as administrator</sys:String>
+    <sys:String x:Key="R_ToolTip_ZoomMode">Zoom in/out with mouse wheel rotation</sys:String>
+    <sys:String x:Key="R_ToolTip_DisabledMinMode">Run as window minimize suppression</sys:String>
+
     <!--  Context menu  -->
     <sys:String x:Key="R_Menu_Pinning">Edit Pin(_P)...</sys:String>
     <sys:String x:Key="R_Menu_Scale">Scale</sys:String>
@@ -97,13 +101,17 @@
     <sys:String x:Key="R_MarginDblClickMinimized">Minimize by double-clicking on the screen margin (_M)</sys:String>
     <sys:String x:Key="R_DisabledMinimizeCtrlClick">Suppresses menu minimization when pressing the launch button while holding down the Ctrl key</sys:String>
     <sys:String x:Key="R_Settings_TitleBar">Title bar</sys:String>
+    <sys:String x:Key="R_ShowKeyStatusInTitleBar">Show modifier key status on the title bar</sys:String>
+    <sys:String x:Key="R_Left">Left</sys:String>
+    <sys:String x:Key="R_Center">Center</sys:String>
+    <sys:String x:Key="R_Right">Right</sys:String>
     <sys:String x:Key="R_ShowUserInTitleBar">Show logged-in user in title bar</sys:String>
     <sys:String x:Key="R_UserName">User name</sys:String>
     <sys:String x:Key="R_DisplayName">Display name</sys:String>
     <sys:String x:Key="R_Settings_MouseGesture">Mouse gestures</sys:String>
     <sys:String x:Key="R_EnableGesture">Enable gestures</sys:String>
     <sys:String x:Key="R_Settings_Confirm">Confirm</sys:String>
-    <sys:String x:Key="R_ConfirmClose">_Confirm when exiting program</sys:String>
+    <sys:String x:Key="R_ConfirmClose">_Confirm when closing from the title bar</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">Context menu</sys:String>
     <sys:String x:Key="R_Settings_SubScreen">Child screen</sys:String>
     <sys:String x:Key="R_SaveScreenSize">Save screen size</sys:String>
@@ -122,6 +130,7 @@
     <sys:String x:Key="MsgErrUnsupportedOS">Unsupported Operating System.</sys:String>
     <sys:String x:Key="MsgErrGetExePath">Failed to get the path of the executable file.</sys:String>
     <sys:String x:Key="MsgErrStartup">Startup failed.</sys:String>
+    <sys:String x:Key="MsgErrAdminStartup">Failed to run as administrator.</sys:String>
     <sys:String x:Key="MsgErrSaveSettings">Failed to save application settings.</sys:String>
     <sys:String x:Key="MsgErrSettingsColumn">Invalid number of columns.</sys:String>
     <sys:String x:Key="MsgErrColorName">Invalid color name.</sys:String>

@@ -32,6 +32,10 @@
     <sys:String x:Key="R_ToolTip_MinimizedButton">최소화</sys:String>
     <sys:String x:Key="R_ToolTip_CloseButton">닫기</sys:String>
 
+    <sys:String x:Key="R_ToolTip_AdminMode">관리자 권한으로 실행</sys:String>
+    <sys:String x:Key="R_ToolTip_ZoomMode">마우스 휠 회전으로 확대/축소</sys:String>
+    <sys:String x:Key="R_ToolTip_DisabledMinMode">창으로 실행 최소화 억제</sys:String>
+
     <!--  Context menu  -->
     <sys:String x:Key="R_Menu_Pinning">핀 수정(_P)...</sys:String>
     <sys:String x:Key="R_Menu_Scale">규모</sys:String>
@@ -97,13 +101,17 @@
     <sys:String x:Key="R_MarginDblClickMinimized">화면 여백 더블 클릭으로 최소화(_M)</sys:String>
     <sys:String x:Key="R_DisabledMinimizeCtrlClick">Ctrl 키를 누른 상태에서 실행 버튼을 누를 때 메뉴 최소화를 억제합니다.</sys:String>
     <sys:String x:Key="R_Settings_TitleBar">제목 표시 줄</sys:String>
+    <sys:String x:Key="R_ShowKeyStatusInTitleBar">제목 표시줄에 보조 키 상태 표시</sys:String>
+    <sys:String x:Key="R_Left">왼쪽</sys:String>
+    <sys:String x:Key="R_Center">센터</sys:String>
+    <sys:String x:Key="R_Right">오른쪽</sys:String>
     <sys:String x:Key="R_ShowUserInTitleBar">제목 표시줄에 로그인한 사용자 표시</sys:String>
-    <sys:String x:Key="R_UserName">User name</sys:String>
-    <sys:String x:Key="R_DisplayName">Display name</sys:String>
+    <sys:String x:Key="R_UserName">사용자 이름</sys:String>
+    <sys:String x:Key="R_DisplayName">이름 표시하기</sys:String>
     <sys:String x:Key="R_Settings_MouseGesture">마우스 제스처</sys:String>
     <sys:String x:Key="R_EnableGesture">제스처 사용</sys:String>
     <sys:String x:Key="R_Settings_Confirm">확인하다</sys:String>
-    <sys:String x:Key="R_ConfirmClose">프로그램 종료 시 확인(_C)</sys:String>
+    <sys:String x:Key="R_ConfirmClose">제목 표시줄에서 닫을 때 확인(_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">상황에 맞는 메뉴</sys:String>
     <sys:String x:Key="R_Settings_SubScreen">자식 화면</sys:String>
     <sys:String x:Key="R_SaveScreenSize">화면 크기 저장</sys:String>
@@ -122,6 +130,7 @@
     <sys:String x:Key="MsgErrUnsupportedOS">지원되지 않는 운영 체제입니다.</sys:String>
     <sys:String x:Key="MsgErrGetExePath">실행 파일의 경로를 가져오지 못했습니다.</sys:String>
     <sys:String x:Key="MsgErrStartup">시작하지 못했습니다.</sys:String>
+    <sys:String x:Key="MsgErrAdminStartup">관리자로 실행하지 못했습니다.</sys:String>
     <sys:String x:Key="MsgErrSaveSettings">애플리케이션 설정을 저장하지 못했습니다.</sys:String>
     <sys:String x:Key="MsgErrSettingsColumn">열 수가 잘못되었습니다.</sys:String>
     <sys:String x:Key="MsgErrColorName">잘못된 색상 이름입니다.</sys:String>
