@@ -5,11 +5,11 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Rectangle
-                            Margin="2"
-                            SnapsToDevicePixels="true"
-                            Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
-                            StrokeDashArray="1 2"
-                            StrokeThickness="1" />
+                        Margin="2"
+                        SnapsToDevicePixels="true"
+                        Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                        StrokeDashArray="1 2"
+                        StrokeThickness="1" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -19,11 +19,11 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Rectangle
-                            Margin="14,0,0,0"
-                            SnapsToDevicePixels="true"
-                            Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
-                            StrokeDashArray="1 2"
-                            StrokeThickness="1" />
+                        Margin="14,0,0,0"
+                        SnapsToDevicePixels="true"
+                        Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                        StrokeDashArray="1 2"
+                        StrokeThickness="1" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -53,43 +53,54 @@
                 <ControlTemplate TargetType="{x:Type RadioButton}">
 
                     <Grid
-                            x:Name="templateRoot"
-                            Background="Transparent"
-                            SnapsToDevicePixels="True">
+                        x:Name="templateRoot"
+                        Background="Transparent"
+                        SnapsToDevicePixels="True">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
                         <Border
-                                x:Name="radioButtonBorder"
-                                Margin="1,1,2,1"
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="100">
+                            x:Name="radioButtonBorder"
+                            Margin="1,1,2,1"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="100">
 
-                            <Ellipse
-                                    x:Name="radioButtonInnerBorder"
+                            <Grid>
+                                <Ellipse
+                                    x:Name="radioButtonInnerBorder1"
                                     MinWidth="13"
                                     MinHeight="13"
                                     Fill="Transparent"
                                     Opacity="0"
                                     Stroke="{DynamicResource AccentBrush}"
                                     StrokeThickness="4" />
+
+                                <Ellipse
+                                    x:Name="radioButtonInnerBorder2"
+                                    Width="7"
+                                    Height="7"
+                                    Fill="Transparent"
+                                    Opacity="0"
+                                    Stroke="White"
+                                    StrokeThickness="1" />
+                            </Grid>
                         </Border>
 
                         <ContentPresenter
-                                x:Name="contentPresenter"
-                                Grid.Column="1"
-                                Margin="{TemplateBinding Padding}"
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                Focusable="False"
-                                RecognizesAccessKey="True"
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            x:Name="contentPresenter"
+                            Grid.Column="1"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Focusable="False"
+                            RecognizesAccessKey="True"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                     </Grid>
 
                     <ControlTemplate.Triggers>
@@ -104,14 +115,16 @@
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter TargetName="radioButtonBorder" Property="Background" Value="{StaticResource RadioButton.Disabled.Background}" />
                             <Setter TargetName="radioButtonBorder" Property="BorderBrush" Value="{StaticResource RadioButton.Disabled.Border}" />
-                            <Setter TargetName="radioButtonInnerBorder" Property="Stroke" Value="{StaticResource RadioButton.Disabled.Border}" />
+                            <Setter TargetName="radioButtonInnerBorder1" Property="Stroke" Value="{StaticResource RadioButton.Disabled.Border}" />
+                            <Setter TargetName="radioButtonInnerBorder2" Property="Stroke" Value="{StaticResource RadioButton.Disabled.Border}" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="true">
                             <Setter TargetName="radioButtonBorder" Property="BorderBrush" Value="{StaticResource RadioButton.Pressed.Border}" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="true">
                             <Setter TargetName="radioButtonBorder" Property="Opacity" Value="1" />
-                            <Setter TargetName="radioButtonInnerBorder" Property="Opacity" Value="1" />
+                            <Setter TargetName="radioButtonInnerBorder1" Property="Opacity" Value="1" />
+                            <Setter TargetName="radioButtonInnerBorder2" Property="Opacity" Value="0.8" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="{x:Null}">
                             <Setter TargetName="radioButtonBorder" Property="Opacity" Value="0" />

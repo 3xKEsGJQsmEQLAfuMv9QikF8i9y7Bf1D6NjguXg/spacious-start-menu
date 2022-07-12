@@ -12,6 +12,17 @@
         <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
     </Style>
 
+    <Style
+        x:Key="StatusIconTextStyle"
+        BasedOn="{StaticResource IconTextStyle}"
+        TargetType="TextBlock">
+        <Setter Property="Margin" Value="5,0" />
+        <Setter Property="ToolTipService.InitialShowDelay" Value="200" />
+        <Setter Property="Foreground" Value="Silver" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
     <Style x:Key="StandardTextStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="White" />
     </Style>
@@ -23,6 +34,13 @@
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style x:Key="ShortcutTextStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="DarkGray" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Margin" Value="100,0,0,0" />
     </Style>
 
 </ResourceDictionary>

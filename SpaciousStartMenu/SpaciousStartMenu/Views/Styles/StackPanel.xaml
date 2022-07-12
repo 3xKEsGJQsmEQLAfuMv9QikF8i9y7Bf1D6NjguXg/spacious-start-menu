@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="GroupContainerStyle" TargetType="StackPanel" >
+        <Setter Property="Background" Value="#01000000" />
+    </Style>
+
+</ResourceDictionary>

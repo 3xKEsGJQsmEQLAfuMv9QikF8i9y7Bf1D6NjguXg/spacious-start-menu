@@ -80,7 +80,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="LaunchButton" TargetType="Button">
+    <Style x:Key="LaunchButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="#E5E5E5" />
         <Setter Property="Background" Value="#2F3445" />
         <Setter Property="Margin" Value="5" />
@@ -110,7 +110,7 @@
         </Style.Triggers>
     </Style>
 
-    <Style BasedOn="{StaticResource LaunchButton}" TargetType="Button" />
+    <Style BasedOn="{StaticResource LaunchButtonStyle}" TargetType="Button" />
 
     <Style x:Key="StandardButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="#E5E5E5" />
