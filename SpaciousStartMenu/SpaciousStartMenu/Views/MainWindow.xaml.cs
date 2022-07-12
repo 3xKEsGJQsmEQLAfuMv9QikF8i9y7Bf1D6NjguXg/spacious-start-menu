@@ -24,6 +24,8 @@ namespace SpaciousStartMenu.Views
         private PinWindow? _pinWindow = null;
         private AppSettings _settings = new();
         private readonly Style _groupTitleStyle = (Style)(Application.Current.FindResource("GroupTitleStyle"));
+        private readonly Style _groupContainerStyle = (Style)(Application.Current.FindResource("GroupContainerStyle"));
+        private readonly Style _launchButtonStyle = (Style)(Application.Current.FindResource("LaunchButtonStyle"));
         private static readonly FontFamily _segoeMdl2Font = new("Segoe MDL2 Assets");
         private const string _colorMark = "\uE91F";
         private readonly NumberOfExecution _savingProcessOnExit;
@@ -55,14 +57,32 @@ namespace SpaciousStartMenu.Views
             App.Current.TerminateProc = TerminateProc;
         }
 
-        private void TitleBarMoreButton_Click(object sender, RoutedEventArgs e) =>
+        private void TitleBarMoreButton_Click(object sender, RoutedEventArgs e)
+        {
+            ClearKeyStatus();
             WindowContextMenu.IsOpen = true;
+        }
 
-        private void TitleBarMinButton_Click(object sender, RoutedEventArgs e) =>
+        private void TitleBarMinButton_Click(object sender, RoutedEventArgs e)
+        {
+            ClearKeyStatus();
             WindowState = WindowState.Minimized;
+        }
 
-        private void TitleBarCloseButton_Click(object sender, RoutedEventArgs e) =>
+        private void TitleBarCloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            ClearKeyStatus();
+
+            if (_settings.ConfirmCloseMenu)
+            {
+                if (this.Confirm(App.R("MsgConfirmCloseMenu")) != MessageBoxResult.Yes)
+                {
+                    return;
+                }
+            }
+
             Close();
+        }
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -86,6 +106,7 @@ namespace SpaciousStartMenu.Views
                 {
                     SetUser(await GetUserAsync());
                 }
+                WindowContextMenu.PlacementTarget = this;
             }
             catch (Exception ex)
             {
@@ -97,15 +118,6 @@ namespace SpaciousStartMenu.Views
         {
             try
             {
-                if (_settings.ConfirmCloseMenu)
-                {
-                    if (this.Confirm(App.R("MsgConfirmCloseMenu")) != MessageBoxResult.Yes)
-                    {
-                        e.Cancel = true;
-                        return;
-                    }
-                }
-
                 _pinWindow?.Close();
                 SaveAppSettings();
             }
@@ -114,6 +126,8 @@ namespace SpaciousStartMenu.Views
                 this.Error($"{App.R("MsgErrSaveSettings")}\n{ex}");
             }
         }
+
+        private void Window_Deactivated(object sender, EventArgs e) => ClearKeyStatus();
 
         private async void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -136,13 +150,54 @@ namespace SpaciousStartMenu.Views
             }
         }
 
-        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private async void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (_settings.EscKeyMinimize &&
                 e.Key == Key.Escape)
             {
                 WindowState = WindowState.Minimized;
             }
+            else if ((Keyboard.Modifiers == ModifierKeys.Control) &&
+                e.Key == Key.OemComma)
+            {
+                await ShowSettingsAsync();
+            }
+
+            UpdateKeyStatus();
+        }
+
+        private void UpdateKeyStatus()
+        {
+            switch (Keyboard.Modifiers)
+            {
+                case ModifierKeys.Control | ModifierKeys.Shift:
+                    AdminMode.Visibility = Visibility.Visible;
+                    MinBlockMode.Visibility = Visibility.Collapsed;
+                    ZoomMode.Visibility = Visibility.Collapsed;
+                    break;
+                case ModifierKeys.Control:
+                    AdminMode.Visibility = Visibility.Collapsed;
+                    MinBlockMode.Visibility = _settings.DisabledMinimizeCtrlClick
+                        ? Visibility.Visible
+                        : Visibility.Collapsed;
+                    ZoomMode.Visibility = Visibility.Visible;
+                    break;
+                default:
+                    ClearKeyStatus();
+                    break;
+            }
+        }
+
+        private void ClearKeyStatus()
+        {
+            AdminMode.Visibility = Visibility.Collapsed;
+            MinBlockMode.Visibility = Visibility.Collapsed;
+            ZoomMode.Visibility = Visibility.Collapsed;
+        }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            UpdateKeyStatus();
         }
 
         private void Window_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -156,7 +211,33 @@ namespace SpaciousStartMenu.Views
 
         private void Window_ContextMenuOpening(object sender, ContextMenuEventArgs e)
         {
+            SetGroupToMenuTag(e.OriginalSource);
+            ClearKeyStatus();
             SuppressContextMenuOpen(e);
+        }
+
+        private void SetGroupToMenuTag(object target)
+        {
+            StackPanel? GetGroupContainer(object target)
+            {
+                if (target is StackPanel sp &&
+                    sp.Style == _groupContainerStyle)
+                {
+                    return sp;
+                }
+
+                if (target is TextBlock txt &&
+                    txt.Parent is StackPanel sp2 &&
+                    sp2.Style == _groupContainerStyle)
+                {
+                    return sp2;
+                }
+
+                return null;
+            }
+
+            var sp = GetGroupContainer(target);
+            PinMenuItem.Tag = sp is not null ? sp.Tag : null;
         }
 
         private void Window_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
@@ -188,11 +269,17 @@ namespace SpaciousStartMenu.Views
                 if (_pinWindow is null ||
                     !_pinWindow.IsVisible)
                 {
+                    int groupNo = 0;
+                    if (sender is MenuItem item)
+                    {
+                        int.TryParse(item.Tag?.ToString(), out groupNo);
+                    }
                     _pinWindow = new PinWindow(
                         this,
                         () => LoadLauncherDefine(App.GetLaunchDefineFilePath()),
                         () => Activate(),
-                        _settings)
+                        _settings,
+                        groupNo)
                     {
                         Owner = this
                     };
@@ -218,6 +305,11 @@ namespace SpaciousStartMenu.Views
         }
 
         private async void MenuSettings_Click(object sender, RoutedEventArgs e)
+        {
+            await ShowSettingsAsync();
+        }
+
+        private async Task ShowSettingsAsync()
         {
             try
             {
@@ -326,6 +418,14 @@ namespace SpaciousStartMenu.Views
                 stg.Scale = _defaultScale;
             }
 
+            if (!Enum.IsDefined(typeof(HorizontalAlignment), stg.ModifireKeyStatusPosition) ||
+                (stg.ModifireKeyStatusPosition != HorizontalAlignment.Left &&
+                stg.ModifireKeyStatusPosition != HorizontalAlignment.Center &&
+                stg.ModifireKeyStatusPosition != HorizontalAlignment.Right))
+            {
+                stg.ModifireKeyStatusPosition = HorizontalAlignment.Left;
+            }
+
             if (!Enum.IsDefined(typeof(UserType), stg.ShowUserType))
             {
                 stg.ShowUserType = UserType.UserName;
@@ -411,6 +511,17 @@ namespace SpaciousStartMenu.Views
                 appStg.ShowOpenAndExitMenuItem
                 ? Visibility.Visible
                 : Visibility.Collapsed;
+            ModifireKeyStatusArea.HorizontalAlignment = appStg.ModifireKeyStatusPosition;
+            if (appStg.ModifireKeyStatusPosition == HorizontalAlignment.Center)
+            {
+                Grid.SetColumn(ModifireKeyStatusArea, 0);
+                Grid.SetColumnSpan(ModifireKeyStatusArea, 3);
+            }
+            else
+            {
+                Grid.SetColumn(ModifireKeyStatusArea, 1);
+                Grid.SetColumnSpan(ModifireKeyStatusArea, 1);
+            }
         }
 
         private async Task<string> GetUserAsync(bool hide = false)
@@ -543,7 +654,8 @@ namespace SpaciousStartMenu.Views
                 columns[LauncherDefinition.PathColumnIndex],
                 LauncherDefinition.WorkDirColumnIndex <= columns.Length - 1 ? columns[LauncherDefinition.WorkDirColumnIndex] : null,
                 LauncherDefinition.ArgsColumnIndex <= columns.Length - 1 ? columns[LauncherDefinition.ArgsColumnIndex] : null);
-            
+            btn.Style = _launchButtonStyle;
+
             btnContainer?.Children.Add(btn);
 
             buttonCount++;
@@ -551,17 +663,21 @@ namespace SpaciousStartMenu.Views
 
         private void MakeGroup(ref WrapPanel? btnContainer, ref int groupCount, string groupTitle = "")
         {
+            if (string.IsNullOrWhiteSpace(groupTitle))
+            {
+                return;
+            }
+
             var grpContainer = new StackPanel();
+            grpContainer.Style = _groupContainerStyle;
+            groupCount++;
+            grpContainer.Tag = groupCount;
             MainContainer.Children.Add(grpContainer);
 
-            if (string.IsNullOrEmpty(groupTitle) == false)
-            {
-                grpContainer.Children.Add(CreateGroupTitle(groupTitle));
-            }
+            grpContainer.Children.Add(CreateGroupTitle(groupTitle));
 
             btnContainer = new WrapPanel();
             grpContainer.Children.Add(btnContainer);
-            groupCount++;
         }
 
         private void CreateDefaultLaunchDefineFile(string filePath)
@@ -663,14 +779,27 @@ namespace SpaciousStartMenu.Views
 
         private bool Execute(string cmd, string? workDir, string? args)
         {
+            bool isAdmin = Keyboard.Modifiers == (ModifierKeys.Control | ModifierKeys.Shift);
             try
             {
-                ShellExecution.Run(cmd, workDir, args);
+                ShellExecution.Run(
+                    cmd,
+                    workDir,
+                    args,
+                    isAdmin);
+
                 return true;
             }
             catch
             {
-                this.Error($"{App.R("MsgErrStartup")}\n{cmd}");
+                if (isAdmin)
+                {
+                    this.Error($"{App.R("MsgErrAdminStartup")}\n{cmd}");
+                }
+                else
+                {
+                    this.Error($"{App.R("MsgErrStartup")}\n{cmd}");
+                }
                 return false;
             }
         }
@@ -705,20 +834,16 @@ namespace SpaciousStartMenu.Views
             }
         }
 
-        private void TerminateProc()
-        {
-            _savingProcessOnExit.RunOnlyOnce();
-        }
+        private void TerminateProc() => _savingProcessOnExit.RunOnlyOnce();
 
         private void UserButton_Click(object sender, RoutedEventArgs e)
         {
+            ClearKeyStatus();
             UserMenu.IsOpen = true;
         }
 
-        private async void MenuSignout_Click(object sender, RoutedEventArgs e)
-        {
+        private async void MenuSignout_Click(object sender, RoutedEventArgs e) =>
             await RunExitCommandAsync(() => Win32.OperatingSystem.Signout());
-        }
 
         private async Task RunExitCommandAsync(Action action)
         {
@@ -727,25 +852,16 @@ namespace SpaciousStartMenu.Views
             action();
         }
 
-        private async void MenuShutdown_Click(object sender, RoutedEventArgs e)
-        {
+        private async void MenuShutdown_Click(object sender, RoutedEventArgs e) =>
             await RunExitCommandAsync(() => Win32.OperatingSystem.Shutdown());
-        }
 
-        private async void MenuRestart_Click(object sender, RoutedEventArgs e)
-        {
+        private async void MenuRestart_Click(object sender, RoutedEventArgs e) =>
             await RunExitCommandAsync(() => Win32.OperatingSystem.Restart());
-        }
 
-        private void ZoomOutButton_Click(object sender, RoutedEventArgs e)
-        {
-            ZoomOut();
-        }
+        private void ZoomOutButton_Click(object sender, RoutedEventArgs e) => ZoomOut();
 
-        private void ZoomInButton_Click(object sender, RoutedEventArgs e)
-        {
-            ZoomIn();
-        }
+        private void ZoomInButton_Click(object sender, RoutedEventArgs e) => ZoomIn();
+
     }
 
 }

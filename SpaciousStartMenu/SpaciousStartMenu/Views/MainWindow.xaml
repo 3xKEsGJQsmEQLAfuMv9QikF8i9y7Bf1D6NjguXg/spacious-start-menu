@@ -13,8 +13,10 @@
     Background="#CC000000"
     Closing="Window_Closing"
     ContextMenuOpening="Window_ContextMenuOpening"
+    Deactivated="Window_Deactivated"
     FontSize="16"
     KeyDown="Window_KeyDown"
+    KeyUp="Window_KeyUp"
     Loaded="Window_Loaded"
     MouseDoubleClick="Window_MouseDoubleClick"
     PreviewMouseWheel="Window_PreviewMouseWheel"
@@ -57,8 +59,8 @@
                     Width="40"
                     Margin="5,0"
                     Padding="0"
-                    VerticalAlignment="Center"
                     HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
                     Text="{Binding Scale, Converter={StaticResource PercentConv}}" />
                 <Button
                     Margin="5,2"
@@ -74,6 +76,7 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE713;" />
                         <Label Content="{StaticResource R_Menu_Settings}" Style="{StaticResource MenuItemLabelStyle}" />
+                        <TextBlock Style="{StaticResource ShortcutTextStyle}" Text="Ctrl + ," />
                     </StackPanel>
                 </MenuItem.Header>
             </MenuItem>
@@ -110,6 +113,7 @@
             <ColumnDefinition />
             <ColumnDefinition Width="8" />
         </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="4" />
@@ -118,93 +122,140 @@
             <RowDefinition Height="16" />
         </Grid.RowDefinitions>
 
-        <TextBlock
-            Grid.Column="1"
-            Margin="4,8,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Foreground="White"
-            Text="{StaticResource R_AppTitle}" />
-        <StackPanel
-            Grid.Column="1"
-            Margin="0,8,0,0"
-            HorizontalAlignment="Right"
-            Orientation="Horizontal">
-            <Button
-                x:Name="TitleBarUserButton"
-                Margin="0,0,40,0"
-                Padding="10,0"
-                d:Visibility="Visible"
-                Click="UserButton_Click"
-                Style="{StaticResource TitleBarButtonStyle}"
-                Visibility="Collapsed">
-                <Button.ContextMenu>
-                    <ContextMenu x:Name="UserMenu" FontSize="16">
-                        <MenuItem Click="MenuSignout_Click">
-                            <MenuItem.Header>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xF3B1;" />
-                                    <Label Content="{StaticResource R_Menu_Signout}" Style="{StaticResource MenuItemLabelStyle}" />
-                                </StackPanel>
-                            </MenuItem.Header>
-                        </MenuItem>
-                        <Separator />
-                        <MenuItem Click="MenuShutdown_Click">
-                            <MenuItem.Header>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE7E8;" />
-                                    <Label Content="{StaticResource R_Menu_Shutdown}" Style="{StaticResource MenuItemLabelStyle}" />
-                                </StackPanel>
-                            </MenuItem.Header>
-                        </MenuItem>
-                        <MenuItem Click="MenuRestart_Click">
-                            <MenuItem.Header>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE72C;" />
-                                    <Label Content="{StaticResource R_Menu_Restart}" Style="{StaticResource MenuItemLabelStyle}" />
-                                </StackPanel>
-                            </MenuItem.Header>
-                        </MenuItem>
-                    </ContextMenu>
-                </Button.ContextMenu>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock
-                        x:Name="UserId"
-                        Margin="0,0,5,0"
-                        d:Text="User1"
-                        Foreground="#FAEEED" />
-                    <Grid>
-                        <Ellipse Stroke="#FAEEED" />
-                        <TextBlock
-                            Margin="0"
-                            Padding="3,0"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Foreground="#FAEEED"
-                            Style="{StaticResource IconTextStyle}"
-                            Text="&#xE77B;" />
-                    </Grid>
-                </StackPanel>
-            </Button>
-            <Button
-                x:Name="TitleBarMoreButton"
-                Margin="0,0,40,0"
-                Padding="10,5"
-                Click="TitleBarMoreButton_Click"
-                Content="&#xE712;"
-                Style="{StaticResource TitleBarIconButtonStyle}" />
-            <Button
-                Click="TitleBarMinButton_Click"
-                Content="&#xE921;"
-                Style="{StaticResource TitleBarIconButtonStyle}"
-                ToolTip="{StaticResource R_ToolTip_MinimizedButton}" />
-            <Button
-                Click="TitleBarCloseButton_Click"
-                Content="&#xE8BB;"
-                Style="{StaticResource TitleBarCloseButtonStyle}"
-                ToolTip="{StaticResource R_ToolTip_CloseButton}" />
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
 
-        </StackPanel>
+            <TextBlock
+                Margin="4,8,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Foreground="White"
+                Text="{StaticResource R_AppTitle}" />
+
+            <StackPanel
+                x:Name="ModifireKeyStatusArea"
+                Grid.Column="1"
+                Margin="30,8,30,0"
+                Orientation="Horizontal">
+
+                <TextBlock
+                    x:Name="AdminMode"
+                    d:Visibility="Visible"
+                    Style="{StaticResource StatusIconTextStyle}"
+                    Text="&#xE730;"
+                    ToolTip="{StaticResource R_ToolTip_AdminMode}"
+                    Visibility="Collapsed" />
+
+                <TextBlock
+                    x:Name="ZoomMode"
+                    Style="{StaticResource StatusIconTextStyle}"
+                    Text="&#xE71E;"
+                    ToolTip="{StaticResource R_ToolTip_ZoomMode}"
+                    Visibility="Collapsed" />
+
+                <Grid>
+                    <TextBlock
+                        x:Name="MinBlockMode"
+                        Opacity="0.8"
+                        Style="{StaticResource StatusIconTextStyle}"
+                        Text="&#xE921;"
+                        ToolTip="{StaticResource R_ToolTip_DisabledMinMode}"
+                        Visibility="Collapsed" />
+                    <TextBlock
+                        Margin="0"
+                        Style="{StaticResource StatusIconTextStyle}"
+                        Text="&#xE871;"
+                        ToolTip="{StaticResource R_ToolTip_DisabledMinMode}"
+                        Visibility="{Binding Visibility, ElementName=MinBlockMode}" />
+                </Grid>
+            </StackPanel>
+
+            <StackPanel
+                Grid.Column="2"
+                Margin="0,8,0,0"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Button
+                    x:Name="TitleBarUserButton"
+                    Margin="0,0,40,0"
+                    Padding="10,0"
+                    d:Visibility="Visible"
+                    Click="UserButton_Click"
+                    Style="{StaticResource TitleBarButtonStyle}"
+                    Visibility="Collapsed">
+                    <Button.ContextMenu>
+                        <ContextMenu x:Name="UserMenu" FontSize="16">
+                            <MenuItem Click="MenuSignout_Click">
+                                <MenuItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xF3B1;" />
+                                        <Label Content="{StaticResource R_Menu_Signout}" Style="{StaticResource MenuItemLabelStyle}" />
+                                    </StackPanel>
+                                </MenuItem.Header>
+                            </MenuItem>
+                            <Separator />
+                            <MenuItem Click="MenuShutdown_Click">
+                                <MenuItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE7E8;" />
+                                        <Label Content="{StaticResource R_Menu_Shutdown}" Style="{StaticResource MenuItemLabelStyle}" />
+                                    </StackPanel>
+                                </MenuItem.Header>
+                            </MenuItem>
+                            <MenuItem Click="MenuRestart_Click">
+                                <MenuItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE72C;" />
+                                        <Label Content="{StaticResource R_Menu_Restart}" Style="{StaticResource MenuItemLabelStyle}" />
+                                    </StackPanel>
+                                </MenuItem.Header>
+                            </MenuItem>
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            x:Name="UserId"
+                            Margin="0,0,5,0"
+                            d:Text="User1"
+                            Foreground="#FAEEED" />
+                        <Grid>
+                            <Ellipse Stroke="#FAEEED" />
+                            <TextBlock
+                                Margin="0"
+                                Padding="3,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Foreground="#FAEEED"
+                                Style="{StaticResource IconTextStyle}"
+                                Text="&#xE77B;" />
+                        </Grid>
+                    </StackPanel>
+                </Button>
+                <Button
+                    x:Name="TitleBarMoreButton"
+                    Margin="0,0,40,0"
+                    Padding="10,5"
+                    Click="TitleBarMoreButton_Click"
+                    Content="&#xE712;"
+                    Style="{StaticResource TitleBarIconButtonStyle}" />
+                <Button
+                    Click="TitleBarMinButton_Click"
+                    Content="&#xE921;"
+                    Style="{StaticResource TitleBarIconButtonStyle}"
+                    ToolTip="{StaticResource R_ToolTip_MinimizedButton}" />
+                <Button
+                    Click="TitleBarCloseButton_Click"
+                    Content="&#xE8BB;"
+                    Style="{StaticResource TitleBarCloseButtonStyle}"
+                    ToolTip="{StaticResource R_ToolTip_CloseButton}" />
+
+            </StackPanel>
+
+        </Grid>
 
         <ScrollViewer
             x:Name="MainScroll"

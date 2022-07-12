@@ -82,6 +82,32 @@
 
                 <StackPanel Orientation="Horizontal">
                     <CheckBox
+                        x:Name="ShowKeyStatusInTitleBar"
+                        HorizontalAlignment="Left"
+                        Content="{StaticResource R_ShowKeyStatusInTitleBar}" />
+                    <RadioButton
+                        x:Name="KeyStatusLeft"
+                        Margin="25,5,15,5"
+                        Content="{StaticResource R_Left}"
+                        GroupName="keyStatus"
+                        IsChecked="True"
+                        IsEnabled="{Binding IsChecked, ElementName=ShowKeyStatusInTitleBar}" />
+                    <RadioButton
+                        x:Name="KeyStatusCenter"
+                        Content="{StaticResource R_Center}"
+                        GroupName="keyStatus"
+                        Margin="5"
+                        IsEnabled="{Binding IsChecked, ElementName=ShowKeyStatusInTitleBar}" />
+                    <RadioButton
+                        x:Name="KeyStatusRight"
+                        Content="{StaticResource R_Right}"
+                        Margin="15,5,5,5"
+                        GroupName="keyStatus"
+                        IsEnabled="{Binding IsChecked, ElementName=ShowKeyStatusInTitleBar}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox
                         x:Name="ShowUserInTitleBar"
                         HorizontalAlignment="Left"
                         Content="{StaticResource R_ShowUserInTitleBar}" />
@@ -98,6 +124,7 @@
                         GroupName="user"
                         IsEnabled="{Binding IsChecked, ElementName=ShowUserInTitleBar}" />
                 </StackPanel>
+                
                 <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_MouseGesture}" Visibility="Collapsed" />
                 <CheckBox Content="{StaticResource R_EnableGesture}" Visibility="Collapsed" />
 
@@ -127,7 +154,7 @@
                         Text="" />
                 </StackPanel>
                 <StackPanel Margin="40,5,10,5" Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource StandardTextStyle}" Text="Runtime Version: " />
+                    <TextBlock Style="{StaticResource StandardTextStyle}" Text=".NET Runtime Version: " />
                     <TextBlock
                         x:Name="RuntimeVersionText"
                         Style="{StaticResource StandardTextStyle}"

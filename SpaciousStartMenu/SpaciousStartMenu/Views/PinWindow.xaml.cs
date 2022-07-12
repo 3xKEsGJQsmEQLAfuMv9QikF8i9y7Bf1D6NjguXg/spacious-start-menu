@@ -23,6 +23,7 @@ namespace SpaciousStartMenu.Views
         private readonly Action _postSaveAction;
         private readonly Action _postCloseAction;
         private readonly AppSettings _settings;
+        private readonly int _groupNo;
         private readonly List<MarkColor> _colors = new();
         private bool _isEditing = false;
         private bool _hasError = false;
@@ -43,13 +44,15 @@ namespace SpaciousStartMenu.Views
             MainWindow mainWindow,
             Action postSaveAction,
             Action postCloseAction,
-            AppSettings settings)
+            AppSettings settings,
+            int groupNo)
         {
             InitializeComponent();
             _mainWindow = mainWindow;
             _postSaveAction = postSaveAction;
             _postCloseAction = postCloseAction;
             _settings = settings;
+            _groupNo = groupNo;
             RestoreWindowSize(_settings);
             DataContext = _vm;
             _vm.IsEdited = false;
@@ -84,6 +87,26 @@ namespace SpaciousStartMenu.Views
             var cv = CollectionViewSource.GetDefaultView(_colors);
             cv.SortDescriptions.Clear();
             cv.SortDescriptions.Add(new SortDescription("Order", ListSortDirection.Ascending));
+        }
+
+        private void DefList_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (_groupNo == 0 ||
+                _defItems is null ||
+                !_defItems.Any())
+            {
+                return;
+            }
+
+            for (int i = 0; i < _defItems.Count; i++)
+            {
+                if (_defItems[i].GroupNo == _groupNo)
+                {
+                    DefList.SelectedIndex = i;
+                    DefList.ScrollIntoView(DefList.SelectedItem);
+                    return;
+                }
+            }
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)

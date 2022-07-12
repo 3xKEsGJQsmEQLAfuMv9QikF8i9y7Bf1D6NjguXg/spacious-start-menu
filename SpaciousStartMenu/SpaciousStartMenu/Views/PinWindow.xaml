@@ -37,6 +37,7 @@
         <ListView
             x:Name="DefList"
             Margin="10"
+            Loaded="DefList_Loaded"
             Opacity="0.8"
             ScrollViewer.HorizontalScrollBarVisibility="Hidden"
             SelectedIndex="0"
@@ -254,9 +255,9 @@
                         <TextBlock
                             x:Name="SaveIcon"
                             Margin="0,2,8,0"
-                            Foreground="{DynamicResource AccentBrush}"
                             VerticalAlignment="Center"
                             FontFamily="Segoe MDL2 Assets"
+                            Foreground="{DynamicResource AccentBrush}"
                             Text="&#xE74E;" />
                         <Label
                             Grid.Column="1"

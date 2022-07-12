@@ -51,6 +51,20 @@ namespace SpaciousStartMenu.Views
             DblClickMin.IsChecked = stg.MarginDoubleClickMinimize;
             CtrlClickDisabledMin.IsChecked = stg.DisabledMinimizeCtrlClick;
 
+            ShowKeyStatusInTitleBar.IsChecked = stg.ShowModifireKeyStatusInTitleBar;
+            switch (stg.ModifireKeyStatusPosition)
+            {
+                case HorizontalAlignment.Center:
+                    KeyStatusCenter.IsChecked = true;
+                    break;
+                case HorizontalAlignment.Right:
+                    KeyStatusRight.IsChecked = true;
+                    break;
+                default:
+                    KeyStatusLeft.IsChecked = true;
+                    break;
+            }
+
             ShowUserInTitleBar.IsChecked = stg.ShowUserInTitleBar;
             if (stg.ShowUserType == UserType.UserName)
             {
@@ -107,8 +121,15 @@ namespace SpaciousStartMenu.Views
             _settings.MarginDoubleClickMinimize = DblClickMin.IsChecked == true;
             _settings.DisabledMinimizeCtrlClick = CtrlClickDisabledMin.IsChecked == true;
 
-            _settings.ShowUserInTitleBar = ShowUserInTitleBar.IsChecked == true;
+            _settings.ShowModifireKeyStatusInTitleBar = ShowKeyStatusInTitleBar.IsChecked == true;
+            _settings.ModifireKeyStatusPosition = KeyStatusLeft.IsChecked == true
+                ? HorizontalAlignment.Left
+                : KeyStatusCenter.IsChecked == true
+                    ? HorizontalAlignment.Center
+                    : HorizontalAlignment.Right;
 
+            _settings.ShowUserInTitleBar = ShowUserInTitleBar.IsChecked == true;
+            
             _settings.ConfirmCloseMenu = ConfirmClose.IsChecked == true;
             _settings.ShowUserType = UserName.IsChecked == true
                 ? UserType.UserName
