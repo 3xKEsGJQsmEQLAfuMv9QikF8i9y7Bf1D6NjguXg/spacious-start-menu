@@ -1,4 +1,6 @@
-﻿namespace SpaciousStartMenu.Settings
+﻿using System.Windows;
+
+namespace SpaciousStartMenu.Settings
 {
     public class AppSettings
     {
@@ -11,6 +13,8 @@
         public bool DisabledMinimizeCtrlClick { get; set; } = true;
         public bool ShowOpenAndExitMenuItem { get; set; } = false;
         public bool ShowDirectEditDefineButton { get; set; } = false;
+        public bool ShowModifireKeyStatusInTitleBar { get; set; } = true;
+        public HorizontalAlignment ModifireKeyStatusPosition { get; set; } = HorizontalAlignment.Left;
         public bool ShowUserInTitleBar { get; set; } = false;
         public UserType ShowUserType { get; set; } = UserType.UserName;
         public string ValueWhenDisplayNameNotFound { get; set; } = "-----";
@@ -36,4 +40,5 @@
         UserName = 0,
         DisplayName = 1,
     }
+
 }

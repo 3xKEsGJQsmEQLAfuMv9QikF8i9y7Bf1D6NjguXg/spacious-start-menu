@@ -65,8 +65,10 @@ namespace SpaciousStartMenu.Settings
             Args = null;
         }
 
+        public int GroupNo { get; set; }
+
         public LaunchDefItem(
-            string? colorName, string? title, string? path, string? workDir, string? args)
+            string? colorName, string? title, string? path, string? workDir, string? args, int groupNo = 0)
         {
             IsDelete = false;
 
@@ -81,6 +83,7 @@ namespace SpaciousStartMenu.Settings
             Path = path;
             WorkDir = workDir;
             Args = args;
+            GroupNo = groupNo;
         }
 
         public string ToDefString()
@@ -97,7 +100,7 @@ namespace SpaciousStartMenu.Settings
 
         public LaunchDefItem Copy()
         {
-            return new LaunchDefItem(ColorName, Title, Path, WorkDir, Args);
+            return new LaunchDefItem(ColorName, Title, Path, WorkDir, Args, GroupNo);
         }
 
     }
