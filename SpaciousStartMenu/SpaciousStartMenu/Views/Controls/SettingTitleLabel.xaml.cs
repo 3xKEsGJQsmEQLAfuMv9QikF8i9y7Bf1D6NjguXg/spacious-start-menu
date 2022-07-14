@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
 
 namespace SpaciousStartMenu.Views.Controls
 {
@@ -14,6 +15,15 @@ namespace SpaciousStartMenu.Views.Controls
         {
             get => (string)GetValue(TextProperty);
             set => SetValue(TextProperty, value);
+        }
+
+        public void Hilight()
+        {
+            var board = (Storyboard)FindResource("HilightAnimation");
+            if (board is not null)
+            {
+                board.Begin();
+            }
         }
 
         public static readonly DependencyProperty TextProperty =

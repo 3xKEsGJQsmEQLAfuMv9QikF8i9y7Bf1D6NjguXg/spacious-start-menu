@@ -8,7 +8,18 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <Storyboard x:Key="HilightAnimation" BeginTime="0:0:0">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Bd" Storyboard.TargetProperty="Background.Color">
+                <SplineColorKeyFrame KeyTime="0:0:0" Value="#AAB3B3B3" />
+                <SplineColorKeyFrame KeyTime="0:0:0.8" Value="#30808080" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+
     <Border
+        x:Name="Bd"
         Margin="10,5,10,0"
         Background="#30808080"
         CornerRadius="4">
