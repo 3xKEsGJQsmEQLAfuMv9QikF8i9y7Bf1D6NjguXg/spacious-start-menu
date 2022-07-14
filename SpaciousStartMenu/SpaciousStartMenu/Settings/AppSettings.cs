@@ -33,6 +33,7 @@ namespace SpaciousStartMenu.Settings
         public double PinEditScreenTop { get; set; } = -1.0;
         public double SettingsScreenHeight { get; set; } = 0.0;
         public double SettingsScreenWidth { get; set; } = 0.0;
+        public double SettingsScreenHeadlineWidth { get; set; } = 0.0;
     }
 
     public enum UserType

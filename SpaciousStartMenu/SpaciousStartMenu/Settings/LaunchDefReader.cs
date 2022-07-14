@@ -20,9 +20,12 @@ namespace SpaciousStartMenu.Settings
             int groupCount = 0;
             var items = new ObservableCollection<LaunchDefItem>();
             using var reader = new StreamReader(_filePath, Encoding.UTF8);
+            int line = 0;
 
             while (!reader.EndOfStream)
             {
+                line++;
+
                 // TAB split
                 var columns = reader.ReadLine()?.Split(LauncherDefinition.Delimiter);
                 if (columns is null ||
@@ -37,9 +40,9 @@ namespace SpaciousStartMenu.Settings
                 if (_btnDef.IsGroupTitle(columns))
                 {
                     string title = _btnDef.GetGroupTitle(columns);
-                    if (string.IsNullOrWhiteSpace(title))
+                    if (string.IsNullOrEmpty(title))
                     {
-                        continue;
+                        title = " ";
                     }
                     groupCount++;
                     item = new LaunchDefItem(title);
@@ -57,7 +60,7 @@ namespace SpaciousStartMenu.Settings
                 else
                 {
                     throw new Exception(
-                        $"{App.R("MsgErrSettingsColumn")}\n{string.Join(LauncherDefinition.Delimiter, columns)}");
+                        $"{App.R("MsgErrSettingsColumn")}\nLINE {line}:{string.Join(LauncherDefinition.Delimiter, columns)}");
                 }
 
                 items.Add(item);
