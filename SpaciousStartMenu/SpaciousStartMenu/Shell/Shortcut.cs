@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace SpaciousStartMenu.Shell
 {
@@ -31,6 +32,15 @@ namespace SpaciousStartMenu.Shell
                 shortcut.Arguments = "/min";
             }
             shortcut.Save();
+
+            if (shortcut is not null)
+            {
+                Marshal.ReleaseComObject(shortcut);
+            }
+            if (shell is not null)
+            {
+                Marshal.ReleaseComObject(shell);
+            }
         }
     }
 }
