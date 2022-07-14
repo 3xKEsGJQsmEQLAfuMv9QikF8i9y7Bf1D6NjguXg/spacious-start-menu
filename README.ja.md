@@ -189,11 +189,11 @@ scoop bucket rm 3xkesg
 
 タスクバーアイコンを左端の位置に移動します。
 
-![image10](https://user-images.githubusercontent.com/99333667/169648188-5ecdc736-b12d-403e-ba67-5c9d5648b46d.png)
+![image10](https://user-images.githubusercontent.com/99333667/178992497-734ecff4-3677-43e1-a599-ae7baf312978.png)
 
 タスクバーにピン留めします。
 
-![image11j](https://user-images.githubusercontent.com/99333667/174457313-ebb5c6a7-8083-4dfa-8c36-6a55cfd648f0.png)
+![image11jp](https://user-images.githubusercontent.com/99333667/178992863-063cf758-3754-4e05-9ff9-7841de2f7ffe.png)
 
 これで`Win` + `1`のショートカットキーでメニューを起動またはアクティブにできます。
 
