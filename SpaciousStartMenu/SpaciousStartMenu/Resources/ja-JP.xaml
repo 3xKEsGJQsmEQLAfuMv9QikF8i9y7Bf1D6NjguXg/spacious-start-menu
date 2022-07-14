@@ -123,8 +123,8 @@
 
     <!--  ダイアログ  -->
     <sys:String x:Key="R_SaveFileDialogTitle">保存するファイル名を指定してください</sys:String>
-    <sys:String x:Key="R_OpenFileDialogTitle">取り込むファイルを指定してください</sys:String>
-
+    <sys:String x:Key="R_ImportFileDialogTitle">取り込むファイルを指定してください</sys:String>
+    <sys:String x:Key="R_OpenFileDialogTitle">ファイルを指定してください</sys:String>
 
     <!--  メッセージ  -->
     <sys:String x:Key="MsgErrUnsupportedOS">未サポートのOSです。</sys:String>

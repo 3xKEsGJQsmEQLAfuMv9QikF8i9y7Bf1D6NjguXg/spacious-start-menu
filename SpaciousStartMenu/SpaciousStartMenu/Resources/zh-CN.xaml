@@ -123,7 +123,8 @@
 
     <!--  Dialog  -->
     <sys:String x:Key="R_SaveFileDialogTitle">指定要保存的文件名</sys:String>
-    <sys:String x:Key="R_OpenFileDialogTitle">指定要导入的文件</sys:String>
+    <sys:String x:Key="R_ImportFileDialogTitle">指定要导入的文件</sys:String>
+    <sys:String x:Key="R_OpenFileDialogTitle">请指定一个文件</sys:String>
 
     <!--  Messages  -->
     <sys:String x:Key="MsgErrUnsupportedOS">不支持的操作系统。</sys:String>

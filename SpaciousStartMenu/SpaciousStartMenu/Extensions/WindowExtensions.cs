@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using SpaciousStartMenu.Views;
+using System;
+using System.Windows;
 
 namespace SpaciousStartMenu.Extensions
 {
@@ -43,5 +45,18 @@ namespace SpaciousStartMenu.Extensions
                 window.Top = top;
             }
         }
+
+        public static void TryCatch(this Window owner, Action action)
+        {
+            try
+            {
+                action();
+            }
+            catch (Exception ex)
+            {
+                owner.Error(ex.ToString());
+            }
+        }
+
     }
 }

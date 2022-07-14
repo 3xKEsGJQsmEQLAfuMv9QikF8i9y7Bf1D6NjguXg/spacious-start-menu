@@ -123,8 +123,8 @@
 
     <!--  Dialog  -->
     <sys:String x:Key="R_SaveFileDialogTitle">Specify the name of the file to save</sys:String>
-    <sys:String x:Key="R_OpenFileDialogTitle">Specify the file to be imported</sys:String>
-
+    <sys:String x:Key="R_ImportFileDialogTitle">Specify the file to be imported</sys:String>
+    <sys:String x:Key="R_OpenFileDialogTitle">Please specify a file</sys:String>
 
     <!--  Messages  -->
     <sys:String x:Key="MsgErrUnsupportedOS">Unsupported Operating System.</sys:String>

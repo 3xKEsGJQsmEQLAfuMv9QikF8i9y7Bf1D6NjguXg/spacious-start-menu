@@ -123,8 +123,8 @@
 
     <!--  Dialog  -->
     <sys:String x:Key="R_SaveFileDialogTitle">저장할 파일 이름 지정</sys:String>
-    <sys:String x:Key="R_OpenFileDialogTitle">가져올 파일 지정</sys:String>
-
+    <sys:String x:Key="R_ImportFileDialogTitle">가져올 파일 지정</sys:String>
+    <sys:String x:Key="R_OpenFileDialogTitle">파일을 지정하십시오</sys:String>
 
     <!--  Messages  -->
     <sys:String x:Key="MsgErrUnsupportedOS">지원되지 않는 운영 체제입니다.</sys:String>
