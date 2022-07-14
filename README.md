@@ -189,11 +189,11 @@ Special folders and environment variables selection menu.
 
 Move the taskbar icon to the leftmost position.
 
-![image10](https://user-images.githubusercontent.com/99333667/169648188-5ecdc736-b12d-403e-ba67-5c9d5648b46d.png)
+![image10](https://user-images.githubusercontent.com/99333667/178992497-734ecff4-3677-43e1-a599-ae7baf312978.png)
 
 Pin it to the taskbar.
 
-![image11](https://user-images.githubusercontent.com/99333667/169648202-b4ef02dc-9e97-4d80-b23c-77b07a92baa0.png)
+![image11](https://user-images.githubusercontent.com/99333667/178992577-f00f7875-a6d5-4192-87c7-cc404d1b07c0.png)
 
 This allows the menu to be launched or activated with `Win` + `1`.
 
