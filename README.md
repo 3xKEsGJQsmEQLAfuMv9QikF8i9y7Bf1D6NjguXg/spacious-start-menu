@@ -183,7 +183,7 @@ Special folders and environment variables selection menu.
 
 ## 🔷Settings screen
 
-![imageStg](https://user-images.githubusercontent.com/99333667/178488148-28baba20-1d21-4cd6-ad93-b99d5e26f9a5.png)
+![imageStg](https://user-images.githubusercontent.com/99333667/179078153-a0a3dca2-2f42-462e-b495-5f6582cb5f75.png)
 
 # 🟦Recommended initial settings
 
