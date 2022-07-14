@@ -213,8 +213,7 @@ namespace SpaciousStartMenu.Views
             }
 
             string path = dropFiles.FirstOrDefault() ?? "";
-            if (path != "" &&
-                string.IsNullOrEmpty(TitleText.Text))
+            if (path != "")
             {
                 TitleText.Text = Path.GetFileName(path);
             }
@@ -239,7 +238,7 @@ namespace SpaciousStartMenu.Views
 
         private void UpdateOkButtonEnabled()
         {
-            if (string.IsNullOrWhiteSpace(TitleText.Text) ||
+            if (string.IsNullOrEmpty(TitleText.Text) ||
                 (HeadlineCheck.IsChecked == false &&
                 string.IsNullOrWhiteSpace(PathText.Text)))
             {
@@ -285,6 +284,30 @@ namespace SpaciousStartMenu.Views
             }
             e.Handled = true;
             t.Focus();
+        }
+
+        private void PathFileRefButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var dlg = new Microsoft.Win32.OpenFileDialog
+                {
+                    Title = App.R("R_OpenFileDialogTitle"),
+                    Filter = "(*.*)|*.*",
+                    CheckFileExists = true
+                };
+
+                if (dlg.ShowDialog() == true)
+                {
+                    PathText.Text = dlg.FileName;
+                    TitleText.Text = Path.GetFileName(dlg.FileName);
+                    UpdateOkButtonEnabled();
+                }
+            }
+            catch (Exception ex)
+            {
+                this.Error(ex.ToString());
+            }
         }
 
         private void SpecialFolderMenuButton_Click(object sender, RoutedEventArgs e)
@@ -381,5 +404,6 @@ namespace SpaciousStartMenu.Views
 
             SpecialFolderPopup.IsOpen = false;
         }
+
     }
 }

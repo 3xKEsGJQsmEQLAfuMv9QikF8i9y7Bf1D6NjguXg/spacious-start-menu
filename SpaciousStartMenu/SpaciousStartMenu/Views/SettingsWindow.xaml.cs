@@ -2,8 +2,10 @@
 using SpaciousStartMenu.FileIO;
 using SpaciousStartMenu.Settings;
 using SpaciousStartMenu.Shell;
+using SpaciousStartMenu.Views.Controls;
 using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace SpaciousStartMenu.Views
 {
@@ -30,6 +32,11 @@ namespace SpaciousStartMenu.Views
                 this.SetWindowSize(
                     stg.SettingsScreenHeight,
                     stg.SettingsScreenWidth);
+
+                if (0 < stg.SettingsScreenHeadlineWidth)
+                {
+                    HeadlinePaneColumn.Width = new GridLength(stg.SettingsScreenHeadlineWidth);
+                }
             }
         }
 
@@ -95,6 +102,7 @@ namespace SpaciousStartMenu.Views
             {
                 stg.SettingsScreenHeight = Height;
                 stg.SettingsScreenWidth = Width;
+                stg.SettingsScreenHeadlineWidth = HeadlinePaneColumn.Width.Value;
             }
         }
 
@@ -150,7 +158,7 @@ namespace SpaciousStartMenu.Views
 
         private void RegShortcut_Click(object sender, RoutedEventArgs e)
         {
-            try
+            this.TryCatch(() =>
             {
                 if (Shortcut.ExistsStartupShortcut(App.R("R_AppLinkName")))
                 {
@@ -161,11 +169,7 @@ namespace SpaciousStartMenu.Views
 
                 RegShortcut.IsEnabled = false;
                 RemoveShortcut.IsEnabled = true;
-            }
-            catch (Exception ex)
-            {
-                this.Error(ex.ToString());
-            }
+            });
         }
 
         private void MinimizeStartupShortcut_Click(object sender, RoutedEventArgs e)
@@ -175,7 +179,7 @@ namespace SpaciousStartMenu.Views
 
         private void RemoveShortcut_Click(object sender, RoutedEventArgs e)
         {
-            try
+            this.TryCatch(() =>
             {
                 if (Shortcut.ExistsStartupShortcut(App.R("R_AppLinkName")))
                 {
@@ -184,11 +188,7 @@ namespace SpaciousStartMenu.Views
                 }
                 RegShortcut.IsEnabled = true;
                 RemoveShortcut.IsEnabled = false;
-            }
-            catch (Exception ex)
-            {
-                this.Error(ex.ToString());
-            }
+            });
         }
 
 
@@ -231,7 +231,7 @@ namespace SpaciousStartMenu.Views
             {
                 var dlg = new Microsoft.Win32.OpenFileDialog
                 {
-                    Title = App.R("R_OpenFileDialogTitle"),
+                    Title = App.R("R_ImportFileDialogTitle"),
                     Filter = "(*.defbkup)|*.defbkup|(*.*)|*.*",
                     CheckFileExists = true
                 };
@@ -265,6 +265,55 @@ namespace SpaciousStartMenu.Views
             finally
             {
                 IsEnabled = true;
+            }
+        }
+
+        private void HeaderList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            this.TryCatch(() =>
+            {
+                if (SettingsPane is null ||
+                    sender is not ListBox list ||
+                    list.SelectedItem is not ListBoxItem item)
+                {
+                    return;
+                }
+
+                string target = item.Content?.ToString() ?? "";
+                if (string.IsNullOrEmpty(target))
+                {
+                    return;
+                }
+
+                ScrollAndHilight(target);
+            });
+        }
+
+        private void ScrollAndHilight(string target)
+        {
+            foreach (var child in LogicalTreeHelper.GetChildren(SettingsPane))
+            {
+                if (child is not SettingTitleLabel title ||
+                    title.Text != target)
+                {
+                    continue;
+                }
+
+                if (target == App.R("R_Settings_Setup"))
+                {
+                    SView.ScrollToTop();
+                }
+                else if (target == App.R("R_Settings_About"))
+                {
+                    SView.ScrollToBottom();
+                }
+                else
+                {
+                    title.BringIntoView();
+                }
+
+                title.Hilight();
+                return;
             }
         }
     }

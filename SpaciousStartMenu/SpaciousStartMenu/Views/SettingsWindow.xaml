@@ -13,6 +13,7 @@
     MaxHeight="1080"
     d:Height="850"
     Closing="Window_Closing"
+    FocusManager.FocusedElement="{Binding ElementName=HeaderList}"
     Loaded="Window_Loaded"
     StateChanged="Window_StateChanged"
     Style="{StaticResource ToolWindowStyle}"
@@ -25,9 +26,55 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid.ColumnDefinitions>
+            <!--  Headline Pane  -->
+            <ColumnDefinition
+                x:Name="HeadlinePaneColumn"
+                Width="120"
+                MinWidth="40"
+                MaxWidth="250" />
+            <!--  Splitter  -->
+            <ColumnDefinition Width="Auto" />
+            <!--  Settings Pane  -->
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
 
-            <StackPanel>
+        <ListBox
+            x:Name="HeaderList"
+            SelectedIndex="0"
+            SelectionChanged="HeaderList_SelectionChanged">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Style.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="4" />
+                        </Style>
+                    </Style.Resources>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBoxItem Content="{StaticResource R_Settings_Setup}" />
+            <ListBoxItem Content="{StaticResource R_Settings_Minimize}" />
+            <ListBoxItem Content="{StaticResource R_Settings_TitleBar}" />
+            <ListBoxItem Content="{StaticResource R_Settings_Confirm}" />
+            <ListBoxItem Content="{StaticResource R_Settings_ContextMenu}" />
+            <ListBoxItem Content="{StaticResource R_Settings_SubScreen}" />
+            <ListBoxItem Content="{StaticResource R_Settings_Advanced}" />
+            <ListBoxItem Content="{StaticResource R_Settings_About}" />
+        </ListBox>
+
+        <GridSplitter
+            Grid.Column="1"
+            Width="5"
+            IsTabStop="False"
+            HorizontalAlignment="Stretch"
+            Background="#5E5E5E" />
+
+        <ScrollViewer
+            x:Name="SView"
+            Grid.Column="2"
+            VerticalScrollBarVisibility="Auto">
+
+            <StackPanel x:Name="SettingsPane">
                 <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_Setup}" />
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
@@ -94,14 +141,14 @@
                         IsEnabled="{Binding IsChecked, ElementName=ShowKeyStatusInTitleBar}" />
                     <RadioButton
                         x:Name="KeyStatusCenter"
+                        Margin="5"
                         Content="{StaticResource R_Center}"
                         GroupName="keyStatus"
-                        Margin="5"
                         IsEnabled="{Binding IsChecked, ElementName=ShowKeyStatusInTitleBar}" />
                     <RadioButton
                         x:Name="KeyStatusRight"
-                        Content="{StaticResource R_Right}"
                         Margin="15,5,5,5"
+                        Content="{StaticResource R_Right}"
                         GroupName="keyStatus"
                         IsEnabled="{Binding IsChecked, ElementName=ShowKeyStatusInTitleBar}" />
                 </StackPanel>
@@ -124,7 +171,7 @@
                         GroupName="user"
                         IsEnabled="{Binding IsChecked, ElementName=ShowUserInTitleBar}" />
                 </StackPanel>
-                
+
                 <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_MouseGesture}" Visibility="Collapsed" />
                 <CheckBox Content="{StaticResource R_EnableGesture}" Visibility="Collapsed" />
 
@@ -168,6 +215,7 @@
 
         <StackPanel
             Grid.Row="1"
+            Grid.ColumnSpan="3"
             HorizontalAlignment="Right"
             Orientation="Horizontal">
             <Button

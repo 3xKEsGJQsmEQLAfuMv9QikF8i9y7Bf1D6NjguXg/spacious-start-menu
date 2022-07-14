@@ -1,5 +1,6 @@
 ﻿using SpaciousStartMenu.DataTypes;
 using SpaciousStartMenu.Env;
+using SpaciousStartMenu.Extensions;
 using SpaciousStartMenu.FileIO;
 using SpaciousStartMenu.Processings;
 using SpaciousStartMenu.Settings;
@@ -21,10 +22,12 @@ namespace SpaciousStartMenu.Views
         private readonly LauncherDefinition _btnDef = new();
         private int _buttonCount = 0;
         private int _groupCount = 0;
+        //private int _separatorCount = 0;
         private PinWindow? _pinWindow = null;
         private AppSettings _settings = new();
         private readonly Style _groupTitleStyle = (Style)(Application.Current.FindResource("GroupTitleStyle"));
         private readonly Style _groupContainerStyle = (Style)(Application.Current.FindResource("GroupContainerStyle"));
+        private readonly Style _groupSeparatorStyle = (Style)(Application.Current.FindResource("GroupSeparatorStyle"));
         private readonly Style _launchButtonStyle = (Style)(Application.Current.FindResource("LaunchButtonStyle"));
         private static readonly FontFamily _segoeMdl2Font = new("Segoe MDL2 Assets");
         private const string _colorMark = "\uE91F";
@@ -263,7 +266,7 @@ namespace SpaciousStartMenu.Views
 
         private void PinMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            TryCatch(() =>
+            this.TryCatch(() =>
             {
                 App.Current.Resources["AccentBrush"] = new SolidColorBrush(SystemParameters.WindowGlassColor);
                 if (_pinWindow is null ||
@@ -364,7 +367,7 @@ namespace SpaciousStartMenu.Views
 
         private void MenuFolderOpen_Click(object sender, RoutedEventArgs e)
         {
-            TryCatch(() =>
+            this.TryCatch(() =>
             {
                 string appPath = App.GetAppPath();
                 Execute(appPath, null, null);
@@ -595,6 +598,7 @@ namespace SpaciousStartMenu.Views
 
             _buttonCount = 0;
             _groupCount = 0;
+            //_separatorCount = 0;
 
             while (!reader.EndOfStream)
             {
@@ -641,6 +645,15 @@ namespace SpaciousStartMenu.Views
 
         }
 
+        private void MakeSeparator(ref int separatorCount)
+        {
+            var gs = new Separator();
+            gs.Style = _groupSeparatorStyle;
+            separatorCount++;
+            gs.Tag = separatorCount;
+            MainContainer.Children.Add(gs);
+        }
+
         private void MakeButton(string[] columns, ref WrapPanel? btnContainer, ref int buttonCount, ref int groupCount)
         {
             if (btnContainer is null)
@@ -661,11 +674,12 @@ namespace SpaciousStartMenu.Views
             buttonCount++;
         }
 
-        private void MakeGroup(ref WrapPanel? btnContainer, ref int groupCount, string groupTitle = "")
+
+        private void MakeGroup(ref WrapPanel? btnContainer, ref int groupCount, string groupTitle = " ")
         {
-            if (string.IsNullOrWhiteSpace(groupTitle))
+            if (string.IsNullOrEmpty(groupTitle))
             {
-                return;
+                groupTitle = " ";
             }
 
             var grpContainer = new StackPanel();
@@ -819,18 +833,6 @@ namespace SpaciousStartMenu.Views
                 // Text in the launch button
                 e.Handled = true;
                 return;
-            }
-        }
-
-        public void TryCatch(Action action)
-        {
-            try
-            {
-                action();
-            }
-            catch (Exception ex)
-            {
-                this.Error(ex.ToString());
             }
         }
 

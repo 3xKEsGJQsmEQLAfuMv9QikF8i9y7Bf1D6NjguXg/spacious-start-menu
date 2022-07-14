@@ -44,10 +44,6 @@
                     <ListBox
                         x:Name="ColorList"
                         Width="1000"
-                        Padding="5"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        Foreground="White"
                         KeyDown="ColorList_KeyDown"
                         PreviewMouseLeftButtonUp="ColorList_PreviewMouseLeftButtonUp"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -94,7 +90,7 @@
             StaysOpen="False">
             <Grid>
                 <Border
-                    Width="600"
+                    Width="500"
                     Background="#EE2F3445"
                     CornerRadius="4">
                     <Grid>
@@ -114,10 +110,6 @@
                         <ListBox
                             x:Name="SpecialFolderList"
                             Grid.Row="1"
-                            Padding="5"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            Foreground="White"
                             KeyDown="FolderList_KeyDown"
                             PreviewMouseLeftButtonUp="FolderList_PreviewMouseLeftButtonUp"
                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -165,10 +157,6 @@
                             x:Name="EnvFolderList"
                             Grid.Row="1"
                             Grid.Column="1"
-                            Padding="5"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            Foreground="White"
                             KeyDown="FolderList_KeyDown"
                             PreviewMouseLeftButtonUp="FolderList_PreviewMouseLeftButtonUp"
                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -271,14 +259,23 @@
                         Opacity="{Binding IsChecked, ConverterParameter=0.5, Converter={StaticResource BoolToDoubleConv}, ElementName=HeadlineCheck, Mode=OneWay}"
                         Placeholder="{StaticResource R_Description_EditPath}"
                         PreviewDragOver="PathText_PreviewDragOver" />
-                    <Button
-                        x:Name="PathContextButton"
-                        Grid.Column="1"
-                        Margin="0,0,10,10"
-                        Click="SpecialFolderMenuButton_Click"
-                        Content="&#xE712;"
-                        IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}"
-                        Style="{StaticResource IconButtonStyle}" />
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <Button
+                            x:Name="PathFileRefButton"
+                            Margin="0,0,5,10"
+                            Click="PathFileRefButton_Click"
+                            Content="&#xED25;"
+                            IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}"
+                            Style="{StaticResource IconButtonStyle}" />
+                        <Button
+                            x:Name="PathContextButton"
+                            Margin="0,0,10,10"
+                            Click="SpecialFolderMenuButton_Click"
+                            Content="&#xE712;"
+                            IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}"
+                            Style="{StaticResource IconButtonStyle}" />
+
+                    </StackPanel>
                 </Grid>
 
                 <!--  Title  -->
