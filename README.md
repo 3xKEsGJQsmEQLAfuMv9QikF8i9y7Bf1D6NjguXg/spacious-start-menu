@@ -21,6 +21,12 @@ The full screen listing frees the user from cumbersome scrolling operations.
 
 ![image00](https://user-images.githubusercontent.com/99333667/177764481-10bacdda-2ee5-4bbc-aea1-99d5cd088828.png)
 
+## Why full screen?
+
+It is unlikely that users need to see any information other than "candidate for launch" in order to perform the task of "launching an application".
+
+Therefore, the choices are deployed across the entire screen.
+
 # 🟦Requirements
 
 - Windows 10 or later
