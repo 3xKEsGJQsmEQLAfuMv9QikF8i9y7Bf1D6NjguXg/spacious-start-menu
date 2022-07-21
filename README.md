@@ -195,7 +195,7 @@ Pin it to the taskbar.
 
 ![image11](https://user-images.githubusercontent.com/99333667/178992577-f00f7875-a6d5-4192-87c7-cc404d1b07c0.png)
 
-Now you can use the `Win` + `1` shortcut key to launch or activate the application, which is similar to the way the Start menu is called up.
+Now you can use the `Win` + `1` shortcut key to launch or activate the launcher, which is similar to the way the Start menu is called up.
 
 # 🟦Reference article
 
