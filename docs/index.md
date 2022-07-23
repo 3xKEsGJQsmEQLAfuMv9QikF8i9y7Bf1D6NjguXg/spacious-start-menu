@@ -16,6 +16,8 @@ This is a program launcher that allows you to take advantage of the entire scree
 
 The full screen listing frees the user from cumbersome scrolling operations.
 
+This program will not replace the `Start Menu`, but the more you use it, the less often you should use the `Start Menu`.
+
 ![image](img/top-image.png)
 
 ### Why full screen?
