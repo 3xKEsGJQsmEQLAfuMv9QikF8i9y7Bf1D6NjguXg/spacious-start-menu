@@ -1,5 +1,15 @@
 ## Index
 
+- Overview
+- Requirements
+- [Install](install.md)
+- [Update](update.md)
+- [Uninstall](uninstall.md)
+- [Usage](usage.md)
+- [Other](other.md)
+  - Recommended initial settings
+  - Reference article
+
 ## Overview
 
 This is a program launcher that allows you to take advantage of the entire screen area.
