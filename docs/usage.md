@@ -25,6 +25,16 @@ It is displayed by right-clicking the `...` button on the title bar or the margi
 | Open Program Location | Open the folder where this program is located.       |
 | Open the program location and then exit the program | Open the folder where this program is located and exit the program. This menu item can be displayed in the settings.       |
 
+### 🔹Zoom in/out
+
+#### Zoom in
+
+![Zoom in](img/main02.png)
+
+#### Zoom out
+
+![Zoom out](img/main01.png)
+
 ## 🔷Pinned definition list screen
 
 This is the list screen displayed by `Edit Pin`.
