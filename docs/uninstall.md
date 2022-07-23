@@ -28,5 +28,3 @@ scoop bucket rm 3xkesg
 ---
 
 | [Index](index.md) | [Install](install.md) | [Update](update.md) | Uninstall | [Usage](usage.md) | [Other](other.md) |
-| ---- | ---- | ---- | ---- | ---- | ---- |
-
