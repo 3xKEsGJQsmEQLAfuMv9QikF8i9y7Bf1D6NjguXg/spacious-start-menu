@@ -59,4 +59,4 @@ Special folders and environment variables selection menu.
 
 ---
 
-[Back](index.md)
+| [Index](index.md) | [Install](install.md) | [Update](update.md) | [Uninstall](uninstall.md) | Usage | [Other](other.md) |
