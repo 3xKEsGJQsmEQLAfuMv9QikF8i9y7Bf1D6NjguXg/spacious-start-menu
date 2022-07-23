@@ -1,7 +1,7 @@
 # Index
 
-- Overview
-- Requirements
+- **Overview**
+- **Requirements**
 - [Install](install.md)
 - [Update](update.md)
 - [Uninstall](uninstall.md)
