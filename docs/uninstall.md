@@ -24,3 +24,7 @@ Execute the following command.
 ```
 scoop bucket rm 3xkesg
 ```
+
+---
+
+[Back](index.md)
