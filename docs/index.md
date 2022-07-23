@@ -28,3 +28,8 @@ Therefore, the choices are deployed across the entire screen.
 
 - Windows 10 or later
 - .NET 6 Desktop Runtime
+
+---
+
+| Index | [Install](install.md) | [Update](update.md) | [Uninstall](uninstall.md) | [Usage](usage.md) | [Other](other.md) |
+| ---- | ---- | ---- | ---- | ---- | ---- |
