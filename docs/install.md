@@ -41,4 +41,7 @@ scoop install spacious-start-menu
 
 ---
 
-[Back](index.md)
+| [Index](index.md) | Install | [Update](update.md) | [Uninstall](uninstall.md) | [Usage](usage.md) | [Other](other.md) |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+
+
