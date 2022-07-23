@@ -32,4 +32,4 @@ Therefore, the choices are deployed across the entire screen.
 ---
 
 | Index | [Install](install.md) | [Update](update.md) | [Uninstall](uninstall.md) | [Usage](usage.md) | [Other](other.md) |
-| ---- | ---- | ---- | ---- | ---- | ---- |
+
