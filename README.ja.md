@@ -20,7 +20,7 @@
 
 フルスクリーンで一覧できるため、ユーザーは煩雑なスクロール操作から解放されます。
 
-![image00](https://user-images.githubusercontent.com/99333667/177764163-f8ecca7f-f4e0-4d81-878d-cbbcf83f6786.png)
+![top-image-ja](https://user-images.githubusercontent.com/99333667/180603001-614402f3-aa9e-4cd9-9653-8846ac832c74.png)
 
 ## なぜ全画面?
 
