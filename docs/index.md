@@ -18,7 +18,7 @@ The full screen listing frees the user from cumbersome scrolling operations.
 
 ![image](img/top-image.png)
 
-## Why full screen?
+### Why full screen?
 
 It is unlikely that users need to see any information other than "candidate for launch" in order to perform the task of "launching an application".
 
