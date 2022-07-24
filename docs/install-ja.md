@@ -3,7 +3,7 @@
 
 ## ステップ1
 
-Download and install `x64` of `.NET Desktop Runtime 6.x` from [Download .NET 6.0 (Linux, macOS, and Windows)](https://dotnet.microsoft.com/download/dotnet/6.0).
+[.NET 6.0 (Linux、macOS、Windows) をダウンロードする](https://dotnet.microsoft.com/download/dotnet/6.0)の`.NET デスクトップ ランタイム`の`x64`リンクからダウンロード・インストールを実行します。
 
 ## ステップ2
 
