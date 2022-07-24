@@ -3,15 +3,15 @@
 
 ## ステップ1
 
-[.NET 6.0 (Linux、macOS、Windows) をダウンロードする](https://dotnet.microsoft.com/download/dotnet/6.0)の`.NET デスクトップ ランタイム`の`x64`リンクからダウンロード・インストールを実行します。
+[.NET 6.0 (Linux、macOS、Windows) をダウンロードする](https://dotnet.microsoft.com/download/dotnet/6.0)の `.NET デスクトップ ランタイム` の `x64` リンクからダウンロード・インストールを実行します。
 
 ## ステップ2
 
 ### 💠手動インストールの場合
 
-[Releases](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/releases)から`SpaciousStartMenu.zip`をダウンロードします。
+[Releases](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/releases)から `SpaciousStartMenu.zip` をダウンロードします。
 
-zipを右クリック、`プロパティ`を選択して、`許可する`にチェックを入れ、`OK`ボタンで閉じます。
+zipを右クリック、 `プロパティ` を選択して、 `許可する` にチェックを入れ、 `OK` ボタンで閉じます。
 
 ![プロパティ](img/install01-ja.png)
   
