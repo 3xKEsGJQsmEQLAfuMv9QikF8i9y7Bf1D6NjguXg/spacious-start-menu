@@ -13,7 +13,7 @@ You can open a folder or start a program by pressing the launch button.
 
 For executable programs, you can run them as an administrator by pressing the launch button while holding down `Ctrl` + `Shift`.
 
-### 🔹Context menu
+### 💠Context menu
 
 It is displayed by right-clicking the `...` button on the title bar or the margin other than the launch button.
 
@@ -25,7 +25,7 @@ It is displayed by right-clicking the `...` button on the title bar or the margi
 | Open Program Location | Open the folder where this program is located.       |
 | Open the program location and then exit the program | Open the folder where this program is located and exit the program. This menu item can be displayed in the settings.       |
 
-### 🔹Zoom in/out
+### 💠Zoom in/out
 
 #### Zoom in
 
