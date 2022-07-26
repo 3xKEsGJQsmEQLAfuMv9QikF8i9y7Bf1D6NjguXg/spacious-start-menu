@@ -6,6 +6,10 @@ Right-click on the screen and select `Edit Pinning` to add a definition.
 
 Launch defined applications, folders, etc. at the click of a button.
 
+- [Main screen](#main-screen)
+- [Pinned definition list screen](#pinned-definition-list-screen)
+- [Pin edit screen](#pin-edit-screen)
+- [Settings screen](#settings-screen)
 
 ## 🔷Main screen
 
@@ -26,6 +30,8 @@ It is displayed by right-clicking the `...` button on the title bar or the margi
 | Open the program location and then exit the program | Open the folder where this program is located and exit the program. This menu item can be displayed in the settings.       |
 
 ### 💠Zoom in/out
+
+You can zoom in/out by pressing the `+`, `-` buttons on the context menu or by holding down the `Ctrl` key and rotating the mouse wheel.
 
 #### Zoom in
 
