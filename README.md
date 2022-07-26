@@ -21,4 +21,4 @@ Therefore, the choices are deployed across the entire screen.
 
 ---
 
-[read more](https://3xkesgjqsmeqlafumv9qikf8i9y7bf1d6njguxg.github.io/spacious-start-menu/)
+[Read more](https://3xkesgjqsmeqlafumv9qikf8i9y7bf1d6njguxg.github.io/spacious-start-menu/)
