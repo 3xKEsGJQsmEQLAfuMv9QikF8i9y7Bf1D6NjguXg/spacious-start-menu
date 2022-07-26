@@ -47,7 +47,7 @@ This is the list screen displayed by `Edit Pin`.
 
 Double-click the list, click the Edit button on the far right, or click the `Add row` button to open the edit screen.
 
-If a line is checked for deletion, the deletion will be executed when the `Save` button is clicked.
+If you select the delete (trash can) icon on the far right or press the `Delete` key, the actual deletion will occur when the `Save` button is pressed.
 
 ![Pinned definition list](img/pinList01.png)
 
