@@ -14,7 +14,7 @@ It is unlikely that users need to see any information other than "candidate for 
 
 Therefore, the choices are deployed across the entire screen.
 
-# 🟦Requirements
+# Requirements
 
 - Windows 10 or later
 - .NET 6 Desktop Runtime
