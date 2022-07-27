@@ -10,7 +10,7 @@ This program will not replace the `Start Menu`, but the more you use it, the les
 
 ## Why full screen?
 
-It is unlikely that users need to see any information other than "candidate for launch" in order to perform the task of "launching an application".
+It is unlikely that users need to see any information other than **candidate for launch** in order to perform the task of **launching an application**.
 
 Therefore, the choices are deployed across the entire screen.
 
