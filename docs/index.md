@@ -22,7 +22,7 @@ This program will not replace the `Start Menu`, but the more you use it, the les
 
 ### Why full screen?
 
-What the user wants to see in order to accomplish the task of **launching an application** is a list of **candidate applications to launch**, and there is little need for any other information to be visible.
+In order for the user to perform the task of "launching an application", all the user needs to see is a list of "candidate applications to launch", and there is little need to see any other information in order to perform this task.
 
 ![Launcher example](img/bad-launcher.png)
 
