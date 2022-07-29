@@ -18,6 +18,7 @@ namespace SpaciousStartMenu.Settings
         public bool ShowUserInTitleBar { get; set; } = false;
         public UserType ShowUserType { get; set; } = UserType.UserName;
         public string ValueWhenDisplayNameNotFound { get; set; } = "-----";
+        public bool ShowSeqNoInGroupHeadline { get; set; } = false;
 
         // Screen size, position
         public bool SaveScreenSize { get; set; } = true;

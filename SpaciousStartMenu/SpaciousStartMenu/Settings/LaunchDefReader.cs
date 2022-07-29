@@ -45,8 +45,10 @@ namespace SpaciousStartMenu.Settings
                         title = " ";
                     }
                     groupCount++;
-                    item = new LaunchDefItem(title);
-                    item.GroupNo = groupCount;
+                    item = new LaunchDefItem(title)
+                    {
+                        GroupNo = groupCount
+                    };
                 }
                 else if (LauncherDefinition.RequiredColumns <= columns.Length)
                 {

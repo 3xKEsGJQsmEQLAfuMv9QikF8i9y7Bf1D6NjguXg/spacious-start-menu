@@ -6,6 +6,8 @@ namespace SpaciousStartMenu.Settings
     {
         public const char Delimiter = '\t';
         public const string GroupTitleHeader = "//";
+        public const string GroupSeparatorValue = "--------------------";
+        public const string GroupSeparator = $"{GroupTitleHeader}{GroupSeparatorValue}";
         public const int ColorOrGroupTitleColumnIndex = 0;
         public const int TitleColumnIndex = 1;
         public const int PathColumnIndex = 2;
@@ -77,14 +79,10 @@ Gray	Windows Update	ms-settings:windowsupdate
                 App.R("R_ControlPanel"));
         }
 
-        public bool IsGroupTitle(string[] values)
-        {
-            return values[ColorOrGroupTitleColumnIndex].StartsWith(GroupTitleHeader);
-        }
+        public bool IsGroupTitle(string[] values) => values[ColorOrGroupTitleColumnIndex].StartsWith(GroupTitleHeader);
 
-        public string GetGroupTitle(string[] values)
-        {
-            return values[ColorOrGroupTitleColumnIndex][GroupTitleHeader.Length..];
-        }
+        public bool IsGroupSeparator(string[] values) => values[ColorOrGroupTitleColumnIndex] == GroupSeparator;
+
+        public string GetGroupTitle(string[] values) => values[ColorOrGroupTitleColumnIndex][GroupTitleHeader.Length..];
     }
 }
