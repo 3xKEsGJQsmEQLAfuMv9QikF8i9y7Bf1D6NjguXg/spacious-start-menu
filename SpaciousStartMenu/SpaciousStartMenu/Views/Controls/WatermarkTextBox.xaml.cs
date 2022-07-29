@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -6,10 +8,13 @@ namespace SpaciousStartMenu.Views.Controls
 {
     public partial class WatermarkTextBox : UserControl
     {
+        public event TextChangedEventHandler? TextChanged;
+
         public WatermarkTextBox()
         {
             InitializeComponent();
         }
+
 
         public new bool IsEnabled
         {
@@ -89,6 +94,17 @@ namespace SpaciousStartMenu.Views.Controls
             Txt.Focus();
         }
 
+        private void Txt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TextChanged is null)
+            {
+                return;
+            }
+
+            Text = Txt.Text;
+            TextChanged(sender, e);
+        }
+
         private async void Watermark_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Watermark.Visibility = Visibility.Collapsed;
@@ -107,5 +123,6 @@ namespace SpaciousStartMenu.Views.Controls
                 e.Handled = true;
             }
         }
+
     }
 }

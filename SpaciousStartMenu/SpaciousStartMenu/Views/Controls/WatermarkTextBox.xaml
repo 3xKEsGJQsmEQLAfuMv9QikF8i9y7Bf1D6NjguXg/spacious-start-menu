@@ -25,7 +25,8 @@
             GotFocus="Txt_GotFocus"
             PreviewMouseLeftButtonDown="Txt_PreviewMouseLeftButtonDown"
             Style="{StaticResource EditItemStyle}"
-            Text="{Binding Path=Text, ElementName=Root}" />
+            Text="{Binding Path=Text, ElementName=Root}"
+            TextChanged="Txt_TextChanged" />
 
         <TextBlock
             x:Name="Watermark"
