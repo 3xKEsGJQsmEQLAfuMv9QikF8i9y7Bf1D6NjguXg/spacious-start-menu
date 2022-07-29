@@ -7,9 +7,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:SpaciousStartMenu.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sh="clr-namespace:SpaciousStartMenu.Shell"
     Title="{StaticResource R_EditTitle}"
     Width="800"
-    Height="520"
+    Height="550"
     MaxHeight="750"
     Closing="Window_Closing"
     FocusManager.FocusedElement="{Binding ElementName=HeadlineCheck}"
@@ -24,6 +25,8 @@
     <Window.Resources>
         <cnv:InvertBooleanConverter x:Key="InvertBoolConv" />
         <cnv:BooleanToDoubleConverter x:Key="BoolToDoubleConv" />
+        <cnv:BooleanToReverseDoubleConverter x:Key="BoolToReverseDoubleConv" />
+        <cnv:BooleansToBooleanConverter x:Key="BoolsToBoolConv" />
     </Window.Resources>
 
     <Grid Style="{StaticResource BaseGridStyle}">
@@ -31,6 +34,8 @@
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+
+        <!--#region Popup-->
 
         <Popup
             x:Name="ColorPopup"
@@ -187,17 +192,81 @@
             </Grid>
         </Popup>
 
+        <Popup
+            x:Name="SpecialCmdPopup"
+            AllowsTransparency="True"
+            Opened="SpecialCmdPopup_Opened"
+            StaysOpen="False">
+            <Grid>
+                <Border
+                    Width="250"
+                    Background="#EE2F3445"
+                    CornerRadius="4">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock
+                            Margin="5"
+                            Style="{StaticResource GroupTitleStyle}"
+                            Text="{StaticResource R_Edit_SpecialCmd}" />
+                        <ListBox
+                            x:Name="SpecialCmdList"
+                            Grid.Row="1"
+                            KeyDown="CmdList_KeyDown"
+                            PreviewMouseLeftButtonUp="CmdList_PreviewMouseLeftButtonUp"
+                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                            SelectedIndex="0">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Style.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="4" />
+                                        </Style>
+                                    </Style.Resources>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+
+                            <ListBoxItem Content="{x:Static sh:SpecialCommandType.System_Signout}" />
+                            <ListBoxItem Content="{x:Static sh:SpecialCommandType.System_Shutdown}" />
+                            <ListBoxItem Content="{x:Static sh:SpecialCommandType.System_Restart}" />
+                            <ListBoxItem Content="{x:Static sh:SpecialCommandType.App_Minimized}" />
+                            <ListBoxItem Content="{x:Static sh:SpecialCommandType.App_ScrollToTop}" />
+                            <ListBoxItem Content="{x:Static sh:SpecialCommandType.App_ScrollToBottom}" />
+                            <ListBoxItem Content="{x:Static sh:SpecialCommandType.Desktop_Show}" />
+                            <ListBoxItem Content="{x:Static sh:SpecialCommandType.Settings_Show}" />
+                            <ListBoxItem Content="{x:Static sh:SpecialCommandType.Explorer_CloseAllFolders}" />
+                            <ListBoxItem Content="{x:Static sh:SpecialCommandType.Info_LaunchButtonCount}" />
+                            <ListBoxItem Content="{x:Static sh:SpecialCommandType.Info_GroupTitleCount}" />
+                        </ListBox>
+
+                    </Grid>
+                </Border>
+            </Grid>
+        </Popup>
+
+        <!--#endregion-->
+
         <ScrollViewer VerticalScrollBarVisibility="Auto">
 
             <StackPanel>
-                <!--  Headline  -->
-                <CheckBox
-                    x:Name="HeadlineCheck"
-                    Margin="10,10,10,0"
-                    HorizontalAlignment="Left"
-                    Checked="HeadlineCheck_Checked"
-                    Click="HeadlineCheck_Click"
-                    Content="{StaticResource R_Edit_Headline}" />
+                <StackPanel Orientation="Horizontal">
+                    <!--  Headline  -->
+                    <CheckBox
+                        x:Name="HeadlineCheck"
+                        Checked="HeadlineCheck_Checked"
+                        Click="HeadlineCheck_Click"
+                        Content="{StaticResource R_Edit_Headline}" />
+
+                    <Button
+                        Margin="10,10,10,0"
+                        Click="SeparatorButton_Click"
+                        Content="{StaticResource R_Edit_Separator}"
+                        IsEnabled="{Binding IsChecked, ElementName=HeadlineCheck, Mode=OneWay}"
+                        Style="{StaticResource StandardButtonStyle}" />
+                </StackPanel>
 
                 <!--  Color  -->
                 <Label
@@ -241,6 +310,12 @@
                         Style="{StaticResource IconButtonStyle}" />
                 </StackPanel>
 
+                <CheckBox
+                    x:Name="SpecialCmd"
+                    Click="SpecialCmd_Click"
+                    Content="{StaticResource R_Edit_SpecialCmd}"
+                    IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}" />
+
                 <!--  Path  -->
                 <Label
                     Content="{StaticResource R_Edit_Path}"
@@ -258,15 +333,28 @@
                         IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}"
                         Opacity="{Binding IsChecked, ConverterParameter=0.5, Converter={StaticResource BoolToDoubleConv}, ElementName=HeadlineCheck, Mode=OneWay}"
                         Placeholder="{StaticResource R_Description_EditPath}"
-                        PreviewDragOver="PathText_PreviewDragOver" />
+                        PreviewDragOver="PathText_PreviewDragOver"
+                        TextChanged="PathText_TextChanged" />
                     <StackPanel Grid.Column="1" Orientation="Horizontal">
                         <Button
                             x:Name="PathFileRefButton"
                             Margin="0,0,5,10"
                             Click="PathFileRefButton_Click"
                             Content="&#xED25;"
-                            IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}"
-                            Style="{StaticResource IconButtonStyle}" />
+                            Style="{StaticResource IconButtonStyle}">
+                            <Button.IsEnabled>
+                                <MultiBinding Converter="{StaticResource BoolsToBoolConv}" ConverterParameter="OrTrueToFalse">
+                                    <Binding
+                                        ElementName="HeadlineCheck"
+                                        Mode="OneWay"
+                                        Path="IsChecked" />
+                                    <Binding
+                                        ElementName="SpecialCmd"
+                                        Mode="OneWay"
+                                        Path="IsChecked" />
+                                </MultiBinding>
+                            </Button.IsEnabled>
+                        </Button>
                         <Button
                             x:Name="PathContextButton"
                             Margin="0,0,10,10"
@@ -294,7 +382,7 @@
                 <!--  Work Directory  -->
                 <Label
                     Content="{StaticResource R_Edit_WorkDirectory}"
-                    Opacity="{Binding IsChecked, ConverterParameter=0.2, Converter={StaticResource BoolToDoubleConv}, ElementName=HeadlineCheck, Mode=OneWay}"
+                    Opacity="{Binding IsEnabled, ConverterParameter=0.2, Converter={StaticResource BoolToReverseDoubleConv}, ElementName=WorkDirText, Mode=OneWay}"
                     Style="{StaticResource EditItemLabelStyle}"
                     Target="{Binding ElementName=WorkDirText}" />
                 <Grid>
@@ -305,32 +393,44 @@
                     <TextBox
                         x:Name="WorkDirText"
                         GotFocus="TextBox_GotFocus"
-                        IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}"
                         Opacity="{Binding IsChecked, ConverterParameter=0.5, Converter={StaticResource BoolToDoubleConv}, ElementName=HeadlineCheck, Mode=OneWay}"
                         PreviewMouseLeftButtonDown="TextBox_PreviewMouseLeftButtonDown"
                         Style="{StaticResource EditItemStyle}"
                         Text=""
-                        TextChanged="TextBox_TextChanged" />
+                        TextChanged="TextBox_TextChanged">
+                        <TextBox.IsEnabled>
+                            <MultiBinding Converter="{StaticResource BoolsToBoolConv}" ConverterParameter="OrTrueToFalse">
+                                <Binding
+                                    ElementName="HeadlineCheck"
+                                    Mode="OneWay"
+                                    Path="IsChecked" />
+                                <Binding
+                                    ElementName="SpecialCmd"
+                                    Mode="OneWay"
+                                    Path="IsChecked" />
+                            </MultiBinding>
+                        </TextBox.IsEnabled>
+                    </TextBox>
                     <Button
                         x:Name="WorkDirContextButton"
                         Grid.Column="1"
                         Margin="0,0,10,10"
                         Click="SpecialFolderMenuButton_Click"
                         Content="&#xE712;"
-                        IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}"
+                        IsEnabled="{Binding IsEnabled, ElementName=WorkDirText, Mode=OneWay}"
                         Style="{StaticResource IconButtonStyle}" />
                 </Grid>
 
                 <!--  Arguments  -->
                 <Label
                     Content="{StaticResource R_Edit_Arguments}"
-                    Opacity="{Binding IsChecked, ConverterParameter=0.2, Converter={StaticResource BoolToDoubleConv}, ElementName=HeadlineCheck, Mode=OneWay}"
+                    Opacity="{Binding IsEnabled, ConverterParameter=0.2, Converter={StaticResource BoolToReverseDoubleConv}, ElementName=WorkDirText, Mode=OneWay}"
                     Style="{StaticResource EditItemLabelStyle}"
                     Target="{Binding ElementName=ArgsText}" />
                 <TextBox
                     x:Name="ArgsText"
                     GotFocus="TextBox_GotFocus"
-                    IsEnabled="{Binding IsChecked, Converter={StaticResource InvertBoolConv}, ElementName=HeadlineCheck, Mode=OneWay}"
+                    IsEnabled="{Binding IsEnabled, ElementName=WorkDirText, Mode=OneWay}"
                     Opacity="{Binding IsChecked, ConverterParameter=0.5, Converter={StaticResource BoolToDoubleConv}, ElementName=HeadlineCheck, Mode=OneWay}"
                     PreviewMouseLeftButtonDown="TextBox_PreviewMouseLeftButtonDown"
                     Style="{StaticResource EditItemStyle}"

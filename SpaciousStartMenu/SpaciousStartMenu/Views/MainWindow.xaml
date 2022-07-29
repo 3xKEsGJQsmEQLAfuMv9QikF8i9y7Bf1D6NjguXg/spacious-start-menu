@@ -73,11 +73,20 @@
 
             <MenuItem Click="MenuSettings_Click">
                 <MenuItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE713;" />
-                        <Label Content="{StaticResource R_Menu_Settings}" Style="{StaticResource MenuItemLabelStyle}" />
-                        <TextBlock Style="{StaticResource ShortcutTextStyle}" Text="Ctrl + ," />
-                    </StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource IconTextStyle}" Text="&#xE713;" />
+                            <Label Content="{StaticResource R_Menu_Settings}" Style="{StaticResource MenuItemLabelStyle}" />
+                        </StackPanel>
+                        <TextBlock
+                            Grid.Column="1"
+                            Style="{StaticResource ShortcutTextStyle}"
+                            Text="Ctrl + ," />
+                    </Grid>
                 </MenuItem.Header>
             </MenuItem>
 

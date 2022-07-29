@@ -32,7 +32,7 @@
                 x:Name="HeadlinePaneColumn"
                 Width="120"
                 MinWidth="40"
-                MaxWidth="250" />
+                MaxWidth="300" />
             <!--  Splitter  -->
             <ColumnDefinition Width="Auto" />
             <!--  Settings Pane  -->
@@ -55,6 +55,7 @@
             <ListBoxItem Content="{StaticResource R_Settings_Setup}" />
             <ListBoxItem Content="{StaticResource R_Settings_Minimize}" />
             <ListBoxItem Content="{StaticResource R_Settings_TitleBar}" />
+            <ListBoxItem Content="{StaticResource R_Settings_Headline}" />
             <ListBoxItem Content="{StaticResource R_Settings_Confirm}" />
             <ListBoxItem Content="{StaticResource R_Settings_ContextMenu}" />
             <ListBoxItem Content="{StaticResource R_Settings_SubScreen}" />
@@ -89,6 +90,7 @@
                             x:Name="MinimizeStartup"
                             Margin="5"
                             Click="MinimizeStartupShortcut_Click"
+                            Style="{StaticResource SettingsCheckBoxStyle}"
                             Content="{StaticResource R_MinimizeStartupShortcut}"
                             ToolTip="{StaticResource R_ToolTip_MinShortcut}" />
                     </StackPanel>
@@ -118,10 +120,10 @@
                 </StackPanel>
 
                 <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_Minimize}" />
-                <CheckBox x:Name="MinimizeStartup2" Content="{StaticResource R_MinimizeStartup}" />
-                <CheckBox x:Name="EscKeyMin" Content="{StaticResource R_EscKeyMinimized}" />
-                <CheckBox x:Name="DblClickMin" Content="{StaticResource R_MarginDblClickMinimized}" />
-                <CheckBox x:Name="CtrlClickDisabledMin">
+                <CheckBox x:Name="MinimizeStartup2" Content="{StaticResource R_MinimizeStartup}" Style="{StaticResource SettingsCheckBoxStyle}" />
+                <CheckBox x:Name="EscKeyMin" Content="{StaticResource R_EscKeyMinimized}" Style="{StaticResource SettingsCheckBoxStyle}"/>
+                <CheckBox x:Name="DblClickMin" Content="{StaticResource R_MarginDblClickMinimized}" Style="{StaticResource SettingsCheckBoxStyle}"/>
+                <CheckBox x:Name="CtrlClickDisabledMin" Style="{StaticResource SettingsCheckBoxStyle}">
                     <TextBlock Text="{StaticResource R_DisabledMinimizeCtrlClick}" TextWrapping="Wrap" />
                 </CheckBox>
 
@@ -129,6 +131,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <CheckBox
+                        Style="{StaticResource SettingsCheckBoxStyle}"
                         x:Name="ShowKeyStatusInTitleBar"
                         HorizontalAlignment="Left"
                         Content="{StaticResource R_ShowKeyStatusInTitleBar}" />
@@ -156,6 +159,7 @@
                 <StackPanel Orientation="Horizontal">
                     <CheckBox
                         x:Name="ShowUserInTitleBar"
+                        Style="{StaticResource SettingsCheckBoxStyle}"
                         HorizontalAlignment="Left"
                         Content="{StaticResource R_ShowUserInTitleBar}" />
                     <RadioButton
@@ -173,22 +177,25 @@
                 </StackPanel>
 
                 <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_MouseGesture}" Visibility="Collapsed" />
-                <CheckBox Content="{StaticResource R_EnableGesture}" Visibility="Collapsed" />
+                <CheckBox Content="{StaticResource R_EnableGesture}" Visibility="Collapsed" Style="{StaticResource SettingsCheckBoxStyle}"/>
+
+                <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_Headline}" />
+                <CheckBox x:Name="ShowSeqNoInHeadline" Content="{StaticResource R_ShowSeqNoInHeadline}" Style="{StaticResource SettingsCheckBoxStyle}" />
 
                 <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_Confirm}" />
-                <CheckBox x:Name="ConfirmClose" Content="{StaticResource R_ConfirmClose}" />
+                <CheckBox x:Name="ConfirmClose" Content="{StaticResource R_ConfirmClose}" Style="{StaticResource SettingsCheckBoxStyle}"/>
 
                 <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_ContextMenu}" />
-                <CheckBox x:Name="ShowOpenAndExitMenuItem">
+                <CheckBox x:Name="ShowOpenAndExitMenuItem" Style="{StaticResource SettingsCheckBoxStyle}">
                     <TextBlock Text="{StaticResource R_ShowOpenAndExitMenuItem}" TextWrapping="Wrap" />
                 </CheckBox>
 
                 <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_SubScreen}" />
-                <CheckBox x:Name="SaveScreenSize" Content="{StaticResource R_SaveScreenSize}" />
-                <CheckBox x:Name="SaveScreenPos" Content="{StaticResource R_SaveScreenPos}" />
+                <CheckBox x:Name="SaveScreenSize" Content="{StaticResource R_SaveScreenSize}" Style="{StaticResource SettingsCheckBoxStyle}"/>
+                <CheckBox x:Name="SaveScreenPos" Content="{StaticResource R_SaveScreenPos}" Style="{StaticResource SettingsCheckBoxStyle}"/>
 
                 <ctrl:SettingTitleLabel Text="{StaticResource R_Settings_Advanced}" />
-                <CheckBox x:Name="ShowDirectEditDefine">
+                <CheckBox x:Name="ShowDirectEditDefine" Style="{StaticResource SettingsCheckBoxStyle}">
                     <TextBlock Text="{StaticResource R_ShowDirectEditDefineButton}" TextWrapping="Wrap" />
                 </CheckBox>
 

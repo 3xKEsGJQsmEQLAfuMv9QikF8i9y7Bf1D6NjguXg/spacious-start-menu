@@ -1,6 +1,7 @@
 ﻿using SpaciousStartMenu.DataTypes;
 using SpaciousStartMenu.Extensions;
 using SpaciousStartMenu.Settings;
+using SpaciousStartMenu.Shell;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -95,6 +96,11 @@ namespace SpaciousStartMenu.Views
                 PathText.Text = item.Path ?? "";
                 WorkDirText.Text = item.WorkDir ?? "";
                 ArgsText.Text = item.Args ?? "";
+
+                if (PathText.Text.StartsWith("<CMD:"))
+                {
+                    SpecialCmd.IsChecked = true;
+                }
             }
 
             var c = _colors.SingleOrDefault(x => x.ColorName == item.ColorName);
@@ -121,8 +127,8 @@ namespace SpaciousStartMenu.Views
                 item.ColorName = ColorNameLabel.Text;
                 item.MarkBrush = ColorMarkLabel.Foreground;
                 item.Path = PathText.Text;
-                item.WorkDir = WorkDirText.Text;
-                item.Args = ArgsText.Text;
+                item.WorkDir = SpecialCmd.IsChecked == true ? null : WorkDirText.Text;
+                item.Args = SpecialCmd.IsChecked == true ? null : ArgsText.Text;
             }
         }
 
@@ -205,6 +211,11 @@ namespace SpaciousStartMenu.Views
             e.Handled = e.Data.GetDataPresent(DataFormats.FileDrop);
         }
 
+        private void PathText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateOkButtonEnabled();
+        }
+
         private void PathText_Drop(object sender, DragEventArgs e)
         {
             if (e.Data.GetData(DataFormats.FileDrop) is not string[] dropFiles)
@@ -223,12 +234,22 @@ namespace SpaciousStartMenu.Views
 
         private void HeadlineCheck_Checked(object sender, RoutedEventArgs e)
         {
+            if (HeadlineCheck.IsChecked == true)
+            {
+                SpecialCmd.IsChecked = false;
+            }
             TitleText.Focus();
         }
 
         private void HeadlineCheck_Click(object sender, RoutedEventArgs e)
         {
             UpdateOkButtonEnabled();
+        }
+
+        private void SeparatorButton_Click(object sender, RoutedEventArgs e)
+        {
+            TitleText.Text = LauncherDefinition.GroupSeparatorValue;
+            TitleText.Focus();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -238,9 +259,21 @@ namespace SpaciousStartMenu.Views
 
         private void UpdateOkButtonEnabled()
         {
+            if (HeadlineCheck.IsChecked == true)
+            {
+                if (string.IsNullOrEmpty(TitleText.Text))
+                {
+                    OkButton.IsEnabled = false;
+                }
+                else
+                {
+                    OkButton.IsEnabled = true;
+                }
+                return;
+            }
+
             if (string.IsNullOrEmpty(TitleText.Text) ||
-                (HeadlineCheck.IsChecked == false &&
-                string.IsNullOrWhiteSpace(PathText.Text)))
+                string.IsNullOrWhiteSpace(PathText.Text))
             {
                 OkButton.IsEnabled = false;
             }
@@ -314,7 +347,14 @@ namespace SpaciousStartMenu.Views
         {
             if (sender == PathContextButton)
             {
-                SpecialFolderPopup.PlacementTarget = PathContextButton;
+                if (SpecialCmd.IsChecked == true)
+                {
+                    SpecialCmdPopup.PlacementTarget = PathContextButton;
+                }
+                else
+                {
+                    SpecialFolderPopup.PlacementTarget = PathContextButton;
+                }
             }
             else if (sender == WorkDirContextButton)
             {
@@ -325,7 +365,14 @@ namespace SpaciousStartMenu.Views
                 return;
             }
 
-            SpecialFolderPopup.IsOpen = true;
+            if (SpecialCmd.IsChecked == true)
+            {
+                SpecialCmdPopup.IsOpen = true;
+            }
+            else
+            {
+                SpecialFolderPopup.IsOpen = true;
+            }
         }
 
         private void ColorPopup_Opened(object sender, EventArgs e)
@@ -365,12 +412,12 @@ namespace SpaciousStartMenu.Views
                 return;
             }
 
-            AddSelectedValueToTextBox(list, item);
+            AddSelectedFolderToTextBox(list, item);
 
             SpecialFolderPopup.IsOpen = false;
         }
 
-        private void AddSelectedValueToTextBox(ListBox list, ListBoxItem item)
+        private void AddSelectedFolderToTextBox(ListBox list, ListBoxItem item)
         {
             string env = list == SpecialFolderList ? "" : "ENV:";
             string content = $"<{env}{item.Content}>";
@@ -400,9 +447,95 @@ namespace SpaciousStartMenu.Views
                 return;
             }
 
-            AddSelectedValueToTextBox(list, item);
+            AddSelectedFolderToTextBox(list, item);
 
             SpecialFolderPopup.IsOpen = false;
+        }
+
+        private void SpecialCmdPopup_Opened(object sender, EventArgs e)
+        {
+            SpecialCmdList.Focus();
+            ((ListBoxItem)SpecialCmdList.SelectedItem)?.Focus();
+        }
+
+        private void CmdList_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is not ListBox list ||
+                list.SelectedItem is not ListBoxItem item)
+            {
+                return;
+            }
+
+            if (e.OriginalSource is
+                System.Windows.Controls.Primitives.RepeatButton or
+                System.Windows.Controls.Primitives.Thumb)
+            {
+                return;
+            }
+
+            SetSelectedCmdToTextBox(item);
+
+            SpecialCmdPopup.IsOpen = false;
+        }
+
+        private void CmdList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key != Key.Enter ||
+                sender is not ListBox list)
+            {
+                return;
+            }
+            if (list.SelectedItem is not ListBoxItem item)
+            {
+                return;
+            }
+
+            SetSelectedCmdToTextBox(item);
+
+            SpecialCmdPopup.IsOpen = false;
+        }
+
+        private void SetSelectedCmdToTextBox(ListBoxItem item)
+        {
+            string content = $"<CMD:{item.Content}>";
+
+            PathText.Text = content;
+            if (!Enum.TryParse(item.Content.ToString(), out SpecialCommandType sc))
+            {
+                return;
+            }
+
+            TitleText.Text = sc switch
+            {
+                SpecialCommandType.System_Signout => App.R("R_Menu_Signout"),
+                SpecialCommandType.System_Shutdown => App.R("R_Menu_Shutdown"),
+                SpecialCommandType.System_Restart => App.R("R_Menu_Restart"),
+                SpecialCommandType.App_Minimized => App.R("R_ToolTip_MinimizedButton"),
+                SpecialCommandType.App_ScrollToTop => App.R("R_Cmd_ScrollToTop"),
+                SpecialCommandType.App_ScrollToBottom => App.R("R_Cmd_ScrollToBottom"),
+                SpecialCommandType.Desktop_Show => App.R("R_Cmd_ShowDesktop"),
+                SpecialCommandType.Settings_Show => App.R("R_Cmd_ShowSettings"),
+                SpecialCommandType.Explorer_CloseAllFolders => App.R("R_Cmd_CloseAllFolders"),
+                SpecialCommandType.Info_LaunchButtonCount => App.R("R_Cmd_ButtonCount"),
+                SpecialCommandType.Info_GroupTitleCount => App.R("R_Cmd_GroupTitleCount"),
+                _ => ""
+            };
+            TitleText.Focus();
+        }
+
+        private void SpecialCmd_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is not CheckBox chk)
+            {
+                return;
+            }
+
+            if (chk.IsChecked == true)
+            {
+                PathContextButton.Focus();
+                SpecialCmdPopup.PlacementTarget = PathContextButton;
+                SpecialCmdPopup.IsOpen = true;
+            }
         }
 
     }

@@ -15,13 +15,17 @@ namespace SpaciousStartMenu.Views
 
         public string? ExportFilePath { get; set; } = null;
         public bool Imported { get; private set; } = false;
+        public bool NeedReloadSettings { get; private set; } = false;
 
+        private readonly bool _beforeShowSeqNoInGroupHeadline;
 
         public SettingsWindow(AppSettings settings)
         {
             InitializeComponent();
 
             _settings = settings;
+            _beforeShowSeqNoInGroupHeadline = _settings.ShowSeqNoInGroupHeadline;
+
             RestoreWindowSize(_settings);
         }
 
@@ -45,7 +49,8 @@ namespace SpaciousStartMenu.Views
             RemoveShortcut.IsEnabled = Shortcut.ExistsStartupShortcut(App.R("R_AppLinkName"));
             AppVersionText.Text = App.Version;
             RuntimeVersionText.Text = Environment.Version.ToString();
-
+            ((ListBoxItem)HeaderList.SelectedItem)?.Focus();
+            
             SettingsToScreen(_settings);
         }
 
@@ -81,6 +86,9 @@ namespace SpaciousStartMenu.Views
             {
                 DisplayName.IsChecked = true;
             }
+
+            ShowSeqNoInHeadline.IsChecked = stg.ShowSeqNoInGroupHeadline;
+
             ConfirmClose.IsChecked = stg.ConfirmCloseMenu;
 
             ShowOpenAndExitMenuItem.IsChecked = stg.ShowOpenAndExitMenuItem;
@@ -137,7 +145,13 @@ namespace SpaciousStartMenu.Views
                     : HorizontalAlignment.Right;
 
             _settings.ShowUserInTitleBar = ShowUserInTitleBar.IsChecked == true;
-            
+
+            _settings.ShowSeqNoInGroupHeadline = ShowSeqNoInHeadline.IsChecked == true;
+            if (_settings.ShowSeqNoInGroupHeadline != _beforeShowSeqNoInGroupHeadline)
+            {
+                NeedReloadSettings = true;
+            }
+
             _settings.ConfirmCloseMenu = ConfirmClose.IsChecked == true;
             _settings.ShowUserType = UserName.IsChecked == true
                 ? UserType.UserName

@@ -22,12 +22,12 @@ namespace SpaciousStartMenu.Views
         private readonly LauncherDefinition _btnDef = new();
         private int _buttonCount = 0;
         private int _groupCount = 0;
-        //private int _separatorCount = 0;
+        private int _groupTitleCount = 0;
         private PinWindow? _pinWindow = null;
         private AppSettings _settings = new();
         private readonly Style _groupTitleStyle = (Style)(Application.Current.FindResource("GroupTitleStyle"));
         private readonly Style _groupContainerStyle = (Style)(Application.Current.FindResource("GroupContainerStyle"));
-        private readonly Style _groupSeparatorStyle = (Style)(Application.Current.FindResource("GroupSeparatorStyle"));
+        private readonly Style _groupSeparatorBorderStyle = (Style)(Application.Current.FindResource("GroupSeparatorBorderStyle"));
         private readonly Style _launchButtonStyle = (Style)(Application.Current.FindResource("LaunchButtonStyle"));
         private static readonly FontFamily _segoeMdl2Font = new("Segoe MDL2 Assets");
         private const string _colorMark = "\uE91F";
@@ -66,7 +66,9 @@ namespace SpaciousStartMenu.Views
             WindowContextMenu.IsOpen = true;
         }
 
-        private void TitleBarMinButton_Click(object sender, RoutedEventArgs e)
+        private void TitleBarMinButton_Click(object sender, RoutedEventArgs e) => MinimizeWindow();
+
+        private void MinimizeWindow()
         {
             ClearKeyStatus();
             WindowState = WindowState.Minimized;
@@ -275,7 +277,7 @@ namespace SpaciousStartMenu.Views
                     int groupNo = 0;
                     if (sender is MenuItem item)
                     {
-                        int.TryParse(item.Tag?.ToString(), out groupNo);
+                        _ = int.TryParse(item.Tag?.ToString(), out groupNo);
                     }
                     _pinWindow = new PinWindow(
                         this,
@@ -339,6 +341,10 @@ namespace SpaciousStartMenu.Views
 
                     this.Info(App.R("MsgInfoImportComplete"));
                 }
+                else if (window.NeedReloadSettings)
+                {
+                    LoadLauncherDefine(App.GetLaunchDefineFilePath());
+                }
 
                 SetDisabledStyle(false);
 
@@ -365,12 +371,12 @@ namespace SpaciousStartMenu.Views
                 exportFilePath);
         }
 
-        private void MenuFolderOpen_Click(object sender, RoutedEventArgs e)
+        private async void MenuFolderOpen_Click(object sender, RoutedEventArgs e)
         {
-            this.TryCatch(() =>
+            await this.TryCatchAsync(async () =>
             {
                 string appPath = App.GetAppPath();
-                Execute(appPath, null, null);
+                await ExecuteAsync(appPath, null, null);
                 WindowState = WindowState.Minimized;
             });
         }
@@ -533,28 +539,26 @@ namespace SpaciousStartMenu.Views
             {
                 return "";
             }
+
+            string user;
+            if (_userInfo is null)
+            {
+                _userInfo = new(_settings.ValueWhenDisplayNameNotFound);
+
+                user = await Task.Run(() =>
+                {
+                    return _settings.ShowUserType == UserType.UserName
+                            ? _userInfo.GetUserName()
+                            : _userInfo.GetDisplayName();
+                });
+            }
             else
             {
-                string user;
-                if (_userInfo is null)
-                {
-                    _userInfo = new(_settings.ValueWhenDisplayNameNotFound);
-
-                    user = await Task.Run(() =>
-                    {
-                        return _settings.ShowUserType == UserType.UserName
-                                ? _userInfo.GetUserName()
-                                : _userInfo.GetDisplayName();
-                    });
-                }
-                else
-                {
-                    user = _settings.ShowUserType == UserType.UserName
-                                ? _userInfo.GetUserName()
-                                : _userInfo.GetDisplayName();
-                }
-                return user;
+                user = _settings.ShowUserType == UserType.UserName
+                            ? _userInfo.GetUserName()
+                            : _userInfo.GetDisplayName();
             }
+            return user;
         }
 
         private void SetUser(string user)
@@ -598,7 +602,7 @@ namespace SpaciousStartMenu.Views
 
             _buttonCount = 0;
             _groupCount = 0;
-            //_separatorCount = 0;
+            _groupTitleCount = 0;
 
             while (!reader.EndOfStream)
             {
@@ -628,13 +632,26 @@ namespace SpaciousStartMenu.Views
                             :
                 */
 
-                if (_btnDef.IsGroupTitle(columns))
+                if (_btnDef.IsGroupSeparator(columns))
                 {
-                    MakeGroup(ref btnContainer, ref _groupCount, _btnDef.GetGroupTitle(columns));
+                    MakeGroupSeparator(ref btnContainer, ref _groupCount);
+                }
+                else if (_btnDef.IsGroupTitle(columns))
+                {
+                    MakeGroup(
+                        ref btnContainer,
+                        ref _groupCount,
+                        ref _groupTitleCount,
+                        _btnDef.GetGroupTitle(columns));
                 }
                 else if (LauncherDefinition.RequiredColumns <= columns.Length)
                 {
-                    MakeButton(columns, ref btnContainer, ref _buttonCount, ref _groupCount);
+                    MakeButton(
+                        columns,
+                        ref btnContainer,
+                        ref _buttonCount,
+                        ref _groupCount,
+                        ref _groupTitleCount);
                 }
                 else
                 {
@@ -645,20 +662,32 @@ namespace SpaciousStartMenu.Views
 
         }
 
-        private void MakeSeparator(ref int separatorCount)
+        private void MakeGroupSeparator(ref WrapPanel? btnContainer, ref int groupCount)
         {
-            var gs = new Separator();
-            gs.Style = _groupSeparatorStyle;
-            separatorCount++;
-            gs.Tag = separatorCount;
-            MainContainer.Children.Add(gs);
+            var grpContainer = new StackPanel
+            {
+                Style = _groupContainerStyle
+            };
+            groupCount++;
+            grpContainer.Tag = groupCount;
+            MainContainer.Children.Add(grpContainer);
+
+            grpContainer.Children.Add(new Border { Style = _groupSeparatorBorderStyle });
+
+            btnContainer = new WrapPanel();
+            grpContainer.Children.Add(btnContainer);
         }
 
-        private void MakeButton(string[] columns, ref WrapPanel? btnContainer, ref int buttonCount, ref int groupCount)
+        private void MakeButton(
+            string[] columns,
+            ref WrapPanel? btnContainer,
+            ref int buttonCount,
+            ref int groupCount,
+            ref int groupTitleCount)
         {
             if (btnContainer is null)
             {
-                MakeGroup(ref btnContainer, ref groupCount);
+                MakeGroup(ref btnContainer, ref groupCount, ref groupTitleCount);
             }
 
             Button btn = CreateLaunchButton(
@@ -674,21 +703,30 @@ namespace SpaciousStartMenu.Views
             buttonCount++;
         }
 
-
-        private void MakeGroup(ref WrapPanel? btnContainer, ref int groupCount, string groupTitle = " ")
+        private void MakeGroup(
+            ref WrapPanel?
+            btnContainer,
+            ref int groupCount,
+            ref int groupTitleCount,
+            string groupTitle = " ")
         {
             if (string.IsNullOrEmpty(groupTitle))
             {
                 groupTitle = " ";
             }
 
-            var grpContainer = new StackPanel();
-            grpContainer.Style = _groupContainerStyle;
+            var grpContainer = new StackPanel
+            {
+                Style = _groupContainerStyle
+            };
             groupCount++;
+            groupTitleCount++;
             grpContainer.Tag = groupCount;
             MainContainer.Children.Add(grpContainer);
 
-            grpContainer.Children.Add(CreateGroupTitle(groupTitle));
+            grpContainer.Children.Add(
+                CreateGroupTitle(
+                    _settings.ShowSeqNoInGroupHeadline ? $"{groupTitleCount}. {groupTitle}" : groupTitle));
 
             btnContainer = new WrapPanel();
             grpContainer.Children.Add(btnContainer);
@@ -742,7 +780,7 @@ namespace SpaciousStartMenu.Views
             {
                 Orientation = Orientation.Horizontal
             };
-            
+
             var txtMark = new TextBlock
             {
                 FontFamily = _segoeMdl2Font,
@@ -769,9 +807,10 @@ namespace SpaciousStartMenu.Views
             txtContainer.Children.Add(txt);
 
             btn.Content = txtContainer;
-            btn.Click += (_, _) =>
+            btn.Click += async (_, _) =>
             {
-                if (Execute(execute, workDir, args))
+                (bool success, bool isSpecialCmd) = await ExecuteAsync(execute, workDir, args);
+                if (success && !isSpecialCmd)
                 {
                     MinimizedWindow();
                 }
@@ -791,18 +830,31 @@ namespace SpaciousStartMenu.Views
             WindowState = WindowState.Minimized;
         }
 
-        private bool Execute(string cmd, string? workDir, string? args)
+        private async Task<(bool, bool)> ExecuteAsync(string cmd, string? workDir, string? args)
         {
+            bool success = true;
+            bool isSpecialCommand = false;
+
             bool isAdmin = Keyboard.Modifiers == (ModifierKeys.Control | ModifierKeys.Shift);
             try
             {
-                ShellExecution.Run(
-                    cmd,
-                    workDir,
-                    args,
-                    isAdmin);
+                if (SpecialCommand.IsCommand(cmd))
+                {
+                    isSpecialCommand = true;
+                    if (isAdmin)
+                    {
+                        this.Error($"{App.R("MsgErrSpecialCmdAdminStartup")}\n{cmd}");
+                        success = false;
+                        return (success, isSpecialCommand);
+                    }
+                    await RunSpecialCommandAsync(SpecialCommand.GetType(cmd));
+                }
+                else
+                {
+                    ShellExecution.Run(cmd, workDir, args, isAdmin);
+                }
 
-                return true;
+                return (success, isSpecialCommand);
             }
             catch
             {
@@ -814,7 +866,52 @@ namespace SpaciousStartMenu.Views
                 {
                     this.Error($"{App.R("MsgErrStartup")}\n{cmd}");
                 }
-                return false;
+                success = false;
+                return (success, isSpecialCommand);
+            }
+        }
+
+        private async Task RunSpecialCommandAsync(SpecialCommandType cmdType)
+        {
+            switch (cmdType)
+            {
+                case SpecialCommandType.System_Shutdown:
+                    await RunExitCommandAsync(() => Win32.OperatingSystem.Shutdown());
+                    break;
+                case SpecialCommandType.System_Restart:
+                    await RunExitCommandAsync(() => Win32.OperatingSystem.Restart());
+                    break;
+                case SpecialCommandType.System_Signout:
+                    await RunExitCommandAsync(() => Win32.OperatingSystem.Signout());
+                    break;
+                case SpecialCommandType.App_Minimized:
+                    MinimizeWindow();
+                    break;
+                case SpecialCommandType.App_ScrollToTop:
+                    MainScroll.ScrollToTop();
+                    break;
+                case SpecialCommandType.App_ScrollToBottom:
+                    MainScroll.ScrollToBottom();
+                    break;
+                case SpecialCommandType.Desktop_Show:
+                    SpecialCommand.ShowDesktop();
+                    break;
+                case SpecialCommandType.Settings_Show:
+                    await ShowSettingsAsync();
+                    break;
+                case SpecialCommandType.Explorer_CloseAllFolders:
+                    SpecialCommand.CloseAllFolders();
+                    break;
+                case SpecialCommandType.Info_LaunchButtonCount:
+                    this.Info($"{App.R("MsgInfoLaunchButtonCnt")}{_buttonCount}");
+                    break;
+                case SpecialCommandType.Info_GroupTitleCount:
+                    this.Info(
+                        $"{App.R("MsgInfoGroupTitleCnt")}{_groupTitleCount}\n{App.R("MsgInfoGroupSeparatorCnt")}{_groupCount - _groupTitleCount}");
+                    break;
+                default:
+                    this.Error(App.R("MsgErrInvalidCommand"));
+                    break;
             }
         }
 
