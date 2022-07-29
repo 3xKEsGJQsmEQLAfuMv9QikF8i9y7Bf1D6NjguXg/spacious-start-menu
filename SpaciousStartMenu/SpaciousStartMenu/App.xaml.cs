@@ -150,7 +150,7 @@ namespace SpaciousStartMenu
 
                 if (MsgBox.Confirm(null, App.R("MsgConfirmCreateRecommendInstallFolder")) == MessageBoxResult.Yes)
                 {
-                    string path = GetReccomendInstallPath();
+                    string path = GetRecommendInstallPath();
                     Directory.CreateDirectory(path);
                     ShellExecution.Run(path, null, null);
                 }
@@ -218,7 +218,7 @@ namespace SpaciousStartMenu
             return true;
         }
 
-        private static string GetReccomendInstallPath() => Path.Combine(
+        private static string GetRecommendInstallPath() => Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
                 @"Tools\SpaciousStartMenu");
 
