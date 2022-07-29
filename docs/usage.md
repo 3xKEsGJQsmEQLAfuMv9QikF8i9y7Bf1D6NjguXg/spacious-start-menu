@@ -55,9 +55,14 @@ If you select the delete (trash can) icon on the far right or press the `Delete`
 
 Edit screen.
 
+When `Headline` is selected, only `Title` can be entered.
+If you want to draw a line to separate groups, select `Headline` and press the `Separator` button. The `Title` will be set to the string `--------------------` which will be recognized as a separator.
+
+![Select headline](img/pinEdit04.png)
+
 The `Path` field allows you to enter files and folders by drag & drop.
 
-When `Headline` is selected, only `Title` can be entered.
+The `Working Directory` and `Arguments` are optional.
 
 ![Pin edit](img/pinEdit01.png)
 
@@ -68,6 +73,10 @@ Color selection menu.
 Special folders and environment variables selection menu.
 
 ![Pin edit special folders](img/pinEdit03.png)
+
+Selecting `Special command` will give you a choice of several commands that are not application launches. When you select a command from the choices, the `Title` is also set automatically, but can be changed to any name later.
+
+![Pin edit special command](img/pinEdit05.png)
 
 ## 🔷Settings screen
 
