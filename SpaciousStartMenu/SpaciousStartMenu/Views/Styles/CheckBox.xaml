@@ -104,13 +104,17 @@
     </ControlTemplate>
 
     <Style x:Key="StandardCheckBoxStyle" TargetType="CheckBox">
-        <Setter Property="Margin" Value="40,5,10,5" />
+        <Setter Property="Margin" Value="10,10,10,0" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="#AAFFFFFF" />
         <Setter Property="Template" Value="{StaticResource StandardCheckBoxTemplate}" />
         <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{StaticResource OptionMark.Disabled.Glyph}" />
+            </Trigger>
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
@@ -121,10 +125,12 @@
     <Style BasedOn="{StaticResource StandardCheckBoxStyle}" TargetType="CheckBox" />
 
     <Style
-        x:Key="SubCheckBoxStyle"
+        x:Key="SettingsCheckBoxStyle"
         BasedOn="{StaticResource StandardCheckBoxStyle}"
         TargetType="CheckBox">
-        <Setter Property="Margin" Value="80,5,10,5" />
+        <Setter Property="Margin" Value="40,5,10,5" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
     </Style>
+
 
 </ResourceDictionary>

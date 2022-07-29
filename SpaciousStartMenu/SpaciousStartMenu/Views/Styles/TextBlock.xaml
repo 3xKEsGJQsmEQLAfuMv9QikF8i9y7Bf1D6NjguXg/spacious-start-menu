@@ -40,7 +40,7 @@
         <Setter Property="Foreground" Value="DarkGray" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="Margin" Value="100,0,0,0" />
+        <Setter Property="Margin" Value="0" />
     </Style>
 
 </ResourceDictionary>
