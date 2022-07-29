@@ -79,7 +79,9 @@
     <sys:String x:Key="R_List_Arguments">参数</sys:String>
 
     <sys:String x:Key="R_Edit_Headline">标题</sys:String>
+    <sys:String x:Key="R_Edit_Separator">分隔器</sys:String>
     <sys:String x:Key="R_Edit_Color">颜色(_C)</sys:String>
+    <sys:String x:Key="R_Edit_SpecialCmd">特殊命令</sys:String>
     <sys:String x:Key="R_Edit_Title">标题</sys:String>
     <sys:String x:Key="R_Edit_Path">小路</sys:String>
     <sys:String x:Key="R_Edit_WorkDirectory">工作目录</sys:String>
@@ -87,6 +89,15 @@
 
     <sys:String x:Key="R_Edit_SpecialFolder">特殊文件夹</sys:String>
     <sys:String x:Key="R_Edit_EnvVar">环境变量</sys:String>
+
+    <sys:String x:Key="R_Cmd_ScrollToTop">滚动到顶部</sys:String>
+    <sys:String x:Key="R_Cmd_ScrollToBottom">滚动到底部</sys:String>
+    <sys:String x:Key="R_Cmd_ShowDesktop">显示桌面</sys:String>
+    <sys:String x:Key="R_Cmd_ShowPinList">显示固定定义列表</sys:String>
+    <sys:String x:Key="R_Cmd_ShowSettings">显示设置</sys:String>
+    <sys:String x:Key="R_Cmd_CloseAllFolders">关闭所有文件夹</sys:String>
+    <sys:String x:Key="R_Cmd_ButtonCount">显示启动按钮的数量</sys:String>
+    <sys:String x:Key="R_Cmd_GroupTitleCount">显示标题数量</sys:String>
 
     <!--  Settings screen  -->
     <sys:String x:Key="R_Settings_Setup">设置</sys:String>
@@ -108,10 +119,12 @@
     <sys:String x:Key="R_ShowUserInTitleBar">在标题栏中显示登录用户</sys:String>
     <sys:String x:Key="R_UserName">用户名</sys:String>
     <sys:String x:Key="R_DisplayName">显示名称</sys:String>
+    <sys:String x:Key="R_Settings_Headline">启动按钮标题</sys:String>
+    <sys:String x:Key="R_ShowSeqNoInHeadline">在标题中显示序号</sys:String>
     <sys:String x:Key="R_Settings_MouseGesture">鼠标手势</sys:String>
     <sys:String x:Key="R_EnableGesture">启用手势</sys:String>
     <sys:String x:Key="R_Settings_Confirm">确认</sys:String>
-    <sys:String x:Key="R_ConfirmClose">从标题栏关闭时确认(_C)</sys:String>
+    <sys:String x:Key="R_ConfirmClose">从标题栏上的按钮关闭时确认(_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">上下文菜单</sys:String>
     <sys:String x:Key="R_Settings_SubScreen">子屏幕</sys:String>
     <sys:String x:Key="R_SaveScreenSize">节省屏幕尺寸</sys:String>
@@ -131,17 +144,22 @@
     <sys:String x:Key="MsgErrGetExePath">获取可执行文件路径失败。</sys:String>
     <sys:String x:Key="MsgErrStartup">启动失败。</sys:String>
     <sys:String x:Key="MsgErrAdminStartup">以管理员身份运行失败。</sys:String>
+    <sys:String x:Key="MsgErrSpecialCmdAdminStartup">不能以管理员身份执行特殊命令。</sys:String>
     <sys:String x:Key="MsgErrSaveSettings">未能保存应用程序设置。</sys:String>
     <sys:String x:Key="MsgErrSettingsColumn">列数无效。</sys:String>
     <sys:String x:Key="MsgErrColorName">颜色名称无效。</sys:String>
     <sys:String x:Key="MsgErrAdminInstallPath">不要安装在需要管理权限的位置。</sys:String>
     <sys:String x:Key="MsgErrInvalidFileNoHeader">文件格式无效。 找不到标头。</sys:String>
     <sys:String x:Key="MsgErrInvalidFileNoDelimiter">文件格式无效。 未找到配置信息分隔符。</sys:String>
+    <sys:String x:Key="MsgErrInvalidCommand">命令无效。</sys:String>
 
     <sys:String x:Key="MsgInfoRegStartupShortcut">我为启动创建了一个快捷方式。</sys:String>
     <sys:String x:Key="MsgInfoRemoveStartupShortcut">从启动中删除了快捷方式。</sys:String>
     <sys:String x:Key="MsgInfoExportComplete">导出的设置。</sys:String>
     <sys:String x:Key="MsgInfoImportComplete">导入的设置。</sys:String>
+    <sys:String x:Key="MsgInfoLaunchButtonCnt">启动按钮数量:</sys:String>
+    <sys:String x:Key="MsgInfoGroupTitleCnt">组头条数:</sys:String>
+    <sys:String x:Key="MsgInfoGroupSeparatorCnt">分隔符数量:</sys:String>
 
     <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">您想创建推荐的目标文件夹吗？</sys:String>
     <sys:String x:Key="MsgConfirmCloseMenu">您要退出菜单吗？</sys:String>

@@ -1,5 +1,6 @@
 ﻿using SpaciousStartMenu.Views;
 using System;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace SpaciousStartMenu.Extensions
@@ -58,5 +59,16 @@ namespace SpaciousStartMenu.Extensions
             }
         }
 
+        public static async Task TryCatchAsync(this Window owner, Func<Task> action)
+        {
+            try
+            {
+                await action();
+            }
+            catch (Exception ex)
+            {
+                owner.Error(ex.ToString());
+            }
+        }
     }
 }

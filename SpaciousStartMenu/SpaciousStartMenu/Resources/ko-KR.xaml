@@ -79,7 +79,9 @@
     <sys:String x:Key="R_List_Arguments">인수</sys:String>
 
     <sys:String x:Key="R_Edit_Headline">표제</sys:String>
+    <sys:String x:Key="R_Edit_Separator">분리 기호</sys:String>
     <sys:String x:Key="R_Edit_Color">색깔(_C)</sys:String>
+    <sys:String x:Key="R_Edit_SpecialCmd">특명</sys:String>
     <sys:String x:Key="R_Edit_Title">제목</sys:String>
     <sys:String x:Key="R_Edit_Path">길</sys:String>
     <sys:String x:Key="R_Edit_WorkDirectory">작업 디렉터리를</sys:String>
@@ -87,6 +89,15 @@
 
     <sys:String x:Key="R_Edit_SpecialFolder">특수 폴더</sys:String>
     <sys:String x:Key="R_Edit_EnvVar">환경 변수</sys:String>
+
+    <sys:String x:Key="R_Cmd_ScrollToTop">맨위로 스크롤</sys:String>
+    <sys:String x:Key="R_Cmd_ScrollToBottom">맨 아래로 스크롤</sys:String>
+    <sys:String x:Key="R_Cmd_ShowDesktop">바탕 화면 표시</sys:String>
+    <sys:String x:Key="R_Cmd_ShowPinList">고정된 정의 목록 표시</sys:String>
+    <sys:String x:Key="R_Cmd_ShowSettings">설정 표시</sys:String>
+    <sys:String x:Key="R_Cmd_CloseAllFolders">모든 폴더 닫기</sys:String>
+    <sys:String x:Key="R_Cmd_ButtonCount">실행 버튼 수 표시</sys:String>
+    <sys:String x:Key="R_Cmd_GroupTitleCount">제목 수 표시</sys:String>
 
     <!--  Settings screen  -->
     <sys:String x:Key="R_Settings_Setup">설정</sys:String>
@@ -108,10 +119,12 @@
     <sys:String x:Key="R_ShowUserInTitleBar">제목 표시줄에 로그인한 사용자 표시</sys:String>
     <sys:String x:Key="R_UserName">사용자 이름</sys:String>
     <sys:String x:Key="R_DisplayName">이름 표시하기</sys:String>
+    <sys:String x:Key="R_Settings_Headline">시작 버튼 제목</sys:String>
+    <sys:String x:Key="R_ShowSeqNoInHeadline">제목에 일련 번호 표시</sys:String>
     <sys:String x:Key="R_Settings_MouseGesture">마우스 제스처</sys:String>
     <sys:String x:Key="R_EnableGesture">제스처 사용</sys:String>
     <sys:String x:Key="R_Settings_Confirm">확인하다</sys:String>
-    <sys:String x:Key="R_ConfirmClose">제목 표시줄에서 닫을 때 확인(_C)</sys:String>
+    <sys:String x:Key="R_ConfirmClose">제목 표시줄의 버튼에서 닫을 때 확인(_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">상황에 맞는 메뉴</sys:String>
     <sys:String x:Key="R_Settings_SubScreen">자식 화면</sys:String>
     <sys:String x:Key="R_SaveScreenSize">화면 크기 저장</sys:String>
@@ -131,17 +144,22 @@
     <sys:String x:Key="MsgErrGetExePath">실행 파일의 경로를 가져오지 못했습니다.</sys:String>
     <sys:String x:Key="MsgErrStartup">시작하지 못했습니다.</sys:String>
     <sys:String x:Key="MsgErrAdminStartup">관리자로 실행하지 못했습니다.</sys:String>
+    <sys:String x:Key="MsgErrSpecialCmdAdminStartup">특수 명령은 관리자로 실행할 수 없습니다.</sys:String>
     <sys:String x:Key="MsgErrSaveSettings">애플리케이션 설정을 저장하지 못했습니다.</sys:String>
     <sys:String x:Key="MsgErrSettingsColumn">열 수가 잘못되었습니다.</sys:String>
     <sys:String x:Key="MsgErrColorName">잘못된 색상 이름입니다.</sys:String>
     <sys:String x:Key="MsgErrAdminInstallPath">관리자 권한이 필요한 위치에 설치하지 마십시오.</sys:String>
     <sys:String x:Key="MsgErrInvalidFileNoHeader">파일 형식이 잘못되었습니다. 헤더를 찾을 수 없습니다.</sys:String>
     <sys:String x:Key="MsgErrInvalidFileNoDelimiter">파일 형식이 잘못되었습니다. 구성 정보 구분자를 찾을 수 없습니다.</sys:String>
+    <sys:String x:Key="MsgErrInvalidCommand">잘못된 명령입니다.</sys:String>
 
     <sys:String x:Key="MsgInfoRegStartupShortcut">시작 바로가기를 만들었습니다.</sys:String>
     <sys:String x:Key="MsgInfoRemoveStartupShortcut">시작에서 바로 가기를 제거했습니다.</sys:String>
     <sys:String x:Key="MsgInfoExportComplete">내보낸 설정.</sys:String>
     <sys:String x:Key="MsgInfoImportComplete">가져온 설정.</sys:String>
+    <sys:String x:Key="MsgInfoLaunchButtonCnt">실행 버튼 수:</sys:String>
+    <sys:String x:Key="MsgInfoGroupTitleCnt">그룹 헤드라인 수:</sys:String>
+    <sys:String x:Key="MsgInfoGroupSeparatorCnt">구분자 수:</sys:String>
 
     <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">추천 대상 폴더를 생성하시겠습니까?</sys:String>
     <sys:String x:Key="MsgConfirmCloseMenu">메뉴를 종료하시겠습니까?</sys:String>

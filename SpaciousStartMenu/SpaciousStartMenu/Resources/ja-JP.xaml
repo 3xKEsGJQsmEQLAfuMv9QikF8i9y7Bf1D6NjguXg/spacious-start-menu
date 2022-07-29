@@ -79,7 +79,9 @@
     <sys:String x:Key="R_List_Arguments">引数</sys:String>
 
     <sys:String x:Key="R_Edit_Headline">見出し</sys:String>
+    <sys:String x:Key="R_Edit_Separator">セパレーター</sys:String>
     <sys:String x:Key="R_Edit_Color">色(_C)</sys:String>
+    <sys:String x:Key="R_Edit_SpecialCmd">特殊コマンド</sys:String>
     <sys:String x:Key="R_Edit_Title">タイトル</sys:String>
     <sys:String x:Key="R_Edit_Path">パス</sys:String>
     <sys:String x:Key="R_Edit_WorkDirectory">作業フォルダー</sys:String>
@@ -87,6 +89,15 @@
 
     <sys:String x:Key="R_Edit_SpecialFolder">特殊フォルダー</sys:String>
     <sys:String x:Key="R_Edit_EnvVar">環境変数</sys:String>
+
+    <sys:String x:Key="R_Cmd_ScrollToTop">先頭にスクロール</sys:String>
+    <sys:String x:Key="R_Cmd_ScrollToBottom">末尾にスクロール</sys:String>
+    <sys:String x:Key="R_Cmd_ShowDesktop">デスクトップの表示</sys:String>
+    <sys:String x:Key="R_Cmd_ShowPinList">ピン留め定義一覧画面を表示</sys:String>
+    <sys:String x:Key="R_Cmd_ShowSettings">設定画面を表示</sys:String>
+    <sys:String x:Key="R_Cmd_CloseAllFolders">すべてのフォルダーを閉じる</sys:String>
+    <sys:String x:Key="R_Cmd_ButtonCount">起動ボタン数を表示</sys:String>
+    <sys:String x:Key="R_Cmd_GroupTitleCount">見出し数を表示</sys:String>
 
     <!--  設定画面  -->
     <sys:String x:Key="R_Settings_Setup">セットアップ</sys:String>
@@ -108,10 +119,12 @@
     <sys:String x:Key="R_ShowUserInTitleBar">タイトルバーにログインユーザーを表示</sys:String>
     <sys:String x:Key="R_UserName">ユーザー名</sys:String>
     <sys:String x:Key="R_DisplayName">表示名</sys:String>
+    <sys:String x:Key="R_Settings_Headline">起動ボタンの見出し</sys:String>
+    <sys:String x:Key="R_ShowSeqNoInHeadline">見出しに連番を表示</sys:String>
     <sys:String x:Key="R_Settings_MouseGesture">マウスジェスチャー</sys:String>
     <sys:String x:Key="R_EnableGesture">ジェスチャーを有効にする</sys:String>
     <sys:String x:Key="R_Settings_Confirm">確認</sys:String>
-    <sys:String x:Key="R_ConfirmClose">タイトルバーから閉じるときに確認(_C)</sys:String>
+    <sys:String x:Key="R_ConfirmClose">タイトルバーのボタンから閉じるときに確認(_C)</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">コンテキスト メニュー</sys:String>
     <sys:String x:Key="R_Settings_SubScreen">子画面</sys:String>
     <sys:String x:Key="R_SaveScreenSize">画面サイズ保存</sys:String>
@@ -131,17 +144,22 @@
     <sys:String x:Key="MsgErrGetExePath">実行ファイルのパス取得失敗。</sys:String>
     <sys:String x:Key="MsgErrStartup">起動に失敗しました。</sys:String>
     <sys:String x:Key="MsgErrAdminStartup">管理者として実行に失敗しました。</sys:String>
+    <sys:String x:Key="MsgErrSpecialCmdAdminStartup">特殊コマンドは管理者として実行はできません。</sys:String>
     <sys:String x:Key="MsgErrSaveSettings">アプリケーション設定の保存に失敗しました。</sys:String>
     <sys:String x:Key="MsgErrSettingsColumn">カラム数不正。</sys:String>
     <sys:String x:Key="MsgErrColorName">無効な色名。</sys:String>
     <sys:String x:Key="MsgErrAdminInstallPath">管理者権限が必要な場所へはインストールしないでください。</sys:String>
     <sys:String x:Key="MsgErrInvalidFileNoHeader">ファイル形式が不正です。ヘッダーが見つかりません。</sys:String>
     <sys:String x:Key="MsgErrInvalidFileNoDelimiter">ファイル形式が不正です。設定情報区切りが見つかりませんでした。</sys:String>
+    <sys:String x:Key="MsgErrInvalidCommand">無効なコマンドです。</sys:String>
 
     <sys:String x:Key="MsgInfoRegStartupShortcut">スタートアップにショートカットを作成しました。</sys:String>
     <sys:String x:Key="MsgInfoRemoveStartupShortcut">スタートアップからショートカットを削除しました。</sys:String>
     <sys:String x:Key="MsgInfoExportComplete">設定をエクスポートしました。</sys:String>
     <sys:String x:Key="MsgInfoImportComplete">設定をインポートしました。</sys:String>
+    <sys:String x:Key="MsgInfoLaunchButtonCnt">起動ボタン数:</sys:String>
+    <sys:String x:Key="MsgInfoGroupTitleCnt">グループ見出し数:</sys:String>
+    <sys:String x:Key="MsgInfoGroupSeparatorCnt">セパレーター数:</sys:String>
 
     <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">お勧めのインストール先フォルダーを作成しますか?</sys:String>
     <sys:String x:Key="MsgConfirmCloseMenu">メニューを終了しますか?</sys:String>

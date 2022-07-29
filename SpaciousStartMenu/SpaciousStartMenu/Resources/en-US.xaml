@@ -79,7 +79,9 @@
     <sys:String x:Key="R_List_Arguments">Arguments</sys:String>
 
     <sys:String x:Key="R_Edit_Headline">Headline</sys:String>
+    <sys:String x:Key="R_Edit_Separator">Separator</sys:String>
     <sys:String x:Key="R_Edit_Color">_Color</sys:String>
+    <sys:String x:Key="R_Edit_SpecialCmd">Special command</sys:String>
     <sys:String x:Key="R_Edit_Title">Title</sys:String>
     <sys:String x:Key="R_Edit_Path">Path</sys:String>
     <sys:String x:Key="R_Edit_WorkDirectory">Working Directory</sys:String>
@@ -87,6 +89,15 @@
 
     <sys:String x:Key="R_Edit_SpecialFolder">Special folder</sys:String>
     <sys:String x:Key="R_Edit_EnvVar">Environment variable</sys:String>
+
+    <sys:String x:Key="R_Cmd_ScrollToTop">Scroll to top</sys:String>
+    <sys:String x:Key="R_Cmd_ScrollToBottom">Scroll to bottom</sys:String>
+    <sys:String x:Key="R_Cmd_ShowDesktop">Show desktop</sys:String>
+    <sys:String x:Key="R_Cmd_ShowPinList">Show pinned definition list</sys:String>
+    <sys:String x:Key="R_Cmd_ShowSettings">Show settings</sys:String>
+    <sys:String x:Key="R_Cmd_CloseAllFolders">Close all folders</sys:String>
+    <sys:String x:Key="R_Cmd_ButtonCount">Show number of launch buttons</sys:String>
+    <sys:String x:Key="R_Cmd_GroupTitleCount">Show number of headings</sys:String>
 
     <!--  Settings screen  -->
     <sys:String x:Key="R_Settings_Setup">Setup</sys:String>
@@ -108,10 +119,12 @@
     <sys:String x:Key="R_ShowUserInTitleBar">Show logged-in user in title bar</sys:String>
     <sys:String x:Key="R_UserName">User name</sys:String>
     <sys:String x:Key="R_DisplayName">Display name</sys:String>
+    <sys:String x:Key="R_Settings_Headline">Launch button headline</sys:String>
+    <sys:String x:Key="R_ShowSeqNoInHeadline">Show sequential numbers in headings</sys:String>
     <sys:String x:Key="R_Settings_MouseGesture">Mouse gestures</sys:String>
     <sys:String x:Key="R_EnableGesture">Enable gestures</sys:String>
     <sys:String x:Key="R_Settings_Confirm">Confirm</sys:String>
-    <sys:String x:Key="R_ConfirmClose">_Confirm when closing from the title bar</sys:String>
+    <sys:String x:Key="R_ConfirmClose">_Confirm when closing from the button on the title bar</sys:String>
     <sys:String x:Key="R_Settings_ContextMenu">Context menu</sys:String>
     <sys:String x:Key="R_Settings_SubScreen">Child screen</sys:String>
     <sys:String x:Key="R_SaveScreenSize">Save screen size</sys:String>
@@ -131,17 +144,22 @@
     <sys:String x:Key="MsgErrGetExePath">Failed to get the path of the executable file.</sys:String>
     <sys:String x:Key="MsgErrStartup">Startup failed.</sys:String>
     <sys:String x:Key="MsgErrAdminStartup">Failed to run as administrator.</sys:String>
+    <sys:String x:Key="MsgErrSpecialCmdAdminStartup">Special commands cannot be executed as an administrator.</sys:String>
     <sys:String x:Key="MsgErrSaveSettings">Failed to save application settings.</sys:String>
     <sys:String x:Key="MsgErrSettingsColumn">Invalid number of columns.</sys:String>
     <sys:String x:Key="MsgErrColorName">Invalid color name.</sys:String>
     <sys:String x:Key="MsgErrAdminInstallPath">Do not install in locations that require administrative privileges.</sys:String>
     <sys:String x:Key="MsgErrInvalidFileNoHeader">File format is invalid. Header not found.</sys:String>
     <sys:String x:Key="MsgErrInvalidFileNoDelimiter">File format is invalid. Configuration information delimiter not found.</sys:String>
+    <sys:String x:Key="MsgErrInvalidCommand">Invalid command.</sys:String>
 
     <sys:String x:Key="MsgInfoRegStartupShortcut">I created a shortcut for startup.</sys:String>
     <sys:String x:Key="MsgInfoRemoveStartupShortcut">Removed shortcut from startup.</sys:String>
     <sys:String x:Key="MsgInfoExportComplete">Exported settings.</sys:String>
     <sys:String x:Key="MsgInfoImportComplete">Imported settings.</sys:String>
+    <sys:String x:Key="MsgInfoLaunchButtonCnt">Number of launch buttons:</sys:String>
+    <sys:String x:Key="MsgInfoGroupTitleCnt">Number of group headlines:</sys:String>
+    <sys:String x:Key="MsgInfoGroupSeparatorCnt">Number of separators:</sys:String>
 
     <sys:String x:Key="MsgConfirmCreateRecommendInstallFolder">Would you like to create a recommended destination folder?</sys:String>
     <sys:String x:Key="MsgConfirmCloseMenu">Do you want to exit the menu?</sys:String>
