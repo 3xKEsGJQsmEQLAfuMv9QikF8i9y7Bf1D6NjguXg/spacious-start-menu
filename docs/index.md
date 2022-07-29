@@ -22,9 +22,13 @@ This program will not replace the `Start Menu`, but the more you use it, the les
 
 ### Why full screen?
 
-It is unlikely that users need to see any information other than **candidate for launch** in order to perform the task of **launching an application**.
+What the user wants to see in order to accomplish the task of **launching an application** is a list of **candidate applications to launch**, and there is little need for any other information to be visible.
 
-Therefore, the choices are deployed across the entire screen.
+![Launcher example](img/bad-launcher.png)
+
+Therefore, the choices are deployed across the entire screen so that more information is visible at once.
+
+![View map](img/map.png)
 
 # Requirements
 
