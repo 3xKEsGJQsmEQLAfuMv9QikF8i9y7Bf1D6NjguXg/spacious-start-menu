@@ -15,4 +15,4 @@ This program will not replace the `Start Menu`, but the more you use it, the les
 
 ---
 
-[Read more](https://3xkesgjqsmeqlafumv9qikf8i9y7bf1d6njguxg.github.io/spacious-start-menu/)
+[Read more...](https://3xkesgjqsmeqlafumv9qikf8i9y7bf1d6njguxg.github.io/spacious-start-menu/)
