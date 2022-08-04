@@ -6,7 +6,7 @@ The full screen listing frees the user from cumbersome scrolling operations.
 
 This program will not replace the `Start Menu`, but the more you use it, the less often you should use the `Start Menu`.
 
-![top-image-s](https://user-images.githubusercontent.com/99333667/181743230-8e773e87-4d8c-4907-8553-8886c8ed3cbe.png)
+![top-image-s](https://user-images.githubusercontent.com/99333667/182944735-3677bf49-d06a-430c-a575-447c9b5f93a3.png)
 
 # Requirements
 
