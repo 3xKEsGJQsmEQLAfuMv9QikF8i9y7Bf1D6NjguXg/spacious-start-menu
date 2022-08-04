@@ -82,6 +82,95 @@ Selecting `Special command` will give you a choice of several commands that are 
 
 ![Settings](img/stg01.png)
 
+### 💠Setup
+
+#### Register to startup
+
+Register a shortcut on startup.
+
+#### Add a minimize launch option to the shortcut
+
+Add the option to start in minimized state to the command line when registering a shortcut to startup.
+This setting is unnecessary if `Start in minimized state` is enabled.
+
+#### Remove from Startup
+
+Remove the shortcut from startup.
+
+#### Export settings
+
+Outputs definitions of launch buttons and various settings to a file.
+
+#### Import settings
+
+Load the settings exported by the `Export settings` function.
+
+### 💠Minimize
+
+#### Start in minimized state
+
+Minimize when the application starts.
+
+#### Minimize menu with Esc key
+
+Causes the main screen to be minimized when the `Esc` key is pressed.
+
+#### Minimize by double-clicking on the screen margin
+
+Minimize the main screen when you double-click a part other than the startup button on the main screen.
+
+#### Suppresses menu minimization when pressing the launch button while holding down the Ctrl key
+
+Normally, pressing the launch button minimizes the main screen, but we don't want it to minimize when pressing the `Ctrl` key while pressing the launch button.
+
+### 💠Title bar
+
+#### Show modifier key status on the title bar
+
+Displays the mode in the title bar while the `Ctrl` key or `Ctrl` + `Shift` key is pressed.
+
+#### Show logged-in user in title bar
+
+The name of the logged-in user is displayed in the upper right corner of the title bar.
+
+### 💠Launch button headline
+
+#### Show sequential numbers in headings
+
+Displays sequential numbers on group headings from top to bottom.
+
+### 💠Confirm
+
+#### Confirm when exiting from the button on the title bar
+
+A confirmation dialog is displayed when the close button on the upper right of the title bar is pressed.
+
+### 💠Context menu
+
+#### Show `Open the program location and then exit the program` menu
+
+In the context menu, display a menu item to open the folder where `Spacious Start Menu` is located in Explorer and then exit the program.
+
+### 💠Child screen
+
+#### Save screen size
+
+Save the size of each screen.
+
+#### Save screen position
+
+Save the position of each screen.
+
+### 💠Advanced options
+
+#### Direct definition file edit button on the `Pinned definition list` screen
+
+A button to switch to the mode for directly editing the definition file is displayed at the bottom left of the pinned definition list screen.
+
+### 💠About
+
+Displays the version of `Spatial Start Menu` and the version of .NET runtime.
+
 ---
 
 | [Index](index.md) | [Install](install.md) | [Update](update.md) | [Uninstall](uninstall.md) | Usage | [Other](other.md) |
