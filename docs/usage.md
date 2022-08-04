@@ -78,6 +78,10 @@ Selecting `Special command` will give you a choice of several commands that are 
 
 ![Pin edit special command](img/pinEdit05.png)
 
+Select `Landmark` to place a label for the emoji. Use it as a separator for launch buttons or as a landmark when looking for a button.
+
+![Landmark](img/pinEdit06.png)
+
 ## 🔷Settings screen
 
 ![Settings](img/stg01.png)
