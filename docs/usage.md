@@ -118,8 +118,6 @@ Selecting `Special command` will give you a choice of several commands that are 
 
 ![Pin edit special command](img/pinEdit05.png)
 
-Select `Landmark` to place a label for the emoji. Use it as a separator for launch buttons or as a landmark when looking for a button.
-
 |Special commands|Specification method|Description|
 |:----|:----|:----|
 |System_Signout|`<CMD:System_Signout>`|Sign out|
@@ -138,6 +136,8 @@ Select `Landmark` to place a label for the emoji. Use it as a separator for laun
 |Explorer_CloseAllFolders|`<CMD:Explorer_CloseAllFolders>`|Close all explorer folder windows|
 |Info_LaunchButtonCount|`<CMD:Info_LaunchButtonCount>`|Show the number of launch buttons|
 |Info_GroupTitleCount|`<CMD:Info_GroupTitleCount>`|Show launch button's headline count|
+
+Select `Landmark` to place a label for the emoji. Use it as a separator for launch buttons or as a landmark when looking for a button.
 
 ![Landmark](img/pinEdit06.png)
 
