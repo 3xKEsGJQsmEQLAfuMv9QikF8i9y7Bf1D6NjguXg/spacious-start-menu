@@ -126,8 +126,8 @@
 |App_Minimized|`<CMD:App_Minimized>`|メイン画面を最小化|
 |App_ZoomIn|`<CMD:App_ZoomIn>`|メイン画面を拡大|
 |App_ZoomOut|`<CMD:App_ZoomOut>`|メイン画面を縮小|
-|App_ScrollToTop|`<CMD:App_ScrollToTop>`|メイン画面を先頭にスクロール|
-|App_ScrollToBottom|`<CMD:App_ScrollToBottom>`|メイン画面を末尾にスクロール|
+|App_ScrollToTop|`<CMD:App_ScrollToTop>`|メイン画面の先頭にスクロール|
+|App_ScrollToBottom|`<CMD:App_ScrollToBottom>`|メイン画面の末尾にスクロール|
 |App_ScrollToUp|`<CMD:App_ScrollToUp>`|メイン画面を上にスクロール|
 |App_ScrollToDown|`<CMD:App_ScrollToDown>`|メイン画面を下にスクロール|
 |App_ReloadPinDefine|`<CMD:App_ReloadPinDefine>`|起動ボタン定義を再読み込み|
