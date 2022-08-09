@@ -6,6 +6,10 @@
 - [Update](update.md)
 - [Uninstall](uninstall.md)
 - [Usage](usage.md)
+  - Main screen
+  - Pinned definition list screen
+  - Pin edit screen
+  - Settings screen
 - [Other](other.md)
   - Recommended initial settings
   - Reference article
