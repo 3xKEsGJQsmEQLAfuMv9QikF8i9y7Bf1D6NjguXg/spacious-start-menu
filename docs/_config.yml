@@ -1,3 +1,5 @@
 theme: jekyll-theme-hacker
 title: Spacious Start Menu
 description: This is a large program launcher.
+plugins:
+  - jekyll-sitemap
