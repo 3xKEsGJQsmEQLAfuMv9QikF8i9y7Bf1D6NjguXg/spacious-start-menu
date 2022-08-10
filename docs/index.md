@@ -1,4 +1,4 @@
-# Index
+## Index
 
 - **Overview**
 - **Requirements**
@@ -14,7 +14,7 @@
   - Recommended initial settings
   - Reference article
 
-# Overview
+## Overview
 
 This is a program launcher that allows you to take advantage of the entire screen area.
 
@@ -24,7 +24,7 @@ This program will not replace the `Start Menu`, but the more you use it, the les
 
 ![image](img/top-image.png)
 
-### Why full screen?
+#### Why full screen?
 
 In order for the user to perform the task of "launching an application", all the user needs to see is a list of "candidate applications to launch", and there is little need to see any other information in order to perform this task.
 
@@ -34,7 +34,7 @@ Therefore, the choices are deployed across the entire screen so that more inform
 
 ![View map](img/map.png)
 
-# Requirements
+## Requirements
 
 - Windows 10 or later
 - .NET 6 Desktop Runtime
