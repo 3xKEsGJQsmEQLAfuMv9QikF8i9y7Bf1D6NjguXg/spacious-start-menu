@@ -133,9 +133,15 @@ Selecting `Special command` will give you a choice of several commands that are 
 |App_ReloadPinDefine|`<CMD:App_ReloadPinDefine>`|Reload launch button definition|
 |Desktop_Show|`<CMD:Desktop_Show>`|show desktop|
 |Settings_Show|`<CMD:Settings_Show>`|Show settings screen|
-|Explorer_CloseAllFolders|`<CMD:Explorer_CloseAllFolders>`|Close all explorer folder windows|
+|Explorer_CloseAllFolders|`<CMD:Explorer_CloseAllFolders>`|Close all open folder windows in explorer|
+|Explorer_ListFolders|`<CMD:Explorer_ListFolders>`|List open folder windows in explorer|
 |Info_LaunchButtonCount|`<CMD:Info_LaunchButtonCount>`|Show the number of launch buttons|
 |Info_GroupTitleCount|`<CMD:Info_GroupTitleCount>`|Show launch button's headline count|
+
+Examples of special commands
+
+![Examples of special commands](img/spCmd01.png)
+
 
 Select `Landmark` to place a label for the emoji. Use it as a separator for launch buttons or as a landmark when looking for a button.
 
