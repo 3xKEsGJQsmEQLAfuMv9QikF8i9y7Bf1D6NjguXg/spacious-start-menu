@@ -133,9 +133,15 @@
 |App_ReloadPinDefine|`<CMD:App_ReloadPinDefine>`|起動ボタン定義を再読み込み|
 |Desktop_Show|`<CMD:Desktop_Show>`|デスクトップを表示|
 |Settings_Show|`<CMD:Settings_Show>`|設定画面を表示|
-|Explorer_CloseAllFolders|`<CMD:Explorer_CloseAllFolders>`|エクスプローラーのフォルダーウィンドウをすべて閉じる|
+|Explorer_CloseAllFolders|`<CMD:Explorer_CloseAllFolders>`|エクスプローラーで開いているフォルダーウィンドウをすべて閉じる|
+|Explorer_ListFolders|`<CMD:Explorer_ListFolders>`|エクスプローラーで開いているフォルダーウィンドウを一覧表示|
 |Info_LaunchButtonCount|`<CMD:Info_LaunchButtonCount>`|起動ボタン数を表示|
 |Info_GroupTitleCount|`<CMD:Info_GroupTitleCount>`|起動ボタンの見出し数を表示|
+
+特殊コマンドの例
+
+![特殊コマンド例](img/spCmd01-ja.png)
+
 
 `目印` を選択すると、絵文字のラベルを配置できます。起動ボタンの区切りとして使用したり、ボタンを探す際の目印として使用します。
 
