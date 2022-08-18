@@ -1,10 +1,10 @@
 ## Usage
 
-Launch `SpaciousStartMenu.exe`.
+Launch `SpaciousStartMenu.exe`. A sample launch button definition is generated on first launch.
 
-Right-click on the screen and select `Edit Pin` to add a definition.
+Edit the launch button definition by right-clicking on the screen and choosing `Edit Pin`. This work is equivalent to pinning in the **Start Menu**.
 
-Launch defined applications, folders, etc. at the click of a button.
+Click the launch button to start an application, folder, etc.
 
 - [Main screen](#main-screen)
 - [Pinned definition list screen](#pinned-definition-list-screen)
