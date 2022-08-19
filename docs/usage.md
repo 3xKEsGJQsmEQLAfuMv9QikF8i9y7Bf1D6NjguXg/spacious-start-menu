@@ -45,13 +45,15 @@ You can zoom in/out by pressing the `+`, `-` buttons on the context menu or by h
 
 This is the list screen displayed by `Edit Pin`.
 
-Double-click the list, click the Edit button on the far right, or click the `Add row` button to open the edit screen.
+Double-click the list, click the edit icon at the right end of the list, or click the `Add Row` button or `Edit Row` button below to open the edit screen.
 
 If you select the delete (trash can) icon on the far right or press the `Delete` key, the actual deletion will occur when the `Save` button is pressed.
 
 ![Pinned definition list](img/pinList01.png)
 
 ### 🔷Pin edit screen
+
+#### 💠Overview
 
 Edit screen.
 
@@ -66,9 +68,13 @@ The `Working Directory` and `Arguments` are optional.
 
 ![Pin edit](img/pinEdit01.png)
 
+#### 💠Color
+
 Color selection menu.
 
 ![Pin edit color selection](img/pinEdit02.png)
+
+#### 💠Special folders and environment variables
 
 Special folders and environment variables selection menu.
 
@@ -114,7 +120,9 @@ Special folders and environment variables selection menu.
 |TMP|`<ENV:TMP>`|C:\Users\USER123\AppData\Local\Temp|
 |USERPROFILE|`<ENV:USERPROFILE>`|C:\Users\USER123|
 
-Selecting `Special command` will give you a choice of several commands that are not application launches. When you select a command from the choices, the `Title` is also set automatically, but can be changed to any name later.
+#### 💠Special Commands
+
+Selecting `Special commands` will give you a choice of several commands that are not application launches. When you select a command from the choices, the `Title` is also set automatically, but can be changed to any name later.
 
 ![Pin edit special command](img/pinEdit05.png)
 
@@ -142,6 +150,7 @@ Examples of special commands
 
 ![Examples of special commands](img/spCmd01.png)
 
+#### 💠Landmark
 
 Select `Landmark` to place a label for the emoji. Use it as a separator for launch buttons or as a landmark when looking for a button.
 
