@@ -13,6 +13,8 @@ Click the launch button to start an application, folder, etc.
 
 ### 🔷Main screen
 
+#### 💠Overview
+
 You can open a folder or start a program by pressing the launch button.
 
 For executable programs, you can run them as an administrator by pressing the launch button while holding down `Ctrl` + `Shift`.
