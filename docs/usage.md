@@ -31,6 +31,22 @@ It is displayed by right-clicking the `...` button on the title bar or the margi
 | Open Program Location | Open the folder where this program is located.       |
 | Open the program location and then exit the program | Open the folder where this program is located and exit the program. This menu item can be displayed in the settings.       |
 
+#### 💠Title bar
+
+##### modifier key status
+
+While pressing a modifier key such as `Ctrl` or `Shift`, the mode valid for the key being pressed is displayed.
+You can switch display/hide and display position on the setting screen.
+
+![Modifier key status in title bar](img/titleBar01.png)
+
+##### Logged-in user
+
+Shows currently logged in user. You can switch display/hide on the settings screen.
+Click to sign out, shut down, or restart.
+
+![Login user in title bar](img/titleBar02.png)
+
 #### 💠Zoom in/out
 
 You can zoom in/out by pressing the `+`, `-` buttons on the context menu or by holding down the `Ctrl` key and rotating the mouse wheel.
@@ -207,11 +223,15 @@ Normally, pressing the launch button minimizes the main screen, but we don't wan
 
 ##### Show modifier key status on the title bar
 
-Displays the mode in the title bar while the `Ctrl` key or `Ctrl` + `Shift` key is pressed.
+While pressing a modifier key such as `Ctrl` or `Shift`, the title bar displays the mode that is valid for the key being pressed.
+
+![Modifier key status in title bar](img/titleBar01.png)
 
 ##### Show logged-in user in title bar
 
 The name of the logged-in user is displayed in the upper right corner of the title bar.
+
+![Login user in title bar](img/titleBar02.png)
 
 #### 💠Launch button headline
 
