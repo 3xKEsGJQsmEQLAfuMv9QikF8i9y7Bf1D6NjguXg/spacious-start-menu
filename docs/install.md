@@ -1,10 +1,10 @@
 ## Install
 
-### Step 1
+### 🔷Step 1
 
 Download and install `x64` of `.NET Desktop Runtime 6.x` from [Download .NET 6.0 (Linux, macOS, and Windows)](https://dotnet.microsoft.com/download/dotnet/6.0).
 
-### Step 2
+### 🔷Step 2
 
 #### 💠For manual installation
 
@@ -19,11 +19,11 @@ Extract the zip and place it in any location that does not require administrativ
 
 #### 💠For installation using Scoop
 
-##### Scoop installation
+##### 🔹Scoop installation
 
 omit
 
-##### Add bucket
+##### 🔹Add bucket
 
 Execute the following command.
 
@@ -31,7 +31,7 @@ Execute the following command.
 scoop bucket add 3xkesg https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/scoop-3xke
 ```
 
-##### Install the app
+##### 🔹Install the app
 
 Execute the following command.
 
