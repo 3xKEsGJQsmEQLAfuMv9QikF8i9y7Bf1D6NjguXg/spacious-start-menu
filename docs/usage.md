@@ -33,14 +33,14 @@ It is displayed by right-clicking the `...` button on the title bar or the margi
 
 #### 💠Title bar
 
-##### modifier key status
+##### 🔹Modifier key status
 
 While pressing a modifier key such as `Ctrl` or `Shift`, the mode valid for the key being pressed is displayed.
 You can switch display/hide and display position on the setting screen.
 
 ![Modifier key status in title bar](img/titleBar01.png)
 
-##### Logged-in user
+##### 🔹Logged-in user
 
 Shows currently logged in user. You can switch display/hide on the settings screen.
 Click to sign out, shut down, or restart.
@@ -51,11 +51,11 @@ Click to sign out, shut down, or restart.
 
 You can zoom in/out by pressing the `+`, `-` buttons on the context menu or by holding down the `Ctrl` key and rotating the mouse wheel.
 
-##### Zoom in
+##### 🔹Zoom in
 
 ![Zoom in](img/main02.png)
 
-##### Zoom out
+##### 🔹Zoom out
 
 ![Zoom out](img/main01.png)
 
@@ -180,54 +180,54 @@ Select `Landmark` to place a label for the emoji. Use it as a separator for laun
 
 #### 💠Setup
 
-##### Register to startup
+##### 🔹Register to startup
 
 Register a shortcut on startup.
 
-##### Add a minimize launch option to the shortcut
+##### 🔹Add a minimize launch option to the shortcut
 
 Add the option to start in minimized state to the command line when registering a shortcut to startup.
 This setting is unnecessary if `Start in minimized state` is enabled.
 
-##### Remove from Startup
+##### 🔹Remove from Startup
 
 Remove the shortcut from startup.
 
-##### Export settings
+##### 🔹Export settings
 
 Outputs definitions of launch buttons and various settings to a file.
 
-##### Import settings
+##### 🔹Import settings
 
 Load the settings exported by the `Export settings` function.
 
 #### 💠Minimize
 
-##### Start in minimized state
+##### 🔹Start in minimized state
 
 Minimize when the application starts.
 
-##### Minimize menu with Esc key
+##### 🔹Minimize menu with Esc key
 
 Causes the main screen to be minimized when the `Esc` key is pressed.
 
-##### Minimize by double-clicking on the screen margin
+##### 🔹Minimize by double-clicking on the screen margin
 
 Minimize the main screen when you double-click a part other than the startup button on the main screen.
 
-##### Suppresses menu minimization when pressing the launch button while holding down the Ctrl key
+##### 🔹Suppresses menu minimization when pressing the launch button while holding down the Ctrl key
 
 Normally, pressing the launch button minimizes the main screen, but we don't want it to minimize when pressing the `Ctrl` key while pressing the launch button.
 
 #### 💠Title bar
 
-##### Show modifier key status on the title bar
+##### 🔹Show modifier key status on the title bar
 
 While pressing a modifier key such as `Ctrl` or `Shift`, the title bar displays the mode that is valid for the key being pressed.
 
 ![Modifier key status in title bar](img/titleBar01.png)
 
-##### Show logged-in user in title bar
+##### 🔹Show logged-in user in title bar
 
 The name of the logged-in user is displayed in the upper right corner of the title bar.
 
@@ -235,35 +235,35 @@ The name of the logged-in user is displayed in the upper right corner of the tit
 
 #### 💠Launch button headline
 
-##### Show sequential numbers in headings
+##### 🔹Show sequential numbers in headings
 
 Displays sequential numbers on group headings from top to bottom.
 
 #### 💠Confirm
 
-##### Confirm when exiting from the button on the title bar
+##### 🔹Confirm when exiting from the button on the title bar
 
 A confirmation dialog is displayed when the close button on the upper right of the title bar is pressed.
 
 #### 💠Context menu
 
-##### Show `Open the program location and then exit the program` menu
+##### 🔹Show `Open the program location and then exit the program` menu
 
 In the context menu, display a menu item to open the folder where `Spacious Start Menu` is located in Explorer and then exit the program.
 
 #### 💠Child screen
 
-##### Save screen size
+##### 🔹Save screen size
 
 Save the size of each screen.
 
-##### Save screen position
+##### 🔹Save screen position
 
 Save the position of each screen.
 
 #### 💠Advanced options
 
-##### Direct definition file edit button on the `Pinned definition list` screen
+##### 🔹Direct definition file edit button on the `Pinned definition list` screen
 
 A button to switch to the mode for directly editing the definition file is displayed at the bottom left of the pinned definition list screen.
 
