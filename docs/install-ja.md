@@ -1,11 +1,11 @@
 
 ## インストール
 
-### ステップ1
+### 🔷ステップ1
 
 [.NET 6.0 (Linux、macOS、Windows) をダウンロードする](https://dotnet.microsoft.com/download/dotnet/6.0)の `.NET デスクトップ ランタイム` の `x64` リンクからダウンロード・インストールを実行します。
 
-### ステップ2
+### 🔷ステップ2
 
 #### 💠手動インストールの場合
 
@@ -19,11 +19,11 @@ zipを解凍し、管理者権限を必要としない任意の場所に配置�
 
 #### 💠Scoopを使用したインストールの場合
 
-##### Scoopのインストール
+##### 🔹Scoopのインストール
 
 省略
 
-##### bucketの追加
+##### 🔹bucketの追加
 
 以下のコマンドを実行します。
 
@@ -31,7 +31,7 @@ zipを解凍し、管理者権限を必要としない任意の場所に配置�
 scoop bucket add 3xkesg https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/scoop-3xke
 ```
 
-##### アプリのインストール
+##### 🔹アプリのインストール
 
 以下のコマンドを実行します。
 
