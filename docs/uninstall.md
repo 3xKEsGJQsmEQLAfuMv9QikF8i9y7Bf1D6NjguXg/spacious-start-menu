@@ -2,14 +2,14 @@
 
 If you have started the `Spacious Start Menu`, close it.
 
-### 💠For manual installation
+#### 💠For manual installation
 
 Delete the expanded folder.
 
 
-### 💠For installation using Scoop
+#### 💠For installation using Scoop
 
-#### Uninstall the app
+##### 🔹Uninstall the app
 
 Execute the following command.
 
@@ -17,7 +17,7 @@ Execute the following command.
 scoop uninstall spacious-start-menu
 ```
 
-#### Remove bucket
+##### 🔹Remove bucket
 
 Execute the following command.
 
