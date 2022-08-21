@@ -164,7 +164,7 @@
 |Info_LaunchButtonCount|`<CMD:Info_LaunchButtonCount>`|起動ボタン数を表示|
 |Info_GroupTitleCount|`<CMD:Info_GroupTitleCount>`|起動ボタンの見出し数を表示|
 
-特殊コマンドの例
+##### 🔹特殊コマンドの例
 
 ![特殊コマンド例](img/spCmd01-ja.png)
 
