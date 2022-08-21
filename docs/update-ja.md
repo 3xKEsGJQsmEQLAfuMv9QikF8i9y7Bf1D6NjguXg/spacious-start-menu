@@ -2,7 +2,7 @@
 
 `Spacious Start Menu` を起動していたら終了しておきます。
 
-### 💠手動インストールの場合
+#### 💠手動インストールの場合
 
 [Releases](https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6NjguXg/spacious-start-menu/releases)から `SpaciousStartMenu.zip` をダウンロードします。
 
@@ -10,9 +10,9 @@ zipを右クリック、 `プロパティ` を選択して、 `許可する` に
 
 zipを解凍し、展開ファイルを前回配置場所に上書きコピーします。
 
-### 💠Scoopを使用したインストールの場合
+#### 💠Scoopを使用したインストールの場合
 
-#### scoopとアプリのアップデート
+##### 🔹scoopとアプリのアップデート
 
 以下のコマンドを実行します。
 
