@@ -164,7 +164,7 @@ Selecting `Special commands` will give you a choice of several commands that are
 |Info_LaunchButtonCount|`<CMD:Info_LaunchButtonCount>`|Show the number of launch buttons|
 |Info_GroupTitleCount|`<CMD:Info_GroupTitleCount>`|Show launch button's headline count|
 
-Examples of special commands
+##### 🔹Examples of special commands
 
 ![Examples of special commands](img/spCmd01.png)
 
