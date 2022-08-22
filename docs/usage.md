@@ -182,7 +182,7 @@ Select `Landmark` to place a label for the emoji. Use it as a separator for laun
 
 ##### 🔹Register to startup
 
-Register the Spacious Start Menu shortcut in Startup.
+Register the `Spacious Start Menu` shortcut in Startup.
 
 ##### 🔹Add a minimize launch option to the shortcut
 
@@ -191,7 +191,7 @@ This setting is unnecessary if `Start in minimized state` is enabled.
 
 ##### 🔹Remove from Startup
 
-Remove the Spacious Start Menu shortcut from Startup.
+Remove the `Spacious Start Menu` shortcut from Startup.
 
 ##### 🔹Export settings
 
@@ -249,7 +249,7 @@ A confirmation dialog is displayed when the close button on the upper right of t
 
 ##### 🔹Show `Open the program location and then exit the program` menu
 
-In the context menu, display a menu item to open the folder where `Spacious Start Menu` is located in Explorer and then exit the program.
+In the context menu, display a menu item to open the folder where Spacious Start Menu is located in Explorer and then exit the program.
 
 #### 💠Child screen
 
@@ -269,7 +269,7 @@ A button to switch to the mode for directly editing the definition file is displ
 
 #### 💠About
 
-Displays the version of `Spatial Start Menu` and the version of .NET runtime.
+Displays the version of Spatial Start Menu and the version of .NET runtime.
 
 ---
 
