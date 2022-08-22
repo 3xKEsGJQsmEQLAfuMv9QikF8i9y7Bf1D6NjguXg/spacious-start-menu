@@ -18,9 +18,9 @@
 
 This is a program launcher that allows you to take advantage of the entire screen area.
 
-The full screen listing frees the user from cumbersome scrolling operations.
+The full screen listing frees the user from cumbersome scrolling operations. Recommended for those who are dissatisfied with the cramped Start Menu.
 
-This program will not replace the `Start Menu`, but the more you use it, the less often you should use the `Start Menu`.
+This program will not replace the Start Menu, but the more you use it, the less often you should use the Start Menu.
 
 ![image](img/top-image.png)
 
