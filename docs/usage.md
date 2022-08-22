@@ -182,7 +182,7 @@ Select `Landmark` to place a label for the emoji. Use it as a separator for laun
 
 ##### 🔹Register to startup
 
-Register a shortcut on startup.
+Register the Spacious Start Menu shortcut in Startup.
 
 ##### 🔹Add a minimize launch option to the shortcut
 
@@ -191,7 +191,7 @@ This setting is unnecessary if `Start in minimized state` is enabled.
 
 ##### 🔹Remove from Startup
 
-Remove the shortcut from startup.
+Remove the Spacious Start Menu shortcut from Startup.
 
 ##### 🔹Export settings
 
