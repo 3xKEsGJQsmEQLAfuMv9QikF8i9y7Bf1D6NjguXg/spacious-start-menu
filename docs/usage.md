@@ -61,7 +61,7 @@ You can zoom in/out by pressing the `+`, `-` buttons on the context menu or by h
 
 ### 🔷Pinned definition list screen
 
-This is the list screen displayed by `Edit Pin`.
+This is a list of launch buttons, etc., displayed by `Edit Pin` in the context menu.
 
 Double-click the list, click the edit icon at the right end of the list, or click the `Add Row` button or `Edit Row` button below to open the edit screen.
 
