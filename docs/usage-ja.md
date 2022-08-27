@@ -125,6 +125,8 @@
 |UserProfile|`<UserProfile>`|C:\Users\USER123|
 |Windows|`<Windows>`|C:\WINDOWS|
 
+[特殊フォルダー 一覧](table-ja.md#特殊フォルダー)
+
 |環境変数|指定方法|展開される値の例|
 |:----|:----|:----|
 |ALLUSERSPROFILE|`<ENV:ALLUSERSPROFILE>`|C:\ProgramData|
@@ -137,6 +139,8 @@
 |TEMP|`<ENV:TEMP>`|C:\Users\USER123\AppData\Local\Temp|
 |TMP|`<ENV:TMP>`|C:\Users\USER123\AppData\Local\Temp|
 |USERPROFILE|`<ENV:USERPROFILE>`|C:\Users\USER123|
+
+[環境変数 一覧](table-ja.md#環境変数)
 
 #### 💠特殊コマンド
 
@@ -163,6 +167,8 @@
 |Explorer_ListFolders|`<CMD:Explorer_ListFolders>`|エクスプローラーで開いているフォルダーウィンドウを一覧表示|
 |Info_LaunchButtonCount|`<CMD:Info_LaunchButtonCount>`|起動ボタン数を表示|
 |Info_GroupTitleCount|`<CMD:Info_GroupTitleCount>`|起動ボタンの見出し数を表示|
+
+[特殊コマンド 一覧](table-ja.md#特殊コマンド)
 
 ##### 🔹特殊コマンドの例
 
