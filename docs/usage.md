@@ -29,7 +29,7 @@ It is displayed by right-clicking the `...` button on the title bar or the margi
 | Scale                 | Changes the display magnification of an item. You can also change the scale by rotating Ctrl + mouse wheel on the main screen. |
 | Settings              | Displays the settings screen.                        |
 | Open Program Location | Open the folder where this program is located.       |
-| Open the program location and then exit the program | Open the folder where this program is located and exit the program. This menu item can be displayed in the settings.       |
+| Open the program location and then exit the program | Open the folder where this program is located and exit the program. This menu item can be shown/hidden in the settings.       |
 
 #### 💠Title bar
 
@@ -53,9 +53,13 @@ You can zoom in/out by pressing the `+`, `-` buttons on the context menu or by h
 
 ##### 🔹Zoom in
 
+Largest view of Spacious Start Menu.
+
 ![Zoom in](img/main02.png)
 
 ##### 🔹Zoom out
+
+Smallest view of Spacious Start Menu.
 
 ![Zoom out](img/main01.png)
 
