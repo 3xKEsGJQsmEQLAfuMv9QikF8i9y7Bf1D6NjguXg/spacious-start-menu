@@ -63,6 +63,13 @@ Smallest view of Spacious Start Menu.
 
 ![Zoom out](img/main01.png)
 
+#### 💠Show desktop button
+
+At the bottom right there is a button to show the desktop.
+The button size can be adjusted in the settings screen.
+
+![Show desktop button](img/desktopBtn01.png)
+
 ### 🔷Pinned definition list screen
 
 This is a list of launch buttons, etc., displayed by `Edit Pin` in the context menu.
