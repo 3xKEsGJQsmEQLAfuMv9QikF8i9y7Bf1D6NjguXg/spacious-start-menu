@@ -192,7 +192,7 @@ Displays sequential numbers on group headings from top to bottom.
 
 ##### 🔹Show desktop button
 
-Specify the height and width of the **Show desktop button** at the bottom right of the main screen.
+Specify the height and width of the **Show desktop** button at the bottom right of the main screen.
 
 ![Show desktop button](img/desktopBtn01.png)
 
