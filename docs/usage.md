@@ -188,6 +188,16 @@ The name of the logged-in user is displayed in the upper right corner of the tit
 
 Displays sequential numbers on group headings from top to bottom.
 
+#### 💠Bottom area
+
+##### 🔹Show desktop button
+
+Specify the height and width of the **Show desktop button** at the bottom right of the main screen.
+
+![Show desktop button](img/desktopBtn01.png)
+
+![Show desktop button large size](img/desktopBtn02.png)
+
 #### 💠Confirm
 
 ##### 🔹Confirm when exiting from the button on the title bar
