@@ -21,7 +21,7 @@ Extract the zip and place it in any location that does not require administrativ
 
 ##### 🔹Scoop installation
 
-omit
+[See here](https://scoop.sh/)
 
 ##### 🔹Add bucket
 
