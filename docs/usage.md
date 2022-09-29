@@ -82,6 +82,10 @@ If you select the delete (trash can) icon on the far right or press the `Delete`
 
 ![Pinned definition list](img/pinList01.png)
 
+To rearrange the order of the headings and the groups that belong to them, press the group rearrangement button on the bottom left.
+
+![Pinned definition list, Group sort](img/pinList02.png)
+
 ### 🔷Pin edit screen
 
 #### 💠Overview
