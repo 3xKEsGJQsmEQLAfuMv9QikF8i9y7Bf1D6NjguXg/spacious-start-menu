@@ -30,6 +30,7 @@ It is displayed by right-clicking the `...` button on the title bar or the margi
 | Settings              | Displays the settings screen.                        |
 | Open Program Location | Open the folder where this program is located.       |
 | Open the program location and then exit the program | Open the folder where this program is located and exit the program. This menu item can be shown/hidden in the settings.       |
+| View Help site              | View this web page.                        |
 
 #### 💠Title bar
 
