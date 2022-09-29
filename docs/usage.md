@@ -66,6 +66,7 @@ Smallest view of Spacious Start Menu.
 #### 💠Show desktop button
 
 At the bottom right there is a button to show the desktop.
+It can be used instead of `Show desktop` on the taskbar.
 The button size can be adjusted in the settings screen.
 
 ![Show desktop button](img/desktopBtn01.png)
