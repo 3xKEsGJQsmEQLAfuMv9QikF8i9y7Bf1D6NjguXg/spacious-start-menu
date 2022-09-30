@@ -28,7 +28,7 @@
 |UserProfile|`<UserProfile>`|C:\Users\USER123|
 |Windows|`<Windows>`|C:\WINDOWS|
 
-[Back](usage.md#special-folders-and-environment-variables)
+[Back](usage.md#33-special-folders-and-environment-variables)
 
 ### 🔷Environment variables
 
@@ -45,7 +45,7 @@
 |TMP|`<ENV:TMP>`|C:\Users\USER123\AppData\Local\Temp|
 |USERPROFILE|`<ENV:USERPROFILE>`|C:\Users\USER123|
 
-[Back](usage.md#special-folders-and-environment-variables)
+[Back](usage.md#33-special-folders-and-environment-variables)
 
 ### 🔷Special commands
 
@@ -69,7 +69,7 @@
 |Info_LaunchButtonCount|`<CMD:Info_LaunchButtonCount>`|Show the number of launch buttons|
 |Info_GroupTitleCount|`<CMD:Info_GroupTitleCount>`|Show launch button's headline count|
 
-[Back](usage.md#special-commands)
+[Back](usage.md#34-special-commands)
 
 ---
 
