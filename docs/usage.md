@@ -7,8 +7,18 @@ Edit the launch button definition by right-clicking on the screen and choosing `
 Click the launch button to start an application, folder, etc.
 
 - [1. Main screen](#1-main-screen)
+  - [1.1. Overview](#11-overview)
+  - [1.2. Context menu](#12-context-menu)
+  - [1.3. Title bar](#13-title-bar)
+  - [1.4. Zoom in/out](#14-zoom-inout)
+  - [1.5. Show desktop button](#15-show-desktop-button)
 - [2. Pinned definition list screen](#2-pinned-definition-list-screen)
 - [3. Pin edit screen](#3-pin-edit-screen)
+  - [3.1. Overview](#31-overview)
+  - [3.2. Color](#32-color)
+  - [3.3. Special folders and environment variables](#33-special-folders-and-environment-variables)
+  - [3.4. Special Commands](#34-special-commands)
+  - [3.5. Landmark](#35-landmark)
 - [4. Settings screen](#4-settings-screen)
 
 ### 🔷1. Main screen
