@@ -28,7 +28,7 @@
 |UserProfile|`<UserProfile>`|C:\Users\USER123|
 |Windows|`<Windows>`|C:\WINDOWS|
 
-[戻る](usage-ja.md#特殊フォルダー環境変数)
+[戻る](usage-ja.md#33-特殊フォルダー環境変数)
 
 ### 🔷環境変数
 
@@ -45,7 +45,7 @@
 |TMP|`<ENV:TMP>`|C:\Users\USER123\AppData\Local\Temp|
 |USERPROFILE|`<ENV:USERPROFILE>`|C:\Users\USER123|
 
-[戻る](usage-ja.md#特殊フォルダー環境変数)
+[戻る](usage-ja.md#33-特殊フォルダー環境変数)
 
 ### 🔷特殊コマンド
 
@@ -69,7 +69,7 @@
 |Info_LaunchButtonCount|`<CMD:Info_LaunchButtonCount>`|起動ボタン数を表示|
 |Info_GroupTitleCount|`<CMD:Info_GroupTitleCount>`|起動ボタンの見出し数を表示|
 
-[戻る](usage-ja.md#特殊コマンド)
+[戻る](usage-ja.md#34-特殊コマンド)
 
 ---
 
