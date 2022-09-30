@@ -6,20 +6,20 @@ Edit the launch button definition by right-clicking on the screen and choosing `
 
 Click the launch button to start an application, folder, etc.
 
-- [Main screen](#main-screen)
-- [Pinned definition list screen](#pinned-definition-list-screen)
-- [Pin edit screen](#pin-edit-screen)
-- [Settings screen](#settings-screen)
+- [1. Main screen](#1-main-screen)
+- [2. Pinned definition list screen](#2-pinned-definition-list-screen)
+- [3. Pin edit screen](#3-pin-edit-screen)
+- [4. Settings screen](#4-settings-screen)
 
-### 🔷Main screen
+### 🔷1. Main screen
 
-#### 💠Overview
+#### 💠1.1. Overview
 
 You can open a folder or start a program by pressing the launch button.
 
 For executable programs, you can run them as an administrator by pressing the launch button while holding down `Ctrl` + `Shift`.
 
-#### 💠Context menu
+#### 💠1.2. Context menu
 
 It is displayed by right-clicking the `...` button on the title bar or the margin other than the launch button.
 
@@ -32,7 +32,7 @@ It is displayed by right-clicking the `...` button on the title bar or the margi
 | Open the program location and then exit the program | Open the folder where this program is located and exit the program. This menu item can be shown/hidden in the settings.       |
 | View Help site              | View this web page.                        |
 
-#### 💠Title bar
+#### 💠1.3. Title bar
 
 ##### 🔹Modifier key status
 
@@ -48,7 +48,7 @@ Click to sign out, shut down, or restart.
 
 ![Login user in title bar](img/titleBar02.png)
 
-#### 💠Zoom in/out
+#### 💠1.4. Zoom in/out
 
 You can zoom in/out by pressing the `+`, `-` buttons on the context menu or by holding down the `Ctrl` key and rotating the mouse wheel.
 
@@ -64,7 +64,7 @@ Smallest view of Spacious Start Menu.
 
 ![Zoom out](img/main01.png)
 
-#### 💠Show desktop button
+#### 💠1.5. Show desktop button
 
 At the bottom right there is a button to show the desktop.
 It can be used instead of `Show desktop` on the taskbar.
@@ -72,7 +72,7 @@ The button size can be adjusted in the settings screen.
 
 ![Show desktop button](img/desktopBtn01.png)
 
-### 🔷Pinned definition list screen
+### 🔷2. Pinned definition list screen
 
 This is a list of launch buttons, etc., displayed by `Edit Pin` in the context menu.
 
@@ -86,9 +86,9 @@ To rearrange the order of the headings and the groups that belong to them, press
 
 ![Pinned definition list, Group sort](img/pinList02.png)
 
-### 🔷Pin edit screen
+### 🔷3. Pin edit screen
 
-#### 💠Overview
+#### 💠3.1. Overview
 
 Edit screen.
 
@@ -103,13 +103,13 @@ The `Working Directory` and `Arguments` are optional.
 
 ![Pin edit](img/pinEdit01.png)
 
-#### 💠Color
+#### 💠3.2. Color
 
 Color selection menu.
 
 ![Pin edit color selection](img/pinEdit02.png)
 
-#### 💠Special folders and environment variables
+#### 💠3.3. Special folders and environment variables
 
 Special folders and environment variables selection menu.
 
@@ -118,7 +118,7 @@ Special folders and environment variables selection menu.
 - [List of special folders](table.md#special-folders)
 - [List of environment variables](table.md#environment-variables)
 
-#### 💠Special Commands
+#### 💠3.4. Special Commands
 
 Selecting `Special commands` will give you a choice of several commands that are not application launches. When you select a command from the choices, the `Title` is also set automatically, but can be changed to any name later.
 
@@ -130,13 +130,13 @@ Selecting `Special commands` will give you a choice of several commands that are
 
 ![Examples of special commands](img/spCmd01.png)
 
-#### 💠Landmark
+#### 💠3.5. Landmark
 
 Select `Landmark` to place a label for the emoji. Use it as a separator for launch buttons or as a landmark when looking for a button.
 
 ![Landmark](img/pinEdit06.png)
 
-### 🔷Settings screen
+### 🔷4. Settings screen
 
 ![Settings](img/stg01.png)
 
