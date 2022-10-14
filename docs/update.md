@@ -11,7 +11,7 @@ Right-click on the zip, select Properties, check `Unblock` and close with the OK
 
 Unzip the zip and copy the extracted file to the previous location.
 
-#### 💠For installation using Scoop
+#### 💠For Scoop
 
 ##### 🔹Scoop and app updates
 
@@ -20,6 +20,16 @@ Execute the following command.
 ```
 scoop update
 scoop update spacious-start-menu
+```
+
+#### 💠For Chocolatey
+
+##### 🔹App updates
+
+Execute the following command.
+
+```
+choco upgrade spacious-start-menu
 ```
 
 ---
