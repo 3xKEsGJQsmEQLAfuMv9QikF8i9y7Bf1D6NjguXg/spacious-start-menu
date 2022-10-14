@@ -17,7 +17,7 @@ zipを右クリック、 `プロパティ` を選択して、 `許可する` に
   
 zipを解凍し、管理者権限を必要としない任意の場所に配置します。
 
-#### 💠Scoopを使用したインストールの場合
+#### 💠Scoopを使用したインストールの場合（ユーザー単位）
 
 ##### 🔹Scoopのインストール
 
@@ -37,6 +37,20 @@ scoop bucket add 3xkesg https://github.com/3xKEsGJQsmEQLAfuMv9QikF8i9y7Bf1D6Njgu
 
 ```
 scoop install spacious-start-menu
+```
+
+#### 💠Chocolateyを使用したインストールの場合（すべてのユーザーで共通）
+
+##### 🔹Chocolateyのインストール
+
+[こちらを参照](https://chocolatey.org/install)
+
+🔹アプリのインストール
+
+以下のコマンドを実行します。
+
+```
+choco install spacious-start-menu
 ```
 
 ---
