@@ -17,7 +17,7 @@ Right-click on the zip, select Properties, check `Unblock` and close with the OK
 Extract the zip and place it in any location that does not require administrative privileges.
 
 
-#### 💠For installation using Scoop
+#### 💠For installation using Scoop (per user)
 
 ##### 🔹Scoop installation
 
@@ -37,6 +37,20 @@ Execute the following command.
 
 ```
 scoop install spacious-start-menu
+```
+
+#### 💠For installation using Chocolatey (common to all users)
+
+##### 🔹Chocolatey installation
+
+[See here](https://chocolatey.org/install)
+
+##### 🔹Install the app
+
+Execute the following command.
+
+```
+choco install spacious-start-menu
 ```
 
 ---
