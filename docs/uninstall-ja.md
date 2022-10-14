@@ -6,7 +6,7 @@
 
 展開フォルダごと削除します。
 
-#### 💠Scoopを使用したインストールの場合
+#### 💠Scoopの場合
 
 ##### 🔹アプリのアンインストール
 
@@ -22,6 +22,16 @@ scoop uninstall spacious-start-menu
 
 ```
 scoop bucket rm 3xkesg
+```
+
+#### 💠Chocolateyの場合
+
+##### 🔹アプリのアンインストール
+
+以下のコマンドを実行します。
+
+```
+choco uninstall spacious-start-menu
 ```
 
 ---
