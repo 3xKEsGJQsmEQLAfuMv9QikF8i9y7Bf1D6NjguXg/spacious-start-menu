@@ -10,7 +10,7 @@ zipを右クリック、 `プロパティ` を選択して、 `許可する` に
 
 zipを解凍し、展開ファイルを前回配置場所に上書きコピーします。
 
-#### 💠Scoopを使用したインストールの場合
+#### 💠Scoopの場合
 
 ##### 🔹scoopとアプリのアップデート
 
@@ -19,6 +19,16 @@ zipを解凍し、展開ファイルを前回配置場所に上書きコピー�
 ```
 scoop update
 scoop update spacious-start-menu
+```
+
+#### 💠Chocolateyの場合
+
+##### 🔹アプリのアップデート
+
+以下のコマンドを実行します。
+
+```
+choco upgrade spacious-start-menu
 ```
 
 ---
