@@ -7,7 +7,7 @@ If you have started the `Spacious Start Menu`, close it.
 Delete the expanded folder.
 
 
-#### 💠For installation using Scoop
+#### 💠For Scoop
 
 ##### 🔹Uninstall the app
 
@@ -23,6 +23,16 @@ Execute the following command.
 
 ```
 scoop bucket rm 3xkesg
+```
+
+#### 💠For Chocolatey
+
+##### 🔹Uninstall the app
+
+Execute the following command.
+
+```
+choco uninstall spacious-start-menu
 ```
 
 ---
