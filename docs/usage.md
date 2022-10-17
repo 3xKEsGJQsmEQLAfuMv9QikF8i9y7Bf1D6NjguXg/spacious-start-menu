@@ -11,7 +11,8 @@ Click the launch button to start an application, folder, etc.
   - [1.2. Context menu](#12-context-menu)
   - [1.3. Title bar](#13-title-bar)
   - [1.4. Zoom in/out](#14-zoom-inout)
-  - [1.5. Show desktop button](#15-show-desktop-button)
+  - [1.5. Clock](#15-clock)
+  - [1.6. Show desktop button](#16-show-desktop-button)
 - [2. Pinned definition list screen](#2-pinned-definition-list-screen)
 - [3. Pin edit screen](#3-pin-edit-screen)
   - [3.1. Overview](#31-overview)
@@ -74,7 +75,11 @@ Smallest view of Spacious Start Menu.
 
 ![Zoom out](img/main01.png)
 
-#### 💠1.5. Show desktop button
+#### 💠1.5. Clock
+
+A clock can be displayed in the lower right corner. Display content and format can be changed in the settings screen.
+
+#### 💠1.6. Show desktop button
 
 At the bottom right there is a button to show the desktop.
 It can be used instead of `Show desktop` on the taskbar.
@@ -212,6 +217,10 @@ The name of the logged-in user is displayed in the upper right corner of the tit
 Displays sequential numbers on group headings from top to bottom.
 
 #### 💠Bottom area
+
+##### 🔹Clock
+
+The date, day of the week, and time are displayed in the lower right corner of the main screen.
 
 ##### 🔹Show desktop button
 
