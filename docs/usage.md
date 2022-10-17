@@ -79,6 +79,8 @@ Smallest view of Spacious Start Menu.
 
 A clock can be displayed in the lower right corner. Display content and format can be changed in the settings screen.
 
+![Clock](img/clock01.png)
+
 #### 💠1.6. Show desktop button
 
 At the bottom right there is a button to show the desktop.
