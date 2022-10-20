@@ -26,7 +26,7 @@ scoop update spacious-start-menu
 
 ##### 🔹App updates
 
-Execute the following command.
+Execute the following commands as administrator.
 
 ```
 choco upgrade spacious-start-menu
