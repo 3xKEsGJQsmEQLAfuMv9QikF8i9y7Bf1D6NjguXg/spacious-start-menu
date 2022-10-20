@@ -28,7 +28,7 @@ scoop bucket rm 3xkesg
 
 ##### 🔹アプリのアンインストール
 
-以下のコマンドを実行します。
+以下のコマンドを管理者として実行します。
 
 ```
 choco uninstall spacious-start-menu
