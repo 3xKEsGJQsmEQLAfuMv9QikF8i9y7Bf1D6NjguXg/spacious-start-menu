@@ -47,7 +47,7 @@ scoop install spacious-start-menu
 
 ##### 🔹Install the app
 
-Execute the following command.
+Execute the following commands as administrator.
 
 ```
 choco install spacious-start-menu
