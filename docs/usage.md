@@ -252,7 +252,7 @@ Save the size of each screen.
 
 ##### 🔹Save screen position
 
-Save the position of each screen.
+Save the position of each screen. The settings screen is always displayed in the center.
 
 #### 💠Advanced options
 
