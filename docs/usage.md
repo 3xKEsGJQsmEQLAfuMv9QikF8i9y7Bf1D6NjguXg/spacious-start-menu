@@ -11,8 +11,9 @@ Click the launch button to start an application, folder, etc.
   - [1.2. Context menu](#12-context-menu)
   - [1.3. Title bar](#13-title-bar)
   - [1.4. Zoom in/out](#14-zoom-inout)
-  - [1.5. Clock](#15-clock)
-  - [1.6. Show desktop button](#16-show-desktop-button)
+  - [1.5. Mouse gestures](#15-mouse-gestures)
+  - [1.6. Clock](#16-clock)
+  - [1.7. Show desktop button](#17-show-desktop-button)
 - [2. Pinned definition list screen](#2-pinned-definition-list-screen)
 - [3. Pin edit screen](#3-pin-edit-screen)
   - [3.1. Overview](#31-overview)
@@ -75,13 +76,17 @@ Smallest view of Spacious Start Menu.
 
 ![Zoom out](img/main01.png)
 
-#### 💠1.5. Clock
+#### 💠1.5. Mouse gestures
+
+Move the mouse cursor up, down, left, or right while holding down the right mouse button, and release the right mouse button to launch the set function. Mouse gestures can be enabled/disabled on the setting screen.
+
+#### 💠1.6. Clock
 
 A clock can be displayed in the lower right corner. Display content and format can be changed in the settings screen.
 
 ![Clock](img/clock01.png)
 
-#### 💠1.6. Show desktop button
+#### 💠1.7. Show desktop button
 
 At the bottom right there is a button to show the desktop.
 It can be used instead of `Show desktop` on the taskbar.
@@ -217,6 +222,12 @@ The name of the logged-in user is displayed in the upper right corner of the tit
 ##### 🔹Show sequential numbers in headings
 
 Displays sequential numbers on group headings from top to bottom.
+
+#### 💠Mouse gestures
+
+##### 🔹Enable gestures
+
+Enable mouse gestures.
 
 #### 💠Bottom area
 
