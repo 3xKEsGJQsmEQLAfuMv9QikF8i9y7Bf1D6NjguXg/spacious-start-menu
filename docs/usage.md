@@ -80,6 +80,8 @@ Smallest view of Spacious Start Menu.
 
 Move the mouse cursor up, down, left, or right while holding down the right mouse button, and release the right mouse button to launch the set function. Mouse gestures can be enabled/disabled on the setting screen.
 
+![Mouse gestures](img/gesture01.png)
+
 #### 💠1.6. Clock
 
 A clock can be displayed in the lower right corner. Display content and format can be changed in the settings screen.
