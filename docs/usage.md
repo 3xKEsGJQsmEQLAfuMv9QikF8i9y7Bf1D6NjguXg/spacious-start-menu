@@ -168,7 +168,7 @@ Select `Landmark` to place a label for the emoji. Use it as a separator for laun
 
 ##### 🔹Register to startup
 
-Register the Spacious Start Menu shortcut to the current user's startup.
+Register the `Spacious Start Menu` shortcut to the current user's startup.
 
 ##### 🔹Add a minimize launch option to the shortcut
 
