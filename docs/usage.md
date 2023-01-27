@@ -78,7 +78,7 @@ Smallest view of Spacious Start Menu.
 
 #### 💠1.5. Mouse gestures
 
-Move the mouse cursor up, down, left, or right while holding down the right mouse button, and release the right mouse button to launch the set function. Mouse gestures can be enabled/disabled on the setting screen.
+Move the mouse cursor up, down, left, or right while holding down the right mouse button, and release the right mouse button to launch the set function. Mouse gestures can be enabled/disabled on the settings screen.
 
 ![Mouse gestures](img/gesture01.png)
 
@@ -230,6 +230,8 @@ Displays sequential numbers on group headings from top to bottom.
 ##### 🔹Enable gestures
 
 Enable mouse gestures.
+
+You can assign commands to the gestures on the top, bottom, left, and right.
 
 #### 💠Bottom area
 
