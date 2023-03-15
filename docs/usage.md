@@ -185,7 +185,7 @@ Outputs definitions of launch buttons and various settings to a file.
 
 ##### 🔹Import settings
 
-Load the settings exported by the `Export settings` function.
+Load the settings exported by the `Export settings` function. Specify the content to be read with the check box on the right of the button.
 
 #### 💠Minimize
 
@@ -249,7 +249,7 @@ Specify the height and width of the **Show desktop** button at the bottom right 
 
 #### 💠Confirm
 
-##### 🔹Confirm when exiting from the button on the title bar
+##### 🔹Confirm when exiting from the close button on the title bar
 
 A confirmation dialog is displayed when the close button on the upper right of the title bar is pressed.
 
