@@ -33,7 +33,7 @@ For executable programs, you can run them as an administrator by pressing the la
 
 #### 💠1.2. Context menu
 
-It is displayed by right-clicking the `...` button on the title bar or the margin other than the launch button.
+If you right-click on the `...` button on the title bar or any blank area other than the launch button, the following menu will be displayed.
 
 | Menu item             | Description                                          |
 | --------------------- | ---------------------------------------------------- |
@@ -43,6 +43,13 @@ It is displayed by right-clicking the `...` button on the title bar or the margi
 | Open Program Location | Open the folder where this program is located.       |
 | Open the program location and then exit the program | Open the folder where this program is located and exit the program. This menu item can be shown/hidden in the settings.       |
 | View Help site              | View this web page.                        |
+
+If you right-click on the launch button, the following menu will be displayed.
+
+| Menu item             | Description                                          |
+| --------------------- | ---------------------------------------------------- |
+| Unpin                 | Delete pinned definitions. |
+| Open file location    | Open the pinned program's path in explorer. |
 
 #### 💠1.3. Title bar
 
@@ -252,6 +259,10 @@ Specify the height and width of the **Show desktop** button at the bottom right 
 ##### 🔹Confirm when exiting from the close button on the title bar
 
 A confirmation dialog is displayed when the close button on the upper right of the title bar is pressed.
+
+##### 🔹Check when removing pinning from the context menu
+
+Confirm when unpinning from context menu when unpinning from the context menu.
 
 #### 💠Context menu
 
