@@ -232,6 +232,12 @@ The name of the logged-in user is displayed in the upper right corner of the tit
 
 Displays sequential numbers on group headings from top to bottom.
 
+#### 💠Background
+
+##### 🔹Transmittance
+
+Change the transparency of the background.
+
 #### 💠Mouse gestures
 
 ##### 🔹Enable gestures
@@ -260,7 +266,7 @@ Specify the height and width of the **Show desktop** button at the bottom right 
 
 A confirmation dialog is displayed when the close button on the upper right of the title bar is pressed.
 
-##### 🔹Check when removing pinning from the context menu
+##### 🔹Confirm when unpinning from context menu
 
 Confirm when unpinning from context menu when unpinning from the context menu.
 
