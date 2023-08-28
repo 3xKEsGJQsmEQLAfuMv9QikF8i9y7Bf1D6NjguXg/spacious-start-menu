@@ -37,9 +37,9 @@ If you right-click on the `...` button on the title bar or any blank area other 
 
 | Menu item             | Description                                          |
 | --------------------- | ---------------------------------------------------- |
-| Edit Pin              | Displays the edit screen of the item to be launched. |
+| Edit Pin              | Display the `Pinned definition list` screen. |
 | Scale                 | Changes the display magnification of an item. You can also change the scale by rotating Ctrl + mouse wheel on the main screen. |
-| Settings              | Displays the settings screen.                        |
+| Settings              | Display the `Settings` screen.                        |
 | Open Program Location | Open the folder where this program is located.       |
 | Open the program location and then exit the program | Open the folder where this program is located and exit the program. This menu item can be shown/hidden in the settings.       |
 | View Help site              | View this web page.                        |
@@ -48,6 +48,7 @@ If you right-click on the launch button, the following menu will be displayed.
 
 | Menu item             | Description                                          |
 | --------------------- | ---------------------------------------------------- |
+| Edit Pin                 | Display the `Pin edit` screen. |
 | Unpin                 | Delete pinned definitions. |
 | Open file location    | Open the pinned program's path in explorer. |
 
