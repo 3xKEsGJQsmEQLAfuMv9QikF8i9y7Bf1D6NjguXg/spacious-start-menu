@@ -17,7 +17,7 @@
 |すべてのフォルダーを閉じる|エクスプローラーで開いているフォルダーウィンドウをすべて閉じる|
 |フォルダーを一覧表示|エクスプローラーで開いているフォルダーウィンドウを一覧表示|
 
-[戻る](usage-ja.md#15-マウスジェスチャー)
+[戻る](usage-ja.md#15-%E3%83%9E%E3%82%A6%E3%82%B9%E3%82%B8%E3%82%A7%E3%82%B9%E3%83%81%E3%83%A3%E3%83%BC)
 
 ### 🔷特殊フォルダー
 
@@ -47,7 +47,7 @@
 |UserProfile|`<UserProfile>`|C:\Users\USER123|
 |Windows|`<Windows>`|C:\WINDOWS|
 
-[戻る](usage-ja.md#33-特殊フォルダー環境変数)
+[戻る](usage-ja.md#33-%E7%89%B9%E6%AE%8A%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%83%BC%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0)
 
 ### 🔷環境変数
 
@@ -64,7 +64,7 @@
 |TMP|`<ENV:TMP>`|C:\Users\USER123\AppData\Local\Temp|
 |USERPROFILE|`<ENV:USERPROFILE>`|C:\Users\USER123|
 
-[戻る](usage-ja.md#33-特殊フォルダー環境変数)
+[戻る](usage-ja.md#33-%E7%89%B9%E6%AE%8A%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%83%BC%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0)
 
 ### 🔷特殊コマンド
 
@@ -89,7 +89,7 @@
 |Info_LaunchButtonCount|`<CMD:Info_LaunchButtonCount>`|起動ボタン数を表示|
 |Info_GroupTitleCount|`<CMD:Info_GroupTitleCount>`|起動ボタンの見出し数を表示|
 
-[戻る](usage-ja.md#34-特殊コマンド)
+[戻る](usage-ja.md#34-%E7%89%B9%E6%AE%8A%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89)
 
 ---
 
