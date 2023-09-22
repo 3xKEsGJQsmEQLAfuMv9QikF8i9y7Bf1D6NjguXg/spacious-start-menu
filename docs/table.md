@@ -1,5 +1,24 @@
 ## Lists
 
+### 🔷Mouse gestures
+
+|Gestures|Description|
+|:---------|:--|
+|Minimized|Minimize main screen|
+|Show desktop|Show desktop|
+|Zoom in|Zoom in main screen|
+|Zoom out|Zoom out main screen|
+|Scroll to top|Scroll main screen to top|
+|Scroll to bottom|Scroll main screen to end|
+|Scroll to up|Scroll main screen up|
+|Scroll to down|Scroll down the main screen|
+|Show pinned definition list|Show pinned definition list|
+|Show Spacious Start Menu settings screen|Show settings screen|
+|Close all folders|Close all open folder windows in explorer|
+|List folders|List open folder windows in explorer|
+
+[Back](usage.md#15-mouse-gestures)
+
 ### 🔷Special folders
 
 |Special folder|Specification method|Examples of expanded values|
@@ -52,7 +71,7 @@
 |Special commands|Specification method|Description|
 |:----|:----|:----|
 |System_Signout|`<CMD:System_Signout>`|Sign out|
-|System_Shutdown|`<CMD:System_Shutdown>`|shut down|
+|System_Shutdown|`<CMD:System_Shutdown>`|Shut down|
 |System_Restart|`<CMD:System_Restart>`|Restart|
 |App_Minimized|`<CMD:App_Minimized>`|Minimize main screen|
 |App_ZoomIn|`<CMD:App_ZoomIn>`|Zoom in main screen|
@@ -60,9 +79,10 @@
 |App_ScrollToTop|`<CMD:App_ScrollToTop>`|Scroll main screen to top|
 |App_ScrollToBottom|`<CMD:App_ScrollToBottom>`|Scroll main screen to end|
 |App_ScrollToUp|`<CMD:App_ScrollToUp>`|Scroll main screen up|
-|App_ScrollToDown|`<CMD:App_ScrollToDown>`|scroll down the main screen|
+|App_ScrollToDown|`<CMD:App_ScrollToDown>`|Scroll down the main screen|
 |App_ReloadPinDefine|`<CMD:App_ReloadPinDefine>`|Reload launch button definition|
-|Desktop_Show|`<CMD:Desktop_Show>`|show desktop|
+|Desktop_Show|`<CMD:Desktop_Show>`|Show desktop|
+|PinEditList_Show|`<CMD:Settings_Show>`|Show pinned definition list|
 |Settings_Show|`<CMD:Settings_Show>`|Show settings screen|
 |Explorer_CloseAllFolders|`<CMD:Explorer_CloseAllFolders>`|Close all open folder windows in explorer|
 |Explorer_ListFolders|`<CMD:Explorer_ListFolders>`|List open folder windows in explorer|

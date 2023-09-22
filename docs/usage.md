@@ -90,6 +90,8 @@ Move the mouse cursor up, down, left, or right while holding down the right mous
 
 ![Mouse gestures](img/gesture01.png)
 
+- [List of mouse gestures](table.md#マウスジェスチャー)
+
 #### 💠1.6. Clock
 
 A clock can be displayed in the lower right corner. Display content and format can be changed in the settings screen.
@@ -135,6 +137,12 @@ The `Working Directory` and `Arguments` are optional.
 
 ![Pin edit](img/pinEdit01.png)
 
+Click the help button on the top right to display the help site.
+The pin editing screen is compacted to make the help easier to read.
+Press the help button again to return to the original window size.
+
+![Help](img/pinEdit07.png)
+
 #### 💠3.2. Color
 
 Color selection menu.
@@ -143,7 +151,7 @@ Color selection menu.
 
 #### 💠3.3. Special folders and environment variables
 
-Special folders and environment variables selection menu.
+Press the `...` button to display the special folder/environment variables selection menu.
 
 ![Pin edit special folders](img/pinEdit03.png)
 
@@ -227,7 +235,7 @@ The name of the logged-in user is displayed in the upper right corner of the tit
 
 ![Login user in title bar](img/titleBar02.png)
 
-#### 💠Launch button headline
+#### 💠Launch button
 
 ##### 🔹Show sequential numbers in headings
 
@@ -235,9 +243,9 @@ Displays sequential numbers on group headings from top to bottom.
 
 #### 💠Background
 
-##### 🔹Transmittance
+##### 🔹Opacity
 
-Change the transparency of the background.
+Change the background opacity.
 
 #### 💠Mouse gestures
 
