@@ -90,7 +90,7 @@ Move the mouse cursor up, down, left, or right while holding down the right mous
 
 ![Mouse gestures](img/gesture01.png)
 
-- [List of mouse gestures](table.md#マウスジェスチャー)
+- [List of mouse gestures](table.md#mouse-gestures)
 
 #### 💠1.6. Clock
 
