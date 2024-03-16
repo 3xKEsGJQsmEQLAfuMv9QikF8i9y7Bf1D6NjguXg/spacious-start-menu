@@ -86,7 +86,7 @@ Smallest view of Spacious Start Menu.
 
 #### 💠1.5. Mouse gestures
 
-Move the mouse cursor up, down, left, or right while holding down the right mouse button on the main screen, and release the right mouse button to launch the set function. Mouse gestures can be enabled/disabled on the settings screen.
+On the main screen, move the mouse cursor to either up, down, left, or right while holding down the right mouse button, and release the right mouse button to executed the assigned function.
 
 ![Mouse gestures](img/gesture01.png)
 
@@ -197,11 +197,16 @@ Remove the `Spacious Start Menu` shortcut from Startup.
 
 ##### 🔹Export settings
 
-Outputs definitions of launch buttons and various settings to a file.
+Definition of launch button, application settings, and execution history of the launch button are output to the file.
+
+- The definition of launch buttons and application settings are output to the `*.defbkup` file.
+- Execution history is output to the `*.defbkup2` file. If the history record is disabled, the file is not output.
 
 ##### 🔹Import settings
 
 Load the settings exported by the `Export settings` function. Specify the content to be read with the check box on the right of the button.
+
+- When the `Launch button history` is enabled in the check box and imported, specifying the `*.defbkup` file is automatically loaded if the same file name`*.defbkup2` file exists.
 
 #### 💠Minimize
 
@@ -240,6 +245,15 @@ The name of the logged-in user is displayed in the upper right corner of the tit
 ##### 🔹Show sequential numbers in headings
 
 Displays sequential numbers on group headings from top to bottom.
+
+##### 🔹Save history of recently used launch buttons
+
+By enabling this item, the launch buttons used will be recorded in the history file.
+The number of records is specified by the `History retention count'. The old ones will be deleted when the number is exceeded.
+By saving the usage history, the recently used launch buttons can be highlighted for a certain period of time to make it easier to find the buttons by using shortcut keys or mouse gestures.
+
+If you checked `Determined by excluding a)` for `Number of buttons to highlight`, b) will be determined from the history excluding a), so the number of highlighted buttons will be a) and b). will be the total.
+If this item is unchecked, the number of buttons highlighted may be reduced due to duplication of a) and b).
 
 #### 💠Background
 
