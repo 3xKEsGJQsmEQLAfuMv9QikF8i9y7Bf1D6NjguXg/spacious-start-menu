@@ -16,6 +16,7 @@
 |Show Spacious Start Menu settings screen|Show settings screen|
 |Close all folders|Close all open folder windows in explorer|
 |List folders|List open folder windows in explorer|
+|Highlight of recently used launch buttons|Highlight recently used launch buttons for a certain period of time|
 
 [Back](usage.md#15-mouse-gestures)
 
