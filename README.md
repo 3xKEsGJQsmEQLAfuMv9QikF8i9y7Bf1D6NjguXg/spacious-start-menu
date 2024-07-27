@@ -11,7 +11,7 @@ This program will not replace the `Start Menu`, but the more you use it, the les
 # Requirements
 
 - Windows 10 or later
-- .NET 6 (or later) Desktop Runtime
+- .NET 8 (or later) Desktop Runtime
 
 ---
 
