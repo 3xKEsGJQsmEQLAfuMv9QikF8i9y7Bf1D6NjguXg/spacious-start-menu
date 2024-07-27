@@ -3,7 +3,7 @@
 
 ### 🔷ステップ1
 
-[.NET 6.0 (Linux、macOS、Windows) をダウンロードする](https://dotnet.microsoft.com/download/dotnet/6.0)の `.NET デスクトップ ランタイム` の `x64` リンクからダウンロード・インストールを実行します。
+[.NET 8.0 (Linux、macOS、Windows) をダウンロードする](https://dotnet.microsoft.com/ja-jp/download/dotnet/8.0)の `.NET デスクトップ ランタイム` の `x64` リンクからダウンロード・インストールを実行します。
 
 ### 🔷ステップ2
 
