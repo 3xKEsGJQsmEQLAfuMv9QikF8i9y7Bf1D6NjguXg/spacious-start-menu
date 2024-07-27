@@ -37,7 +37,7 @@ Therefore, the choices are deployed across the entire screen so that more inform
 ## Requirements
 
 - Windows 10 or later
-- .NET 6 (or later) Desktop Runtime
+- .NET 8 (or later) Desktop Runtime
 
 ---
 
