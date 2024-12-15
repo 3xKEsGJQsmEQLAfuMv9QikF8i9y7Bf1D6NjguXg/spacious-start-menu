@@ -49,6 +49,7 @@ If you right-click on the launch button, the following menu will be displayed.
 | Menu item             | Description                                          |
 | --------------------- | ---------------------------------------------------- |
 | Edit Pin                 | Display the `Pin edit` screen. |
+| Duplicate pin             | Duplicate and add a pinning definition. |
 | Unpin                 | Delete pinned definitions. |
 | Open file location    | Open the pinned program's path in explorer. |
 
@@ -125,6 +126,7 @@ To rearrange the order of the headings and the groups that belong to them, press
 #### 💠3.1. Overview
 
 Edit screen.
+This screen allows you to hold down the `Ctrl` key and use the cursor keys to move the focus up, down, left or right between controls.
 
 When `Headline` is selected, only `Title` can be entered.
 If you want to draw a line to separate groups, select `Headline` and press the `Separator` button. The `Title` will be set to the string `--------------------` which will be recognized as a separator.
