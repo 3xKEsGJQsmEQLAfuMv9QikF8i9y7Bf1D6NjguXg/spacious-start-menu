@@ -108,7 +108,7 @@
 
 [^1]: If the function is enabled in the settings
 
-[戻る](usage.md#1.1.-overview)
+[戻る](usage.md#11-overview)
 
 #### 💠Pin edit screen
 
@@ -119,7 +119,7 @@
 | `Ctrl` + `←` | Focus on left control  |
 | `Ctrl` + `→` | Focus on right control |
 
-[戻る](usage-ja.md#3.1.-overview)
+[戻る](usage-ja.md#31-overview)
 
 ---
 
