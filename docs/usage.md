@@ -31,6 +31,8 @@ You can open a folder or start a program by pressing the launch button.
 
 For executable programs, you can run them as an administrator by pressing the launch button while holding down `Ctrl` + `Shift`.
 
+- [List of shortcut keys](table.md#shortcut-keys)
+
 #### 💠1.2. Context menu
 
 If you right-click on the `...` button on the title bar or any blank area other than the launch button, the following menu will be displayed.
@@ -144,6 +146,8 @@ The pin editing screen is compacted to make the help easier to read.
 Press the help button again to return to the original window size.
 
 ![Help](img/pinEdit07.png)
+
+- [List of shortcut keys](table.md#shortcut-keys)
 
 #### 💠3.2. Color
 

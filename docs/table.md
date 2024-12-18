@@ -92,6 +92,35 @@
 
 [Back](usage.md#34-special-commands)
 
+### 🔷shortcut keys
+
+#### 💠Main screen
+
+| key                                        | description                                                                        |
+| :----------------------------------------- | :--------------------------------------------------------------------------------- |
+| `Ctrl` + click the launch button           | Minimization of the main screen is suppressed when the application is launched[^1] |
+| `Ctrl` + `Shift` + click the launch button | Run as administrator                                                               |
+| `Ctrl` + `F`                               | highlight the launch button[^1]                                                    |
+| `Ctrl` + mouse wheel up rotation           | Zoom in                                                                            |
+| `Ctrl` + mouse wheel down rotation         | Zoom out                                                                           |
+| `Esc`                                      | minimize main screen[^1]                                                           |
+| `Ctrl` + `,`                               | show Settings screen                                                               |
+
+[^1]: If the function is enabled in the settings
+
+[戻る](usage.md#1.1.-overview)
+
+#### 💠Pin edit screen
+
+| key          | description            |
+| :----------- | :--------------------- |
+| `Ctrl` + `↑` | focus on upper control |
+| `Ctrl` + `↓` | focus on lower control |
+| `Ctrl` + `←` | Focus on left control  |
+| `Ctrl` + `→` | Focus on right control |
+
+[戻る](usage-ja.md#3.1.-overview)
+
 ---
 
 | [Index](index.md) | [Install](install.md) | [Update](update.md) | [Uninstall](uninstall.md) | Usage | [Other](other.md) |
