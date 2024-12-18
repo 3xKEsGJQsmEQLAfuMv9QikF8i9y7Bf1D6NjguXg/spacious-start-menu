@@ -119,7 +119,7 @@
 | `Ctrl` + `←` | Focus on left control  |
 | `Ctrl` + `→` | Focus on right control |
 
-[戻る](usage-ja.md#31-overview)
+[戻る](usage.md#31-overview)
 
 ---
 
