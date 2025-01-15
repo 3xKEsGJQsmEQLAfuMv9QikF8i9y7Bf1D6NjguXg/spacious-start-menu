@@ -83,7 +83,7 @@
 |App_ScrollToDown|`<CMD:App_ScrollToDown>`|メイン画面を下にスクロール|
 |App_ReloadPinDefine|`<CMD:App_ReloadPinDefine>`|起動ボタン定義を再読み込み|
 |Desktop_Show|`<CMD:Desktop_Show>`|デスクトップを表示|
-|PinEditList_Show|`<CMD:Settings_Show>`|ピン留め定義一覧画面を表示|
+|PinEditList_Show|`<CMD:PinEditList_Show>`|ピン留め定義一覧画面を表示|
 |Settings_Show|`<CMD:Settings_Show>`|設定画面を表示|
 |Explorer_CloseAllFolders|`<CMD:Explorer_CloseAllFolders>`|エクスプローラーで開いているフォルダーウィンドウをすべて閉じる|
 |Explorer_ListFolders|`<CMD:Explorer_ListFolders>`|エクスプローラーで開いているフォルダーウィンドウを一覧表示|
