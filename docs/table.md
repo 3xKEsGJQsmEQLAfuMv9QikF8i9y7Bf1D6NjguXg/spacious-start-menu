@@ -83,7 +83,7 @@
 |App_ScrollToDown|`<CMD:App_ScrollToDown>`|Scroll down the main screen|
 |App_ReloadPinDefine|`<CMD:App_ReloadPinDefine>`|Reload launch button definition|
 |Desktop_Show|`<CMD:Desktop_Show>`|Show desktop|
-|PinEditList_Show|`<CMD:Settings_Show>`|Show pinned definition list|
+|PinEditList_Show|`<CMD:PinEditList_Show>`|Show pinned definition list|
 |Settings_Show|`<CMD:Settings_Show>`|Show settings screen|
 |Explorer_CloseAllFolders|`<CMD:Explorer_CloseAllFolders>`|Close all open folder windows in explorer|
 |Explorer_ListFolders|`<CMD:Explorer_ListFolders>`|List open folder windows in explorer|
