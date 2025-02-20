@@ -23,6 +23,14 @@ Extract the zip and place it in any location that does not require administrativ
 
 [See here](https://scoop.sh/)
 
+##### 🔹Install the git
+
+If you don't have Git installed, execute the following command.
+
+```
+scoop install git
+```
+
 ##### 🔹Add bucket
 
 Execute the following command.
