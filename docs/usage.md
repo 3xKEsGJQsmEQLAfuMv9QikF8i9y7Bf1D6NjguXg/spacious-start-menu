@@ -315,6 +315,10 @@ Save the size of each screen.
 
 Save the position of each screen. The settings screen is always displayed in the center.
 
+##### 🔹When the pin edit screen is displayed, other screens are automatically minimized
+
+When the pin edit screen is displayed, the main screen and the pinned definition list screen are automatically minimized.
+
 #### 💠Advanced options
 
 ##### 🔹Direct definition file edit button on the `Pinned definition list` screen
