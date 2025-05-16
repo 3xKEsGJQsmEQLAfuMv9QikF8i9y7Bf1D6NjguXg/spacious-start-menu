@@ -267,6 +267,10 @@ If this item is unchecked, the number of buttons highlighted may be reduced due 
 
 Change the background opacity.
 
+##### 🔹Screen edge margin
+
+Choose between no margins (full screen) or margins on the main screen.
+
 #### 💠Mouse gestures
 
 ##### 🔹Enable gestures
