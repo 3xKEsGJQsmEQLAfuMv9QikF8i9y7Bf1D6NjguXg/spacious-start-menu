@@ -2,7 +2,7 @@
 
 ### 🔷Step 1
 
-Download and install `x64` of `.NET Desktop Runtime 6.x` from [Download .NET 8.0 (Linux, macOS, and Windows)](https://dotnet.microsoft.com/download/dotnet/8.0).
+Download and install `x64` of `.NET Desktop Runtime 6.x` from [Download .NET 10.0](https://dotnet.microsoft.com/download/dotnet/10.0).
 
 ### 🔷Step 2
 
